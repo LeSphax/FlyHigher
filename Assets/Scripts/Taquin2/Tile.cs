@@ -40,14 +40,17 @@ namespace AssemblyCSharp
         //This fonction will convert the matrix position (ex:[0][1]) into unity position coordinates (-3.33,0)
         private void changePosition()
         {
-            float scaleColumn=boardSize / boardScript.width;
-            float scaleLine=boardSize / boardScript.height;
+            float scaleColumn = boardSize / boardScript.width;
+            float scaleLine = boardSize / boardScript.height;
+
+            float x = column * scaleColumn - 5.0f + scaleColumn / 2;
+            float y = 0.1f;
+            float z = line * scaleLine - 5.0f + scaleLine / 2;
             this.transform.localPosition = new Vector3(
-                column * scaleColumn - 5.0f + scaleColumn/2,
-                0.1f,
-                line * scaleLine - 5.0f +scaleLine/2
+                -x,
+                y,
+                z
                 );
-            Debug.Log(scaleColumn+" "+scaleLine);
         }
 
         void OnMouseDown()
