@@ -8,21 +8,52 @@
 // </auto-generated>
 //------------------------------------------------------------------------------
 using UnityEngine;
+using System;
 using System.Collections;
 namespace AssemblyCSharp
 {
-		public class Tile
-		{
-				Texture texture;
-				int x{ get; set; }
-				int y{ get; set; }
-				public bool isEmpty{ get { return isEmpty; } set; }
-				public Tile (Texture texture, int x, int y)
-				{
-						this.texture = texture;
-						this.x = x;
-						this.y = y;
-				}
-		}
+
+    public delegate void ClickEventHandler(object sender, EventArgs e);
+    public class Tile : MonoBehaviour
+    {
+        public bool isEmpty;
+        public GameObject board;
+        private GameTaquin boardScript;
+
+        //For some reason the board's size is blocked at 10 by 10 and i did'nt manage to change it
+        private float boardSize = 10;
+        public int _line;
+        public int line { get { return _line; } set { _line = value; changePosition(); } }
+        public int _column;
+        public int column { get { return _column; } set { _column = value; changePosition(); } }
+
+        private ClickEventHandler onClick;
+        void Start()
+        {
+            boardScript = board.GetComponent<GameTaquin>();
+            this.onClick = boardScript.clickOnTile;
+            this.transform.localScale = new Vector3(1.0f / boardScript.width, 1, 1.0f / boardScript.height);
+            changePosition();
+        }
+
+        //The origin of the board is in the center, moreover the size of the board is 10 by 10.
+        //This fonction will convert the matrix position (ex:[0][1]) into unity position coordinates (-3.33,0)
+        private void changePosition()
+        {
+            float scaleColumn=boardSize / boardScript.width;
+            float scaleLine=boardSize / boardScript.height;
+            this.transform.localPosition = new Vector3(
+                column * scaleColumn - 5.0f + scaleColumn/2,
+                0.1f,
+                line * scaleLine - 5.0f +scaleLine/2
+                );
+            Debug.Log(scaleColumn+" "+scaleLine);
+        }
+
+        void OnMouseDown()
+        {
+            onClick(this, EventArgs.Empty);
+        }
+    }
 }
 

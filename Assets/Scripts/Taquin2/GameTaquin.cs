@@ -8,54 +8,51 @@
 	// </auto-generated>
 	//------------------------------------------------------------------------------
 using UnityEngine;
+using System;
 using System.Collections;
 namespace AssemblyCSharp
 {
-	public class GameTaquin
+	public class GameTaquin :MonoBehaviour
 	{
-		private Tile[][] board{ get;};
-		private int height;
-		private int width;
-		private Texture[] textures;
-		public GameTaquin (int height, int width, Texture[] textures)
+        public Tile[,] board;
+		public int height;
+		public int width;
+
+		void Start()
 		{
-			if (textures.GetLength != height * width) {
-				Debug.Log ("Incorrect number of textures");
-				return;
-			}
-			this.height = height;
-			this.width = width;
-			this.textures = textures;
-			board = new Tile[height][width];
-			init ();
-								
+            board = new Tile[height, width];								
 		}
 		
-		private void init ()
+		/*private void init ()
 		{
 			int i, y, xRand, yRand;
 			for (i=0; i<height; i++)
 			for (y=0; y<width; y++) {
-				board [i] [y] = null;
+				board [i,y] = null;
 			}
 			for (i=0; i<height*width; i++) {
 				do {
-					xRand = Random.Range (0, height-1);
-					yRand = Random.Range (0, width-1);
-				} while (board[xRand][yRand] != null);
-				board [xRand] [yRand] = new Tile(textures [i],xRand,yRand);
+					xRand = UnityEngine.Random.Range (0, height-1);
+					yRand = UnityEngine.Random.Range (0, width-1);
+				} while (board[xRand,yRand] != null);
+                board[xRand, yRand] = new Tile();
 			}
-		}
+		}*/
+
 				
 		public bool moveTile(int xOrigin, int yOrigin, int xArrival, int yArrival){
-			if (!board[xArrival][yArrival].isEmpty && !board[xOrigin][yOrigin].isEmpty){
+			if (!board[xArrival,yArrival].isEmpty && !board[xOrigin,yOrigin].isEmpty){
 				return false;
 			}
-			Tile tile=board [xOrigin][yOrigin];
-			board[xOrigin][yOrigin]=board[xArrival][yArrival];
-			board[xArrival][yArrival]=tile;
+			Tile tile=board [xOrigin,yOrigin];
+			board[xOrigin,yOrigin]=board[xArrival,yArrival];
+			board[xArrival,yArrival]=tile;
 			return true;
 		}
+
+        public void clickOnTile(object sender, EventArgs e){
+            Debug.Log("Ca marche !");
+        }
 	}
 }
 
