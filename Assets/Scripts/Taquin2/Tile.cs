@@ -47,7 +47,7 @@ namespace AssemblyCSharp
             float y = 0.1f;
             float z = line * scaleLine - 5.0f + scaleLine / 2;
             this.transform.localPosition = new Vector3(
-                -x,
+                x,
                 y,
                 z
                 );
