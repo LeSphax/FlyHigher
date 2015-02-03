@@ -61,7 +61,6 @@ namespace AssemblyCSharp
         {
             int i;
             float lineOrColumn = UnityEngine.Random.Range(0, 2);
-            Debug.Log(""+lineOrColumn);
             if (lineOrColumn > 0.5f)
             {
                 i = delta((int)coordinates.x);
