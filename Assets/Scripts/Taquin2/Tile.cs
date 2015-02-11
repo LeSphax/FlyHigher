@@ -13,7 +13,7 @@ using System.Collections;
 namespace AssemblyCSharp
 {
 
-    public delegate void ClickEventHandler(object sender, EventArgs e);
+    public delegate void ClickEventHandler(Tile sender, EventArgs e);
     public class Tile : MonoBehaviour
     {
         public bool isEmpty;
@@ -27,11 +27,13 @@ namespace AssemblyCSharp
         public int _column;
         public int column { get { return _column; } set { _column = value; changePosition(); } }
 
-        private ClickEventHandler onClick;
+        private ClickEventHandler MouseDown;
+        private ClickEventHandler MouseUp;
         void Start()
         {
             boardScript = board.GetComponent<GameTaquin>();
-            this.onClick = boardScript.clickOnTile;
+            this.MouseDown = boardScript.PressedOnTile;
+            this.MouseUp = boardScript.ReleasedOnTile;
             this.transform.localScale = new Vector3(1.0f / boardScript.width, 1, 1.0f / boardScript.height);
             changePosition();
         }
@@ -40,7 +42,7 @@ namespace AssemblyCSharp
         //This fonction will convert the matrix position (ex:[0][1]) into unity position coordinates (-3.33,0)
         private void changePosition()
         {
-            float scaleColumn = boardSize / boardScript.width;
+            float scaleColumn = boardSize/ boardScript.width;
             float scaleLine = boardSize / boardScript.height;
 
             float x = column * scaleColumn - 5.0f + scaleColumn / 2;
@@ -55,7 +57,21 @@ namespace AssemblyCSharp
 
         void OnMouseDown()
         {
-            onClick(this, EventArgs.Empty);
+            MouseDown(this, EventArgs.Empty);
+        }
+
+        void OnMouseUp()
+        {
+            MouseUp(this, EventArgs.Empty);
+        }
+
+        public bool equals(Tile other){
+            return (this.line == other.line) && (this.column == other.column);
+        }
+
+        public String toString()
+        {
+            return "("+this.line + "," + this.column+")";
         }
     }
 }
