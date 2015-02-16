@@ -5,6 +5,7 @@ public class GUIStartScreen : MonoBehaviour {
 
 	public float timer;
 	private float counter;
+    public string sceneToLoad;
 	public Texture FlyHigherLogo;
 	public Texture EuropFlag;
 	public Texture seventh;
@@ -30,7 +31,7 @@ public class GUIStartScreen : MonoBehaviour {
 	void Update () {
 		counter += Time.deltaTime;
 		if (counter > timer) {
-			Application.LoadLevel("1 - StartScreen");
+			Application.LoadLevel(sceneToLoad);
 		}
 		
 	}
