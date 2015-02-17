@@ -23,24 +23,24 @@ namespace AssemblyCSharp
         //For some reason the board's size is blocked at 10 by 10 and i did'nt manage to change it
         private float boardSize = 10;
         public int _line;
-        public int line { get { return _line; } set { _line = value; changePosition(); } }
+        public int line { get { return _line; } set { _line = value; ChangePosition(); } }
         public int _column;
-        public int column { get { return _column; } set { _column = value; changePosition(); } }
+        public int column { get { return _column; } set { _column = value; ChangePosition(); } }
 
         private ClickEventHandler MouseDown;
         private ClickEventHandler MouseUp;
-        void Start()
+        void Awake()
         {
             boardScript = board.GetComponent<GameTaquin>();
             this.MouseDown = boardScript.PressedOnTile;
             this.MouseUp = boardScript.ReleasedOnTile;
             this.transform.localScale = new Vector3(1.0f / boardScript.width, 1, 1.0f / boardScript.height);
-            changePosition();
+            ChangePosition();
         }
 
         //The origin of the board is in the center, moreover the size of the board is 10 by 10.
         //This fonction will convert the matrix position (ex:[0][1]) into unity position coordinates (-3.33,0)
-        private void changePosition()
+        private void ChangePosition()
         {
             float scaleColumn = boardSize/ boardScript.width;
             float scaleLine = boardSize / boardScript.height;
@@ -69,7 +69,7 @@ namespace AssemblyCSharp
             return (this.line == other.line) && (this.column == other.column);
         }
 
-        public String toString()
+        public String ToString()
         {
             return "("+this.line + "," + this.column+")";
         }

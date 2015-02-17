@@ -28,14 +28,13 @@ namespace AssemblyCSharp
         void Start()
         {
             state = State.Rest;
-            StartCoroutine(initMatrix());
+            StartCoroutine(InitMatrix());
         }
 
-        IEnumerator initMatrix()
+        IEnumerator InitMatrix()
         {
             int i;
             matrix = new Tile[height, width];
-            yield return new WaitForSeconds(1);
             for (i = 0; i < board.Length; i++)
             {
                 board[i].line = i / width;
@@ -43,40 +42,71 @@ namespace AssemblyCSharp
                 matrix[i / width, i % width] = board[i];
             }
             yield return new WaitForSeconds(1);
-            StartCoroutine(mixGame());
+            StartCoroutine(MixGame());
         }
 
-        IEnumerator mixGame()
+        IEnumerator MixGame()
         {
-            int i, numberOfSwaps = 100;
-            Vector2 coordinates = new Vector2(0, width - 1);
+
+            int i, numberOfSwaps = 50;
+            Vector2 coordinates;
             for (i = 0; i < numberOfSwaps; i++)
             {
-                yield return new WaitForSeconds(0.05f);
-                coordinates=swapRandomTiles(coordinates);
+                coordinates = GetRandomEmptyTile();
+                yield return new WaitForSeconds(0.1f);
+                SwapWithRandomNonEmptyTile(coordinates);
             }
         }
 
-        private Vector2 swapRandomTiles(Vector2 coordinates)
+        private Vector2 GetRandomEmptyTile()
+        {
+            System.Random rand = new System.Random();
+            int line = -1, column = 0;
+            while (line == -1 || !matrix[line, column].isEmpty )
+            {
+                line = rand.Next(0, height);
+                column = rand.Next(0, width);
+            }
+            return new Vector2(line, column);
+        }
+
+
+        /* Should be given the coordinates of a non Empty Tile as coordinates, it will swap its position with a nearby non empty Tile if possible*/
+
+        private void SwapWithRandomNonEmptyTile(Vector2 coordinates)
+        {
+            _SwapWithRandomNonEmptyTile(coordinates, 0);
+        }
+
+        private void _SwapWithRandomNonEmptyTile(Vector2 coordinates, int times)
         {
             int i;
+            times++;
+            Vector2 coordinatesOther;
             float lineOrColumn = UnityEngine.Random.Range(0, 2);
             if (lineOrColumn > 0.5f)
             {
-                i = delta((int)coordinates.x);
-                swapTiles(matrix[(int)coordinates.x, (int)coordinates.y], matrix[(int)coordinates.x + i, (int)coordinates.y]);
-                coordinates.x = coordinates.x + i;
+                i = Delta((int)coordinates.x);
+                coordinatesOther.x = coordinates.x + i;
+                coordinatesOther.y= coordinates.y;
             }
-            if (lineOrColumn <= 0.5f)
+            else
             {
-                i = delta((int)coordinates.y);
-                swapTiles(matrix[(int)coordinates.x, (int)coordinates.y], matrix[(int)coordinates.x, (int)coordinates.y + i]);
-                coordinates.y = coordinates.y + i;
+                i = Delta((int)coordinates.y);
+                coordinatesOther.x = coordinates.x;
+                coordinatesOther.y = coordinates.y + i;
             }
-            return coordinates;
+            if (matrix[(int)coordinatesOther.x, (int)coordinatesOther.y].isEmpty && times<5)
+            {
+                _SwapWithRandomNonEmptyTile(coordinates,times);
+            }
+            else
+            {
+                SwapTiles(matrix[(int)coordinates.x, (int)coordinates.y], matrix[(int)coordinatesOther.x, (int)coordinatesOther.y]);
+            }
         }
 
-        private int delta(int value)
+        private int Delta(int value)
         {
             int delta;
             if (value == 0)
@@ -93,20 +123,32 @@ namespace AssemblyCSharp
             return delta;
         }
 
-
-        public bool swapTiles(Tile Origin, Tile Arrival)
+        /* Exchange positions of the Tiles given as parameters */
+        public bool SwapTiles(Tile Origin, Tile Arrival)
         {
-            int line = Origin.line;
-            int column = Origin.column;
-            Origin.line = Arrival.line;
-            Origin.column = Arrival.column;
-            Arrival.line = line;
-            Arrival.column = column;
+            int x=Origin.column+Origin.line-Arrival.line- Arrival.column;
+            bool areAdjacent= (x==1) || (x== -1);
+            bool noEmptyTile = !Origin.isEmpty && !Arrival.isEmpty;
+            if (!areAdjacent || noEmptyTile)
+            {
+                return false;
+            }
+            else
+            {
+                int line = Origin.line;
+                int column = Origin.column;
+                Origin.line = Arrival.line;
+                Origin.column = Arrival.column;
+                Arrival.line = line;
+                Arrival.column = column;
 
-            matrix[Arrival.line, Arrival.column] = Arrival;
-            matrix[Origin.line, Origin.column] = Origin;
-            return true;
+                matrix[Arrival.line, Arrival.column] = Arrival;
+                matrix[Origin.line, Origin.column] = Origin;
+                return true;
+            }
         }
+
+
 
         public void PressedOnTile(Tile sender, EventArgs e)
         {
@@ -148,7 +190,7 @@ namespace AssemblyCSharp
                     else
                     {
                         state = State.Rest;
-                        swapTiles(currentTile, sender);
+                        SwapTiles(currentTile, sender);
                         currentTile = null;
                     }
                     break;
@@ -157,7 +199,7 @@ namespace AssemblyCSharp
                     break;
                 case State.PressedSelected:
                     state = State.Rest;
-                    swapTiles(selectedTile, currentTile);
+                    SwapTiles(selectedTile, currentTile);
                     break;
             }
         }
