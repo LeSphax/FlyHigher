@@ -27,13 +27,15 @@ namespace AssemblyCSharp
         public int _column;
         public int column { get { return _column; } set { _column = value; ChangePosition(); } }
 
-        private ClickEventHandler MouseDown;
-        private ClickEventHandler MouseUp;
+        private ClickEventHandler MouseDownHandler;
+        private ClickEventHandler MouseUpHandler;
+        private ClickEventHandler MouseEnterHandler;
         void Awake()
         {
             boardScript = board.GetComponent<GameTaquin>();
-            this.MouseDown = boardScript.PressedOnTile;
-            this.MouseUp = boardScript.ReleasedOnTile;
+            this.MouseDownHandler = boardScript.PressedOnTile;
+            this.MouseUpHandler = boardScript.ReleasedOnTile;
+            this.MouseEnterHandler = boardScript.EnteredTile;
             this.transform.localScale = new Vector3(1.0f / boardScript.width, 1, 1.0f / boardScript.height);
             ChangePosition();
         }
@@ -42,7 +44,7 @@ namespace AssemblyCSharp
         //This fonction will convert the matrix position (ex:[0][1]) into unity position coordinates (-3.33,0)
         private void ChangePosition()
         {
-            float scaleColumn = boardSize/ boardScript.width;
+            float scaleColumn = boardSize / boardScript.width;
             float scaleLine = boardSize / boardScript.height;
 
             float x = column * scaleColumn - 5.0f + scaleColumn / 2;
@@ -55,23 +57,34 @@ namespace AssemblyCSharp
                 );
         }
 
-        void OnMouseDown()
+        void MousePress()
         {
-            MouseDown(this, EventArgs.Empty);
+            MouseDownHandler(this, EventArgs.Empty);
         }
 
         void OnMouseUp()
         {
-            MouseUp(this, EventArgs.Empty);
+            gameObject.BroadcastMessage("EnableRenderer", SendMessageOptions.DontRequireReceiver);
         }
 
-        public bool equals(Tile other){
+        void MouseRelease()
+        {
+            MouseUpHandler(this, EventArgs.Empty);
+        }
+
+        void MouseEnter()
+        {
+            MouseEnterHandler(this, EventArgs.Empty);
+        }
+
+        public bool equals(Tile other)
+        {
             return (this.line == other.line) && (this.column == other.column);
         }
 
         public String ToString()
         {
-            return "("+this.line + "," + this.column+")";
+            return "(" + this.line + "," + this.column + ")";
         }
     }
 }
