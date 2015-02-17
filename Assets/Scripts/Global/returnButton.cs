@@ -8,7 +8,7 @@ public class returnButton : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 	   if (Input.GetKey(KeyCode.Escape)){
-               if (sceneToLoad != null)
+               if (sceneToLoad != null && sceneToLoad != "")
                {
                    Application.LoadLevel(sceneToLoad);
                }
