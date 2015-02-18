@@ -7,7 +7,7 @@ public class StockInteractionPlayer : MonoBehaviour
 
 		//public Vector2 velocity = new Vector2 (-3, 0);
 		public int scoreValue = 1 ;
-		private int speed;
+		
 
 
 		enum State
@@ -23,6 +23,7 @@ public class StockInteractionPlayer : MonoBehaviour
 		private Touch currentTouch;
 		private Vector3 stwp; // ScreenToWorlPoint
 		private Vector2 touchPos;
+		private float speed;
 
 		private StockSpawnControllerScript controller;
 
@@ -59,6 +60,12 @@ public class StockInteractionPlayer : MonoBehaviour
 								break;
 						case TouchPhase.Moved:
 								this.OnTouchDragged ();
+//								stwp = Camera.main.ScreenToWorldPoint (touch.position);
+//								touchPos = new Vector2 (stwp.x, stwp.y);
+//				
+//								if (this.TestHit (touchPos)) {
+//										this.OnTouchDragOnMe ();
+//								}
 								break;
 						case TouchPhase.Stationary:
 								this.OnTouchStayed ();
@@ -108,6 +115,24 @@ public class StockInteractionPlayer : MonoBehaviour
 				}
 		}
 
+//		public void OnTouchDragOnMe ()
+//		{
+//				switch (etat) {
+//				case State.UNTOUCHED:
+//						idFingerTouched = currentTouch.fingerId;
+//						etat = State.TOUCHED;
+//						break;
+//				case State.TOUCHED:
+//						if (idFingerTouched == currentTouch.fingerId) {
+//								this.transform.position = Camera.main.ScreenToWorldPoint (new Vector3 (
+//					currentTouch.position.x, currentTouch.position.y, 0) - cameraOffsetZ);
+//								etat = State.TOUCHED;
+//				
+//						}
+//						break;
+//				}
+//		}
+
 //		public void OnTouchDraggedAnywhere ()
 //		{
 //				if (selected) {
@@ -138,7 +163,7 @@ public class StockInteractionPlayer : MonoBehaviour
 				}
 		}
 
-		public void SetSpeed (int newSpeed)
+		public void SetSpeed (float newSpeed)
 		{
 				this.speed = newSpeed;
 		}
