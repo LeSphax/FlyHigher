@@ -22,6 +22,7 @@ namespace AssemblyCSharp
         private Tile[,] matrix;
         public int height;
         public int width;
+        public GameObject gamesUI;
 
         Boolean won;
         private Tile currentTile;
@@ -201,7 +202,7 @@ namespace AssemblyCSharp
                     if (won = GameIsWon())
                     {
                         state = State.Inactive;
-                        GameObject.FindWithTag("VictoryLabel").GetComponent<Text>().text="TU AS GAGNE!";
+                        gamesUI.BroadcastMessage("GameEnded");
                     }
                     break;
                 case State.Inactive:
