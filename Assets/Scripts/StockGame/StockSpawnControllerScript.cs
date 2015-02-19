@@ -57,12 +57,8 @@ public class StockSpawnControllerScript : MonoBehaviour
 						}
 	
 						yield return new WaitForSeconds (waveWait);
-						speed += 1.5f;
-						foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>()) {
-								if (obj.layer == LayerMask.NameToLayer ("Pickable")) {
-										obj.GetComponent<StockInteractionPlayer> ().SetSpeed (speed);
-								}
-						}
+						
+
 						spawnWait -= 0.5f;
 						//waveWait -= 0.5f;
 						currentWave++;
@@ -72,9 +68,24 @@ public class StockSpawnControllerScript : MonoBehaviour
 
 						if (currentWave == 2) {
 								SpawnBox ();
+								speed += 1.5f;
+						}
+
+						foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>()) {
+								if (obj.layer == LayerMask.NameToLayer ("Pickable")) {
+										obj.GetComponent<StockInteractionPlayer> ().SetSpeed (speed);
+								}
 						}
 				}
-
+				bool notEnd = true;
+				while (notEnd) {
+						notEnd = false;
+						foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>()) {
+								if (obj.layer == LayerMask.NameToLayer ("Pickable")) {
+										notEnd = true;
+								}
+						}
+				}
 				EndGame ();
 	
 
@@ -103,6 +114,6 @@ public class StockSpawnControllerScript : MonoBehaviour
 		private void EndGame ()
 		{
 
-
+				Debug.Log ("GameEnd");
 		}
 }
