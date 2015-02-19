@@ -13,7 +13,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 	
 		}
 
-		public List <BoxAndItem> boxItems;
+		public List <BoxAndItem> boxItems; // Association box et items .
 		public Vector3[] spawnPositionsItems;
 		public List<Vector3> spawnPositionsBox ;
 		
@@ -25,7 +25,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 		public int nbWavesMax;
 
 
-		private List<GameObject> itemSpawnnable = new List<GameObject> ();
+		private List<GameObject> itemSpawnnable = new List<GameObject> (); // Liste des différents types d'items qui peuvent actuellement apparaitre
 
 		private int currentWave;
 		private float speed;
@@ -35,7 +35,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-
+				currentWave = 0;
 				speed = 2;
 				SpawnBox ();
 				SpawnBox ();
@@ -51,8 +51,6 @@ public class StockSpawnControllerScript : MonoBehaviour
 						for (int i = 0; i < itemCount; i++) {
 								//Quaternion spawnRotation = Quaternion.identity;
 								//GameObject item = ;
-								Debug.Log (itemSpawnnable.Count);
-								Debug.Log (Random.Range (0, itemSpawnnable.Count - 1));
 								Instantiate (itemSpawnnable [Random.Range (0, itemSpawnnable.Count)], spawnPositionsItems [Random.Range (0, spawnPositionsItems.Length)], Quaternion.identity);
 						
 								yield return new WaitForSeconds (spawnWait);
@@ -66,16 +64,18 @@ public class StockSpawnControllerScript : MonoBehaviour
 								}
 						}
 						spawnWait -= 0.5f;
-						waveWait -= 0.5f;
+						//waveWait -= 0.5f;
 						currentWave++;
-						if (currentWave == 2) {
+						if (currentWave == 1) {
 								SpawnBox ();
 						}
 
-						if (currentWave == 4) {
+						if (currentWave == 2) {
 								SpawnBox ();
 						}
 				}
+
+				EndGame ();
 	
 
 
@@ -85,6 +85,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 		{
 				return this.speed;
 		}
+
 
 		private void SpawnBox ()
 		{
@@ -97,5 +98,11 @@ public class StockSpawnControllerScript : MonoBehaviour
 				// On enleve la position ou la box a spawn ainsi que la box qui a spawn pour pas avoir 2 fois la meme
 				spawnPositionsBox.Remove (posRand);
 				boxItems.Remove (boxItemsToSpawn);
+		}
+
+		private void EndGame ()
+		{
+
+
 		}
 }
