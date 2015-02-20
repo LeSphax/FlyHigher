@@ -7,10 +7,16 @@ public class BlockByBoundary : MonoBehaviour {
     int i=0;
     void OnTriggerEnter2D(Collider2D other)
     {
-        plane.SendMessage("UnBlocked");
+        if (other.tag == "PlayerPlane")
+        {
+            other.SendMessage("UnBlocked");
+        }
     }
     void OnTriggerExit2D(Collider2D other)
     {
-        plane.SendMessage("Blocked");
+        if (other.tag == "PlayerPlane")
+        {
+            other.SendMessage("Blocked");
+        }
     }
 }

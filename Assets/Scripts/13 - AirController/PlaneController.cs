@@ -9,10 +9,9 @@ public class PlaneController : MonoBehaviour
     public int movementSpeed;
 
     int rotationDirection;
-    bool rotating;
     bool blocked;
 
-    void LateUpdate()
+    void Update()
     {
         transform.Rotate(new Vector3(0, 0, rotationDirection) * Time.deltaTime * rotatonSpeed);
         if (!blocked)
@@ -27,7 +26,6 @@ public class PlaneController : MonoBehaviour
                 transform.position += Time.deltaTime * movementSpeed * translation;
             }
         }
-        rotating = false;
     }
 
     void TurnLeft()
@@ -54,4 +52,5 @@ public class PlaneController : MonoBehaviour
     {
         blocked = false;
     }
+
 }

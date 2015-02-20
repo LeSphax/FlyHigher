@@ -8,13 +8,15 @@ public class LeftArrow : MonoBehaviour
 
 
     // Update is called once per frame
-    void OnMouseEnter()
+    void OnMouseDown()
     {
+        if (plane != null)
         plane.SendMessage("TurnLeft");
     }
 
-    void OnMouseExit()
+    void OnMouseUp()
     {
+        if (plane != null)
         plane.SendMessage("StopTurning");
     }
 }

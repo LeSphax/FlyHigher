@@ -7,13 +7,15 @@ public class RightArrow : MonoBehaviour
     public GameObject plane;
 
 
-    void OnMouseEnter()
+    void OnMouseDown()
     {
+        if (plane != null)
         plane.SendMessage("TurnRight");
     }
 
-    void OnMouseExit()
+    void OnMouseUp()
     {
+        if (plane != null)
         plane.SendMessage("StopTurning");
     }
 }
