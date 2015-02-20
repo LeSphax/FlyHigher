@@ -7,9 +7,13 @@ public class RightArrow : MonoBehaviour
     public GameObject plane;
 
 
-    // Update is called once per frame
-    void OnMouseOver()
+    void OnMouseEnter()
     {
         plane.SendMessage("TurnRight");
+    }
+
+    void OnMouseExit()
+    {
+        plane.SendMessage("StopTurning");
     }
 }

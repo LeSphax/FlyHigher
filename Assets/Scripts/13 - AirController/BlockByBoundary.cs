@@ -2,8 +2,15 @@
 using System.Collections;
 
 public class BlockByBoundary : MonoBehaviour {
-    void OnTriggerStay(Collider other)
+
+    public GameObject plane;
+    int i=0;
+    void OnTriggerEnter2D(Collider2D other)
     {
-        Debug.Log("collision");
+        plane.SendMessage("UnBlocked");
+    }
+    void OnTriggerExit2D(Collider2D other)
+    {
+        plane.SendMessage("Blocked");
     }
 }
