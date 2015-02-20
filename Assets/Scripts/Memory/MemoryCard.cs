@@ -56,19 +56,19 @@ public class MemoryCard : MonoBehaviour
 
 		public void Hide ()
 		{
-				MemoryCard.nbCardSelected = 0;
+				MemoryCard.nbCardSelected--;
 				animation.Play ("Flip_hide");
 				selected = false;
 		}
 
 		public void RemoveCard ()
 		{
-				MemoryCard.nbCardSelected = 0;
+				MemoryCard.nbCardSelected--;
 				animation.Play ("Flip_hide");
 				StartCoroutine ("Remove");
 		}
 
-		public IEnumerator Remove ()
+		IEnumerator Remove ()
 		{
 				yield return new WaitForSeconds (.5f);
 				Destroy (gameObject);

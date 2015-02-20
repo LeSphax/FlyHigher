@@ -148,6 +148,6 @@ public class GameControllerMemory : MonoBehaviour
 
 		void EndOfGame ()
 		{
-
+				Debug.Log ("EndOfGame");
 		}
 }
