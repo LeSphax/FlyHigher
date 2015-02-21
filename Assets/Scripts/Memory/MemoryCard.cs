@@ -41,21 +41,28 @@ public class MemoryCard : MonoBehaviour
 				if (!selected && MemoryCard.nbCardSelected < 2) {
 						selected = true;
 						MemoryCard.nbCardSelected ++;
-						StartCoroutine ("Show");
+						Show ();
 				}
 		}
 		
 
-		IEnumerator  Show ()
+		void  Show ()
 		{
 				animation.Play ("Flip_show");
-				yield return new WaitForSeconds (0.75f);
+			
 				gameController.CheckCards (this);
 			
 		}
 
-		public void Hide ()
+
+		public void HideCard ()
 		{
+				StartCoroutine ("Hide");
+		}
+
+		IEnumerator Hide ()
+		{
+				yield return new WaitForSeconds (0.75f);
 				MemoryCard.nbCardSelected--;
 				animation.Play ("Flip_hide");
 				selected = false;
