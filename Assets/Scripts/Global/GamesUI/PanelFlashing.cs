@@ -5,7 +5,7 @@ public class PanelFlashing : MonoBehaviour
 {
 
     public GameObject panel;
-    public GameObject audio;
+    public AudioSource audio;
     bool flashing;
 
     void Start()
@@ -15,14 +15,14 @@ public class PanelFlashing : MonoBehaviour
 
     public void ActivateFlashing()
     {
-        audio.SetActive(true);
+        audio.Play();
         flashing = true;
         Flash();
     }
 
     public void DesactivateFlashing()
     {
-        audio.SetActive(false);
+        audio.Stop();
         flashing = false;
     }
 
@@ -40,5 +40,10 @@ public class PanelFlashing : MonoBehaviour
         {
             panel.SetActive(false);
         }
+    }
+
+    void GameEnded()
+    {
+        DesactivateFlashing();
     }
 }

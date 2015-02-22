@@ -3,8 +3,8 @@ using System.Collections;
 
 public class OtherPlane : MonoBehaviour
 {
-    public int movementSpeed;   
-
+    public int movementSpeed;
+    bool moving;
 
     void OnTriggerEnter2D(Collider2D other)
     {
@@ -24,9 +24,24 @@ public class OtherPlane : MonoBehaviour
         }
     }
 
+    void Start()
+    {
+        moving = false;
+        Invoke("BeginMoving", 2);
+    }
+
+    void BeginMoving()
+    {
+        moving = true;
+        gameObject.animation.Stop();
+        renderer.enabled = true;
+    }
     void Update()
     {
-        Vector3 translation = Quaternion.Euler(transform.localEulerAngles) * Vector3.up * 1f;
-        transform.position += Time.deltaTime * movementSpeed * translation;
+        if (moving)
+        {
+            Vector3 translation = Quaternion.Euler(transform.localEulerAngles) * Vector3.up * 1f;
+            transform.position += Time.deltaTime * movementSpeed * translation;
+        }
     }
 }

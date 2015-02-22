@@ -4,7 +4,7 @@ using System.Collections;
 public class BlockByBoundary : MonoBehaviour {
 
     public GameObject plane;
-    int i=0;
+
     void OnTriggerEnter2D(Collider2D other)
     {
         if (other.tag == "PlayerPlane")

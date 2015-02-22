@@ -15,10 +15,10 @@ public class ImminentCollision : MonoBehaviour {
     {
         if (other.gameObject.tag == "OtherPlane")
         {
-            if (count == 0)
+            count++;
+            if (count == 1)
             {
                 gameUI.SendMessage("ActivateFlashing");
-                count++;
             }
         }
     }

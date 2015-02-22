@@ -4,7 +4,7 @@ using System.Collections;
 public class RaycastMouse : MonoBehaviour
 {
 
-    public GameObject hoveredGO;
+    GameObject hoveredGO;
 
     void Update()
     {

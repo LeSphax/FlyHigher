@@ -82,7 +82,7 @@ namespace AssemblyCSharp
             return (this.line == other.line) && (this.column == other.column);
         }
 
-        public String ToString()
+        public override String ToString()
         {
             return "(" + this.line + "," + this.column + ")";
         }
