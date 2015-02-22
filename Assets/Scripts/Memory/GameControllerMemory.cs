@@ -10,6 +10,7 @@ public class GameControllerMemory : MonoBehaviour
 		public Texture[] texturesCards;
 		public int cardsinrow;
 
+		public AudioClip audioCardMatching;
 
 		enum State
 		{
@@ -22,6 +23,7 @@ public class GameControllerMemory : MonoBehaviour
 		private State etat ;
 		private MemoryCard[] cards = new MemoryCard[2];
 		private int numberPairCards;
+		
 
 
 		private List<Card> cardsList = new List<Card> ();
@@ -38,13 +40,16 @@ public class GameControllerMemory : MonoBehaviour
 				}
 		}
 
-
+		void Awake ()
+		{
+				
+		}
 
 		// Use this for initialization
 		void Start ()
 		{
 				etat = State.ZEROTOUCH;
-
+				
 				for (int i=0; i<texturesCards.Length; i++) {
 						Debug.Log ("SetTextures");
 						cardsList.Add (new Card (texturesCards [i], i));
@@ -131,6 +136,7 @@ public class GameControllerMemory : MonoBehaviour
 
 		void CardsMatching ()
 		{
+				AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
 				cards [0].RemoveCard ();
 				cards [1].RemoveCard ();
 		
@@ -142,8 +148,8 @@ public class GameControllerMemory : MonoBehaviour
 
 		void CardsNotMatching ()
 		{
-				cards [0].Hide ();
-				cards [1].Hide ();
+				cards [0].HideCard ();
+				cards [1].HideCard ();
 		}
 
 		void EndOfGame ()

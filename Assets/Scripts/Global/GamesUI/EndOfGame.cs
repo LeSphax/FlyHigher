@@ -1,12 +1,14 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class EndOfGame : MonoBehaviour {
+public class EndOfGame : MonoBehaviour
+{
 
-   public GameObject EndGamePopUp;
+		public GameObject EndGamePopUp;
 
-    void GameEnded()
-    {
-        EndGamePopUp.SetActive(true);
-    }
+		void GameEnded (int numberStars)
+		{
+				EndGamePopUp.SetActive (true);
+				GetComponentInChildren<ScoreStarScript> ().SetStars (numberStars);
+		}
 }
