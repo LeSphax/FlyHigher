@@ -562,7 +562,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: TU AS GAGNE !
+  m_Text: TU AS GAGNE !!
 --- !u!222 &245074794
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1175,7 +1175,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 115934, guid: ca88d24edb3f3b54a8c76d12eca00862, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11415928, guid: ca88d24edb3f3b54a8c76d12eca00862, type: 2}
+      propertyPath: m_Text
+      value: TU AS GAGNE !!
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: ca88d24edb3f3b54a8c76d12eca00862, type: 2}
@@ -1851,7 +1855,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &749128860
 RectTransform:
   m_ObjectHideFlags: 0
