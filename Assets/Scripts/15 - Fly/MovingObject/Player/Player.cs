@@ -14,7 +14,7 @@ public class Player : MovingObject {
 		GameManager.instance.playerHitPoints --;
 		if (CheckIfGameOver()) {
 			animator.SetTrigger ("playerDie");
-			GameManager.instance.GameOver();
+			GameManager.instance.GameOver(false);
 
 		} else {
 			animator.SetTrigger ("playerHit");

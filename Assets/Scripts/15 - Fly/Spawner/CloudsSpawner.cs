@@ -19,6 +19,7 @@ public class CloudsSpawner : MonoBehaviour {
 		transform.position = new Vector3( boundary.xMax + 2, 0, 0);
 		moveDistance = boundary.yDistance () - 2;
 		gosList = new List<GameObject> ();
+		Spawn ();
 	}
 	
 	protected virtual void Spawn (){
