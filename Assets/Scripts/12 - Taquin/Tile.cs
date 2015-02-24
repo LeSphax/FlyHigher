@@ -62,11 +62,13 @@ namespace AssemblyCSharp
             MouseDownHandler(this, EventArgs.Empty);
         }
 
+        //Called when the mouse was pressed on this tile and is released anywhere
         void OnMouseUp()
         {
             gameObject.BroadcastMessage("EnableRenderer", SendMessageOptions.DontRequireReceiver);
         }
 
+        //Called when the mouse was pressed anywhere and is released on this tile
         void MouseRelease()
         {
             MouseUpHandler(this, EventArgs.Empty);

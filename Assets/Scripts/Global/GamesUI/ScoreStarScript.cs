@@ -7,6 +7,7 @@ public class ScoreStarScript : MonoBehaviour
 
 		public Sprite starFull;
 		public Sprite starEmpty;
+        
 
 		// Use this for initialization
 		void Start ()

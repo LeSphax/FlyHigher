@@ -18,7 +18,7 @@ public class ImminentCollision : MonoBehaviour {
             count++;
             if (count == 1)
             {
-                gameUI.SendMessage("ActivateFlashing");
+                gameUI.BroadcastMessage("ActivateFlashing");
             }
         }
     }
@@ -30,7 +30,7 @@ public class ImminentCollision : MonoBehaviour {
             count--;
             if (count == 0)
             {
-                gameUI.SendMessage("DesactivateFlashing");
+                gameUI.BroadcastMessage("DesactivateFlashing");
             }
         }
     }

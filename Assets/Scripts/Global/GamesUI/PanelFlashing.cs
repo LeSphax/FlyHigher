@@ -1,15 +1,15 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class PanelFlashing : MonoBehaviour
 {
-
-    public GameObject panel;
-    public AudioSource audio;
+    Image image;
     bool flashing;
 
     void Start()
     {
+        image = GetComponent<Image>();
         flashing = false;
     }
 
@@ -30,15 +30,15 @@ public class PanelFlashing : MonoBehaviour
     {
         if (flashing)
         {
-            if (panel.activeSelf)
-                panel.SetActive(false);
+            if (image.color == Color.clear)
+                image.color = new Color(1.0f, 0, 0, 0.2f);
             else
-                panel.SetActive(true);
+                image.color = Color.clear;
             Invoke("Flash", 0.5f);
         }
         else
         {
-            panel.SetActive(false);
+            image.color = Color.clear;
         }
     }
 

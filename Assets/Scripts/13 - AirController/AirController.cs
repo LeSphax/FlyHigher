@@ -5,26 +5,25 @@ public class AirController : MonoBehaviour
 {
 
 
-    public int nbDotsAtATime;
     public int nbDotsToCatch;
     public int timeBetweenPlanes;
-    int nbDotsCaught = 0;
+    public int numberOfLives;
+    int nbDotsCaught;
 
     public GameObject radarDot;
     public GameObject otherPlane;
     public AudioClip explosionSound;
+
+    
     bool endOfGame = false;
     float radarRadius = 3.33f;
 
 
     void Start()
     {
-        int i;
-        for (i = 0; i < nbDotsAtATime; i++)
-        {
-            SpawnADot();
-        }
-        SpawnPlane();
+        nbDotsCaught = 0;
+        SpawnADot();
+        SpawnOtherPlanes();
     }
     void Update()
     {
@@ -58,27 +57,31 @@ public class AirController : MonoBehaviour
 
     void GameEnded()
     {
-        GameObject gameUI= GameObject.FindGameObjectWithTag("GamesUI");
-        gameUI.BroadcastMessage("GameEnded");
+        GameObject gameUI= GameObject.FindGameObjectWithTag("Interface");
+        gameUI.BroadcastMessage("GameEnded",numberOfLives);
         endOfGame = true;
     }
 
     void CollisionWithAirplane()
-    {
+    {        
         if (explosionSound)
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
-        Destroy(gameObject);
-        GameEnded();
+        numberOfLives--;
+        if (numberOfLives <= 0)
+        {
+            Destroy(gameObject);
+            GameEnded();
+        }
 
     }
 
-    void SpawnPlane()
+    void SpawnOtherPlanes()
     {
         if (nbDotsCaught > 0 && !endOfGame)
         {
             RandomPlaneTransform((GameObject)Instantiate(otherPlane), Random.Range(0, 4), Random.Range(-radarRadius / 2, radarRadius / 2));
         }
-        Invoke("SpawnPlane", timeBetweenPlanes);
+        Invoke("SpawnOtherPlanes", timeBetweenPlanes);
     }
 
     void RandomPlaneTransform(GameObject newPlane, float rotation, float position)
