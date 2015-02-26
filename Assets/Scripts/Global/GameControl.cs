@@ -25,6 +25,10 @@ public class GameControl : MonoBehaviour {
         else { Destroy(gameObject); }
 	}
 
+    void OnLevelWasLoaded()
+    {
+        Time.timeScale = 1;
+    }
 
     void OnGUI()
     {

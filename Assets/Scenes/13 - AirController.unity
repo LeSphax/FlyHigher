@@ -610,7 +610,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069890403}
-  m_RootOrder: 0
+  m_RootOrder: 1
 --- !u!114 &515144722
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -926,7 +926,7 @@ RectTransform:
   - {fileID: 443483763}
   - {fileID: 447399849}
   m_Father: {fileID: 2069890403}
-  m_RootOrder: 2
+  m_RootOrder: 3
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -988,7 +988,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!114 &597357847
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1250,7 +1250,7 @@ RectTransform:
   m_Children:
   - {fileID: 1824143248}
   m_Father: {fileID: 2069890403}
-  m_RootOrder: 3
+  m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 0, y: 0}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2441,7 +2441,7 @@ Transform:
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 2069890403}
-  m_RootOrder: 1
+  m_RootOrder: 2
 --- !u!114 &1610807249
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2708,9 +2708,11 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: a9ff4acf4677e5744ad72f01848a6e5d, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  nbDotsToCatch: 3
-  timeBetweenPlanes: 4
-  numberOfLives: 6
+  nbDotsToCatch: 1
+  nbDotsBeforePlanes: 3
+  startingTimeBetweenPlanes: 6
+  minimumTimeBetweenPlanes: 2
+  numberOfLives: 3
   radarDot: {fileID: 142548, guid: eff67be0946ba284391a53cc115923e0, type: 2}
   otherPlane: {fileID: 118370, guid: 4ed1a57383d8c0844906ebef2768b28f, type: 2}
   explosionSound: {fileID: 8300000, guid: a5b7a1a0eeb133944b0eff7a0028073f, type: 3}
@@ -3026,10 +3028,10 @@ Transform:
   m_LocalPosition: {x: 0, y: 0, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children:
+  - {fileID: 744082364}
   - {fileID: 515144721}
   - {fileID: 1610807248}
   - {fileID: 597357843}
-  - {fileID: 744082364}
   m_Father: {fileID: 0}
   m_RootOrder: 3
 --- !u!1 &2102855235

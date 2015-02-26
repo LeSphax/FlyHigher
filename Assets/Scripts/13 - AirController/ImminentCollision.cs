@@ -1,7 +1,8 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ImminentCollision : MonoBehaviour {
+public class ImminentCollision : MonoBehaviour
+{
 
     public GameObject gameUI;
     int count;
@@ -18,7 +19,7 @@ public class ImminentCollision : MonoBehaviour {
             count++;
             if (count == 1)
             {
-                gameUI.BroadcastMessage("ActivateFlashing");
+                ActivateFlashing();
             }
         }
     }
@@ -30,9 +31,21 @@ public class ImminentCollision : MonoBehaviour {
             count--;
             if (count == 0)
             {
-                gameUI.BroadcastMessage("DesactivateFlashing");
+                DesactivateFlashing();
             }
         }
+    }
+
+    // This way this method can be called using BroadcastMessage
+    void ActivateFlashing()
+    {
+        gameUI.BroadcastMessage("ActivateFlashing");
+    }
+
+    // This way this method can be called using BroadcastMessage
+    void DesactivateFlashing()
+    {
+        gameUI.BroadcastMessage("DesactivateFlashing");
     }
 
 }

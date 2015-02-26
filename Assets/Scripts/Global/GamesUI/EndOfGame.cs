@@ -10,5 +10,6 @@ public class EndOfGame : MonoBehaviour
 		{
 				EndGamePopUp.SetActive (true);
 				GetComponentInChildren<ScoreStarScript> ().SetStars (numberStars);
+                Time.timeScale = 0;
 		}
 }

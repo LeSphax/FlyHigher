@@ -6,9 +6,13 @@ public class AirController : MonoBehaviour
 
 
     public int nbDotsToCatch;
-    public int timeBetweenPlanes;
+    public int nbDotsBeforePlanes;
+    public int startingTimeBetweenPlanes;
+    public int minimumTimeBetweenPlanes;
     public int numberOfLives;
+
     int nbDotsCaught;
+    float timeBetweenPlanes;
 
     public GameObject radarDot;
     public GameObject otherPlane;
@@ -21,6 +25,7 @@ public class AirController : MonoBehaviour
 
     void Start()
     {
+        timeBetweenPlanes = startingTimeBetweenPlanes;
         nbDotsCaught = 0;
         SpawnADot();
         SpawnOtherPlanes();
@@ -37,6 +42,8 @@ public class AirController : MonoBehaviour
 
     public void DotDestroyed()
     {
+        if (nbDotsCaught >= nbDotsBeforePlanes)
+            timeBetweenPlanes -= (startingTimeBetweenPlanes - minimumTimeBetweenPlanes) / nbDotsToCatch - nbDotsBeforePlanes;
         nbDotsToCatch--;
         nbDotsCaught++;
         if (nbDotsToCatch > 0)
@@ -66,6 +73,7 @@ public class AirController : MonoBehaviour
     {        
         if (explosionSound)
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+        Invoke("StopFlashing", 2);
         numberOfLives--;
         if (numberOfLives <= 0)
         {
@@ -77,7 +85,7 @@ public class AirController : MonoBehaviour
 
     void SpawnOtherPlanes()
     {
-        if (nbDotsCaught > 0 && !endOfGame)
+        if (nbDotsCaught >= nbDotsBeforePlanes && !endOfGame)
         {
             RandomPlaneTransform((GameObject)Instantiate(otherPlane), Random.Range(0, 4), Random.Range(-radarRadius / 2, radarRadius / 2));
         }
@@ -107,6 +115,11 @@ public class AirController : MonoBehaviour
             newPlane.transform.localPosition = new Vector2(position, distanceToCenter);
             newPlane.transform.Rotate(new Vector3(0, 0, 180));
         }
+    }
+
+    void StopFlashing()
+    {
+        gameObject.BroadcastMessage("DesactivateFlashing");
     }
 
 }

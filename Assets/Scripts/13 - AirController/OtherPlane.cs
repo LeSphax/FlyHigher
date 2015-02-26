@@ -8,7 +8,7 @@ public class OtherPlane : MonoBehaviour
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerPlane")
+        if (other.tag == "PlayerPlane" && moving)
         {
             other.gameObject.SendMessage("CollisionWithAirplane");
             Destroy(gameObject);

@@ -28,6 +28,7 @@ namespace AssemblyCSharp
         private Tile[,] matrix;
         public int height;
         public int width;
+        public int mixingTime;
         public GameObject gamesUI;
         public AudioClip swapAudio;
 
@@ -57,7 +58,7 @@ namespace AssemblyCSharp
         IEnumerator MixGame()
         {
 
-            int i, numberOfSwaps = 50;
+            int i, numberOfSwaps = 10* mixingTime;
             Vector2 coordinates;
             for (i = 0; i < numberOfSwaps; i++)
             {
