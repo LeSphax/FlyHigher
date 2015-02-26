@@ -16,23 +16,10 @@ public class SceneManagement : MonoBehaviour
 
     void Start()
     {
-        previousScene = null;
-        currentScene = null;
     }
 
     void Update()
     {
-        if (Input.GetKey(KeyCode.Escape))
-        {
-            if (previousScene != null)
-            {
-                Application.LoadLevel(previousScene);
-            }
-            else
-            {
-                Application.Quit();
-            }
-        }
         if (Input.GetKey(KeyCode.Menu))
         {
             Application.Quit();

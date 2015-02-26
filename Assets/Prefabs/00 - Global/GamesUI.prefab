@@ -82,7 +82,7 @@ GameObject:
   - 114: {fileID: 11495080}
   - 114: {fileID: 11495078}
   m_Layer: 5
-  m_Name: MenuButton 1
+  m_Name: ContinueButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -116,7 +116,6 @@ GameObject:
   - 222: {fileID: 22295078}
   - 114: {fileID: 11495086}
   - 114: {fileID: 11495084}
-  - 114: {fileID: 11495088}
   m_Layer: 5
   m_Name: PauseButton
   m_TagString: Untagged
@@ -185,8 +184,9 @@ GameObject:
   - 222: {fileID: 22295084}
   - 114: {fileID: 11495098}
   - 114: {fileID: 11495096}
+  - 114: {fileID: 11411370}
   m_Layer: 5
-  m_Name: MenuButton 3
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -240,7 +240,7 @@ GameObject:
   - 114: {fileID: 11495110}
   - 114: {fileID: 11495108}
   m_Layer: 5
-  m_Name: MenuButton 2
+  m_Name: HelpButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -257,7 +257,6 @@ GameObject:
   - 222: {fileID: 22295092}
   - 114: {fileID: 11495114}
   - 114: {fileID: 11495112}
-  - 114: {fileID: 11495116}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -292,6 +291,7 @@ GameObject:
   - 224: {fileID: 22495098}
   - 222: {fileID: 22295096}
   - 114: {fileID: 11495120}
+  - 114: {fileID: 11442620}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -403,6 +403,29 @@ GameObject:
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
   m_IsActive: 1
+--- !u!114 &11411370
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195086}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0257d53f73e86fa48957ba51006d9277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+--- !u!114 &11442620
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 195098}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 195098}
 --- !u!114 &11471818
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -440,7 +463,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Aide
 --- !u!114 &11495068
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -566,7 +589,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Quitter
 --- !u!114 &11495078
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -605,7 +628,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11495080}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11442620}
+        m_MethodName: PauseButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11495080
@@ -689,7 +724,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11495088}
+      - m_Target: {fileID: 11442620}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -724,18 +759,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11495088
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195078}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 195098}
 --- !u!114 &11495090
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -829,7 +852,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 11495098}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 11411370}
+        m_MethodName: QuitButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &11495098
@@ -1065,7 +1100,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11495116}
+      - m_Target: {fileID: 11442620}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -1100,18 +1135,6 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
---- !u!114 &11495116
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 195094}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 195098}
 --- !u!114 &11495118
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1315,7 +1338,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Button
+  m_Text: Continuer
 --- !u!222 &22295066
 CanvasRenderer:
   m_ObjectHideFlags: 1
@@ -1458,7 +1481,7 @@ Canvas:
   m_OverrideSorting: 0
   m_OverridePixelPerfect: 0
   m_SortingLayerID: 0
-  m_SortingOrder: 0
+  m_SortingOrder: 1
 --- !u!224 &22495066
 RectTransform:
   m_ObjectHideFlags: 1

@@ -6,12 +6,12 @@ public abstract class MovingObject : MonoBehaviour {
 	public float speed;
 	public LayerMask blockingLayer;
 
-	private Rigidbody2D rb2D;
+	//private Rigidbody2D rb2D;
 	private BoxCollider2D bc2D;
 
 	protected virtual bool Move(int xDir, int yDir, out RaycastHit2D hit){
 		bc2D = GetComponent<BoxCollider2D> ();
-		rb2D = GetComponent<Rigidbody2D> ();
+		//rb2D = GetComponent<Rigidbody2D> ();
 		Vector2 start = transform.position;
 		
 		Vector2 end = start + new Vector2 (xDir, yDir);
