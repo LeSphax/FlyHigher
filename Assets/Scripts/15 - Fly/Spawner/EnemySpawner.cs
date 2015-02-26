@@ -2,8 +2,7 @@
 using System.Collections;
 
 public class EnemySpawner : MonoBehaviour {
-
-	public GameObject gameObject;
+    public GameObject enemyGameObject;
 	public float moveSpeed;
 	public float startTime;
 	public float secondsBetweenSpawn;
@@ -26,7 +25,7 @@ public class EnemySpawner : MonoBehaviour {
 	}
 
 	protected void Spawn (){
-		GameObject go = Instantiate (gameObject) as GameObject;
+		GameObject go = Instantiate (enemyGameObject) as GameObject;
 		go.transform.position = transform.position;
 		GameManager.instance.enemiesManager.enemies.Add (go);
 	}

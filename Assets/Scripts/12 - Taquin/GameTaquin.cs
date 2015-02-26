@@ -32,7 +32,6 @@ namespace AssemblyCSharp
         public GameObject gamesUI;
         public AudioClip swapAudio;
 
-        Boolean won;
         private Tile currentTile;
 
         void Start()
@@ -210,7 +209,7 @@ namespace AssemblyCSharp
                 case State.Pressed:
                     state = State.Pressed;
                     SwapTiles(currentTile, sender);
-                    if (won = GameIsWon())
+                    if (GameIsWon())
                     {
                         state = State.Inactive;
                         gamesUI.BroadcastMessage("GameEnded", 2);

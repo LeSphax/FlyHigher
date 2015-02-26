@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &87182530
 GameObject:
@@ -133,7 +134,7 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 0
     m_LineSpacing: 1
-  m_Text: Taquin2
+  m_Text: Taquin
 --- !u!222 &87182533
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -174,7 +175,7 @@ RectTransform:
   m_RootOrder: 1
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: -95, y: 170}
+  m_AnchoredPosition: {x: 105, y: 170}
   m_SizeDelta: {x: -610, y: -360}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &95084764
@@ -407,8 +408,8 @@ MonoBehaviour:
   m_Script: {fileID: 668335128}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -663,7 +664,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
-  m_AnchoredPosition: {x: 105, y: 170}
+  m_AnchoredPosition: {x: -95, y: 170}
   m_SizeDelta: {x: -610, y: -360}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &803380716
