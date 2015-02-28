@@ -3,10 +3,22 @@ using System.Collections;
 
 public class SceneManagement : MonoBehaviour
 {
+    string previousScene;
+    string currentScene;
 
-    string previousScene { get; set; }
-    string currentScene { get; set; }
+    public string PreviousScene
+    {
+        get{
+            return previousScene;
+        }
+    }
 
+    public string CurrentScene
+    {
+        get{
+            return currentScene;
+        }
+    }
     void OnLevelWasLoaded()
     {
         Time.timeScale = 1;

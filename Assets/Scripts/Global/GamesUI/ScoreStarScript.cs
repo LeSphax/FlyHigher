@@ -7,25 +7,21 @@ public class ScoreStarScript : MonoBehaviour
 
 		public Sprite starFull;
 		public Sprite starEmpty;
+        public GameData gameData;
+
+        void Awake()
+        {
+            gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
+
+        }
         
 
-		// Use this for initialization
-		void Start ()
-		{
-	
-		}
-	
-		// Update is called once per frame
-		void Update ()
-		{
-	
-		}
 
-
-		public void SetStars (int numberOfStars)
+		public void ShowStars ()
 		{
+                int numberStars = gameData.GetSceneData(Application.loadedLevelName).numberStars;
 				Image[] stars = GetComponentsInChildren<Image> ();
-				switch (numberOfStars) {
+				switch (numberStars) {
 				case 1:
 						stars [0].sprite = starFull;
 						stars [1].sprite = starEmpty;
