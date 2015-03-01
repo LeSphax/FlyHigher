@@ -219,7 +219,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1149580392}
+      - m_Target: {fileID: 49131763}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -669,7 +669,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1149580392}
+      - m_Target: {fileID: 1149580393}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -2194,7 +2194,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1869f014621249943baa081f0821e6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 5 - Hangar
+  sceneToLoad: Hangar
 --- !u!1 &894068253
 GameObject:
   m_ObjectHideFlags: 0
@@ -2654,6 +2654,8 @@ GameObject:
   - 222: {fileID: 1149580391}
   - 114: {fileID: 1149580390}
   - 114: {fileID: 1149580392}
+  - 114: {fileID: 1149580394}
+  - 114: {fileID: 1149580393}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -2716,6 +2718,32 @@ CanvasRenderer:
 MonoBehaviour:
   m_ObjectHideFlags: 0
   m_PrefabParentObject: {fileID: 11442620, guid: a1b386e17b4815241999dd9b99fb1369,
+    type: 2}
+  m_PrefabInternal: {fileID: 515223334}
+  m_GameObject: {fileID: 1149580388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1149580388}
+--- !u!114 &1149580393
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11458786, guid: a1b386e17b4815241999dd9b99fb1369,
+    type: 2}
+  m_PrefabInternal: {fileID: 515223334}
+  m_GameObject: {fileID: 1149580388}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  pauseMenu: {fileID: 1149580388}
+--- !u!114 &1149580394
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11416234, guid: a1b386e17b4815241999dd9b99fb1369,
     type: 2}
   m_PrefabInternal: {fileID: 515223334}
   m_GameObject: {fileID: 1149580388}
@@ -3047,16 +3075,15 @@ RectTransform:
 --- !u!114 &1252125099
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11495068, guid: a1b386e17b4815241999dd9b99fb1369,
+  m_PrefabParentObject: {fileID: 11416236, guid: a1b386e17b4815241999dd9b99fb1369,
     type: 2}
   m_PrefabInternal: {fileID: 515223334}
   m_GameObject: {fileID: 1252125097}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 000ebed9a30d7cc46b5200177cb6b4cc, type: 3}
+  m_Script: {fileID: 11500000, guid: 0257d53f73e86fa48957ba51006d9277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 7 - Control Tower
 --- !u!114 &1252125100
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3096,7 +3123,19 @@ MonoBehaviour:
   m_TargetGraphic: {fileID: 1252125101}
   m_OnClick:
     m_PersistentCalls:
-      m_Calls: []
+      m_Calls:
+      - m_Target: {fileID: 1252125099}
+        m_MethodName: QuitButtonPressed
+        m_Mode: 1
+        m_Arguments:
+          m_ObjectArgument: {fileID: 0}
+          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
+            Culture=neutral, PublicKeyToken=null
+          m_IntArgument: 0
+          m_FloatArgument: 0
+          m_StringArgument: 
+          m_BoolArgument: 0
+        m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
 --- !u!114 &1252125101

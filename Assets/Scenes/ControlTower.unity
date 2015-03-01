@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &7386306
 GameObject:
@@ -123,8 +124,8 @@ MonoBehaviour:
   m_Script: {fileID: 202654609}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -175,9 +176,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 187920572}
   - 114: {fileID: 187920571}
+  - 114: {fileID: 187920573}
   m_Layer: 0
   m_Name: Data
-  m_TagString: Untagged
+  m_TagString: GameControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -206,6 +208,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &187920573
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11449532, guid: 4451ab8e294808d43b4e3204b62f25f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 1209194433}
+  m_GameObject: {fileID: 187920570}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!115 &202654609
 MonoScript:
   m_ObjectHideFlags: 0
@@ -384,7 +398,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 15 - Fly
+  sceneToLoad: ControlTower - 2 - Pilote
 --- !u!114 &640509807
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -661,7 +675,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 13 - AirController
+  sceneToLoad: ControlTower - 1 - AirController
 --- !u!114 &1146550026
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -816,7 +830,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 3 - Map
+  sceneToLoad: Map
 --- !u!114 &1285878832
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1100,7 +1114,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1869f014621249943baa081f0821e6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 3 - Map
+  sceneToLoad: Map
 --- !u!115 &2095373639
 MonoScript:
   m_ObjectHideFlags: 0

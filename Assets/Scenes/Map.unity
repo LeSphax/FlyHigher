@@ -87,7 +87,7 @@ GameObject:
   - 114: {fileID: 440451609}
   m_Layer: 0
   m_Name: Data
-  m_TagString: GameData
+  m_TagString: GameControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -274,7 +274,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1869f014621249943baa081f0821e6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 2 - MainMenu
+  sceneToLoad: MainMenu
 --- !u!1 &712068808
 GameObject:
   m_ObjectHideFlags: 0
@@ -338,7 +338,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000ebed9a30d7cc46b5200177cb6b4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 5 - Hangar
+  sceneToLoad: Hangar
 --- !u!61 &712068812
 BoxCollider2D:
   m_ObjectHideFlags: 0
@@ -674,7 +674,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000ebed9a30d7cc46b5200177cb6b4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 7 - ControlTower
+  sceneToLoad: ControlTower
 --- !u!1 &1556523514
 GameObject:
   m_ObjectHideFlags: 0
@@ -749,7 +749,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 000ebed9a30d7cc46b5200177cb6b4cc, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 6 - Laboratory
+  sceneToLoad: Laboratory
 --- !u!1001 &1780570316
 Prefab:
   m_ObjectHideFlags: 0

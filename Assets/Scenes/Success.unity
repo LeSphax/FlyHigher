@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!115 &39768106
 MonoScript:
@@ -119,8 +120,8 @@ MonoBehaviour:
   m_Script: {fileID: 39768106}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -233,9 +234,10 @@ GameObject:
   m_Component:
   - 4: {fileID: 373720774}
   - 114: {fileID: 373720773}
+  - 114: {fileID: 373720775}
   m_Layer: 0
   m_Name: Data
-  m_TagString: Untagged
+  m_TagString: GameControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -264,6 +266,18 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 3
+--- !u!114 &373720775
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11449532, guid: 4451ab8e294808d43b4e3204b62f25f5,
+    type: 2}
+  m_PrefabInternal: {fileID: 145815583}
+  m_GameObject: {fileID: 373720772}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &736901279
 GameObject:
   m_ObjectHideFlags: 0
@@ -294,7 +308,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 2 - MainMenu
+  sceneToLoad: MainMenu
 --- !u!114 &736901281
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -537,7 +551,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 1869f014621249943baa081f0821e6a9, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 2 - MainMenu
+  sceneToLoad: MainMenu
 --- !u!115 &1170756734
 MonoScript:
   m_ObjectHideFlags: 0
