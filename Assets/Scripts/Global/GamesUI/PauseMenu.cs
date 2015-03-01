@@ -5,9 +5,11 @@ using System.Collections;
 public class PauseMenu : MonoBehaviour {
 
     public GameObject pauseMenu;
+    public GameObject pauseButton;
 
     public void PauseButtonPressed()
     {
+        pauseButton.SendMessage("OnButtonPressed");
         if (pauseMenu.activeSelf)
         {
             Time.timeScale = 1;
