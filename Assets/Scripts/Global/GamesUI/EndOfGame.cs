@@ -12,11 +12,11 @@ public class EndOfGame : MonoBehaviour
             gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
         }
         
-		void GameEnded (int numberStars)
+		void GameEnded (int numberStars=0)
 		{
 				EndGamePopUp.SetActive (true);
                 gameData.AddScore(numberStars);
-                GetComponentInChildren<ScoreStarScript>().ShowStars();
+                GetComponentInChildren<ScoreStarScript>().ShowStars(numberStars);
                 Time.timeScale = 0;
 		}
 }
