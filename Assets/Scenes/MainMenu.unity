@@ -213,7 +213,7 @@ GameObject:
   - 4: {fileID: 176025586}
   - 95: {fileID: 176025585}
   - 212: {fileID: 176025584}
-  m_Layer: 0
+  m_Layer: 9
   m_Name: FlyingPlane
   m_TagString: Untagged
   m_Icon: {fileID: 0}
@@ -570,13 +570,13 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   gos:
-  - {fileID: 184624, guid: b7bd29e263cd46749918ae7ee36812a6, type: 2}
-  - {fileID: 128926, guid: 30a7a725c0f9df0469486c7800e72509, type: 2}
-  - {fileID: 106348, guid: 84be57a402214c84e90e5c15721793a2, type: 2}
-  - {fileID: 115320, guid: d1591b25dba4a1748a2be345b701c184, type: 2}
+  - {fileID: 141634, guid: 6be62ef5ede52074e94954f3a0f0656c, type: 2}
+  - {fileID: 150612, guid: af42bfc8868cb8e4aaa98e16bb6cb742, type: 2}
+  - {fileID: 101968, guid: 619ec6d5ce99ed946aaa1010bac02aae, type: 2}
+  - {fileID: 174886, guid: c16c5bef0959abc45918bdbf4cd70e86, type: 2}
   boundary:
-    xMin: -12
-    xMax: 12
+    xMin: -120
+    xMax: -15
     yMin: -5
     yMax: 8
 --- !u!4 &608726322
@@ -819,7 +819,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  buildings: []
+  buildings:
+  - maxStars: 9
+    name: Laboratory
+  - maxStars: 9
+    name: Hangar
+  - maxStars: 9
+    name: ControlTower
 --- !u!4 &1131770007
 Transform:
   m_ObjectHideFlags: 0
@@ -1040,6 +1046,18 @@ Prefab:
       propertyPath: m_SortingLayerID
       value: 67699009
       objectReference: {fileID: 0}
+    - target: {fileID: 9579068, guid: 8edbe64092ac0d44384282ed78031d1b, type: 2}
+      propertyPath: m_ApplyRootMotion
+      value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 179068, guid: 8edbe64092ac0d44384282ed78031d1b, type: 2}
+      propertyPath: m_StaticEditorFlags
+      value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 179068, guid: 8edbe64092ac0d44384282ed78031d1b, type: 2}
+      propertyPath: m_Layer
+      value: 9
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8edbe64092ac0d44384282ed78031d1b, type: 2}
   m_RootGameObject: {fileID: 176025583}
@@ -1176,12 +1194,28 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
       propertyPath: boundary.xMin
-      value: -12
+      value: -120
       objectReference: {fileID: 0}
     - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
       propertyPath: boundary.xMax
-      value: 12
+      value: -15
       objectReference: {fileID: 0}
+    - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
+      propertyPath: gos.Array.data[0]
+      value: 
+      objectReference: {fileID: 141634, guid: 6be62ef5ede52074e94954f3a0f0656c, type: 2}
+    - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
+      propertyPath: gos.Array.data[1]
+      value: 
+      objectReference: {fileID: 150612, guid: af42bfc8868cb8e4aaa98e16bb6cb742, type: 2}
+    - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
+      propertyPath: gos.Array.data[2]
+      value: 
+      objectReference: {fileID: 101968, guid: 619ec6d5ce99ed946aaa1010bac02aae, type: 2}
+    - target: {fileID: 11470054, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
+      propertyPath: gos.Array.data[3]
+      value: 
+      objectReference: {fileID: 174886, guid: c16c5bef0959abc45918bdbf4cd70e86, type: 2}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a993687e7b71d5146b866788b5a07dc4, type: 2}
   m_RootGameObject: {fileID: 608726320}
