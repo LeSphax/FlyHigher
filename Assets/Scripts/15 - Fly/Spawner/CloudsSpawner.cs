@@ -6,7 +6,7 @@ public class CloudsSpawner : MonoBehaviour {
 
 	public GameObject[] gos;
 
-	private Boundary boundary;
+	public Boundary boundary;
 	private List <GameObject> gosList;
 	private float moveSpeed = 5f;
 	private float moveDistance;
@@ -15,7 +15,8 @@ public class CloudsSpawner : MonoBehaviour {
 	private float secondsBetweenSpawn = 2f;
 
 	public void Start (){
-		boundary = GameManager.instance.boundaries;
+		if (GameManager.instance != null)
+			boundary = GameManager.instance.boundaries;
 		transform.position = new Vector3( boundary.xMax + 2, 0, 0);
 		moveDistance = boundary.yDistance () - 2;
 		gosList = new List<GameObject> ();

@@ -78,7 +78,7 @@ public class GameManager : MonoBehaviour {
 		} else if (playerHitPoints > 0) {
 			gamesUI.BroadcastMessage("GameEnded", 1);
 		} else {
-			gamesUI.BroadcastMessage("GameEnded", 0);
+			gamesUI.BroadcastMessage("GameEnded");
 		}
 	}
 }
