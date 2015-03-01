@@ -7,12 +7,11 @@ public class ScoreStarScript : MonoBehaviour
 
 		public Sprite starFull;
 		public Sprite starEmpty;
-        public GameData gameData;
+        GameData gameData;
 
         void Awake()
         {
             gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-
         }
         
 
