@@ -1362,7 +1362,6 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   starFull: {fileID: 21300000, guid: 2b018fca23f8c004d9d618cc483b1018, type: 3}
   starEmpty: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
-  gameData: {fileID: 0}
 --- !u!1 &557055939
 GameObject:
   m_ObjectHideFlags: 0
@@ -3973,6 +3972,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildings:
+  - maxStars: 9
+    name: Laboratory
+  - maxStars: 9
+    name: Hangar
+  - maxStars: 9
+    name: ControlTower
 --- !u!4 &1650365943
 Transform:
   m_ObjectHideFlags: 0
@@ -4389,6 +4395,7 @@ MonoBehaviour:
   height: 3
   width: 3
   mixingTime: 4
+  numberStars: 3
   gamesUI: {fileID: 327880607}
   swapAudio: {fileID: 8300000, guid: c3a7ac6e7b9ca9147b5cdcaa249b83a9, type: 3}
 --- !u!1 &1907740925

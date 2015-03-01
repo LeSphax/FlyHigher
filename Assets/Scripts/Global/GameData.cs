@@ -30,8 +30,10 @@ public class GameData : MonoBehaviour
         else { Destroy(gameObject); }
     }
 
-    public void initBuildings(){
-        foreach(BuildingData bd in buildings){
+    public void initBuildings()
+    {
+        foreach (BuildingData bd in buildings)
+        {
             buildingDictionary.Add(bd.name, bd);
         }
     }
@@ -44,9 +46,13 @@ public class GameData : MonoBehaviour
     public void AddScore(int numberStars)
     {
         string sceneName = Application.loadedLevelName;
-        if (!sceneDictionary.ContainsKey(sceneName) || sceneDictionary[sceneName].numberStars < numberStars)
+        if (!sceneDictionary.ContainsKey(sceneName))
         {
             sceneDictionary.Add(sceneName, new SceneData(numberStars));
+        }
+        else if (sceneDictionary[sceneName].numberStars < numberStars)
+        {
+            sceneDictionary[sceneName] = new SceneData(numberStars);
         }
 
     }
@@ -66,7 +72,7 @@ public class GameData : MonoBehaviour
         int sum = 0;
         foreach (string s in sceneDictionary.Keys)
         {
-            string firstWord="";
+            string firstWord = "";
             int index = s.IndexOf(' ');
             if (index != -1)
             {
@@ -82,12 +88,13 @@ public class GameData : MonoBehaviour
 
     void OnGUI()
     {
-        if (GUI.Button(new Rect(10, 250, 100, 50),"Reset")){
+        if (GUI.Button(new Rect(10, 250, 100, 50), "Reset"))
+        {
             Reset();
         }
-       GUI.Label(new Rect(10, 100, 100, 50), "Laboratory:" + GetBuildingCurrentStars("Laboratory"));
-       GUI.Label(new Rect(10, 150, 100, 50), "Hangar:" + GetBuildingCurrentStars("Hangar"));
-       GUI.Label(new Rect(10, 200, 100, 50), "ControlTower:" + GetBuildingCurrentStars("ControlTower"));
+        GUI.Label(new Rect(10, 100, 100, 50), "Laboratory:" + GetBuildingCurrentStars("Laboratory"));
+        GUI.Label(new Rect(10, 150, 100, 50), "Hangar:" + GetBuildingCurrentStars("Hangar"));
+        GUI.Label(new Rect(10, 200, 100, 50), "ControlTower:" + GetBuildingCurrentStars("ControlTower"));
     }
 
     void OnDisable()
