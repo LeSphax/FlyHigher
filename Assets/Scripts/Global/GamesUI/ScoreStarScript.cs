@@ -5,38 +5,42 @@ using System.Collections;
 public class ScoreStarScript : MonoBehaviour
 {
 
-		public Sprite starFull;
-		public Sprite starEmpty;
-        public GameData gameData;
+    public Sprite starFull;
+    public Sprite starEmpty;
+    GameData gameData;
 
-        void Awake()
+    void Awake()
+    {
+        gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
+    }
+
+
+
+    public void ShowStars(int numberStars)
+    {
+        Image[] stars = GetComponentsInChildren<Image>();
+        switch (numberStars)
         {
-            gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-
+            case 0:
+                stars[0].sprite = starEmpty;
+                stars[1].sprite = starEmpty;
+                stars[2].sprite = starEmpty;
+                break;
+            case 1:
+                stars[0].sprite = starFull;
+                stars[1].sprite = starEmpty;
+                stars[2].sprite = starEmpty;
+                break;
+            case 2:
+                stars[0].sprite = starFull;
+                stars[1].sprite = starFull;
+                stars[2].sprite = starEmpty;
+                break;
+            case 3:
+                stars[0].sprite = starFull;
+                stars[1].sprite = starFull;
+                stars[2].sprite = starFull;
+                break;
         }
-        
-
-
-		public void ShowStars ()
-		{
-                int numberStars = gameData.GetSceneData(Application.loadedLevelName).numberStars;
-				Image[] stars = GetComponentsInChildren<Image> ();
-				switch (numberStars) {
-				case 1:
-						stars [0].sprite = starFull;
-						stars [1].sprite = starEmpty;
-						stars [2].sprite = starEmpty;
-						break;
-				case 2:
-						stars [0].sprite = starFull;
-						stars [1].sprite = starFull;
-						stars [2].sprite = starEmpty;
-						break;
-				case 3:
-						stars [0].sprite = starFull;
-						stars [1].sprite = starFull;
-						stars [2].sprite = starFull;
-						break;
-				}
-		}
+    }
 }

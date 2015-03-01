@@ -29,6 +29,7 @@ namespace AssemblyCSharp
         public int height;
         public int width;
         public int mixingTime;
+        public int numberStars;
         public GameObject gamesUI;
         public AudioClip swapAudio;
 
@@ -212,7 +213,7 @@ namespace AssemblyCSharp
                     if (GameIsWon())
                     {
                         state = State.Inactive;
-                        gamesUI.BroadcastMessage("GameEnded", 2);
+                        gamesUI.BroadcastMessage("GameEnded", numberStars);
                     }
                     break;
                 case State.Inactive:
