@@ -8,11 +8,11 @@ GameObject:
   serializedVersion: 4
   m_Component:
   - 4: {fileID: 418370}
-  - 212: {fileID: 21218370}
   - 60: {fileID: 6018370}
   - 114: {fileID: 11418370}
   - 50: {fileID: 5018370}
   - 111: {fileID: 11161664}
+  - 212: {fileID: 21239682}
   m_Layer: 0
   m_Name: OtherPlane
   m_TagString: OtherPlane
@@ -139,7 +139,8 @@ Animation:
   m_Enabled: 1
   serializedVersion: 3
   m_Animation: {fileID: 7400000, guid: b2f1e100dbd3c1c42b3aed6f79c1317e, type: 2}
-  m_Animations: []
+  m_Animations:
+  - {fileID: 7400000, guid: b2f1e100dbd3c1c42b3aed6f79c1317e, type: 2}
   m_WrapMode: 0
   m_PlayAutomatically: 1
   m_AnimatePhysics: 0
@@ -156,7 +157,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   movementSpeed: 1
---- !u!212 &21218370
+--- !u!212 &21239682
 SpriteRenderer:
   m_ObjectHideFlags: 1
   m_PrefabParentObject: {fileID: 0}
@@ -175,7 +176,7 @@ SpriteRenderer:
   m_LightProbeAnchor: {fileID: 0}
   m_ScaleInLightmap: 1
   m_SortingLayerID: 2163020119
-  m_SortingOrder: 1
+  m_SortingOrder: 0
   m_Sprite: {fileID: 21300000, guid: 7fc1f5488c5177849acc0238d8df18de, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000

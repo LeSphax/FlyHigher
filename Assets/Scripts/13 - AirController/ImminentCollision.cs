@@ -16,11 +16,7 @@ public class ImminentCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "OtherPlane")
         {
-            count++;
-            if (count == 1)
-            {
-                ActivateFlashing();
-            }
+            OtherPlaneEntered();
         }
     }
 
@@ -28,24 +24,26 @@ public class ImminentCollision : MonoBehaviour
     {
         if (other.gameObject.tag == "OtherPlane")
         {
-            count--;
-            if (count == 0)
-            {
-                DesactivateFlashing();
-            }
+            OtherPlaneExited();
         }
     }
 
-    // This way this method can be called using BroadcastMessage
-    void ActivateFlashing()
+    void OtherPlaneEntered()
     {
-        gameUI.BroadcastMessage("ActivateFlashing");
+        count++;
+        if (count == 1)
+        {
+            gameUI.BroadcastMessage("ActivateFlashing");
+        }
     }
 
-    // This way this method can be called using BroadcastMessage
-    void DesactivateFlashing()
+    void OtherPlaneExited()
     {
-        gameUI.BroadcastMessage("DesactivateFlashing");
+        count--;
+        if (count == 0)
+        {
+            gameUI.BroadcastMessage("DesactivateFlashing");
+        }
     }
 
 }

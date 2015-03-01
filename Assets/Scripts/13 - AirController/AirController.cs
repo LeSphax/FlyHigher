@@ -73,7 +73,7 @@ public class AirController : MonoBehaviour
     {        
         if (explosionSound)
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
-        Invoke("StopFlashing", 2);
+        Invoke("OtherPlaneDestroyed", 2);
         numberOfLives--;
         if (numberOfLives <= 0)
         {
@@ -117,9 +117,9 @@ public class AirController : MonoBehaviour
         }
     }
 
-    void StopFlashing()
+    void OtherPlaneDestroyed()
     {
-        gameObject.BroadcastMessage("DesactivateFlashing");
+        gameObject.BroadcastMessage("OtherPlaneExited");
     }
 
 }
