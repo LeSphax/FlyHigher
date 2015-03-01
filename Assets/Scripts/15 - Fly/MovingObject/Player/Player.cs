@@ -14,11 +14,14 @@ public class Player : MovingObject {
 		GameManager.instance.playerHitPoints --;
 		if (CheckIfGameOver()) {
 			animator.SetTrigger ("playerDie");
-			GameManager.instance.GameOver(false);
-
+			Invoke("loadGameOver", 0.3f);
 		} else {
 			animator.SetTrigger ("playerHit");
 		}
+	}
+
+	private void loadGameOver(){
+		GameManager.instance.GameOver();
 	}
 	
 	private bool CheckIfGameOver (){

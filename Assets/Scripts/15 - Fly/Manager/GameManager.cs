@@ -14,7 +14,7 @@ public class Boundary{
 public class GameManager : MonoBehaviour {
 
 	public Boundary boundaries;
-	public int maxHitPoints = 10;
+	[HideInInspector] public int maxHitPoints;
 	[HideInInspector] public int playerHitPoints;
 	public static GameManager instance = null;
 	public float gameDuration;
@@ -29,6 +29,7 @@ public class GameManager : MonoBehaviour {
 	private float startTime;
 
 	[HideInInspector] public EnemiesManager enemiesManager;
+	public GameObject gamesUI;
 
 	// Use this for initialization
 	void Awake () {
@@ -40,27 +41,23 @@ public class GameManager : MonoBehaviour {
 		enemiesManager = GetComponent <EnemiesManager> ();
 		enemiesManager.Init ();
 		startTime = Time.time;
+		maxHitPoints = 12;
 		playerHitPoints = maxHitPoints;
+		hitPointsText.text = "" + playerHitPoints;
 	}
 
 	// Update is called once per frame
 	void Update () {
-		//Debug.Log ("Count: " + enemyManager.GetCount());
 		enemiesManager.SpawnEnemies ();
 		enemiesManager.MoveEnemies ();
 		hitPointsText.text = "" + playerHitPoints;
 		distanceSlider.value = Mathf.Clamp((((Time.time - startTime) * 100) / gameDuration), 0, 100);
 		if (distanceSlider.value >= 100)
-			GameOver (true);
-		if (((float)playerHitPoints / (float)maxHitPoints) < .8f) {
+			GameOver ();
+		if (playerHitPoints < 9) {
 			star3.sprite = emptyStar;
-			if (((float)playerHitPoints / (float)maxHitPoints) < .5f){
+			if (playerHitPoints < 4){
 				star2.sprite = emptyStar;
-				if (((float)playerHitPoints / (float)maxHitPoints) < .2f){
-					star1.sprite = emptyStar;
-				} else {
-					star1.sprite = star;
-				}
 			} else {
 				star1.sprite = star;
 				star2.sprite = star;
@@ -73,11 +70,15 @@ public class GameManager : MonoBehaviour {
 
 	}
 
-	public void GameOver (bool win){
-		if (win) {
-			//TODO wining process;
+	public void GameOver (){
+		if (playerHitPoints > 9) {
+			gamesUI.BroadcastMessage("GameEnded", 3);
+		} else if (playerHitPoints > 4) {
+			gamesUI.BroadcastMessage("GameEnded", 2);
+		} else if (playerHitPoints > 0) {
+			gamesUI.BroadcastMessage("GameEnded", 1);
 		} else {
-			//TODO loosing process;
+			gamesUI.BroadcastMessage("GameEnded", 0);
 		}
 	}
 }

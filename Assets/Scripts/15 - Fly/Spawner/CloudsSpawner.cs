@@ -38,6 +38,12 @@ public class CloudsSpawner : MonoBehaviour {
 		Destroy (obj);
 	}
 
+	public void DestroyAll (){
+		while (gosList.Count > 0) {
+			Destroy (gosList[0]);
+		}
+	}
+
 	public void Update (){
 		for (int i = 0; i < gosList.Count; i++) {
 			GameObject go = gosList[i];

@@ -29,6 +29,14 @@ public class EnemiesManager : MonoBehaviour {
 		}
 	}
 
+	public void DestroyAll(){
+		Destroy (eagleSpawner);
+		Destroy (alienSpawner);
+		while(enemies.Count > 0) {
+			DestroyEnemy(enemies[0]);
+		} 
+	}
+
 	public void SpawnEnemies (){
 		eagleSpawner.GetComponent<EnemySpawner>().SpawnMachine();
 		alienSpawner.GetComponent<EnemySpawner>().SpawnMachine();
