@@ -49,7 +49,8 @@ public class CloudsSpawner : MonoBehaviour {
 		for (int i = 0; i < gosList.Count; i++) {
 			GameObject go = gosList[i];
 			Cloud c = go.GetComponent<Cloud>();
-			if (c.transform.position.x < boundary.xMin - (boundary.xDistance()/2)){
+			if (c.transform.position.x < boundary.xMin - (boundary.xDistance()/2)
+			    || c.transform.position.x > boundary.xMax + (boundary.xDistance()/2)){
 				i--;
 				DestroyObject(go);
 			}
