@@ -54,8 +54,20 @@ public class GameData : MonoBehaviour
         {
             sceneDictionary[sceneName] = new SceneData(numberStars);
         }
-
     }
+
+    public SceneData GetSceneData(string key){
+        if (sceneDictionary.ContainsKey(key))
+        {
+            return sceneDictionary[key];
+        }
+        else
+        {
+            return new SceneData(0);
+        }
+    }
+
+
 
     public SceneData GetSceneData(string sceneName)
     {
