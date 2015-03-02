@@ -11,8 +11,8 @@ public class GameData : MonoBehaviour
     public static GameData control;
     string path;
     string fileName = "playerInfo.dat";
-    public Dictionary<String, SceneData> sceneDictionary;
-    public Dictionary<String, BuildingData> buildingDictionary;
+    private Dictionary<String, SceneData> sceneDictionary;
+    private Dictionary<String, BuildingData> buildingDictionary;
     public BuildingData[] buildings;
 
 
@@ -65,13 +65,6 @@ public class GameData : MonoBehaviour
         {
             return new SceneData(0);
         }
-    }
-
-
-
-    public SceneData GetSceneData(string sceneName)
-    {
-        return sceneDictionary[sceneName];
     }
 
     public BuildingData GetBuildingData(string buildingName)
