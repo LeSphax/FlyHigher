@@ -13,6 +13,7 @@ public class GameData : MonoBehaviour
     string fileName = "playerInfo.dat";
     private Dictionary<String, SceneData> sceneDictionary;
     private Dictionary<String, BuildingData> buildingDictionary;
+    string language { get;  set; }
     public BuildingData[] buildings;
 
 
@@ -20,14 +21,19 @@ public class GameData : MonoBehaviour
     {
         if (control == null)
         {
-            DontDestroyOnLoad(gameObject);
-            path = Application.persistentDataPath + "/" + fileName;
-            sceneDictionary = new Dictionary<string, SceneData>();
-            buildingDictionary = new Dictionary<string, BuildingData>();
+            init();
             control = this;
             initBuildings();
         }
         else { Destroy(gameObject); }
+    }
+
+    void init()
+    {
+        DontDestroyOnLoad(gameObject);
+        path = Application.persistentDataPath + "/" + fileName;
+        sceneDictionary = new Dictionary<string, SceneData>();
+        buildingDictionary = new Dictionary<string, BuildingData>();
     }
 
     public void initBuildings()
@@ -72,6 +78,26 @@ public class GameData : MonoBehaviour
         return buildingDictionary[buildingName];
     }
 
+    public bool AreGamesCompletedInBuilding(string buildingName)
+    {
+        int nbGames = GetBuildingData(buildingName).nbGames;
+        int nbGamesDone = 0;
+        foreach (string s in sceneDictionary.Keys)
+        {
+            string firstWord = "";
+            int index = s.IndexOf(' ');
+            if (index != -1)
+            {
+                firstWord = s.Substring(0, index);
+            }
+            if (firstWord == buildingName && sceneDictionary[s].numberStars>0)
+            {
+                nbGamesDone += 1;
+            }
+        }
+            return nbGamesDone == nbGames;
+    }
+
     public int GetBuildingCurrentStars(string buildingName)
     {
         int sum = 0;
@@ -111,6 +137,7 @@ public class GameData : MonoBehaviour
             PlayerData playerData = new PlayerData();
             playerData.scenesDictionary = sceneDictionary;
             playerData.buildingDictionary = buildingDictionary;
+            playerData.language = language;
             bf.Serialize(file, playerData);
             file.Close();
         }
@@ -125,13 +152,17 @@ public class GameData : MonoBehaviour
             PlayerData playerData = (PlayerData)bf.Deserialize(file);
             sceneDictionary = playerData.scenesDictionary;
             buildingDictionary = playerData.buildingDictionary;
+            language = playerData.language;
         }
     }
+
+
     [Serializable]
     class PlayerData
     {
         public Dictionary<String, SceneData> scenesDictionary;
         public Dictionary<String, BuildingData> buildingDictionary;
+        public string language;
     }
 
     [Serializable]
@@ -147,11 +178,14 @@ public class GameData : MonoBehaviour
     [Serializable]
     public class BuildingData
     {
-        public int maxStars;
+        int maxStars {get; set;}
+        public int nbGames;
+        public int nbStarsRequired;
         public string name;
-        public BuildingData(int stars, string name)
+        public BuildingData(int nbGames, string name)
         {
-            this.maxStars = stars;
+            this.maxStars = 3*nbGames;
+            this.nbGames= nbGames;
             this.name = name;
         }
     }
