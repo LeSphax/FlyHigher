@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
 
@@ -10,6 +10,6 @@ public class InitString : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				GetComponent<Text> ().text = LanguageText.Instance.GetText (idText);
+				GetComponent<Text> ().text = LanguageText.Instance.GetUIText (idText);
 		}
 }

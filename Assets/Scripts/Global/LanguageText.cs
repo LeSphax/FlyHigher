@@ -7,14 +7,24 @@ public class LanguageText : MonoBehaviour
 {
 
 		private static LanguageText instanceLangue;
-		private Dictionary<string,string> dico;
+		private Dictionary<string,string> dicoUITexts;
+		private Dictionary<string, List<string>>dicoHistory;
 
 
 		private LanguageText ()
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
-				SetLanguage ("English");
-				Debug.Log (Application.systemLanguage);
+				SetLanguage ("french");
+			
+				/*
+				foreach (KeyValuePair<string,List<string>> item in dicoHistory) {
+		
+						Debug.Log ("Clef " + item.Key);
+						foreach (string s in item.Value) {
+								Debug.Log ("Value : " + s);
+						}
+				}*/
+
 		}
 
 
@@ -30,13 +40,22 @@ public class LanguageText : MonoBehaviour
 
 
 
-		public string GetText (string id)
+		public string GetUIText (string id)
 		{
-				if (!dico.ContainsKey (id)) {
+				if (!dicoUITexts.ContainsKey (id)) {
 						Debug.LogError ("The specified string does not exist: " + id);
 						return "";
 				}		
-				return dico [id];
+				return dicoUITexts [id];
+		}
+
+		public List<string> GetHistoryTexts (string id)
+		{
+				if (!dicoUITexts.ContainsKey (id)) {
+						Debug.LogError ("The specified string does not exist: " + id);
+						return null;
+				}		
+				return dicoHistory [id];
 		}
 
 
@@ -50,21 +69,33 @@ public class LanguageText : MonoBehaviour
 
 		private void ParseXmlFile (string path, string language)
 		{
+				dicoUITexts = new Dictionary<string,string> ();
+				dicoHistory = new Dictionary<string,List<string>> ();
+
 				XmlDocument xml = new XmlDocument ();
-				/*try {*/
 				xml.Load (path);
-				/*} catch (XmlException e) {
-						Debug.Log ("Error XML file : Parsing error ");
-				}*/
-		
-				dico = new Dictionary<string,string> ();
+	
 				XmlElement elementLanguage = xml.DocumentElement [language]; // The xml element <english> for example
+
 				if (elementLanguage != null) {
-						IEnumerator elemEnum = elementLanguage .GetEnumerator ();
-						while (elemEnum.MoveNext()) {
-								XmlElement xmlItem = (XmlElement)elemEnum.Current;
-								dico.Add (xmlItem.GetAttribute ("id"), xmlItem.InnerText);
-								Debug.Log ("Add " + xmlItem.GetAttribute ("id") + " value " + xmlItem.InnerText);
+					
+						XmlElement elementUITexts = elementLanguage ["uitexts"];
+						if (elementUITexts != null) {
+								foreach (XmlNode nodeUITexts in elementUITexts.ChildNodes) {
+										dicoUITexts.Add (nodeUITexts .Attributes ["id"].Value, nodeUITexts.InnerText);
+								}
+						}
+
+
+						XmlElement elementHistory = elementLanguage ["history"];
+						if (elementHistory != null) {
+								foreach (XmlNode nodeDialog in elementHistory.ChildNodes) {
+										List<string> tmpList = new List<string> ();
+										foreach (XmlNode nodeStringDialog in nodeDialog.ChildNodes) {
+												tmpList.Add (nodeStringDialog.InnerText);
+										}
+										dicoHistory.Add (nodeDialog.Attributes ["id"].Value, tmpList);
+								}
 						}
 				} else {
 						Debug.LogError ("Error XML file : element " + language + " not found");
