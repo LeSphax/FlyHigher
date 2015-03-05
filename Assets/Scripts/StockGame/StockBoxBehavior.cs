@@ -9,7 +9,6 @@ public class StockBoxBehavior : MonoBehaviour
 		void OnTriggerEnter2D (Collider2D other)
 		{	
 				if (other.tag == typeBox) {
-						other.SendMessage ("OnDestroy");
 						Destroy (other.gameObject);
 				}
 		}

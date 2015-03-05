@@ -169,10 +169,6 @@ public class StockInteractionPlayer : MonoBehaviour
 		}
 
 
-		public void OnDestroy ()
-		{
-		}
-
 
 		bool TestHit (Vector2 touchPos)
 		{
