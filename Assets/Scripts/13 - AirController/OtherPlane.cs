@@ -4,11 +4,16 @@ using System.Collections;
 public class OtherPlane : MonoBehaviour
 {
     public int movementSpeed;
+    GameObject NearbyPlaneDetection;
     bool moving;
 
     void OnTriggerEnter2D(Collider2D other)
     {
-        if (other.tag == "PlayerPlane" && moving)
+        if (other.tag == "NearbyPlaneDetection")
+        {
+            NearbyPlaneDetection = other.gameObject;
+        }
+        else if (other.tag == "PlayerPlane" && moving)
         {
             other.gameObject.SendMessage("CollisionWithAirplane");
             Destroy(gameObject);
@@ -18,8 +23,16 @@ public class OtherPlane : MonoBehaviour
 
     void OnTriggerExit2D(Collider2D other)
     {
+        if (other.tag == "NearbyPlaneDetection")
+        {
+            NearbyPlaneDetection = null;
+        }
         if (other.tag == "Radar")
         {
+            if (NearbyPlaneDetection != null)
+            {
+                NearbyPlaneDetection.SendMessage("OtherPlaneExited");
+            }
             Destroy(gameObject);
         }
     }

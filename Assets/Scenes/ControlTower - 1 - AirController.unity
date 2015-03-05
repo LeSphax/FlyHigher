@@ -317,7 +317,7 @@ RectTransform:
 --- !u!114 &443483764
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11478794, guid: a1b386e17b4815241999dd9b99fb1369,
+  m_PrefabParentObject: {fileID: 11417928, guid: a1b386e17b4815241999dd9b99fb1369,
     type: 2}
   m_PrefabInternal: {fileID: 1026695228}
   m_GameObject: {fileID: 443483762}
@@ -369,18 +369,6 @@ MonoBehaviour:
       m_Calls:
       - m_Target: {fileID: 1939141569}
         m_MethodName: PauseButtonPressed
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 443483764}
-        m_MethodName: OnButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -733,7 +721,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1939141570}
+      - m_Target: {fileID: 1939141569}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -1403,6 +1391,13 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildings:
+  - maxStars: 9
+    name: Laboratory
+  - maxStars: 9
+    name: Hangar
+  - maxStars: 9
+    name: ControlTower
 --- !u!4 &960427148
 Transform:
   m_ObjectHideFlags: 0
@@ -1591,7 +1586,7 @@ GameObject:
   - 114: {fileID: 1045157380}
   m_Layer: 0
   m_Name: NearbyPlanesDetection
-  m_TagString: Untagged
+  m_TagString: NearbyPlaneDetection
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -2112,7 +2107,7 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1232089867}
+      - m_Target: {fileID: 1939141569}
         m_MethodName: PauseButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -3164,8 +3159,6 @@ GameObject:
   - 222: {fileID: 1939141568}
   - 114: {fileID: 1939141567}
   - 114: {fileID: 1939141569}
-  - 114: {fileID: 1939141571}
-  - 114: {fileID: 1939141570}
   m_Layer: 5
   m_Name: PauseMenu
   m_TagString: Untagged
@@ -3237,32 +3230,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   pauseMenu: {fileID: 1939141565}
---- !u!114 &1939141570
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11458786, guid: a1b386e17b4815241999dd9b99fb1369,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026695228}
-  m_GameObject: {fileID: 1939141565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1939141565}
---- !u!114 &1939141571
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11416234, guid: a1b386e17b4815241999dd9b99fb1369,
-    type: 2}
-  m_PrefabInternal: {fileID: 1026695228}
-  m_GameObject: {fileID: 1939141565}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: eb2f7b77f8b42544ea9a62c534102a21, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  pauseMenu: {fileID: 1939141565}
+  pauseButton: {fileID: 443483762}
 --- !u!1 &1966393973
 GameObject:
   m_ObjectHideFlags: 0
