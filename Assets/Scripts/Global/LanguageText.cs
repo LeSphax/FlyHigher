@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public class LanguageText : MonoBehaviour
+public class LanguageText 
 {
 
 		private static LanguageText instanceLangue;
@@ -14,7 +14,6 @@ public class LanguageText : MonoBehaviour
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
 				SetLanguage ("English");
-				Debug.Log (Application.systemLanguage);
 		}
 
 
@@ -64,7 +63,6 @@ public class LanguageText : MonoBehaviour
 						while (elemEnum.MoveNext()) {
 								XmlElement xmlItem = (XmlElement)elemEnum.Current;
 								dico.Add (xmlItem.GetAttribute ("id"), xmlItem.InnerText);
-								Debug.Log ("Add " + xmlItem.GetAttribute ("id") + " value " + xmlItem.InnerText);
 						}
 				} else {
 						Debug.LogError ("Error XML file : element " + language + " not found");

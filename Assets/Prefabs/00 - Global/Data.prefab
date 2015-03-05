@@ -9,7 +9,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 427438}
   - 114: {fileID: 11427438}
-  - 114: {fileID: 11449532}
   m_Layer: 0
   m_Name: Data
   m_TagString: GameControl
@@ -42,25 +41,14 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   buildings:
   - nbGames: 3
-    nbStarsRequired: 0
+    nbStarsRequired: 5
     name: Laboratory
   - nbGames: 3
-    nbStarsRequired: 0
+    nbStarsRequired: 5
     name: Hangar
   - nbGames: 3
-    nbStarsRequired: 0
+    nbStarsRequired: 5
     name: ControlTower
---- !u!114 &11449532
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 127438}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1001 &100100000
 Prefab:
   m_ObjectHideFlags: 1
