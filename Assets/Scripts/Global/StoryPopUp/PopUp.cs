@@ -4,9 +4,9 @@ using System.Collections;
 
 public class PopUp : MonoBehaviour {
 
-    IPopUpHandler handler;
+    PopUpHandler handler;
 
-    public void SetText(string text, IPopUpHandler handler)
+    public void SetText(string text, PopUpHandler handler)
     {
         Text myText = GetComponentInChildren<Text>();
         myText.text = text;

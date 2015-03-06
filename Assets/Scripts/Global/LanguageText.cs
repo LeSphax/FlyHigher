@@ -8,14 +8,13 @@ public class LanguageText
 
 		private static LanguageText instanceLangue;
 		private Dictionary<string,string> dicoUITexts;
-		private Dictionary<string, List<string>>dicoHistory;
+		private Dictionary<string, Queue<string>>dicoHistory;
 
 
 		private LanguageText ()
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
-				SetLanguage ("french");
-                Debug.Log(GameObject.FindWithTag("GameControl").GetComponent<GameData>().GetBuildingData("Laboratory").nbGames);
+				SetLanguage ("french");          
 				/*
 				foreach (KeyValuePair<string,List<string>> item in dicoHistory) {
 		
@@ -49,9 +48,9 @@ public class LanguageText
 				return dicoUITexts [id];
 		}
 
-		public List<string> GetHistoryTexts (string id)
+		public Queue<string> GetHistoryTexts (string id)
 		{
-				if (!dicoUITexts.ContainsKey (id)) {
+				if (!dicoHistory.ContainsKey (id)) {
 						Debug.LogError ("The specified string does not exist: " + id);
 						return null;
 				}		
@@ -70,7 +69,7 @@ public class LanguageText
 		private void ParseXmlFile (string path, string language)
 		{
 				dicoUITexts = new Dictionary<string,string> ();
-				dicoHistory = new Dictionary<string,List<string>> ();
+				dicoHistory = new Dictionary<string,Queue<string>> ();
 
 				XmlDocument xml = new XmlDocument ();
 				xml.Load (path);
@@ -90,9 +89,9 @@ public class LanguageText
 						XmlElement elementHistory = elementLanguage ["history"];
 						if (elementHistory != null) {
 								foreach (XmlNode nodeDialog in elementHistory.ChildNodes) {
-										List<string> tmpList = new List<string> ();
+										Queue<string> tmpList = new Queue<string> ();
 										foreach (XmlNode nodeStringDialog in nodeDialog.ChildNodes) {
-												tmpList.Add (nodeStringDialog.InnerText);
+												tmpList.Enqueue (nodeStringDialog.InnerText);
 										}
 										dicoHistory.Add (nodeDialog.Attributes ["id"].Value, tmpList);
 								}
