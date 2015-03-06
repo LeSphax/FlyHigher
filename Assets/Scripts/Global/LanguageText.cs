@@ -15,7 +15,7 @@ public class LanguageText
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
 				SetLanguage ("french");
-			
+                Debug.Log(GameObject.FindWithTag("GameControl").GetComponent<GameData>().GetBuildingData("Laboratory").nbGames);
 				/*
 				foreach (KeyValuePair<string,List<string>> item in dicoHistory) {
 		
