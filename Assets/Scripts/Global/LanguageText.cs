@@ -51,7 +51,7 @@ public class LanguageText : MonoBehaviour
 
 		public List<string> GetHistoryTexts (string id)
 		{
-				if (!dicoUITexts.ContainsKey (id)) {
+				if (!dicoHistory.ContainsKey (id)) {
 						Debug.LogError ("The specified string does not exist: " + id);
 						return null;
 				}		
