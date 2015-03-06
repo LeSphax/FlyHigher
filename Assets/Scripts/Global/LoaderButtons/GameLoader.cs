@@ -11,21 +11,20 @@ public class GameLoader : LoaderButton {
 	public Sprite starEmpty;
 	public Sprite starFull;
 
-	// Use this for initialization
-	public override void Init () {
-		base.Init ();
+	protected override void InitPart (){}
+
+	protected override void LocksPart ()
+	{
+		star1.gameObject.SetActive (false);
+		star2.gameObject.SetActive (false);
+		star3.gameObject.SetActive (false);
 	}
 
-	protected override void LockButton () {
-		base.LockButton ();
-		DisableImage (star1);
-		DisableImage (star2);
-		DisableImage (star3);
-	}
-
-	protected override void UnlockButton() {
-		base.UnlockButton ();
-		ResizePanel (120, 75);
+	protected override void UnlocksPart ()
+	{
+		star1.gameObject.SetActive (true);
+		star2.gameObject.SetActive (true);
+		star3.gameObject.SetActive (true);
 		SetStarImages ();
 	}
 

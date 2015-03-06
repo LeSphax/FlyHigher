@@ -20,49 +20,27 @@ public class MapManager : MonoBehaviour {
 	private SceneLoaderButton hangarSLB;
 	private SceneLoaderButton controlTowerSLB;
 
+	private GameData gameData;
+
 	// Use this for initialization
-	void Start () {
+	void Awake () {
+		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
+		Debug.Log (gameData.GetBuildingData ("Laboratory").nbGames);
 		laboSLB = laboratoryLoader.GetComponent<SceneLoaderButton> ();
 		hangarSLB = hangarLoader.GetComponent<SceneLoaderButton> ();
 		controlTowerSLB = controlTowerLoader.GetComponent<SceneLoaderButton> ();
 
-		SetLocks ();
-
-		laboSLB.Init ();
-		hangarSLB.Init ();
-		controlTowerSLB.Init ();
-	}
-	
-	private void SetLocks (){
-		//TODO 
-		GameData gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-		string l = laboSLB.GetComponent<buttonLoadScene> ().sceneToLoad;
-		if (gameData != null && l != null) {
-			//if (gameData.GetBuildingData(l).gameFinished <  gameData.GetBuildingData(l).gameNb){
-				hangarSLB.isLocked = true;
-				hangarImage.sprite = hangarLocked;
-				controlTowerSLB.isLocked = true;
-				controlTowerImage.sprite = controlTowerLocked;
-			/*} else {
-				hangarSLB.isLocked = false;
-				hangarImage.sprite = hangarUnlocked;
-				string h = hangarSLB.GetComponent<buttonLoadScene> ().sceneToLoad;
-				if (h != null){
-					if (gameData.GetBuildingData(h).gameFinished <  gameData.GetBuildingData(l).gameNb){
-						controlTowerSLB.isLocked = true;
-						controlTowerImage.sprite = controlTowerLocked;
-					} else {
-						controlTowerSLB.isLocked = true;
-						controlTowerImage.sprite = controlTowerUnlocked;
-					}
-				
-				}
-			}*/
-		}
-		if (true){
-			
+		if (gameData.AreGamesCompletedInBuilding("Laboratory")){
+			hangarSLB.Init(gameData, false);
+			if (gameData.AreGamesCompletedInBuilding("Hangar")){
+				controlTowerSLB.Init(gameData, false);	
+			} else {
+				controlTowerSLB.Init(gameData, true);			
+			}
 		} else {
-		
+			hangarSLB.Init(gameData, true);
+			controlTowerSLB.Init(gameData, true);
 		}
+		laboSLB.Init (gameData, false);
 	}
 }

@@ -12,12 +12,43 @@ public class SceneLoaderButton : LoaderButton {
 	public Sprite starTwoThird;
 	public Sprite starFull;
 
-	// Use this for initialization
-	public override void Init () {
-		base.Init ();
+	protected int starsMaxNb;
+
+	protected override void InitPart ()
+	{
+		this.starsMaxNb = gameData.GetBuildingData (name).nbGames * 3;
 	}
 
-	protected override void LockButton () {
+	protected override void LocksPart ()
+	{
+		starImage.gameObject.SetActive (false);
+		starText.gameObject.SetActive (false);
+	}
+
+	protected override void UnlocksPart ()
+	{
+		starImage.gameObject.SetActive (true);
+		starText.gameObject.SetActive (true);
+	}
+
+	private void SetStarText(){
+		starText.text = starsNb.ToString() + "/" + starsMaxNb.ToString();
+	}
+	
+	private void SetStarImage(){
+		float percent = (float)starsNb / (float)starsMaxNb;
+		if (percent == 1f) {
+			starImage.sprite = starFull;
+		} else if (percent >= 0.66f) {
+			starImage.sprite = starTwoThird;
+		} else if (percent >= 0.33f) {
+			starImage.sprite = starOnThird;
+		} else {
+			starImage.sprite = starEmpty;
+		}
+	}
+
+	/*protected override void LockButton () {
 		base.LockButton ();
 		starText.text = "";
 		DisableImage (starImage);
@@ -31,20 +62,5 @@ public class SceneLoaderButton : LoaderButton {
 		ResizePanel (120, 75);
 	}
 
-	private void SetStarText(){
-		starText.text = starsNb.ToString() + "/" + starsMax.ToString();
-	}
-
-	private void SetStarImage(){
-		float percent = (float)starsNb / (float)starsMax;
-		if (percent == 1f) {
-			starImage.sprite = starFull;
-		} else if (percent >= 0.66f) {
-			starImage.sprite = starTwoThird;
-		} else if (percent >= 0.33f) {
-			starImage.sprite = starOnThird;
-		} else {
-			starImage.sprite = starEmpty;
-		}
-	}
+	 */
 }
