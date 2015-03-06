@@ -16,10 +16,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 		public List <BoxAndItem> boxItems; // Association box et items .
 		public Vector3[] spawnPositionsItems;
 		public List<Vector3> spawnPositionsBox ;
-		public GameObject carpet;
-		public GameObject gamesUI;
-
-
+		
 
 		public int itemCount;
 		public float spawnWait;
@@ -27,8 +24,6 @@ public class StockSpawnControllerScript : MonoBehaviour
 		public float waveWait;
 		public int nbWavesMax;
 
-
-		public static int nbItemMissed = 0;
 
 		private List<GameObject> itemSpawnnable = new List<GameObject> (); // Liste des différents types d'items qui peuvent actuellement apparaitre
 
@@ -40,10 +35,8 @@ public class StockSpawnControllerScript : MonoBehaviour
 		// Use this for initialization
 		void Start ()
 		{
-				nbItemMissed = 0;
 				currentWave = 0;
-				speed = 2f;
-				SpawnCarpet ();
+				speed = 2;
 				SpawnBox ();
 				SpawnBox ();
 				StartCoroutine (SpawnWaves ());
@@ -56,7 +49,10 @@ public class StockSpawnControllerScript : MonoBehaviour
 				yield return new WaitForSeconds (startWait);
 				while (currentWave < nbWavesMax) {
 						for (int i = 0; i < itemCount; i++) {
+								//Quaternion spawnRotation = Quaternion.identity;
+								//GameObject item = ;
 								Instantiate (itemSpawnnable [Random.Range (0, itemSpawnnable.Count)], spawnPositionsItems [Random.Range (0, spawnPositionsItems.Length)], Quaternion.identity);
+						
 								yield return new WaitForSeconds (spawnWait);
 						}
 	
@@ -67,13 +63,12 @@ public class StockSpawnControllerScript : MonoBehaviour
 						//waveWait -= 0.5f;
 						currentWave++;
 						if (currentWave == 1) {
-								speed += 1f;
 								SpawnBox ();
 						}
 
 						if (currentWave == 2) {
 								SpawnBox ();
-								speed += 2f;
+								speed += 1.5f;
 						}
 
 						foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>()) {
@@ -84,13 +79,12 @@ public class StockSpawnControllerScript : MonoBehaviour
 				}
 				bool notEnd = true;
 				while (notEnd) {
-						yield return new WaitForSeconds (1);
 						notEnd = false;
 						foreach (GameObject obj in GameObject.FindObjectsOfType<GameObject>()) {
 								if (obj.layer == LayerMask.NameToLayer ("Pickable")) {
 										notEnd = true;
 								}
-						}					
+						}
 				}
 				EndGame ();
 	
@@ -117,29 +111,9 @@ public class StockSpawnControllerScript : MonoBehaviour
 				boxItems.Remove (boxItemsToSpawn);
 		}
 
-		private void SpawnCarpet ()
-		{
-				for (int i =0; i < spawnPositionsItems.Length; i++) {
-						Vector3 offset = new Vector3 (0, -0.5f, 0) - spawnPositionsItems [i];
-						Instantiate (carpet, spawnPositionsItems [i] + offset, Quaternion.identity);
-				}
-		}
-
 		private void EndGame ()
 		{
-				gamesUI.BroadcastMessage ("GameEnded", calculNumberStar ());
-		}
 
-		private int calculNumberStar ()
-		{
-				if (nbItemMissed < 3) {
-						return 3;
-				} else if (nbItemMissed < 11) {
-						return 2;
-				} else if (nbItemMissed < 26) {
-						return 1;
-				} else {
-						return 0;
-				}
+				Debug.Log ("GameEnd");
 		}
 }
