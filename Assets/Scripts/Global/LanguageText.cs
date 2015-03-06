@@ -14,7 +14,7 @@ public class LanguageText : MonoBehaviour
 		private LanguageText ()
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
-				SetLanguage ("french");
+				SetLanguage ("english");
 			
 				/*
 				foreach (KeyValuePair<string,List<string>> item in dicoHistory) {
