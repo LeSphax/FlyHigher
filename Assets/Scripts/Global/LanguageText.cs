@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public class LanguageText : MonoBehaviour
+public class LanguageText
 {
 
 		private static LanguageText instanceLangue;

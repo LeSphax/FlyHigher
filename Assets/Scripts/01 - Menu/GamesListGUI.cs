@@ -34,7 +34,6 @@ public class GamesListGUI : MonoBehaviour
 		private Vector4 posCcpt;
 		private Vector4 posAchv;
 		private Vector4 posSett;
-		Vector2 scrollPosition = Vector2.zero;
 
 		public const int StateMain = 0;
 
