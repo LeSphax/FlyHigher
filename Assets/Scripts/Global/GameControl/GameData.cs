@@ -22,8 +22,8 @@ public class GameData : MonoBehaviour
         if (control == null)
         {
             init();
-            control = this;
             initBuildings();
+            control = this;
         }
         else { Destroy(gameObject); }
     }
