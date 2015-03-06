@@ -75,7 +75,14 @@ public class GameData : MonoBehaviour
 
     public BuildingData GetBuildingData(string buildingName)
     {
-        return buildingDictionary[buildingName];
+        if (buildingDictionary.ContainsKey(buildingName))
+        {
+            return buildingDictionary[buildingName];
+        }
+        else
+        {
+            return null;
+        }
     }
 
     public bool AreGamesCompletedInBuilding(string buildingName)

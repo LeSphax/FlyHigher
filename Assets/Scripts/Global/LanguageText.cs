@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public class LanguageText
+public class LanguageText 
 {
 
 		private static LanguageText instanceLangue;

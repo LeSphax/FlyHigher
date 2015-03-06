@@ -18,6 +18,7 @@ public class PaintMain : MonoBehaviour {
 
 	private int positionFromTop;
 	private int dialogueState;
+	private bool isClicked;
 	public GUIStyle m_MyStyle;
 
 	private Texture2D myTexture;
@@ -95,6 +96,7 @@ public class PaintMain : MonoBehaviour {
 		rgb [2] = 0;
 		myTexture = new Texture2D (100, 100);
 		setColor();
+		isClicked = false;
 
 		myTextureResult = new Texture2D (100, 100);
 		rgbResult = new float[3];
@@ -147,7 +149,7 @@ public class PaintMain : MonoBehaviour {
 		Color[] colorTab = myTexture.GetPixels ();
 		for(var i = 0; i < colorTab.Length; i++)
 		{
-            colorTab[i] = myColor;
+			colorTab[i] = new Color(rgb[0],rgb[1],rgb[2]);
 		}
 		myTexture.SetPixels (colorTab);
 		myTexture.Apply ();
