@@ -3,7 +3,7 @@ using System.Collections;
 using System.Collections.Generic;
 using System.Xml;
 
-public class LanguageText : MonoBehaviour
+public class LanguageText 
 {
 
 		private static LanguageText instanceLangue;
@@ -15,7 +15,7 @@ public class LanguageText : MonoBehaviour
 		{
 				string defaultLanguage = Application.systemLanguage.ToString ();
 				SetLanguage ("french");
-			
+                Debug.Log(GameObject.FindWithTag("GameControl").GetComponent<GameData>().GetBuildingData("Laboratory").nbGames);
 				/*
 				foreach (KeyValuePair<string,List<string>> item in dicoHistory) {
 		
