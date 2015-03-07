@@ -5,11 +5,17 @@ using System.Collections.Generic;
 public class CircuitGameManager : MonoBehaviour {
 
 	public GameObject board;
+	public GameObject levelLoader;
 
 	// Use this for initialization
 	void Start () {
-		
+
+	}
+
+	public void Init (int lvl) {
 		Level l = board.GetComponent<Level> ();
-		l.LevelLoader (1);
+		l.LevelLoader (lvl);
+		levelLoader.SetActive (false);
+		
 	}
 }

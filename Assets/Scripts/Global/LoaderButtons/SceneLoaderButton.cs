@@ -16,7 +16,8 @@ public class SceneLoaderButton : LoaderButton {
 
 	protected override void InitPart ()
 	{
-		this.starsMaxNb = gameData.GetBuildingData (name).nbGames * 3;
+		this.starsNb = gameData.GetBuildingCurrentStars (sceneName);
+		this.starsMaxNb = gameData.GetBuildingData (sceneName).nbGames * 3;
 	}
 
 	protected override void LocksPart ()
@@ -29,6 +30,8 @@ public class SceneLoaderButton : LoaderButton {
 	{
 		starImage.gameObject.SetActive (true);
 		starText.gameObject.SetActive (true);
+		SetStarText ();
+		SetStarImage ();
 	}
 
 	private void SetStarText(){
@@ -47,20 +50,4 @@ public class SceneLoaderButton : LoaderButton {
 			starImage.sprite = starEmpty;
 		}
 	}
-
-	/*protected override void LockButton () {
-		base.LockButton ();
-		starText.text = "";
-		DisableImage (starImage);
-	}
-
-	protected override void UnlockButton ()
-	{
-		base.UnlockButton ();
-		SetStarText ();
-		SetStarImage ();
-		ResizePanel (120, 75);
-	}
-
-	 */
 }

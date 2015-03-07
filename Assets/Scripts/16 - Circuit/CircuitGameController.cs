@@ -21,6 +21,7 @@ public class CircuitGameController : MonoBehaviour {
 			//Store the first touch detected.
 			Touch myTouch = Input.touches[0];
 
+			Vector3 v3 = mainCamera.ScreenToWorldPoint(myTouch.position);
 			//Check if the phase of that touch equals Began
 			if (myTouch.phase == TouchPhase.Began)
 			{
@@ -71,7 +72,6 @@ public class CircuitGameController : MonoBehaviour {
 				} else if (vertical == -1) {
 					debugText.text = "DOWN";
 				}
-			Vector3 v3 = mainCamera.ScreenToViewportPoint(myTouch.position);
 			debugText.text += ": " + v3.x + ", " + v3.y;
 
 		}
