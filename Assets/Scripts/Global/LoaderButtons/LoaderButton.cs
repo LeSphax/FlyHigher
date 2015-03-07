@@ -11,8 +11,9 @@ public abstract class LoaderButton: MonoBehaviour {
 	public Image lockImage;
 	public Image borderImage;
 
+	[HideInInspector] public int starsNb;
+
 	protected GameData gameData;
-	protected int starsNb;
 	protected string sceneName;
 
 	private bool isLocked;
