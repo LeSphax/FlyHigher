@@ -423,6 +423,7 @@ MonoBehaviour:
   titleText: {fileID: 1426923128}
   lockImage: {fileID: 1100581201}
   borderImage: {fileID: 1207226592}
+  starsNb: 0
   starImage: {fileID: 36723049}
   starText: {fileID: 1069596202}
   starEmpty: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
@@ -534,7 +535,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 440451608}
   - 114: {fileID: 440451607}
-  - 114: {fileID: 440451609}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: GameControl
@@ -576,18 +576,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 1
---- !u!114 &440451609
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11449532, guid: 4451ab8e294808d43b4e3204b62f25f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 798074228}
-  m_GameObject: {fileID: 440451606}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &500840995
 GameObject:
   m_ObjectHideFlags: 0
@@ -930,18 +918,6 @@ Prefab:
     - target: {fileID: 427438, guid: 4451ab8e294808d43b4e3204b62f25f5, type: 2}
       propertyPath: m_RootOrder
       value: 1
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427438, guid: 4451ab8e294808d43b4e3204b62f25f5, type: 2}
-      propertyPath: buildings.Array.data[0].nbStarsRequired
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427438, guid: 4451ab8e294808d43b4e3204b62f25f5, type: 2}
-      propertyPath: buildings.Array.data[2].nbStarsRequired
-      value: 5
-      objectReference: {fileID: 0}
-    - target: {fileID: 11427438, guid: 4451ab8e294808d43b4e3204b62f25f5, type: 2}
-      propertyPath: buildings.Array.data[1].nbStarsRequired
-      value: 5
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 4451ab8e294808d43b4e3204b62f25f5, type: 2}
@@ -1482,6 +1458,7 @@ MonoBehaviour:
   titleText: {fileID: 879086270}
   lockImage: {fileID: 124792925}
   borderImage: {fileID: 1112301570}
+  starsNb: 0
   starImage: {fileID: 932869540}
   starText: {fileID: 593323331}
   starEmpty: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
@@ -2538,6 +2515,7 @@ MonoBehaviour:
   titleText: {fileID: 209178138}
   lockImage: {fileID: 631923095}
   borderImage: {fileID: 1886872197}
+  starsNb: 0
   starImage: {fileID: 2075337193}
   starText: {fileID: 977555953}
   starEmpty: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
