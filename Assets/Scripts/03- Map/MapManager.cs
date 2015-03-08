@@ -25,7 +25,6 @@ public class MapManager : MonoBehaviour {
 	// Use this for initialization
 	void Awake () {
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-		Debug.Log (gameData.GetBuildingData ("Laboratory").nbGames);
 		laboSLB = laboratoryLoader.GetComponent<SceneLoaderButton> ();
 		hangarSLB = hangarLoader.GetComponent<SceneLoaderButton> ();
 		controlTowerSLB = controlTowerLoader.GetComponent<SceneLoaderButton> ();
