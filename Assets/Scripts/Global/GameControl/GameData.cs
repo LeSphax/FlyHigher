@@ -8,122 +8,108 @@ using System.Collections.Generic;
 public class GameData : MonoBehaviour
 {
 
-    public static GameData control;
-    string path;
-    string fileName = "playerInfo.dat";
-    private Dictionary<String, SceneData> sceneDictionary;
-    private Dictionary<String, BuildingData> buildingDictionary;
-    string language { get;  set; }
-    public BuildingData[] buildings;
+	public static GameData control;
+	string path;
+	string fileName = "playerInfo.dat";
+	private Dictionary<String, SceneData> sceneDictionary;
+	private Dictionary<String, BuildingData> buildingDictionary;
+	string language { get; set; }
+	public BuildingData[] buildings;
 
 
-    void Awake()
-    {
-        if (control == null)
-        {
-            init();
-            control = this;
-            initBuildings();
-        }
-        else { Destroy(gameObject); }
-    }
+	void Awake ()
+	{
+		if (control == null) {
+			init ();
+			control = this;
+			initBuildings ();
+		} else {
+			Destroy (gameObject);
+		}
+	}
 
-    void init()
-    {
-        DontDestroyOnLoad(gameObject);
-        path = Application.persistentDataPath + "/" + fileName;
-        sceneDictionary = new Dictionary<string, SceneData>();
-        buildingDictionary = new Dictionary<string, BuildingData>();
-    }
+	void init ()
+	{
+		DontDestroyOnLoad (gameObject);
+		path = Application.persistentDataPath + "/" + fileName;
+		sceneDictionary = new Dictionary<string, SceneData> ();
+		buildingDictionary = new Dictionary<string, BuildingData> ();
+	}
 
-    public void initBuildings()
-    {
-        foreach (BuildingData bd in buildings)
-        {
-            buildingDictionary.Add(bd.name, bd);
-        }
-    }
+	public void initBuildings ()
+	{
+		foreach (BuildingData bd in buildings) {
+			buildingDictionary.Add (bd.name, bd);
+		}
+	}
 
-    public void Reset()
-    {
-        sceneDictionary = new Dictionary<string, SceneData>();
-    }
+	public void Reset ()
+	{
+		sceneDictionary = new Dictionary<string, SceneData> ();
+	}
 
-    public void AddScore(int numberStars)
-    {
-        string sceneName = Application.loadedLevelName;
-        if (!sceneDictionary.ContainsKey(sceneName))
-        {
-            sceneDictionary.Add(sceneName, new SceneData(numberStars));
-        }
-        else if (sceneDictionary[sceneName].numberStars < numberStars)
-        {
-            sceneDictionary[sceneName] = new SceneData(numberStars);
-        }
-    }
+	public void AddScore (int numberStars)
+	{
+		string sceneName = Application.loadedLevelName;
+		if (!sceneDictionary.ContainsKey (sceneName)) {
+			sceneDictionary.Add (sceneName, new SceneData (numberStars));
+		} else if (sceneDictionary [sceneName].numberStars < numberStars) {
+			sceneDictionary [sceneName] = new SceneData (numberStars);
+		}
+	}
 
-    public SceneData GetSceneData(string key){
-        if (sceneDictionary.ContainsKey(key))
-        {
-            return sceneDictionary[key];
-        }
-        else
-        {
-            return new SceneData(0);
-        }
-    }
+	public SceneData GetSceneData (string key)
+	{
+		if (sceneDictionary.ContainsKey (key)) {
+			return sceneDictionary [key];
+		} else {
+			return new SceneData (0);
+		}
+	}
 
-    public BuildingData GetBuildingData(string buildingName)
-    {
-        if (buildingDictionary.ContainsKey(buildingName))
-        {
-            return buildingDictionary[buildingName];
-        }
-        else
-        {
-            return null;
-        }
-    }
+	public BuildingData GetBuildingData (string buildingName)
+	{
+		if (buildingDictionary.ContainsKey (buildingName)) {
+			return buildingDictionary [buildingName];
+		} else {
+			return null;
+		}
+	}
 
-    public bool AreGamesCompletedInBuilding(string buildingName)
-    {
-        int nbGames = GetBuildingData(buildingName).nbGames;
-        int nbGamesDone = 0;
-        foreach (string s in sceneDictionary.Keys)
-        {
-            string firstWord = "";
-            int index = s.IndexOf(' ');
-            if (index != -1)
-            {
-                firstWord = s.Substring(0, index);
-            }
-            if (firstWord == buildingName && sceneDictionary[s].numberStars>0)
-            {
-                nbGamesDone += 1;
-            }
-        }
-            return nbGamesDone == nbGames;
-    }
+	public bool AreGamesCompletedInBuilding (string buildingName)
+	{
+		int nbGames = GetBuildingData (buildingName).nbGames;
+		int nbGamesDone = 0;
+		foreach (string s in sceneDictionary.Keys) {
+			string firstWord = "";
+			int index = s.IndexOf (' ');
+			if (index != -1) {
+				firstWord = s.Substring (0, index);
+			}
+			if (firstWord == buildingName && sceneDictionary [s].numberStars > 0) {
+				nbGamesDone += 1;
+			}
+		}
+		return nbGamesDone == nbGames;
+	}
 
-    public int GetBuildingCurrentStars(string buildingName)
-    {
-        int sum = 0;
-        foreach (string s in sceneDictionary.Keys)
-        {
-            string firstWord = "";
-            int index = s.IndexOf(' ');
-            if (index != -1)
-            {
-                firstWord = s.Substring(0, index);
-            }
-            if (firstWord == buildingName)
-            {
-                sum += sceneDictionary[s].numberStars;
-            }
-        }
-        return sum;
-    }
+	public int GetBuildingCurrentStars (string buildingName)
+	{
+		int sum = 0;
+		foreach (string s in sceneDictionary.Keys) {
+			string firstWord = "";
+			int index = s.IndexOf (' ');
+			if (index != -1) {
+				firstWord = s.Substring (0, index);
+			}
+			if (firstWord == buildingName) {
+				sum += sceneDictionary [s].numberStars;
+			}
+		}
+		return sum;
+	}
 
+	/*
     void OnGUI()
     {
         if (GUI.Button(new Rect(10, 250, 100, 50), "Reset"))
@@ -133,67 +119,65 @@ public class GameData : MonoBehaviour
         GUI.Label(new Rect(10, 100, 100, 50), "Laboratory:" + GetBuildingCurrentStars("Laboratory"));
         GUI.Label(new Rect(10, 150, 100, 50), "Hangar:" + GetBuildingCurrentStars("Hangar"));
         GUI.Label(new Rect(10, 200, 100, 50), "ControlTower:" + GetBuildingCurrentStars("ControlTower"));
-    }
+    }*/
 
-    void OnDisable()
-    {
-        if (path != null)
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Create(path);
-            PlayerData playerData = new PlayerData();
-            playerData.scenesDictionary = sceneDictionary;
-            playerData.buildingDictionary = buildingDictionary;
-            playerData.language = language;
-            bf.Serialize(file, playerData);
-            file.Close();
-        }
-    }
+	void OnDisable ()
+	{
+		if (path != null) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Create (path);
+			PlayerData playerData = new PlayerData ();
+			playerData.scenesDictionary = sceneDictionary;
+			playerData.buildingDictionary = buildingDictionary;
+			playerData.language = language;
+			bf.Serialize (file, playerData);
+			file.Close ();
+		}
+	}
 
-    void OnEnable()
-    {
-        if (File.Exists(path))
-        {
-            BinaryFormatter bf = new BinaryFormatter();
-            FileStream file = File.Open(path, FileMode.Open);
-            PlayerData playerData = (PlayerData)bf.Deserialize(file);
-            sceneDictionary = playerData.scenesDictionary;
-            buildingDictionary = playerData.buildingDictionary;
-            language = playerData.language;
-        }
-    }
+	void OnEnable ()
+	{
+		if (File.Exists (path)) {
+			BinaryFormatter bf = new BinaryFormatter ();
+			FileStream file = File.Open (path, FileMode.Open);
+			PlayerData playerData = (PlayerData)bf.Deserialize (file);
+			sceneDictionary = playerData.scenesDictionary;
+			buildingDictionary = playerData.buildingDictionary;
+			language = playerData.language;
+		}
+	}
 
 
-    [Serializable]
-    class PlayerData
-    {
-        public Dictionary<String, SceneData> scenesDictionary;
-        public Dictionary<String, BuildingData> buildingDictionary;
-        public string language;
-    }
+	[Serializable]
+	class PlayerData
+	{
+		public Dictionary<String, SceneData> scenesDictionary;
+		public Dictionary<String, BuildingData> buildingDictionary;
+		public string language;
+	}
 
-    [Serializable]
-    public class SceneData
-    {
-        public int numberStars;
-        public SceneData(int stars)
-        {
-            this.numberStars = stars;
-        }
-    }
+	[Serializable]
+	public class SceneData
+	{
+		public int numberStars;
+		public SceneData (int stars)
+		{
+			this.numberStars = stars;
+		}
+	}
 
-    [Serializable]
-    public class BuildingData
-    {
-        int maxStars {get; set;}
-        public int nbGames;
-        public int nbStarsRequired;
-        public string name;
-        public BuildingData(int nbGames, string name)
-        {
-            this.maxStars = 3*nbGames;
-            this.nbGames= nbGames;
-            this.name = name;
-        }
-    }
+	[Serializable]
+	public class BuildingData
+	{
+		int maxStars { get; set; }
+		public int nbGames;
+		public int nbStarsRequired;
+		public string name;
+		public BuildingData (int nbGames, string name)
+		{
+			this.maxStars = 3 * nbGames;
+			this.nbGames = nbGames;
+			this.name = name;
+		}
+	}
 }
