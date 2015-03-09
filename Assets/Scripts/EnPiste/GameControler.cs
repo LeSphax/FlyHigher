@@ -10,7 +10,8 @@ public class GameControler : MonoBehaviour {
 	private bool gameOver;
 	private GameObject jeu;
 	private bool nouvelleVague;
-
+	public GameObject gameUi;
+	public int nbeLevel;
 
 
 	/*---------------------------------*/
@@ -41,23 +42,34 @@ public class GameControler : MonoBehaviour {
 				//detruire tout les avions
 				waveWait = waveWait * 0.80f;
 				nouvelleVague=false;
-				yield return new WaitForSeconds(3);//attend 3seconde
+				yield return new WaitForSeconds(0);//attend 3seconde
 			}
 		}
 
 	}
 
+	
 	//fonction de fin du jeu
-	public void FinJeu(){
+	public void FinJeu(int vie){
 		gameOver = false;
+		gameUi.SendMessage ("GameEnded", vie);
+		//gameUi.SendMessage ("GameEnded",GameObject.FindWithTag ("Player").GetComponent<DestructionByContact> ().vie);
+		//	DestructionByContact vie=GameObject.FindWithTag ("Player").GetComponent<DestructionByContact> ().vie;
+		//	vie.vie
+		
 	}
-
+	
 	//reinitialise la vague et replace le joueur
 	public  void NouvelleVague(){
 		nouvelleVague = true;
 		destructionAvion();
+		nbeLevel--;
+		if (nbeLevel <= 0) { //fin du jeu 
+			FinJeu(GameObject.FindWithTag ("Player").GetComponent<DestructionByContact> ().vie);
+		}
 
 	}
+
 
 
 

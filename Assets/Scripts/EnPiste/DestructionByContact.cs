@@ -2,11 +2,12 @@
 using System.Collections;
 
 public class DestructionByContact : MonoBehaviour {
-	private int vie=3;
+	public int vie{ get; set;}
 	private GameControler jeu;
 	public GameObject Explosion;
 
 	void Start(){
+		vie = 3;
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			jeu=gameControllerObject.GetComponent<GameControler>();
@@ -37,8 +38,8 @@ public class DestructionByContact : MonoBehaviour {
 			//Destroy (GameObject.FindWithTag("Enemies"));
 
 		}
-		if (vie < 0){;
-			jeu.FinJeu(); //appel la fin du jeu
+		if (vie <= 0){;
+			jeu.FinJeu(vie); //appel la fin du jeu
 			//Destroy (other.gameObject);
 		   //Destroy (gameObject);
 		}
