@@ -7,15 +7,18 @@ public class CircuitGameManager : MonoBehaviour {
 	public GameObject board;
 	public GameObject levelLoader;
 
-	// Use this for initialization
-	void Start () {
-
-	}
+	private int lvlNb;
 
 	public void Init (int lvl) {
+		lvlNb = lvl;
 		Level l = board.GetComponent<Level> ();
 		l.LevelLoader (lvl);
 		levelLoader.SetActive (false);
-		
+	}
+
+	public void LevelEnded (bool finished) {
+		levelLoader.SetActive (true);
+		board.GetComponent<BoardManager> ().ResetBoard ();
+		//TODO notifier au gameData
 	}
 }

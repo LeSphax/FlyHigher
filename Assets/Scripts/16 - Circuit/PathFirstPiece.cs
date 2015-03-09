@@ -4,7 +4,11 @@ using System.Collections;
 
 public class PathFirstPiece : PathPiece {
 
-	public Sprite firstPathPieceSprite;
+	[HideInInspector] public Sprite firstPathPieceSpriteDown;
+	[HideInInspector] public Sprite firstPathPieceSpriteUp;
+	[HideInInspector] public Sprite firstPathPieceSpriteRight;
+	[HideInInspector] public Sprite firstPathPieceSpriteLeft;
+
 	public Direction going;
 
 	public void Init(GameObject board, int xBis, int yBis, Direction g) {
@@ -12,29 +16,19 @@ public class PathFirstPiece : PathPiece {
 		base.Init (board, xBis, yBis);
 	}
 
-	protected override void SetUp (){
-		RectTransform rt = GetComponent <RectTransform> ();
-		Quaternion rotation = rt.localRotation;
+	protected override void SetUp (){}
 
-		if (going == Direction.DOWN) {
-			rotation.z = 0;
-			rt.localRotation = rotation;
-		} else if (going == Direction.UP) {
-			rotation.z = 180;
-			rt.localRotation = rotation;
-		} else if (going == Direction.RIGHT) {
-			rotation.z = 90;
-			rt.localRotation = rotation;
-		} else if (going == Direction.LEFT) {
-			rotation.z = 270;
-			rt.localRotation = rotation;
-		}
-	}
-	
 	public override void Draw (){
 		Image skin = GetComponent<Image> ();
-
-		skin.sprite = firstPathPieceSprite;
+		if (going == Direction.DOWN) {
+			skin.sprite = firstPathPieceSpriteDown;	
+		} else if (going == Direction.UP) {
+			skin.sprite = firstPathPieceSpriteUp;
+		} else if (going == Direction.RIGHT) {
+			skin.sprite = firstPathPieceSpriteRight;
+		} else if (going == Direction.LEFT) {
+			skin.sprite = firstPathPieceSpriteLeft;
+		}
 	}
 
 }

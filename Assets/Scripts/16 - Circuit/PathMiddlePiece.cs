@@ -4,9 +4,16 @@ using UnityEngine.UI;
 
 public class PathMiddlePiece : PathPiece {
 
-	public Sprite halfPathPieceSprite;
-	public Sprite pathPieceSprite;
-	public Sprite anglePieceSprite;
+	[HideInInspector] public Sprite halfPathPieceDownSprite;
+	[HideInInspector] public Sprite halfPathPieceRightSprite;
+	[HideInInspector] public Sprite halfPathPieceUpSprite;
+	[HideInInspector] public Sprite halfPathPieceLeftSprite;
+	[HideInInspector] public Sprite pathPieceDownUpSprite;
+	[HideInInspector] public Sprite pathPieceRightLeftSprite;
+	[HideInInspector] public Sprite anglePieceDownSprite;
+	[HideInInspector] public Sprite anglePieceUpSprite;
+	[HideInInspector] public Sprite anglePieceRightSprite;
+	[HideInInspector] public Sprite anglePieceLeftSprite;
 
 	[HideInInspector] public Direction comming;
 	[HideInInspector] public Direction going;
@@ -17,47 +24,41 @@ public class PathMiddlePiece : PathPiece {
 		base.Init (board, xBis, yBis);
 	}
 
-	protected override void SetUp (){
-		RectTransform rt = GetComponent <RectTransform> ();
-		Quaternion rotation = rt.localRotation;
-		
-		if (((comming == Direction.DOWN) && (going == Direction.RIGHT)) 
-		    || ((comming == Direction.RIGHT) && (going == Direction.DOWN))
-		    || ((comming == Direction.DOWN) && (going == Direction.UP))
-		    || ((comming == Direction.UP) && (going == Direction.DOWN))
-		    || ((comming == Direction.DOWN) && (going == Direction.NONE))) {
-			rotation.z = 0;
-			rt.localRotation = rotation;
-		} else if (((comming == Direction.RIGHT) && (going == Direction.UP)) 
-		    || ((comming == Direction.UP) && (going == Direction.RIGHT))
-		    || ((comming == Direction.RIGHT) && (going == Direction.NONE))) {
-			rotation.z = 180;
-			rt.localRotation = rotation;
-		} else if (((comming == Direction.UP) && (going == Direction.LEFT)) 
-		    || ((comming == Direction.LEFT) && (going == Direction.UP))
-		    || ((comming == Direction.RIGHT) && (going == Direction.LEFT))
-		    || ((comming == Direction.LEFT) && (going == Direction.RIGHT))
-		    || ((comming == Direction.UP) && (going == Direction.NONE))) {
-			rotation.z = 90;
-			rt.localRotation = rotation;
-		} else if (((comming == Direction.LEFT) && (going == Direction.DOWN)) 
-		    || ((comming == Direction.DOWN) && (going == Direction.LEFT))
-		    || ((comming == Direction.LEFT) && (going == Direction.NONE))) {
-			rotation.z = 270;
-			rt.localRotation = rotation;
-		}
-	}
+	protected override void SetUp (){}
 
 	public override void Draw (){
 		Image skin = GetComponent<Image> ();
-		if (going == Direction.NONE) skin.sprite = halfPathPieceSprite;
-		else if (comming == OppositeDirection (going)) skin.sprite = pathPieceSprite;
-		else skin.sprite = anglePieceSprite;
+		if (((comming == Direction.DOWN) && (going == Direction.RIGHT))
+			|| ((comming == Direction.RIGHT) && (going == Direction.DOWN))) {
+			skin.sprite = anglePieceDownSprite;
+		} else if (((comming == Direction.RIGHT) && (going == Direction.UP))
+		    || ((comming == Direction.UP) && (going == Direction.RIGHT))){
+			skin.sprite = anglePieceRightSprite;
+		} else if (((comming == Direction.UP) && (going == Direction.LEFT))
+		    || ((comming == Direction.LEFT) && (going == Direction.UP))){
+			skin.sprite = anglePieceUpSprite;
+		} else if (((comming == Direction.LEFT) && (going == Direction.DOWN))
+		    || ((comming == Direction.DOWN) && (going == Direction.LEFT))){
+			skin.sprite = anglePieceLeftSprite;
+		} else if (((comming == Direction.DOWN) && (going == Direction.UP))
+		    || ((comming == Direction.UP) && (going == Direction.DOWN))){
+			skin.sprite = pathPieceDownUpSprite;
+		} else if (((comming == Direction.LEFT) && (going == Direction.RIGHT))
+		    || ((comming == Direction.RIGHT) && (going == Direction.LEFT))){
+			skin.sprite = pathPieceRightLeftSprite;
+		} else if (((comming == Direction.DOWN) && (going == Direction.NONE))){
+			skin.sprite = halfPathPieceDownSprite;
+		} else if (((comming == Direction.RIGHT) && (going == Direction.NONE))){
+			skin.sprite = halfPathPieceRightSprite;
+		} else if (((comming == Direction.UP) && (going == Direction.NONE))){
+			skin.sprite = halfPathPieceUpSprite;
+		} else if (((comming == Direction.LEFT) && (going == Direction.NONE))){
+			skin.sprite = halfPathPieceLeftSprite;
+		}
 	}
 
 	public void UpdateGoingDirection (Direction g){
 		going = g;
-		SetUp ();
 		Draw ();
 	}
 }
