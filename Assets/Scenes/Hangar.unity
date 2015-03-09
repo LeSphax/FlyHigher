@@ -460,9 +460,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 507691150}
   - 114: {fileID: 507691149}
-  - 114: {fileID: 507691151}
   m_Layer: 0
-  m_Name: Data
+  m_Name: GameControl
   m_TagString: GameControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -480,6 +479,16 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  buildings:
+  - nbGames: 3
+    nbStarsRequired: 5
+    name: Laboratory
+  - nbGames: 3
+    nbStarsRequired: 5
+    name: Hangar
+  - nbGames: 3
+    nbStarsRequired: 5
+    name: ControlTower
 --- !u!4 &507691150
 Transform:
   m_ObjectHideFlags: 0
@@ -492,18 +501,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 4
---- !u!114 &507691151
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11449532, guid: 4451ab8e294808d43b4e3204b62f25f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 615600473}
-  m_GameObject: {fileID: 507691148}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!115 &572148544
 MonoScript:
   m_ObjectHideFlags: 0
@@ -882,6 +879,7 @@ GameObject:
   - 124: {fileID: 1373050762}
   - 81: {fileID: 1373050761}
   - 114: {fileID: 1373050766}
+  - 114: {fileID: 1373050767}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -966,6 +964,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   sceneToLoad: Map
+--- !u!114 &1373050767
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1373050760}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: dda94bc208e8915458303ba6cac3c111, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  idStory: Hangar.Dialog
 --- !u!1 &1432173446
 GameObject:
   m_ObjectHideFlags: 0

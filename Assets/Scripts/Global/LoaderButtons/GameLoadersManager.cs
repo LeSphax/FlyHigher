@@ -11,8 +11,12 @@ public class GameLoadersManager : MonoBehaviour {
 
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 
-		setLocks ();
+		
 	}
+    void Start()
+    {
+        setLocks();
+    }
 
 	public void setLocks(){
 		gamesLoader [0].GetComponent<GameLoaderButton> ().Init (gameData, false);
