@@ -15,20 +15,35 @@ public class Station : Element {
 	public Sprite blackColorSprite;
 	public Sprite blueColorSprite;
 	public Sprite redColorSprite;
-	
+
 	[HideInInspector] public StationColor stationColor;
 	[HideInInspector] public bool isInGame;
 	[HideInInspector] public bool isSelected;
+	[HideInInspector] public bool isBinded;
+	[HideInInspector] public GameObject brotherStation;
+	
+	private GameObject board;
 
-	public void Init(GameObject board, int x, int y, StationColor stationColor){
-		board.GetComponent<BoardManager> ().freeCoordinates.Remove (new Coordinate (x, y));
-		this.stationColor = stationColor;
-		this.isSelected = false;
-		this.isInGame = true;
-		base.Init (board, x, y);
+	public void Init(GameObject board, int x, int y, StationColor sc) {
+		Init (board, new Coordinate (x, y), sc);
 	}
 
+	public void Init(GameObject board, Coordinate c, StationColor sc) {
+		this.board = board;
+		this.stationColor = sc;
+		base.Init (board, c);
+
+	}
+	
 	protected override void SetUp (){
+		BoardManager bm = board.GetComponent<BoardManager> ();
+		bm.RemoveFreePlace (coordinate);
+		bm.stations.Add (gameObject);
+
+		this.isSelected = false;
+		this.isBinded = false;
+		this.isInGame = true;
+
 		RectTransform rt = GetComponent <RectTransform> ();
 		RectTransform cort = color.GetComponent <RectTransform> ();
 
@@ -42,11 +57,13 @@ public class Station : Element {
 		Image skin = GetComponent <Image> ();
 		Image colorSkin = color.GetComponent <Image> ();
 		if (isInGame) {
+
 			if (isSelected) {
-				skin.sprite = selectedStationSprite;	
+				skin.sprite = selectedStationSprite;
 			} else {
 				skin.sprite = stationSprite;
 			}
+			color.SetActive(true);
 			if (stationColor == StationColor.WHITE){
 				colorSkin.sprite = whiteColorSprite;
 			} else if (stationColor == StationColor.BLACK) {
@@ -58,10 +75,11 @@ public class Station : Element {
 			}
 		} else {
 			skin.sprite = stationSprite;
+			color.SetActive(false);
 		}
 	}
 
-	public void DestroyColor(){
-		Destroy (color);
+	public void StationClicked(){
+		board.GetComponent<BoardManager> ().StationClicked (gameObject);
 	}
 }

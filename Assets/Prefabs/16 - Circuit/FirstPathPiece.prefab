@@ -13,7 +13,7 @@ GameObject:
   - 114: {fileID: 11474700}
   m_Layer: 0
   m_Name: FirstPathPiece
-  m_TagString: Untagged
+  m_TagString: firstPathPiece
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -53,9 +53,15 @@ MonoBehaviour:
   coordinate:
     x: 0
     y: 0
-  firstPathPieceSprite: {fileID: 21300008, guid: cb699f67f5261ed43a29c7f32b3d46e7,
+  firstPathPieceSpriteDown: {fileID: 21300000, guid: 9bef8e1ec2eb99142aaaa501a6eba973,
     type: 3}
-  going: 4
+  firstPathPieceSpriteUp: {fileID: 21300000, guid: 03976902e5b36a34391269af7715b0c9,
+    type: 3}
+  firstPathPieceSpriteRight: {fileID: 21300000, guid: 055437e0e10d1eb4fb23333f853c939c,
+    type: 3}
+  firstPathPieceSpriteLeft: {fileID: 21300000, guid: 1ab8f58b06012dc47809cf1c81d8f0a8,
+    type: 3}
+  going: 0
 --- !u!222 &22274700
 CanvasRenderer:
   m_ObjectHideFlags: 1
