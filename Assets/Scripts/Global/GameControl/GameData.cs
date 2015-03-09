@@ -147,6 +147,10 @@ public class GameData : MonoBehaviour
 		}
 	}
 
+	void OnLevelWasLoaded(){
+		Time.timeScale = 1;
+	}
+
 
 	[Serializable]
 	class PlayerData
