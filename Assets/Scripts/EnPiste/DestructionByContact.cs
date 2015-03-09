@@ -1,0 +1,63 @@
+﻿using UnityEngine;
+using System.Collections;
+
+public class DestructionByContact : MonoBehaviour {
+	private int vie=3;
+	private GameControler jeu;
+	public GameObject Explosion;
+
+	void Start(){
+		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
+		if (gameControllerObject != null) {
+			jeu=gameControllerObject.GetComponent<GameControler>();
+		}
+		if (gameControllerObject == null) {
+			Debug.Log("pas trouver");
+		}
+
+	}
+	
+
+	void OnTriggerEnter(Collider other){;
+		if (other.tag == "Boundary") { //empyeche la destruction si on est sur le boundar
+			return;
+		}
+		if (other.tag == "Player") {
+			Destroy(other.gameObject);
+			Destroy (gameObject);	
+		}
+		if (other.tag == "arriver") {
+			rigidbody.MovePosition(new Vector3 (-2.0f,-3.0f, 0.0f));
+			jeu.NouvelleVague();
+		}
+		if (other.tag=="Enemies"){
+			ReductionVie();
+			Instantiate(Explosion, other.transform.position, other.transform.rotation); //instancie une explosion a la position de l'impacte
+			Destroy(other.gameObject); //supprime l'object qu'il a percuté
+			//Destroy (GameObject.FindWithTag("Enemies"));
+
+		}
+		if (vie < 0){;
+			jeu.FinJeu(); //appel la fin du jeu
+			//Destroy (other.gameObject);
+		   //Destroy (gameObject);
+		}
+
+	}
+
+
+
+
+	void ReductionVie(){
+		vie--;
+		if(vie==2){
+			Destroy (GameObject.FindWithTag("Star3"));
+		}else if(vie==1){
+			Destroy (GameObject.FindWithTag("Star2"));
+		}
+		else{
+			Destroy (GameObject.FindWithTag("Star1"));
+		}
+		
+	}
+}
