@@ -5,8 +5,6 @@ using System.Collections.Generic;
 
 public class CircuitGameController : MonoBehaviour {
 
-	public Text debugText;
-	//public Camera mainCamera;
 	public GameObject board;
 	private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
 
@@ -62,25 +60,15 @@ public class CircuitGameController : MonoBehaviour {
 				}
 			}
 			BoardManager bm = board.GetComponent<BoardManager>();
-				if (horizontal == 0 && vertical == 0) {
-					if (moving)
-				 		debugText.text = "MOVING";
-				} else if (horizontal == 1) {
-					debugText.text = "RIGHT";
-					bm.MoveAction(PathPiece.Direction.RIGHT);
-				} else if (horizontal == -1) {
-					debugText.text = "LEFT";
-					bm.MoveAction(PathPiece.Direction.LEFT);
-				} else if (vertical == 1) {
-					debugText.text = "UP";
-					bm.MoveAction(PathPiece.Direction.UP);
-				} else if (vertical == -1) {
-					debugText.text = "DOWN";
-					bm.MoveAction(PathPiece.Direction.DOWN);
-				}
-			//debugText.text += ": " + v3.x + ", " + v3.y;
-
-
+			if (horizontal == 1) {
+				bm.MoveAction(PathPiece.Direction.RIGHT);
+			} else if (horizontal == -1) {
+				bm.MoveAction(PathPiece.Direction.LEFT);
+			} else if (vertical == 1) {
+				bm.MoveAction(PathPiece.Direction.UP);
+			} else if (vertical == -1) {
+				bm.MoveAction(PathPiece.Direction.DOWN);
+			}
 		}
 
 	}

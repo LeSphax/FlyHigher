@@ -49,7 +49,6 @@ public class BoardManager : MonoBehaviour {
 	public void StationClicked(GameObject station){
 		if (selectedStation == null && paths.Count == 0) restartButton.gameObject.SetActive (true);
 		if (!isSelectedStation (station) && !station.GetComponent<Station>().isBinded) {
-			Debug.Log ("OTHER STATION");
 			if (selectedStation != null){
 				if (paths.Count > 0) {
 					GameObject p = paths[paths.Count -1];
@@ -64,8 +63,6 @@ public class BoardManager : MonoBehaviour {
 			if (paths.Count == 1){
 				cancelButton.gameObject.SetActive(false);
 			}
-		} else {
-			Debug.Log ("SAME STATION");
 		}
 	}
 
@@ -136,16 +133,8 @@ public class BoardManager : MonoBehaviour {
 			}
 		}
 		if (isLevelComplete ()) {
-			gameManager.GetComponent<CircuitGameManager>().LevelEnded(true);		
+			gameManager.GetComponent<CircuitGameManager>().LevelEnded();		
 		}
-	}
-
-	public void DrawFreePlaces(){
-		string text = "FREE COORDINATES:";
-		foreach (Coordinate c in freeCoordinates) {
-			text += "/" + c.x + ", " + c.y;		
-		}
-		Debug.Log (text);
 	}
 
 	public void ChangeSelectedStation(GameObject station){
@@ -162,7 +151,6 @@ public class BoardManager : MonoBehaviour {
 
 	public void RemoveFreePlace(Coordinate c){
 		for (int i = 0; i < freeCoordinates.Count; i++) {
-			//Debug.Log ("C:" + c.x + ", " + c.y + " / FC[" + i + "]:" + freeCoordinates[i].x + ", " + freeCoordinates[i].y);
 			if (c.x == freeCoordinates[i].x && c.y == freeCoordinates[i].y){
 				freeCoordinates.Remove(freeCoordinates[i]);
 				break;
@@ -194,19 +182,5 @@ public class BoardManager : MonoBehaviour {
 		return true;
 	}
 
-	public void ResetBoard(){
-		Restart ();
-		while (stations.Count > 0) {
-			GameObject o = stations[stations.Count - 1];
-			Destroy (o);
-			stations.Remove(o);
-		}
-		while (boardPieces.Count > 0) {
-			GameObject o = boardPieces[boardPieces.Count - 1];
-			Destroy (o);
-			stations.Remove(o);
-		}
-		freeCoordinates.Clear ();
-	}
 
 }

@@ -104,7 +104,6 @@ public class Path : MonoBehaviour {
 				d = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>().comming;
 				bm.freeCoordinates.Add(new Coordinate(coordinate.x, coordinate.y));
 			} 
-			bm.DrawFreePlaces();
 			DeleteLastPathPiece();
 			PathMiddlePiece pmp = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>();
 			pmp.UpdateGoingDirection(PathPiece.Direction.NONE);
@@ -139,83 +138,4 @@ public class Path : MonoBehaviour {
 			RemoveLastPathPiece();		
 		}
 	}
-	/*
-	private Coordinate UpdateCoordinate(Coordinate c, PathPiece.Direction d){
-		Coordinate nc;
-		if (d == PathPiece.Direction.DOWN) {
-			nc = new Coordinate(c.x, c.y + 1);
-		} else if (d == PathPiece.Direction.UP) {
-			nc = new Coordinate(c.x, c.y - 1);
-		} else if (d == PathPiece.Direction.RIGHT) {
-			nc = new Coordinate(c.x + 1, c.y);
-		} else if (d == PathPiece.Direction.LEFT) {
-			nc = new Coordinate(c.x - 1, c.y);
-		} else {
-			nc = c;
-		}
-		return nc;
-	}
-
-	public bool AddPathPiece (PathPiece.Direction d){
-		if (isMovePossible (d)) {
-			GameObject instance;
-			if (coordinate == begin) {
-				GameObject firstInstance = Instantiate (firstPathPiece) as GameObject;
-				PathFirstPiece pfp = firstInstance.GetComponent<PathFirstPiece>();
-				pfp.Init(board, coordinate.x, coordinate.y, d);
-				pfp.Draw ();
-				pathPieces.Add(firstInstance);
-			} else {
-				PathMiddlePiece pmp = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece> ();
-				pmp.UpdateGoingDirection(d);
-			}
-			
-			coordinate = UpdateCoordinate (coordinate, d);
-			
-			if (coordinate == end) {
-				instance = Instantiate (lastPathPiece) as GameObject;
-				PathLastPiece plp = instance.GetComponent<PathLastPiece> ();
-				plp.Init(board, coordinate.x, coordinate.y, PathPiece.OppositeDirection (d));
-				plp.Draw();
-				return true;
-			} else {
-				Debug.Log("BANANA");
-				instance = Instantiate (middlePathPiece) as GameObject;
-				PathMiddlePiece pmp = instance.GetComponent<PathMiddlePiece> ();
-				pmp.Init(board, coordinate.x, coordinate.y, PathPiece.OppositeDirection (d), PathPiece.Direction.NONE);
-				pmp.Draw();
-				return false;
-			}
-		} else {
-			//TODO PLAY ANNIMATION
-			return false;
-		}
-	}
-
-	private void RemoveLastPathPiece (){
-		GameObject p = pathPieces[pathPieces.Count -1];
-		Destroy (p);
-		pathPieces.Remove(p);
-	}
-
-	public void CancelLastMove (){
-		if (pathPieces.Count > 2){
-			RemoveLastPathPiece ();
-			PathMiddlePiece pmp = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>();
-			pmp.UpdateGoingDirection(PathPiece.Direction.NONE);
-		} else if (pathPieces.Count == 2){
-			RemoveLastPathPiece ();
-			RemoveLastPathPiece ();
-		}
-	}
-
-	public void CancelEntirePath(){
-		while (pathPieces.Count > 0) {
-			CancelLastMove();
-		}
-	}
-
-	public bool isEmpty(){
-		return pathPieces.Count == 0;
-	}
-*/}
+}

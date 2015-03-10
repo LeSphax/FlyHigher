@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -6,6 +7,7 @@ public class CircuitGameManager : MonoBehaviour {
 
 	public GameObject board;
 	public GameObject levelLoader;
+	public Button levelButton;
 
 	private int lvlNb;
 
@@ -14,11 +16,12 @@ public class CircuitGameManager : MonoBehaviour {
 		Level l = board.GetComponent<Level> ();
 		l.LevelLoader (lvl);
 		levelLoader.SetActive (false);
+		levelButton.gameObject.SetActive (true);
 	}
 
-	public void LevelEnded (bool finished) {
-		levelLoader.SetActive (true);
-		board.GetComponent<BoardManager> ().ResetBoard ();
-		//TODO notifier au gameData
+	public void LevelEnded () {
+		//TODO sauvegarder le niveau
+
+		GetComponent<buttonLoadScene> ().loadScene ();
 	}
 }
