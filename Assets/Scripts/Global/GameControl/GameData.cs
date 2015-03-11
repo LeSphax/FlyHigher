@@ -58,6 +58,19 @@ public class GameData : MonoBehaviour
 		}
 	}
 
+    public void AddScoreWithLevel(int numberStars, int level)
+    {
+        string sceneName = Application.loadedLevelName;
+        if (!sceneDictionary.ContainsKey(sceneName))
+        {
+            sceneDictionary.Add(sceneName, new SceneData(numberStars,level));
+        }
+        else if (sceneDictionary[sceneName].numberStars < numberStars && sceneDictionary[sceneName].level < level)
+        {
+            sceneDictionary[sceneName] = new SceneData(numberStars,level);
+        }
+    }
+
 	public SceneData GetSceneData (string key)
 	{
 		if (sceneDictionary.ContainsKey (key)) {
@@ -163,11 +176,18 @@ public class GameData : MonoBehaviour
 	[Serializable]
 	public class SceneData
 	{
-		public int numberStars;
+        public int numberStars;
+        public int level;
 		public SceneData (int stars)
 		{
 			this.numberStars = stars;
+            this.level = -1;
 		}
+        public SceneData(int stars,int level)
+        {
+            this.numberStars = stars;
+            this.level = level;
+        }
 	}
 
 	[Serializable]
