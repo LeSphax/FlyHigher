@@ -1,4 +1,4 @@
-﻿using UnityEngine;
+using UnityEngine;
 using System.Collections;
 
 
@@ -16,6 +16,10 @@ public class Coordinate {
 public abstract class Element : MonoBehaviour {
 
 	[HideInInspector] public Coordinate coordinate;
+
+	public virtual void Init(GameObject board, Coordinate c){
+		Init (board, c.x, c.y);
+	}
 
 	public virtual void Init(GameObject board, int x, int y){
 		BoardManager bm = board.GetComponent<BoardManager> ();

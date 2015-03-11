@@ -5,8 +5,7 @@ using System.Collections.Generic;
 
 public class CircuitGameController : MonoBehaviour {
 
-	public Text debugText;
-	public Camera mainCamera;
+	public GameObject board;
 	private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
 
 	private void Update ()
@@ -14,6 +13,8 @@ public class CircuitGameController : MonoBehaviour {
 		int horizontal = 0;  	//Used to store the horizontal move direction.
 		int vertical = 0;		//Used to store the vertical move direction.
 		bool moving = true;
+
+
 		//Check if Input has registered more than zero touches
 		if (Input.touchCount > 0)
 		{
@@ -21,7 +22,7 @@ public class CircuitGameController : MonoBehaviour {
 			//Store the first touch detected.
 			Touch myTouch = Input.touches[0];
 
-			Vector3 v3 = mainCamera.ScreenToWorldPoint(myTouch.position);
+			//Vector3 v3 = mainCamera.ScreenToWorldPoint(myTouch.position);
 			//Check if the phase of that touch equals Began
 			if (myTouch.phase == TouchPhase.Began)
 			{
@@ -58,22 +59,16 @@ public class CircuitGameController : MonoBehaviour {
 						else if (y < 0) vertical = -1; 
 				}
 			}
-				if (horizontal == 0 && vertical == 0) {
-					if (moving)
-				 		debugText.text = "MOVING";
-					else 
-					debugText.text = "CLICK";
-				} else if (horizontal == 1) {
-					debugText.text = "RIGHT";
-				} else if (horizontal == -1) {
-					debugText.text = "LEFT";
-				} else if (vertical == 1) {
-				debugText.text = "UP";
-				} else if (vertical == -1) {
-					debugText.text = "DOWN";
-				}
-			debugText.text += ": " + v3.x + ", " + v3.y;
-
+			BoardManager bm = board.GetComponent<BoardManager>();
+			if (horizontal == 1) {
+				bm.MoveAction(PathPiece.Direction.RIGHT);
+			} else if (horizontal == -1) {
+				bm.MoveAction(PathPiece.Direction.LEFT);
+			} else if (vertical == 1) {
+				bm.MoveAction(PathPiece.Direction.UP);
+			} else if (vertical == -1) {
+				bm.MoveAction(PathPiece.Direction.DOWN);
+			}
 		}
 
 	}

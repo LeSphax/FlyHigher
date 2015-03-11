@@ -9,12 +9,19 @@ public class LanguageText
 	private static LanguageText instanceLangue;
 	private Dictionary<string,string> dicoUITexts;
 	private Dictionary<string, Queue<string>>dicoHistory;
-
+	private List<string> languageSupported; 
+	private XmlDocument xml;
 
 	private LanguageText ()
 	{
+		TextAsset textAsset = (TextAsset)Resources.Load ("language", typeof(TextAsset));
+		xml = new XmlDocument ();
+		xml.LoadXml (textAsset.text);                         
+
+		ParseLanguageSupported ();
 		string defaultLanguage = Application.systemLanguage.ToString ();
-		if (defaultLanguage != "") {
+
+		if (languageSupported.Contains (defaultLanguage.ToLower ())) {
 			SetLanguage (defaultLanguage);
 		} else {
 			SetLanguage ("english");
@@ -47,7 +54,7 @@ public class LanguageText
 	{
 		if (!dicoHistory.ContainsKey (id)) {
 			Debug.LogError ("The specified string does not exist: " + id);
-			return null;
+			return new Queue<string> ();
 		}		
 		return new Queue<string> (dicoHistory [id]);
 	}
@@ -55,20 +62,27 @@ public class LanguageText
 
 	public void SetLanguage (string language)
 	{
-		ParseXmlFile ("Assets/Scripts/Global/Language/language.xml", language.ToLower ());
+		ParseXmlFile (language.ToLower ());
 	}
 
 
+	private void ParseLanguageSupported ()
+	{
+		languageSupported = new List<string> ();
+		
+		XmlElement elementRoot = xml.DocumentElement;
+
+		foreach (XmlNode nodeLangage in elementRoot.ChildNodes) {
+			languageSupported.Add (nodeLangage.Name);
+		}
+	}
 
 
-	private void ParseXmlFile (string path, string language)
+	private void ParseXmlFile (string language)
 	{
 		dicoUITexts = new Dictionary<string,string> ();
 		dicoHistory = new Dictionary<string,Queue<string>> ();
 
-		XmlDocument xml = new XmlDocument ();
-		xml.Load (path);
-	
 		XmlElement elementLanguage = xml.DocumentElement [language]; // The xml element <english> for example
 
 		if (elementLanguage != null) {
