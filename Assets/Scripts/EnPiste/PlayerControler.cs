@@ -15,8 +15,6 @@ public class PlayerControler : MonoBehaviour {
 	public int movementSpeed;
 	public int moveUp;
 	int rotationDirection;
-	public bool mouvement=true;
-
 
 
 	void Update()
@@ -67,20 +65,11 @@ public class PlayerControler : MonoBehaviour {
 	}
 
 	void Up(){
-		if (mouvement==true) {
-			moveUp = 1;
-		}
+		moveUp = 1;	
 	}
 
-	void StopUp(){
+	public void StopUp(){
 		moveUp=0;
 	}
-
-	public void waitNewWave(){
-		mouvement = false;
-	}
-
-	public void ok(){
-		mouvement = true;
-	}
+	
 }
