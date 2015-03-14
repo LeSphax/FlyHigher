@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &128117199
 GameObject:
@@ -362,7 +363,7 @@ GameObject:
   - 114: {fileID: 451970457}
   - 114: {fileID: 451970456}
   m_Layer: 5
-  m_Name: Canvas
+  m_Name: Interface
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -398,8 +399,8 @@ MonoBehaviour:
   m_Script: {fileID: 721332183}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -825,9 +826,8 @@ GameObject:
   m_Component:
   - 4: {fileID: 1131770007}
   - 114: {fileID: 1131770006}
-  - 114: {fileID: 1131770008}
   m_Layer: 0
-  m_Name: Data
+  m_Name: GameControl
   m_TagString: GameControl
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -846,11 +846,14 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   buildings:
-  - maxStars: 9
+  - nbGames: 3
+    nbStarsRequired: 5
     name: Laboratory
-  - maxStars: 9
+  - nbGames: 3
+    nbStarsRequired: 5
     name: Hangar
-  - maxStars: 9
+  - nbGames: 3
+    nbStarsRequired: 5
     name: ControlTower
 --- !u!4 &1131770007
 Transform:
@@ -864,18 +867,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!114 &1131770008
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11449532, guid: 4451ab8e294808d43b4e3204b62f25f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 665058251}
-  m_GameObject: {fileID: 1131770005}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b07b24feeb07424448896a09281ec8d4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
 --- !u!1 &1241224649
 GameObject:
   m_ObjectHideFlags: 0

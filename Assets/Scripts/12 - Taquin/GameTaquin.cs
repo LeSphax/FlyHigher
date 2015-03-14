@@ -30,7 +30,6 @@ namespace AssemblyCSharp
         public int width;
         public int mixingTime;
         public int numberStars;
-        public GameObject gamesUI;
         public AudioClip swapAudio;
 
         private Tile currentTile;
@@ -213,7 +212,7 @@ namespace AssemblyCSharp
                     if (GameIsWon())
                     {
                         state = State.Inactive;
-                        gamesUI.BroadcastMessage("GameEnded", numberStars);
+                        GameObject.FindWithTag("GamesUI").BroadcastMessage("GameEnded", numberStars);
                     }
                     break;
                 case State.Inactive:

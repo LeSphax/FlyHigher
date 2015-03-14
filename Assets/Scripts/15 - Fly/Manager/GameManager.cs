@@ -29,7 +29,6 @@ public class GameManager : MonoBehaviour {
 	private float startTime;
 
 	[HideInInspector] public EnemiesManager enemiesManager;
-	public GameObject gamesUI;
 
 	// Use this for initialization
 	void Awake () {
@@ -71,6 +70,7 @@ public class GameManager : MonoBehaviour {
 	}
 
 	public void GameOver (){
+        GameObject gamesUI = GameObject.FindWithTag("GamesUI");
 		if (playerHitPoints > 9) {
 			gamesUI.BroadcastMessage("GameEnded", 3);
 		} else if (playerHitPoints > 4) {

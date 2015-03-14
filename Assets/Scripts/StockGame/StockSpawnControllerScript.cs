@@ -17,7 +17,6 @@ public class StockSpawnControllerScript : MonoBehaviour
 		public Vector3[] spawnPositionsItems;
 		public List<Vector3> spawnPositionsBox ;
 		public GameObject carpet;
-		public GameObject gamesUI;
 
 
 
@@ -127,7 +126,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 
 		private void EndGame ()
 		{
-				gamesUI.BroadcastMessage ("GameEnded", calculNumberStar ());
+				GameObject.FindWithTag("GamesUI").BroadcastMessage ("GameEnded", calculNumberStar ());
 		}
 
 		private int calculNumberStar ()

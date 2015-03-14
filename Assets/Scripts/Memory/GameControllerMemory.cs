@@ -10,7 +10,6 @@ public class GameControllerMemory : MonoBehaviour
 	public Texture[] texturesCards;
 	public int cardsinrow;
 	public AudioClip audioCardMatching;
-	public GameObject gamesUI;
 
 	enum State
 	{
@@ -158,8 +157,8 @@ public class GameControllerMemory : MonoBehaviour
 
 	void EndOfGame ()
 	{
-		Debug.Log ("Missed " + nbTryMissed);
-		gamesUI.BroadcastMessage ("GameEnded", calculNumberStar ());
+		//Debug.Log ("Missed " + nbTryMissed);
+		GameObject.FindWithTag("GamesUI").BroadcastMessage ("GameEnded", calculNumberStar ());
 
 	}
 
