@@ -15,7 +15,7 @@ public class PlayerControler : MonoBehaviour {
 	public int movementSpeed;
 	public int moveUp;
 	int rotationDirection;
-	//bool blocked;
+	public bool mouvement=true;
 
 
 
@@ -65,27 +65,22 @@ public class PlayerControler : MonoBehaviour {
 	{
 		rotationDirection = 0;
 	}
-	/*
-	void Blocked()
-	{
-		blocked = true;
-	}
-	
-	void UnBlocked()
-	{
-		blocked = false;
-	}
-*/
 
 	void Up(){
-		moveUp = 1;
+		if (mouvement==true) {
+			moveUp = 1;
+		}
 	}
 
 	void StopUp(){
 		moveUp=0;
 	}
 
+	public void waitNewWave(){
+		mouvement = false;
+	}
 
-
-
+	public void ok(){
+		mouvement = true;
+	}
 }
