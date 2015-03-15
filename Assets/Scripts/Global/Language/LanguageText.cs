@@ -8,6 +8,7 @@ public class LanguageText
 
     private static LanguageText instanceLangue;
     private Dictionary<string, string> dicoUITexts;
+    private Dictionary<string, string> dicoSceneNames;
     private Dictionary<string, Fact> dicoFacts;
     private Dictionary<string, Queue<string>> dicoHistory;
     private List<string> languageSupported;
@@ -46,6 +47,15 @@ public class LanguageText
         }
     }
 
+    public string GetSceneName(string id)
+    {
+        if (!dicoSceneNames.ContainsKey(id))
+        {
+            Debug.LogError("The specified SceneName does not exist: " + id);
+            return "";
+        }
+        return dicoSceneNames[id];
+    }
 
 
     public string GetUIText(string id)
@@ -115,6 +125,15 @@ public class LanguageText
                 foreach (XmlNode nodeUITexts in elementUITexts.ChildNodes)
                 {
                     dicoUITexts.Add(nodeUITexts.Attributes["id"].Value, nodeUITexts.InnerText);
+                }
+            }
+
+            XmlElement elementSceneNames = elementLanguage["sceneNames"];
+            if (elementSceneNames != null)
+            {
+                foreach (XmlNode nodeSceneNames in elementSceneNames.ChildNodes)
+                {
+                    dicoSceneNames.Add(nodeSceneNames.Attributes["id"].Value, nodeSceneNames.InnerText);
                 }
             }
 
