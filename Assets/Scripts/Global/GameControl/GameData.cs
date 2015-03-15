@@ -65,7 +65,7 @@ public class GameData : MonoBehaviour
         {
             sceneDictionary.Add(sceneName, new SceneData(numberStars,level));
         }
-        else if (sceneDictionary[sceneName].numberStars < numberStars && sceneDictionary[sceneName].level < level)
+        else if (sceneDictionary[sceneName].numberStars <= numberStars && sceneDictionary[sceneName].level < level)
         {
             sceneDictionary[sceneName] = new SceneData(numberStars,level);
         }
