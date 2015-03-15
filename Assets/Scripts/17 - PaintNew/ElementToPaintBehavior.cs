@@ -3,7 +3,7 @@ using System.Collections;
 
 public class ElementToPaintBehavior : MonoBehaviour
 {
-	public GameControlPaint gameControl;
+	private GameControlPaint gameControl;
 
 	private SpriteRenderer renderer ;
 	private DotColor dotColor;
@@ -39,6 +39,7 @@ public class ElementToPaintBehavior : MonoBehaviour
 
 	void OnMouseDown ()
 	{
+		Debug.Log ("OnMouseDown");
 		ColorChanged ();
 	}
 

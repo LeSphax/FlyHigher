@@ -13,6 +13,7 @@ public class GameControlPaint : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
+
 		draw = Instantiate (prefab) as GameObject;
 		dotsColor = draw.GetComponentsInChildren<DotColor> ();
 		foreach (DotColor dc in dotsColor) {
