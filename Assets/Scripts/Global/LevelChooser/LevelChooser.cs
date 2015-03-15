@@ -4,23 +4,29 @@ using System.Collections;
 
 public class LevelChooser : MonoBehaviour {
 
+	public GameObject levelUI;
+
 	public Image panel;
 	public Image star1;
 	public Image star2;
 	public Image star3;
 
-	public string sceneName;
-	public GameObject levelButton;
+	public AbstractLevel al;
+	public int star1LevelNb;
+	public int star2LevelNb;
+	public int star3LevelNb;
 
+	public GameObject levelButton;
+	
 	public Sprite emptyStar;
 	public Sprite fullStar;
 
-	private GameObject[] star1Buttons;
-	private GameObject[] star2Buttons;
-	private GameObject[] star3Buttons;
-	private AbstractLevel al;
+	private GameObject[] star1Buttons = null;
+	private GameObject[] star2Buttons = null;
+	private GameObject[] star3Buttons = null;
+	private string sceneName;
 
-	private int levelNb;
+	[HideInInspector] public int levelNb;
 	private int lastFinisedLevel;
 
 	[HideInInspector] public float width;
@@ -29,16 +35,18 @@ public class LevelChooser : MonoBehaviour {
 	private GameData gameData;
 
 	public void Start(){
-		Init (new LevelL(), 1, 2, 3);
+		Init ();
 	}
 
 
-	public void Init(AbstractLevel al, int star1LevelNb, int star2LevelNb, int star3LevelNb){
+	public void Init(){
+		sceneName = Application.loadedLevelName;
 		RectTransform rt = panel.GetComponent<RectTransform> ();
 		width = rt.sizeDelta.x;
 		height = rt.sizeDelta.y;
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		lastFinisedLevel = gameData.GetSceneData (sceneName).level;
+		Debug.Log ("lastFinishedLevel : " + lastFinisedLevel);
 		if (lastFinisedLevel == -1) lastFinisedLevel = 0;
 		this.al = al;
 		InitStar (star1, 1);
@@ -52,15 +60,16 @@ public class LevelChooser : MonoBehaviour {
 	}
 
 	private void SetStarSprite(int star1LevelNb, int star2LevelNb, int star3LevelNb){
-		if (lastFinisedLevel >= (star1LevelNb + star2LevelNb + star3LevelNb)) {
+		int ns = gameData.GetSceneData (sceneName).numberStars;
+		if (ns == 3) {
 			star1.sprite = fullStar;
 			star2.sprite = fullStar;
 			star3.sprite = fullStar;
-		} else if (lastFinisedLevel >= (star1LevelNb + star2LevelNb)){
+		} else if (ns == 2){
 			star1.sprite = fullStar;
 			star2.sprite = fullStar;
 			star3.sprite = emptyStar;
-		} else if (lastFinisedLevel >= (star1LevelNb)){
+		} else if (ns == 1){
 			star1.sprite = fullStar;
 			star2.sprite = emptyStar;
 			star3.sprite = emptyStar;
@@ -95,11 +104,33 @@ public class LevelChooser : MonoBehaviour {
 	public void LoadLevel(int levelNb){
 		this.levelNb = levelNb;
 		gameObject.SetActive (false);
+		levelUI.SetActive (true);
 		al.LoadLevel (levelNb);
 	}
 
+	public void SaveLevel(){
+		string s = ("SAVING LEVEL : " + levelNb);
+		if (levelNb < star1LevelNb){
+			s += " [1]";
+			gameData.AddScoreWithLevel(0, levelNb);
+		}else if (levelNb < star1LevelNb + star2LevelNb){
+			s += " [2]";
+			gameData.AddScoreWithLevel(1, levelNb);
+		}else if (levelNb < star1LevelNb + star2LevelNb + star3LevelNb){
+			s += " [3]";
+			gameData.AddScoreWithLevel(2, levelNb);
+		}else {
+			s += " [4]";
+			gameData.AddScoreWithLevel(3, levelNb);
+		}
+		Debug.Log (s);
+	}
+
 	public void EndLevel (){
-		//gameData.AddScoreWithLevel(
+		buttonLoadScene bls = new buttonLoadScene();
+		bls.sceneToLoad = sceneName;
+		bls.loadScene ();
+
 	}
 
 }

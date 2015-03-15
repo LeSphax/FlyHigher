@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System;
 
 public class MapManager : MonoBehaviour {
 
@@ -28,7 +29,7 @@ public class MapManager : MonoBehaviour {
 		laboSLB = laboratoryLoader.GetComponent<SceneLoaderButton> ();
 		hangarSLB = hangarLoader.GetComponent<SceneLoaderButton> ();
 		controlTowerSLB = controlTowerLoader.GetComponent<SceneLoaderButton> ();
-
+		try {
 		if (gameData.AreGamesCompletedInBuilding("Laboratory")){
 			hangarSLB.Init(gameData, false);
 			if (gameData.AreGamesCompletedInBuilding("Hangar")){
@@ -41,5 +42,10 @@ public class MapManager : MonoBehaviour {
 			controlTowerSLB.Init(gameData, true);
 		}
 		laboSLB.Init (gameData, false);
+		} catch (NullReferenceException nre){
+			laboSLB.Init (gameData, false);
+			hangarSLB.Init(gameData, true);
+			controlTowerSLB.Init(gameData, true);
+		}
 	}
 }

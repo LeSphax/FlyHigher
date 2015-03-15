@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 using UnityEngine.UI;
+using System;
 
 public class SceneLoaderButton : LoaderButton {
 
@@ -17,7 +18,11 @@ public class SceneLoaderButton : LoaderButton {
 	protected override void InitPart ()
 	{
 		this.starsNb = gameData.GetBuildingCurrentStars (sceneName);
-		this.starsMaxNb = gameData.GetBuildingData (sceneName).nbGames * 3;
+		try{
+			this.starsMaxNb = gameData.GetBuildingData (sceneName).nbGames * 3;
+		} catch (NullReferenceException nre){
+			this.starsMaxNb = 9;
+		}
 	}
 
 	protected override void LocksPart ()

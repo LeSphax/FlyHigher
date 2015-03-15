@@ -31,7 +31,7 @@ public class Path : MonoBehaviour {
 		board.GetComponent<BoardManager> ().paths.Add (gameObject);
 	}
 
-	private bool isMovePossible (PathPiece.Direction d) {
+	public bool isMovePossible (PathPiece.Direction d) {
 		Coordinate nc = UpdateCoordinate (coordinate, d);
 		if (nc.x == end.x && nc.y == end.y) return true;
 		else {
