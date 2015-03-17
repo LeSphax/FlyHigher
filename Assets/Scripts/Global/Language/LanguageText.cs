@@ -113,6 +113,7 @@ public class LanguageText
         dicoUITexts = new Dictionary<string, string>();
         dicoFacts = new Dictionary<string, Fact>();
         dicoHistory = new Dictionary<string, Queue<string>>();
+        dicoSceneNames = new Dictionary<string, string>();
 
         XmlElement elementLanguage = xml.DocumentElement[language]; // The xml element <english> for example
 

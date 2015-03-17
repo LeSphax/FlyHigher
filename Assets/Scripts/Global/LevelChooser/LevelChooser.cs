@@ -46,9 +46,7 @@ public class LevelChooser : MonoBehaviour {
 		height = rt.sizeDelta.y;
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		lastFinisedLevel = gameData.GetSceneData (sceneName).level;
-		Debug.Log ("lastFinishedLevel : " + lastFinisedLevel);
 		if (lastFinisedLevel == -1) lastFinisedLevel = 0;
-		this.al = al;
 		InitStar (star1, 1);
 		InitStar (star2, 2);
 		InitStar (star3, 3);
@@ -123,7 +121,6 @@ public class LevelChooser : MonoBehaviour {
 			s += " [4]";
 			gameData.AddScoreWithLevel(3, levelNb);
 		}
-		Debug.Log (s);
 	}
 
 	public void EndLevel (){
