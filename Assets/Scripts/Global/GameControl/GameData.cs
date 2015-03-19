@@ -14,8 +14,8 @@ public class GameData : MonoBehaviour
 	private Dictionary<String, SceneData> sceneDictionary;
 	private Dictionary<String, BuildingData> buildingDictionary;
 	string language { get; set; }
+	[HideInInspector]
 	public bool showAlternativeText;
-	//public bool showAlternativeText { get { 	return _showAlternativeText;} set{ _showAlternativeText = value;}}
 	public BuildingData[] buildings;
 
 
