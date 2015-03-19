@@ -14,7 +14,7 @@ public class EndLevelGamePopUp : MonoBehaviour {
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 	}
 	
-	public void GameEnded ()
+	public void LevelEnded ()
 	{
 		endGamePopUp.SetActive (true);
 		buttons.SetActive (false);
@@ -28,5 +28,6 @@ public class EndLevelGamePopUp : MonoBehaviour {
 		buttons.SetActive (true);
 		lv.al.Clear();
 		lv.LoadLevel(lv.levelNb);
+        Time.timeScale = 1;
 	}
 }

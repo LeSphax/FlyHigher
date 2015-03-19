@@ -11,7 +11,7 @@ public class BoardManager : MonoBehaviour {
 	public GameObject station;
 	public GameObject path;
 	public GameObject gameController;
-	public GameObject gameManager;
+	//public GameObject gameManager;
 
 	public Button cancelButton;
 	public Button restartButton;
@@ -92,7 +92,7 @@ public class BoardManager : MonoBehaviour {
 						cancelButton.gameObject.SetActive(false);
 						restartButton.gameObject.SetActive (false);
 						state = State.End;
-						GetComponent<EndLevelGamePopUp>().GameEnded();
+						GetComponent<EndLevelGamePopUp>().LevelEnded();
 					} else {
 						state = State.Begin;
 					}
@@ -116,11 +116,16 @@ public class BoardManager : MonoBehaviour {
 	public void OnStationPressed(GameObject station){
 		switch (state) {
 		case State.Begin:
-			state = State.StationPressed;
 			selectedStation = station;
-			SetSelectedStation(true, false);
-			GameObject instance = Instantiate (path) as GameObject;
-			instance.GetComponent<Path> ().Init(gameObject, selectedStation);
+			if (selectedStation.GetComponent<Station>().isBinded){
+				state = State.Begin;
+				selectedStation = null;
+			} else {
+				state = State.StationPressed; 
+				SetSelectedStation(true, false);
+				GameObject instance = Instantiate (path) as GameObject;
+				instance.GetComponent<Path> ().Init(gameObject, selectedStation);
+			}
 			break;
 		case State.StationPressed:
 			//IMPOSSIBLE
