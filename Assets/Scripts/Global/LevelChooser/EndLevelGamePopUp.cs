@@ -28,5 +28,6 @@ public class EndLevelGamePopUp : MonoBehaviour {
 		buttons.SetActive (true);
 		lv.al.Clear();
 		lv.LoadLevel(lv.levelNb);
+        Time.timeScale = 1;
 	}
 }

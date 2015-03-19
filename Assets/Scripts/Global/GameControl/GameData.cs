@@ -14,7 +14,10 @@ public class GameData : MonoBehaviour
 	private Dictionary<String, SceneData> sceneDictionary;
 	private Dictionary<String, BuildingData> buildingDictionary;
 	string language { get; set; }
+	public bool showAlternativeText;
+	//public bool showAlternativeText { get { 	return _showAlternativeText;} set{ _showAlternativeText = value;}}
 	public BuildingData[] buildings;
+
 
 
 	void Awake ()
@@ -58,18 +61,15 @@ public class GameData : MonoBehaviour
 		}
 	}
 
-    public void AddScoreWithLevel(int numberStars, int level)
-    {
-        string sceneName = Application.loadedLevelName;
-        if (!sceneDictionary.ContainsKey(sceneName))
-        {
-            sceneDictionary.Add(sceneName, new SceneData(numberStars,level));
-        }
-        else if (sceneDictionary[sceneName].numberStars <= numberStars && sceneDictionary[sceneName].level < level)
-        {
-            sceneDictionary[sceneName] = new SceneData(numberStars,level);
-        }
-    }
+	public void AddScoreWithLevel (int numberStars, int level)
+	{
+		string sceneName = Application.loadedLevelName;
+		if (!sceneDictionary.ContainsKey (sceneName)) {
+			sceneDictionary.Add (sceneName, new SceneData (numberStars, level));
+		} else if (sceneDictionary [sceneName].numberStars <= numberStars && sceneDictionary [sceneName].level < level) {
+			sceneDictionary [sceneName] = new SceneData (numberStars, level);
+		}
+	}
 
 	public SceneData GetSceneData (string key)
 	{
@@ -143,6 +143,7 @@ public class GameData : MonoBehaviour
 			playerData.scenesDictionary = sceneDictionary;
 			playerData.buildingDictionary = buildingDictionary;
 			playerData.language = language;
+			playerData.showAlternativeText = showAlternativeText;
 			bf.Serialize (file, playerData);
 			file.Close ();
 		}
@@ -155,12 +156,14 @@ public class GameData : MonoBehaviour
 			FileStream file = File.Open (path, FileMode.Open);
 			PlayerData playerData = (PlayerData)bf.Deserialize (file);
 			sceneDictionary = playerData.scenesDictionary;
+			showAlternativeText = playerData.showAlternativeText;
 			buildingDictionary = playerData.buildingDictionary;
 			language = playerData.language;
 		}
 	}
 
-	void OnLevelWasLoaded(){
+	void OnLevelWasLoaded ()
+	{
 		Time.timeScale = 1;
 	}
 
@@ -171,23 +174,24 @@ public class GameData : MonoBehaviour
 		public Dictionary<String, SceneData> scenesDictionary;
 		public Dictionary<String, BuildingData> buildingDictionary;
 		public string language;
+		public bool showAlternativeText; // PopUpHistory on the scene Map. 
 	}
 
 	[Serializable]
 	public class SceneData
 	{
-        public int numberStars;
-        public int level;
+		public int numberStars;
+		public int level;
 		public SceneData (int stars)
 		{
 			this.numberStars = stars;
-            this.level = -1;
+			this.level = -1;
 		}
-        public SceneData(int stars,int level)
-        {
-            this.numberStars = stars;
-            this.level = level;
-        }
+		public SceneData (int stars, int level)
+		{
+			this.numberStars = stars;
+			this.level = level;
+		}
 	}
 
 	[Serializable]

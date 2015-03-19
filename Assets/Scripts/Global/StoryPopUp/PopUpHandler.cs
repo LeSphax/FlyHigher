@@ -1,5 +1,6 @@
 ﻿using UnityEngine;
 using System.Collections;
+using System.Collections.Generic;
 
 public abstract class PopUpHandler : MonoBehaviour
 {
@@ -8,6 +9,8 @@ public abstract class PopUpHandler : MonoBehaviour
 	GameObject popUp;
 	PopUp popUpScript;
 	System.Collections.Generic.Queue<string> texts;
+	private static List<string> listPopUpSeen = new List<string> ();
+	
 
 	void Awake ()
 	{
@@ -53,4 +56,20 @@ public abstract class PopUpHandler : MonoBehaviour
 			DestroyPopUp ();
 		}
 	}
+
+
+	public static void SetPopUpAlreadySeen (string id)
+	{
+		listPopUpSeen.Add (id);
+	}
+	
+	
+	public static bool AlreadySeen (string id)
+	{
+		if (listPopUpSeen.Contains (id)) {
+			return true;
+		}
+		return false;
+	}
+
 }
