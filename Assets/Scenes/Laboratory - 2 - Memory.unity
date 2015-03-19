@@ -1295,7 +1295,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
-  m_Color: {r: 1, g: 1, b: 1, a: .784313738}
+  m_Color: {r: .316176474, g: .660446405, b: 1, a: 1}
   m_Sprite: {fileID: 0}
   m_Type: 0
   m_PreserveAspect: 0
@@ -1374,6 +1374,57 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 2
+--- !u!1 &915510670
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 915510672}
+  - 114: {fileID: 915510671}
+  m_Layer: 0
+  m_Name: GameController
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!114 &915510671
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 915510670}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7c5b64397993742a880d0198c3ba7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCardPrefab: {fileID: 100000, guid: d6a0344efd99fa1458c03386e934b4f5, type: 2}
+  texturesCards:
+  - {fileID: 2800000, guid: 082032b3776f7b04ba3507736afec79a, type: 3}
+  - {fileID: 2800000, guid: a5dc60b8174d6384185e5b0719c29ca1, type: 3}
+  - {fileID: 2800000, guid: 1df63fb9fa4f1344888256a5100532d1, type: 3}
+  - {fileID: 2800000, guid: 653d610da524b4c46adee9e864235a0e, type: 3}
+  - {fileID: 2800000, guid: 9859c6f54341f8844b690d6b17b29258, type: 3}
+  - {fileID: 2800000, guid: dd381966c89015f4582176519bc34169, type: 3}
+  - {fileID: 2800000, guid: ddd4dfd4186287f4a9055500defc3cd0, type: 3}
+  - {fileID: 2800000, guid: a4a56612c3aa5e54c86ac748cf34b09d, type: 3}
+  cardsinrow: 4
+  audioCardMatching: {fileID: 8300000, guid: a319e2fbbebc8764187008ed7b628dac, type: 3}
+--- !u!4 &915510672
+Transform:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 915510670}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.67559242, y: 4.50440741, z: -8.18255424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 4
 --- !u!1 &1179149100
 GameObject:
   m_ObjectHideFlags: 0
@@ -1571,7 +1622,6 @@ GameObject:
   - 92: {fileID: 1256329210}
   - 124: {fileID: 1256329209}
   - 81: {fileID: 1256329208}
-  - 114: {fileID: 1256329213}
   - 114: {fileID: 1256329214}
   m_Layer: 0
   m_Name: Main Camera
@@ -1639,35 +1689,12 @@ Transform:
   m_PrefabParentObject: {fileID: 0}
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1256329207}
-  m_LocalRotation: {x: -3.09086232e-08, y: .707106829, z: -.707106829, w: -3.09086232e-08}
+  m_LocalRotation: {x: .707106829, y: 0, z: 0, w: .707106829}
   m_LocalPosition: {x: 0, y: 5, z: 0}
   m_LocalScale: {x: 1, y: 1, z: 1}
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 0
---- !u!114 &1256329213
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 0}
-  m_GameObject: {fileID: 1256329207}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 0c7c5b64397993742a880d0198c3ba7a, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  memoryCardPrefab: {fileID: 100000, guid: d6a0344efd99fa1458c03386e934b4f5, type: 2}
-  texturesCards:
-  - {fileID: 2800000, guid: 00752a3d90bbc8d40888b69b68d015a7, type: 3}
-  - {fileID: 2800000, guid: cfbf856e70fa8194ebb6324f1922fe6d, type: 3}
-  - {fileID: 2800000, guid: 062be12c4123a674e9f9e6687f4c0a7a, type: 3}
-  - {fileID: 2800000, guid: e41bdf5bb61ae4f4084b7bdb60bb47b9, type: 3}
-  - {fileID: 2800000, guid: cbdc06de946afe54eae3a384eeaf8555, type: 3}
-  - {fileID: 2800000, guid: 83cdd2f931bc0394493c9c495dcb4316, type: 3}
-  - {fileID: 2800000, guid: b95d2d0410348064382b2da2e200c5d3, type: 3}
-  - {fileID: 2800000, guid: c91df288cd762ff4dba61ac8bfa1760c, type: 3}
-  cardsinrow: 4
-  audioCardMatching: {fileID: 8300000, guid: a319e2fbbebc8764187008ed7b628dac, type: 3}
 --- !u!114 &1256329214
 MonoBehaviour:
   m_ObjectHideFlags: 0
