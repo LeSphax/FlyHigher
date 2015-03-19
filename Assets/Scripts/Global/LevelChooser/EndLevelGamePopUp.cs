@@ -14,7 +14,7 @@ public class EndLevelGamePopUp : MonoBehaviour {
 		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 	}
 	
-	public void GameEnded ()
+	public void LevelEnded ()
 	{
 		endGamePopUp.SetActive (true);
 		buttons.SetActive (false);
