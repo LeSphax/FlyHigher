@@ -42,7 +42,7 @@ public class MapManager : MonoBehaviour {
 			controlTowerSLB.Init(gameData, true);
 		}
 		laboSLB.Init (gameData, false);
-		} catch (NullReferenceException nre){
+		} catch {
 			laboSLB.Init (gameData, false);
 			hangarSLB.Init(gameData, true);
 			controlTowerSLB.Init(gameData, true);

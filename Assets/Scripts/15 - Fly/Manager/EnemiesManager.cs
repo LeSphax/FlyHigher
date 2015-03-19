@@ -7,13 +7,16 @@ public class EnemiesManager : MonoBehaviour {
 
 	public GameObject eagleSpawner;
 	public GameObject alienSpawner;
+	public GameObject hotAirBaloonSpawner;
 
 	public void Init (){
 		enemies = new List<GameObject>();
 		Instantiate (eagleSpawner);
-		eagleSpawner.GetComponent<EnemySpawner> ().Create();
+		eagleSpawner.GetComponent<EnemySpawner> ().Create(3f, 5f, 5f, 3f);
 		Instantiate (alienSpawner);
-		alienSpawner.GetComponent<EnemySpawner> ().Create ();
+		alienSpawner.GetComponent<EnemySpawner> ().Create (8f, 34f, 5f, 8f);
+		Instantiate (hotAirBaloonSpawner);
+		hotAirBaloonSpawner.GetComponent<EnemySpawner> ().Create (8f, 14.3f, 5f, 8f);
 	}
 
 	public void DestroyEnemy(GameObject enemy){
@@ -30,8 +33,6 @@ public class EnemiesManager : MonoBehaviour {
 	}
 
 	public void DestroyAll(){
-		Destroy (eagleSpawner);
-		Destroy (alienSpawner);
 		while(enemies.Count > 0) {
 			DestroyEnemy(enemies[0]);
 		} 
@@ -40,6 +41,7 @@ public class EnemiesManager : MonoBehaviour {
 	public void SpawnEnemies (){
 		eagleSpawner.GetComponent<EnemySpawner>().SpawnMachine();
 		alienSpawner.GetComponent<EnemySpawner>().SpawnMachine();
+		hotAirBaloonSpawner.GetComponent<EnemySpawner> ().SpawnMachine ();
 	}
 
 	public void MoveEnemies(){

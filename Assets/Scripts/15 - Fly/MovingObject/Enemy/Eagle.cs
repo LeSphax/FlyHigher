@@ -10,6 +10,6 @@ public class Eagle : Enemy {
 	}
 
 	protected override void MoveAction(int xDir, int yDir){
-		transform.position -= new Vector3(xDir * speed, yDir, 0)*Time.deltaTime;
+		transform.position -= new Vector3 (xDir * speed, yDir, 0) * Time.deltaTime;
 	}
 }

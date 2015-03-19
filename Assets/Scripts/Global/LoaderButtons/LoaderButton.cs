@@ -9,7 +9,7 @@ public abstract class LoaderButton: MonoBehaviour {
 	public Button loaderButton;
 	public Text titleText;
 	public Image lockImage;
-	public Image borderImage;
+	public Image borderImage; 
 
 	[HideInInspector] public int starsNb;
 
@@ -24,6 +24,7 @@ public abstract class LoaderButton: MonoBehaviour {
 		this.isLocked = isLocked;
 		this.sceneName = GetComponent<buttonLoadScene> ().sceneToLoad;
 		this.starsNb = gameData.GetSceneData (this.sceneName).numberStars;
+		//this.title = LanguageText.Instance.GetSceneName(sceneName);
 		this.title = this.sceneName;
 		this.titleText.text = title;
 		InitPart ();
