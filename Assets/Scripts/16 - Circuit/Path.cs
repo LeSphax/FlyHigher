@@ -96,12 +96,12 @@ public class Path : MonoBehaviour {
 
 	public void RemoveLastPathPiece(){
 		BoardManager bm = board.GetComponent<BoardManager> ();
-		PathPiece.Direction d;
+		//PathPiece.Direction d;
 		if (pathPieces.Count > 2) {
 			if (coordinate.x == end.x && coordinate.y == end.y){
-				d = pathPieces[pathPieces.Count - 1].GetComponent<PathLastPiece>().comming;
+				//d = pathPieces[pathPieces.Count - 1].GetComponent<PathLastPiece>().comming;
 			} else {
-				d = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>().comming;
+				//d = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>().comming;
 				bm.freeCoordinates.Add(new Coordinate(coordinate.x, coordinate.y));
 			} 
 			DeleteLastPathPiece();
@@ -111,9 +111,9 @@ public class Path : MonoBehaviour {
 			coordinate.y = pmp.coordinate.y;
 		} else if (pathPieces.Count == 2){
 			if (coordinate.x == end.x && coordinate.y == end.y){
-				d = pathPieces[pathPieces.Count - 1].GetComponent<PathLastPiece>().comming;
+				//d = pathPieces[pathPieces.Count - 1].GetComponent<PathLastPiece>().comming;
 			} else {
-				d = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>().comming;
+				//d = pathPieces[pathPieces.Count - 1].GetComponent<PathMiddlePiece>().comming;
 				bm.freeCoordinates.Add(new Coordinate(coordinate.x, coordinate.y));
 			}
 			DeleteLastPathPiece();

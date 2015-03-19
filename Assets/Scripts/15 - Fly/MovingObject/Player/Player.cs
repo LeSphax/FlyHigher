@@ -11,21 +11,21 @@ public class Player : MovingObject {
 
 
 	public void Hit (){
-		GameManager.instance.playerHitPoints --;
 		if (CheckIfGameOver()) {
 			animator.SetTrigger ("playerDie");
-			Invoke("loadGameOver", 0.3f);
+			Invoke("loadPlayerHit", 0.5f);
 		} else {
 			animator.SetTrigger ("playerHit");
+			loadPlayerHit();
 		}
 	}
 
-	private void loadGameOver(){
-		GameManager.instance.GameOver();
+	private void loadPlayerHit(){
+		GameManager.instance.PlayerHit ();
 	}
 	
 	private bool CheckIfGameOver (){
-		return GameManager.instance.playerHitPoints <= 0; 
+		return GameManager.instance.playerHitPoints -1 <= 0; 
 	}
 
 	public bool MovePlayer(bool up, out RaycastHit2D hit){
@@ -39,5 +39,10 @@ public class Player : MovingObject {
 		                       				GameManager.instance.boundaries.yMin + 2f,
 		                            		GameManager.instance.boundaries.yMax - 2.5f),
 		                                  transform.position.z);
+	}
+
+	protected override bool HitAntagonist (GameObject hitObject)
+	{
+		return true;
 	}
 }

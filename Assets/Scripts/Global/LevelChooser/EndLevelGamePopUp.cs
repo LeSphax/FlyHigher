@@ -6,13 +6,6 @@ public class EndLevelGamePopUp : MonoBehaviour {
 	public GameObject endGamePopUp;
 	public GameObject levelChooser;
 	public GameObject buttons;
-
-	GameData gameData;
-	
-	void Awake()
-	{
-		gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-	}
 	
 	public void LevelEnded ()
 	{
