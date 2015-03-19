@@ -10,12 +10,20 @@ public class PlayeurControlleur : MonoBehaviour {
 
 	// Use this for initialization
 	void Update(){
+		if(Input.GetMouseButtonUp(0)){
+			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu();
+		}
+
+
+
 		if(Input.GetMouseButton(0)){
 			RaycastHit  hit ;
 			Ray  ray= cam.ScreenPointToRay(Input.mousePosition);
-			if(Physics.Raycast(ray,out hit)){ 
+			if(Physics.Raycast(ray,out hit)){
 				Vector3 pos=new Vector3(hit.point.x, hit.point.y, 0.0f);
 				player.transform.position =pos; //deplace le curseur sur le pion courant
+			
+				//Handles.DrawLine(Vector3.zero,pos);
 			}
 		}
 	}
