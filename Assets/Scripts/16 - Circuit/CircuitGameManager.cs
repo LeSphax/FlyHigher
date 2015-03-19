@@ -13,8 +13,8 @@ public class CircuitGameManager : MonoBehaviour {
 
 	public void Init (int lvl) {
 		lvlNb = lvl;
-		Level l = board.GetComponent<Level> ();
-		l.LevelLoader (lvl);
+		CircuitLevels l = board.GetComponent<CircuitLevels> ();
+		l.LoadLevel (lvl);
 		levelLoader.SetActive (false);
 		levelButton.gameObject.SetActive (true);
 	}

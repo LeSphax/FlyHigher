@@ -6,9 +6,9 @@ using System.Collections.Generic;
 public class CircuitGameController : MonoBehaviour {
 
 	public GameObject board;
-	private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls.
+	private Vector2 touchOrigin = -Vector2.one;	//Used to store location of screen touch origin for mobile controls
 
-	private void Update ()
+	/*private void Update ()
 	{
 		int horizontal = 0;  	//Used to store the horizontal move direction.
 		int vertical = 0;		//Used to store the vertical move direction.
@@ -61,15 +61,15 @@ public class CircuitGameController : MonoBehaviour {
 			}
 			BoardManager bm = board.GetComponent<BoardManager>();
 			if (horizontal == 1) {
-				bm.MoveAction(PathPiece.Direction.RIGHT);
+//				bm.MoveAction(PathPiece.Direction.RIGHT);
 			} else if (horizontal == -1) {
-				bm.MoveAction(PathPiece.Direction.LEFT);
+//				bm.MoveAction(PathPiece.Direction.LEFT);
 			} else if (vertical == 1) {
-				bm.MoveAction(PathPiece.Direction.UP);
+//				bm.MoveAction(PathPiece.Direction.UP);
 			} else if (vertical == -1) {
-				bm.MoveAction(PathPiece.Direction.DOWN);
+//				bm.MoveAction(PathPiece.Direction.DOWN);
 			}
 		}
 
-	}
+	}*/
 }

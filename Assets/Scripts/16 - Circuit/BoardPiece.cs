@@ -8,7 +8,6 @@ public class BoardPiece : Element {
 	public Sprite pieceOutGameSprite;
 
 	[HideInInspector] public bool isInGame;
-
 	public void Init (GameObject board, Coordinate c){
 		RectTransform frt = board.GetComponent<BoardManager> ().gameController.GetComponent<RectTransform> ();
 		RectTransform rt = GetComponent<RectTransform> ();
@@ -22,6 +21,14 @@ public class BoardPiece : Element {
 
 	protected override void SetUp (){
 		isInGame = true;
+	}
+
+	public void OnBoardPieceEnter(){
+		board.GetComponent<BoardManager> ().OnBoardPieceEnter (gameObject);
+	}
+
+	public void OnBoardPieceReleased(){
+		board.GetComponent<BoardManager> ().OnBoardReleased (gameObject);
 	}
 
 	public override void Draw (){

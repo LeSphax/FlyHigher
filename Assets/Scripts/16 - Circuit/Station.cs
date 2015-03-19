@@ -22,8 +22,6 @@ public class Station : Element {
 	[HideInInspector] public bool isBinded;
 	[HideInInspector] public GameObject brotherStation;
 	
-	private GameObject board;
-
 	public void Init(GameObject board, int x, int y, StationColor sc) {
 		Init (board, new Coordinate (x, y), sc);
 	}
@@ -79,7 +77,7 @@ public class Station : Element {
 		}
 	}
 
-	public void StationClicked(){
-		board.GetComponent<BoardManager> ().StationClicked (gameObject);
+	public void OnStationPressed(){
+		board.GetComponent<BoardManager> ().OnStationPressed (gameObject);
 	}
 }
