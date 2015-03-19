@@ -3,18 +3,23 @@ using System.Collections;
 
 public class GameControlPaint : MonoBehaviour
 {
-	public GameObject prefab;
+	public GameObject prefabDraw;
+	public GameObject prefabColorJar;
 	public Color[] ColorPossible;
+	public Vector3[] positionJars;
 
 	private Color colorSelected = new Color (1f, 1f, 1f, 1f);
-	private GameObject draw;
 	private DotColor[] dotsColor;
 
 	// Use this for initialization
 	void Start ()
 	{
-
-		draw = Instantiate (prefab) as GameObject;
+		for (int i = 0; i < positionJars.Length; i++) {
+			GameObject colorJar = Instantiate (prefabColorJar, positionJars [i], Quaternion.identity) as GameObject;
+			colorJar.GetComponentInChildren<JarBehavior> ().SetColor (ColorPossible [i]);
+		}
+			
+		GameObject draw = Instantiate (prefabDraw) as GameObject;
 		dotsColor = draw.GetComponentsInChildren<DotColor> ();
 		foreach (DotColor dc in dotsColor) {
 			dc.SetColorWanted (ColorPossible [Random.Range (0, ColorPossible.Length)]);

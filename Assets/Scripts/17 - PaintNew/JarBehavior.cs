@@ -1,7 +1,7 @@
 ﻿using UnityEngine;
 using System.Collections;
 
-public class ClickOnJar : MonoBehaviour
+public class JarBehavior : MonoBehaviour
 {
 	public Color myColor;
 
@@ -15,11 +15,17 @@ public class ClickOnJar : MonoBehaviour
 	// Use this for initialization
 	void Start ()
 	{
-		//myColor = Color.blue;
+
 	}
 
 	void OnMouseDown ()
 	{
 		gameControl.SetSelectedColor (myColor);
+	}
+
+	public void SetColor (Color c)
+	{
+		GetComponentsInChildren<SpriteRenderer> () [1].color = c;
+		myColor = c;
 	}
 }
