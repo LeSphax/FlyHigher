@@ -593,6 +593,7 @@ GameObject:
   - 222: {fileID: 498362971}
   - 114: {fileID: 498362970}
   - 114: {fileID: 498362969}
+  - 114: {fileID: 498362968}
   m_Layer: 5
   m_Name: ExitButton
   m_TagString: Untagged
@@ -615,9 +616,20 @@ RectTransform:
   m_RootOrder: 4
   m_AnchorMin: {x: 1, y: 0}
   m_AnchorMax: {x: 1, y: 0}
-  m_AnchoredPosition: {x: -50, y: 50}
+  m_AnchoredPosition: {x: -35, y: 35}
   m_SizeDelta: {x: 50, y: 50}
   m_Pivot: {x: .5, y: .5}
+--- !u!114 &498362968
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 498362966}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0257d53f73e86fa48957ba51006d9277, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!114 &498362969
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -658,9 +670,9 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 1972974247}
-        m_MethodName: BroadcastMessage
-        m_Mode: 5
+      - m_Target: {fileID: 498362968}
+        m_MethodName: QuitButtonPressed
+        m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
           m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
@@ -1640,15 +1652,15 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22449120, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_RootOrder
-      value: 5
+      value: 4
       objectReference: {fileID: 0}
     - target: {fileID: 22449120, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_AnchoredPosition.x
-      value: -50
+      value: -35
       objectReference: {fileID: 0}
     - target: {fileID: 22449120, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_AnchoredPosition.y
-      value: 50
+      value: 35
       objectReference: {fileID: 0}
     - target: {fileID: 22449120, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_SizeDelta.x
@@ -1685,14 +1697,14 @@ Prefab:
     - target: {fileID: 11449118, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Target
       value: 
-      objectReference: {fileID: 1972974247}
+      objectReference: {fileID: 498362968}
     - target: {fileID: 11449118, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_MethodName
-      value: BroadcastMessage
+      value: QuitButtonPressed
       objectReference: {fileID: 0}
     - target: {fileID: 11449118, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Mode
-      value: 5
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11449118, guid: 4d4e00b0bb42ef04a990b96126390f74, type: 2}
       propertyPath: m_OnClick.m_PersistentCalls.m_Calls.Array.data[0].m_Arguments.m_StringArgument
