@@ -56,8 +56,8 @@ Transform:
   m_PrefabInternal: {fileID: 100100000}
   m_GameObject: {fileID: 166130}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
+  m_LocalPosition: {x: .100000001, y: .100000001, z: 0}
+  m_LocalScale: {x: .699999988, y: .699999988, z: 1}
   m_Children: []
   m_Father: {fileID: 466134}
   m_RootOrder: 1
@@ -69,7 +69,7 @@ Transform:
   m_GameObject: {fileID: 166132}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 0, y: 0, z: 0}
-  m_LocalScale: {x: .600000024, y: .600000024, z: 1}
+  m_LocalScale: {x: .699999988, y: .699999988, z: 1}
   m_Children: []
   m_Father: {fileID: 466134}
   m_RootOrder: 0
@@ -81,7 +81,7 @@ Transform:
   m_GameObject: {fileID: 166134}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
   m_LocalPosition: {x: 12, y: 0, z: 0}
-  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_LocalScale: {x: .949999988, y: .949999988, z: 0}
   m_Children:
   - {fileID: 466132}
   - {fileID: 466130}
@@ -110,6 +110,8 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   myColor: {r: 1, g: 1, b: 1, a: 1}
+  spriteSelected: {fileID: 21300000, guid: 5b2674fba8eba1f4f8bd5e3ba4f9fd06, type: 3}
+  spriteUnSelected: {fileID: 21300000, guid: fe0b1552d64eec744b7f4601a7d1dc68, type: 3}
 --- !u!212 &21266130
 SpriteRenderer:
   m_ObjectHideFlags: 1
@@ -152,7 +154,7 @@ SpriteRenderer:
   m_ScaleInLightmap: 1
   m_SortingLayerID: 0
   m_SortingOrder: 0
-  m_Sprite: {fileID: 21300000, guid: 259a77c2cb9b1d84caa702afcea8030d, type: 3}
+  m_Sprite: {fileID: 21300000, guid: fe0b1552d64eec744b7f4601a7d1dc68, type: 3}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
 --- !u!1001 &100100000
 Prefab:
