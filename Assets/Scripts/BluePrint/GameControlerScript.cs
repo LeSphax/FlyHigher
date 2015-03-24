@@ -20,28 +20,27 @@ public class GameControlerScript : MonoBehaviour {
 	
 	}
 
-
 	//fonction qui doit etre appeler à la fin du jeu
 	public void FinJeu(){
 		Debug.Log ("FIN JEU");
-		GameObject.FindWithTag("GamesUI").SendMessage ("GameEnded", etoile);
+		if (nbeObjectifs <= 0) {
+			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded", etoile);
+		}
 	}
 
 	//compte le nombre d'etoile ramasser
 	public void ObjectifsRamasser(){
 		nbeObjectifs--;
 		MajObjectifs ();
-		if (nbeObjectifs <= 0) { //si on à ramasser tout les objectifs on appel la fin du jeu
+		/*if (nbeObjectifs <= 0) { //si on à ramasser tout les objectifs on appel la fin du jeu
 			FinJeu();
 		}
+		*/
 	}
-
-
 
 	private void MajObjectifs(){
 		Tobjectifs.text = nbeObjectifs.ToString ();
 	}
-
 
 	public void SuppEtoile(){
 		etoile--;
