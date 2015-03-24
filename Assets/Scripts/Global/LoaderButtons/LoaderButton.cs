@@ -22,7 +22,7 @@ public abstract class LoaderButton: MonoBehaviour {
 	public void Init(GameData gameData, bool isLocked){
 		this.gameData = gameData;
 		this.isLocked = isLocked;
-		this.sceneName = GetComponent<buttonLoadScene> ().sceneToLoad;
+		this.sceneName = LanguageText.Instance.GetSceneName(GetComponent<buttonLoadScene> ().sceneToLoad);
 		this.starsNb = gameData.GetSceneData (this.sceneName).numberStars;
 		//this.title = LanguageText.Instance.GetSceneName(sceneName);
 		this.title = this.sceneName;

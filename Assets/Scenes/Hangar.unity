@@ -222,7 +222,7 @@ GameObject:
   - 114: {fileID: 78011117}
   - 114: {fileID: 78011116}
   m_Layer: 5
-  m_Name: ChaudronierLoader
+  m_Name: SheetMetalWorkerLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -927,11 +927,11 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 176892, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: m_Name
-      value: PainterLoader
+      value: AeronauticPainterLoader
       objectReference: {fileID: 0}
     - target: {fileID: 11476890, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: sceneToLoad
-      value: Hangar - 3 - Paint
+      value: Hangar - 3 - AeronauticPainter
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
@@ -1016,7 +1016,7 @@ GameObject:
   - 114: {fileID: 353110031}
   - 114: {fileID: 353110030}
   m_Layer: 5
-  m_Name: StockGameLoader
+  m_Name: PlanningSchedulerLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -1788,7 +1788,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 176892, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: m_Name
-      value: ChaudronierLoader
+      value: SheetMetalWorkerLoader
       objectReference: {fileID: 0}
     - target: {fileID: 11476890, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: sceneToLoad
@@ -2337,7 +2337,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 176892, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: m_Name
-      value: StockGameLoader
+      value: PlanningSchedulerLoader
       objectReference: {fileID: 0}
     - target: {fileID: 11476890, guid: b1a5083f6b58faa4eacb6137da65de67, type: 2}
       propertyPath: sceneToLoad
@@ -3133,7 +3133,7 @@ GameObject:
   - 114: {fileID: 1990230644}
   - 114: {fileID: 1990230643}
   m_Layer: 5
-  m_Name: PainterLoader
+  m_Name: AeronauticPainterLoader
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -3197,7 +3197,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Hangar - 3 - Paint
+  sceneToLoad: Hangar - 3 - AeronauticPainter
 --- !u!114 &1990230645
 MonoBehaviour:
   m_ObjectHideFlags: 0
