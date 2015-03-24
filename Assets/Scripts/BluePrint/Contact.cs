@@ -6,8 +6,13 @@ public class Contact : MonoBehaviour {
 	
 	void OnTriggerEnter(Collider other){
 		if (other.tag == "Point") { //on récupere un objectifs
-			Destroy (other.gameObject);
+			Vector3 v=new Vector3(1.0f,1.0f,0.0f);
 			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().ObjectifsRamasser();
+
+			GameObject.FindWithTag ("Player").GetComponent<PlayeurControlleur>().NouvelleLigne(other.transform.position);
+				
+		
+			Destroy (other.gameObject);
 
 		}
 		if (other.tag == "Obstacle") {
