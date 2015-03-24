@@ -6,17 +6,18 @@ public class DotColor : MonoBehaviour
 
 	private Color colorUnder;
 	private Color colorWanted;
-	private SpriteRenderer renderer ;
+	private SpriteRenderer rendererDot ;
 	
 	void Awake ()
 	{
-		renderer = GetComponent<SpriteRenderer> ();
+		rendererDot = GetComponent<SpriteRenderer> ();
 	}
 
 	public void SetColorWanted (Color c)
 	{
+		colorUnder = new Color (1f, 1f, 1f, 1f);
 		colorWanted = c;
-		renderer.color = c;
+		rendererDot.color = c;
 	}
 
 	public void SetColorUnder (Color c)
@@ -26,9 +27,6 @@ public class DotColor : MonoBehaviour
 
 	public bool ColorIsOk ()
 	{
-		if (colorUnder == null || colorWanted == null) {
-			return false;
-		}
 		return (colorUnder == colorWanted);
 	}
 }

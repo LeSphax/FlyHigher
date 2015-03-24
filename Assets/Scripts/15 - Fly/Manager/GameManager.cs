@@ -49,14 +49,25 @@ public class GameManager : MonoBehaviour {
 	void Update () {
 		enemiesManager.SpawnEnemies ();
 		enemiesManager.MoveEnemies ();
-		hitPointsText.text = "" + playerHitPoints;
 		distanceSlider.value = Mathf.Clamp((((Time.time - startTime) * 100) / gameDuration), 0, 100);
 		if (distanceSlider.value >= 100)
 			GameOver ();
+
+	}
+
+	public void PlayerHit(){
+		playerHitPoints --;
+		hitPointsText.text = "" + playerHitPoints;
 		if (playerHitPoints < 9) {
 			star3.sprite = emptyStar;
 			if (playerHitPoints < 4){
 				star2.sprite = emptyStar;
+				if (playerHitPoints <= 0){
+					star1.sprite = emptyStar;
+					GameOver ();
+				} else {
+					star1.sprite = star;
+				}
 			} else {
 				star1.sprite = star;
 				star2.sprite = star;
@@ -71,14 +82,17 @@ public class GameManager : MonoBehaviour {
 
 	public void GameOver (){
         GameObject gamesUI = GameObject.FindWithTag("GamesUI");
-		if (playerHitPoints > 9) {
-			gamesUI.BroadcastMessage("GameEnded", 3);
-		} else if (playerHitPoints > 4) {
-			gamesUI.BroadcastMessage("GameEnded", 2);
+		int starNb;
+		if (playerHitPoints >= 9) {
+			starNb = 3;
+		} else if (playerHitPoints >= 4) {
+			starNb = 2;
 		} else if (playerHitPoints > 0) {
-			gamesUI.BroadcastMessage("GameEnded", 1);
+			starNb = 1;
 		} else {
-			gamesUI.BroadcastMessage("GameEnded");
+			starNb = 0;
 		}
+		enemiesManager.DestroyAll ();
+		gamesUI.BroadcastMessage("GameEnded", starNb);
 	}
 }

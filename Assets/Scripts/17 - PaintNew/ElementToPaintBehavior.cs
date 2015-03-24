@@ -1,30 +1,30 @@
 ﻿using UnityEngine;
 using System.Collections;
+using UnityEngine.EventSystems;
 
 public class ElementToPaintBehavior : MonoBehaviour
 {
 	private GameControlPaint gameControl;
 
-	private SpriteRenderer renderer ;
+	private SpriteRenderer rendererEle ;
 	private DotColor dotColor;
-
-	void Awake ()
-	{
-		renderer = GetComponent<SpriteRenderer> ();
-		dotColor = GetComponentInChildren<DotColor> ();
-		gameControl = GameObject.FindWithTag ("GameController").GetComponent<GameControlPaint> ();
-	}
+	
 
 	// Use this for initialization
 	void Start ()
 	{
-	
+		rendererEle = GetComponent<SpriteRenderer> ();
+		dotColor = GetComponentInChildren<DotColor> ();
 	}
 
+	public void SetController (GameControlPaint g)
+	{
+		gameControl = g;
+	}
 
 	private void SetColor (Color c)
 	{
-		renderer.color = c;
+		rendererEle.color = c;
 	}
 
 
@@ -38,9 +38,10 @@ public class ElementToPaintBehavior : MonoBehaviour
 
 
 	void OnMouseDown ()
-	{
-		Debug.Log ("OnMouseDown");
-		ColorChanged ();
+	{			
+		if (!EventSystem.current.IsPointerOverGameObject ()) {
+			ColorChanged ();
+		}
 	}
 
 }

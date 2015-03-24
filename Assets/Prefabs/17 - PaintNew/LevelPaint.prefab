@@ -1,0 +1,93 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &197562
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497562}
+  - 114: {fileID: 11497562}
+  m_Layer: 0
+  m_Name: GameControlPaint
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!1 &197564
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 497564}
+  m_Layer: 0
+  m_Name: LevelPaint
+  m_TagString: Untagged
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &497562
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197562}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 497564}
+  m_RootOrder: 0
+--- !u!4 &497564
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197564}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 0, y: 0, z: 0}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children:
+  - {fileID: 497562}
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11497562
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 197562}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 98151b61e7b8a7141bcb9fefb5a2636d, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  prefabDrawLvl1: {fileID: 151056, guid: 6a7b29e3cd3c034409b90b71a33297c6, type: 2}
+  prefabDrawLvl2: {fileID: 190838, guid: 93fe0885e20f5884a8cff42f9b72b845, type: 2}
+  prefabDrawLvl3: {fileID: 0}
+  prefabColorJar: {fileID: 166134, guid: 1b485738112ac3b458ddc5b7d12dc8cf, type: 2}
+  ColorPossible:
+  - {r: 1, g: .313725501, b: .313725501, a: 1}
+  - {r: .313725501, g: .313725501, b: 1, a: 1}
+  - {r: 1, g: 1, b: .313725501, a: 1}
+  positionJars:
+  - {x: -10, y: 6.5, z: 0}
+  - {x: -10, y: 0, z: 0}
+  - {x: -10, y: -6.5, z: 0}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 197564}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1

@@ -151,7 +151,7 @@ GameObject:
   - 224: {fileID: 22448660}
   m_Layer: 0
   m_Name: LevelGameUI
-  m_TagString: Untagged
+  m_TagString: GamesUI
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -289,7 +289,6 @@ GameObject:
   - 222: {fileID: 22248678}
   - 114: {fileID: 11448662}
   - 114: {fileID: 11448664}
-  - 114: {fileID: 11448666}
   - 114: {fileID: 11448668}
   m_Layer: 5
   m_Name: MuteButton
@@ -325,6 +324,7 @@ GameObject:
   - 224: {fileID: 22448680}
   - 222: {fileID: 22248682}
   - 114: {fileID: 11448672}
+  - 114: {fileID: 11487324}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -804,9 +804,9 @@ MonoBehaviour:
   star2: {fileID: 11448686}
   star3: {fileID: 11448670}
   al: {fileID: 0}
-  star1LevelNb: 0
-  star2LevelNb: 0
-  star3LevelNb: 0
+  star1LevelNb: 1
+  star2LevelNb: 1
+  star3LevelNb: 1
   levelButton: {fileID: 152810, guid: 43ca708582b88d843a7936d97b693084, type: 2}
   emptyStar: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
   fullStar: {fileID: 21300000, guid: 2b018fca23f8c004d9d618cc483b1018, type: 3}
@@ -1340,18 +1340,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 11448668}
-        m_MethodName: MuteButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 11448666}
         m_MethodName: OnButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -1365,18 +1353,6 @@ MonoBehaviour:
         m_CallState: 2
     m_TypeName: UnityEngine.UI.Button+ButtonClickedEvent, UnityEngine.UI, Version=1.0.0.0,
       Culture=neutral, PublicKeyToken=null
---- !u!114 &11448666
-MonoBehaviour:
-  m_ObjectHideFlags: 1
-  m_PrefabParentObject: {fileID: 0}
-  m_PrefabInternal: {fileID: 100100000}
-  m_GameObject: {fileID: 148676}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf675527cd1e7144995ef9dd781dbe4, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
-  activationImage: {fileID: 21300000, guid: 415292a9543374f46ba3a9fd9d653225, type: 3}
 --- !u!114 &11448668
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1388,6 +1364,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: e2a820aa150e07f45a57d613095e8fd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
+  activationImage: {fileID: 21300000, guid: 415292a9543374f46ba3a9fd9d653225, type: 3}
 --- !u!114 &11448670
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1448,7 +1425,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: dd2da489c6948674a997488e02d1f307, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ea07cbc2176cdc42a13ee9101c31edf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2016,6 +1993,17 @@ MonoBehaviour:
   m_FillAmount: 1
   m_FillClockwise: 1
   m_FillOrigin: 0
+--- !u!114 &11487324
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 148680}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b74be78c2335948829c9c53ac13eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!222 &22248652
 CanvasRenderer:
   m_ObjectHideFlags: 1

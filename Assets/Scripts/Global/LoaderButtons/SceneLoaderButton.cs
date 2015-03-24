@@ -20,7 +20,7 @@ public class SceneLoaderButton : LoaderButton {
 		this.starsNb = gameData.GetBuildingCurrentStars (sceneName);
 		try{
 			this.starsMaxNb = gameData.GetBuildingData (sceneName).nbGames * 3;
-		} catch (NullReferenceException nre){
+		} catch {
 			this.starsMaxNb = 9;
 		}
 	}

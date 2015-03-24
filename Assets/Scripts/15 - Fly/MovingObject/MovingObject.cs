@@ -23,10 +23,15 @@ public abstract class MovingObject : MonoBehaviour {
 		if (hit.transform == null) {
 			MoveAction(xDir, yDir);
 			return true;
+		} else if (!HitAntagonist(hit.transform.gameObject)){
+			MoveAction(xDir, yDir);
+			return true;
 		}
-		
+
 		return false;
 	}
+
+	protected abstract bool HitAntagonist (GameObject hitObject);
 
 	protected abstract void MoveAction (int xDir, int yDir);
 }

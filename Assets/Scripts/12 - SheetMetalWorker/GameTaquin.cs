@@ -212,7 +212,7 @@ namespace AssemblyCSharp
                     if (GameIsWon())
                     {
                         state = State.Inactive;
-                        GameObject.FindWithTag("GamesUI").BroadcastMessage("GameEnded", numberStars);
+                        GameObject.FindWithTag("GamesUI").BroadcastMessage("LevelEnded", numberStars);
                     }
                     break;
                 case State.Inactive:

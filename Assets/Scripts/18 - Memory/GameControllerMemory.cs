@@ -52,7 +52,6 @@ public class GameControllerMemory : MonoBehaviour
 
 
 		for (int i=0; i<texturesCards.Length; i++) {
-			Debug.Log ("SetTextures");
 			cardsList.Add (new Card (texturesCards [i], i));
 			cardsList.Add (new Card (texturesCards [i], i));
 
@@ -158,7 +157,7 @@ public class GameControllerMemory : MonoBehaviour
 	void EndOfGame ()
 	{
 		//Debug.Log ("Missed " + nbTryMissed);
-		GameObject.FindWithTag("GamesUI").BroadcastMessage ("GameEnded", calculNumberStar ());
+		GameObject.FindWithTag ("GamesUI").BroadcastMessage ("GameEnded", calculNumberStar ());
 
 	}
 

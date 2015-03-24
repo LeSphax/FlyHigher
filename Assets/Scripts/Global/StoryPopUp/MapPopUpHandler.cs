@@ -12,11 +12,11 @@ public class MapPopUpHandler : PopUpHandler
 			return new System.Collections.Generic.Queue<string> ();
 		} else {
 			GameData gamedata = GameObject.FindWithTag ("GameControl").GetComponent<GameData> ();
-			if (gamedata.showAlternativeText) {
+			if (gamedata.mapVisited) {
 				PopUpHandler.SetPopUpAlreadySeen (idAlternativeStory);
 				return base.GetTexts (idAlternativeStory);
 			} else {
-				gamedata.showAlternativeText = true;
+				gamedata.mapVisited = true;
 				PopUpHandler.SetPopUpAlreadySeen (idStory);
 				return base.GetTexts (idStory);
 			}

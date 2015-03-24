@@ -4,7 +4,6 @@ using UnityEngine.UI;
 
 public class GameControlerScript : MonoBehaviour {
 	private int etoile;
-	public GameObject gameUi;
 	public int nbeObjectifsTotal;
 	private int nbeObjectifs;
 	public Text Tobjectifs;
@@ -25,7 +24,7 @@ public class GameControlerScript : MonoBehaviour {
 	//fonction qui doit etre appeler à la fin du jeu
 	public void FinJeu(){
 		Debug.Log ("FIN JEU");
-		gameUi.SendMessage ("GameEnded", etoile);
+		GameObject.FindWithTag("GamesUI").SendMessage ("GameEnded", etoile);
 	}
 
 	//compte le nombre d'etoile ramasser

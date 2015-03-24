@@ -14,8 +14,10 @@ public class GameData : MonoBehaviour
 	private Dictionary<String, SceneData> sceneDictionary;
 	private Dictionary<String, BuildingData> buildingDictionary;
 	string language { get; set; }
-	public bool showAlternativeText;
-	//public bool showAlternativeText { get { 	return _showAlternativeText;} set{ _showAlternativeText = value;}}
+	[HideInInspector]
+	public bool mapVisited;
+    [HideInInspector]
+    public float volume;
 	public BuildingData[] buildings;
 
 
@@ -34,6 +36,8 @@ public class GameData : MonoBehaviour
 	void init ()
 	{
 		DontDestroyOnLoad (gameObject);
+        mapVisited = false;
+        volume = 1.0f;
 		path = Application.persistentDataPath + "/" + fileName;
 		sceneDictionary = new Dictionary<string, SceneData> ();
 		buildingDictionary = new Dictionary<string, BuildingData> ();
@@ -49,6 +53,7 @@ public class GameData : MonoBehaviour
 	public void Reset ()
 	{
 		sceneDictionary = new Dictionary<string, SceneData> ();
+        mapVisited = false;
 	}
 
 	public void AddScore (int numberStars)
@@ -143,7 +148,8 @@ public class GameData : MonoBehaviour
 			playerData.scenesDictionary = sceneDictionary;
 			playerData.buildingDictionary = buildingDictionary;
 			playerData.language = language;
-			playerData.showAlternativeText = showAlternativeText;
+			playerData.mapVisited = mapVisited;
+            playerData.volume = volume;
 			bf.Serialize (file, playerData);
 			file.Close ();
 		}
@@ -156,7 +162,8 @@ public class GameData : MonoBehaviour
 			FileStream file = File.Open (path, FileMode.Open);
 			PlayerData playerData = (PlayerData)bf.Deserialize (file);
 			sceneDictionary = playerData.scenesDictionary;
-			showAlternativeText = playerData.showAlternativeText;
+			mapVisited = playerData.mapVisited;
+            volume = playerData.volume;
 			buildingDictionary = playerData.buildingDictionary;
 			language = playerData.language;
 		}
@@ -174,7 +181,8 @@ public class GameData : MonoBehaviour
 		public Dictionary<String, SceneData> scenesDictionary;
 		public Dictionary<String, BuildingData> buildingDictionary;
 		public string language;
-		public bool showAlternativeText; // PopUpHistory on the scene Map. 
+		public bool mapVisited; // PopUpHistory on the scene Map. 
+        public float volume;
 	}
 
 	[Serializable]
