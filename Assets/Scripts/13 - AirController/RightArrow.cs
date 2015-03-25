@@ -9,13 +9,19 @@ public class RightArrow : MonoBehaviour
 
     void OnMouseDown()
     {
-        if (plane != null)
-        plane.SendMessage("TurnRight");
+        if (Time.timeScale != 0)
+        {
+            if (plane != null)
+                plane.SendMessage("TurnRight");
+        }
     }
 
     void OnMouseUp()
     {
-        if (plane != null)
-        plane.SendMessage("StopTurning");
+        if (Time.timeScale != 0)
+        {
+            if (plane != null)
+                plane.SendMessage("StopTurning");
+        }
     }
 }

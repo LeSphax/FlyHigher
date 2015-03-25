@@ -26,6 +26,8 @@ public class GameManager : MonoBehaviour {
 	public Sprite star;
 	public Sprite emptyStar;
 
+	public GameObject endLine;
+
 	private float startTime;
 
 	[HideInInspector] public EnemiesManager enemiesManager;
@@ -50,6 +52,8 @@ public class GameManager : MonoBehaviour {
 		enemiesManager.SpawnEnemies ();
 		enemiesManager.MoveEnemies ();
 		distanceSlider.value = Mathf.Clamp((((Time.time - startTime) * 100) / gameDuration), 0, 100);
+		if ((Time.time - startTime) > (gameDuration - 6))
+			endLine.GetComponent<EndLine> ().MoveEndLine ();
 		if (distanceSlider.value >= 100)
 			GameOver ();
 

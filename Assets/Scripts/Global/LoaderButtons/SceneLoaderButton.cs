@@ -21,7 +21,8 @@ public class SceneLoaderButton : LoaderButton {
 		try{
 			this.starsMaxNb = gameData.GetBuildingData (sceneName).nbGames * 3;
 		} catch {
-			this.starsMaxNb = 9;
+            Debug.LogError("Probleme GetBuildingData in SceneLoaderButton");
+			this.starsMaxNb = -1;
 		}
 	}
 

@@ -7,8 +7,8 @@ public class AirController : MonoBehaviour
 
     public int nbDotsToCatch;
     public int nbDotsBeforePlanes;
-    public int startingTimeBetweenPlanes;
-    public int minimumTimeBetweenPlanes;
+    public float startingTimeBetweenPlanes;
+    public float minimumTimeBetweenPlanes;
     public int numberOfLives;
 
     int nbDotsCaught;
@@ -35,7 +35,7 @@ public class AirController : MonoBehaviour
 
         if (nbDotsToCatch == 0)
         {
-            GameEnded();
+            Invoke("GameEnded", 1.0f);
         }
     }
 
@@ -43,7 +43,7 @@ public class AirController : MonoBehaviour
     public void DotDestroyed()
     {
         if (nbDotsCaught >= nbDotsBeforePlanes)
-            timeBetweenPlanes -= (startingTimeBetweenPlanes - minimumTimeBetweenPlanes) / nbDotsToCatch - nbDotsBeforePlanes;
+            timeBetweenPlanes -= (startingTimeBetweenPlanes - minimumTimeBetweenPlanes) / ((nbDotsToCatch+nbDotsCaught) - nbDotsBeforePlanes);
         nbDotsToCatch--;
         nbDotsCaught++;
         if (nbDotsToCatch > 0)
@@ -73,12 +73,14 @@ public class AirController : MonoBehaviour
     {        
         if (explosionSound)
             AudioSource.PlayClipAtPoint(explosionSound, transform.position);
-        Invoke("OtherPlaneDestroyed", 2);
+        Invoke("OtherPlaneDestroyed", 2); // Called after two seconds so the Imminent Collision red flashing won't stop instantaneously.
+        StartFlashing();
+        Invoke("StopFlashing", 3.0f);
         numberOfLives--;
         if (numberOfLives <= 0)
         {
-            Destroy(gameObject);
-            GameEnded();
+            gameObject.renderer.enabled = false;
+            Invoke("GameEnded",1.0f);
         }
 
     }
@@ -117,9 +119,21 @@ public class AirController : MonoBehaviour
         }
     }
 
+    // Signal the Nearby planes detecter that a plane which have been destroyed isn't in the danger zone anymore.
     void OtherPlaneDestroyed()
     {
         gameObject.BroadcastMessage("OtherPlaneExited");
+    }
+
+    void StartFlashing()
+    {
+        gameObject.animation.Play();
+    }
+
+    void StopFlashing()
+    {
+        gameObject.animation.Stop();
+        renderer.enabled = true;
     }
 
 }

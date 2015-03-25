@@ -206,6 +206,7 @@ MonoBehaviour:
   star3: {fileID: 11476882}
   starEmpty: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
   starFull: {fileID: 21300000, guid: 2b018fca23f8c004d9d618cc483b1018, type: 3}
+  jobInfo: {fileID: 0}
 --- !u!114 &11476888
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -238,7 +239,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: 
+  sceneToLoad: Laboratory - 1 - StructuralEngineer
 --- !u!114 &11476892
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -278,8 +279,8 @@ MonoBehaviour:
   m_OnClick:
     m_PersistentCalls:
       m_Calls:
-      - m_Target: {fileID: 11476890}
-        m_MethodName: loadScene
+      - m_Target: {fileID: 11476886}
+        m_MethodName: LoadJobInfo
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -524,7 +525,7 @@ RectTransform:
   m_RootOrder: 0
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
-  m_AnchoredPosition: {x: -27.263092, y: -27.0655518}
+  m_AnchoredPosition: {x: -288, y: -158}
   m_SizeDelta: {x: 100, y: 100}
   m_Pivot: {x: .5, y: .5}
 --- !u!1001 &100100000

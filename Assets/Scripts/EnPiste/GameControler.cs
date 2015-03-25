@@ -56,7 +56,7 @@ public class GameControler : MonoBehaviour {
 				yield return new WaitForSeconds(waveWait);
 			if(nouvelleVague){
 				texte.active=true;
-				waveWait = waveWait * 0.80f;
+				waveWait = waveWait * 0.60f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
 				yield return new WaitForSeconds(2);//attend 3seconde

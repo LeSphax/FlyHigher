@@ -1034,6 +1034,10 @@ Prefab:
       propertyPath: m_Pivot.y
       value: 0
       objectReference: {fileID: 0}
+    - target: {fileID: 11416422, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: idFact
+      value: 9-LiftThrust.Dialog
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
   m_RootGameObject: {fileID: 963542352}
@@ -1248,7 +1252,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 1-PlanesTakeOff.Dialog
+  idFact: 9-LiftThrust.Dialog
 --- !u!114 &943199104
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2790,6 +2794,7 @@ GameObject:
   - 50: {fileID: 1791676793}
   - 114: {fileID: 1791676794}
   - 68: {fileID: 1791676795}
+  - 111: {fileID: 1791676792}
   m_Layer: 0
   m_Name: PlayerPlane
   m_TagString: PlayerPlane
@@ -2846,6 +2851,21 @@ MonoBehaviour:
   rotatonSpeed: 60
   rotationDeceleration: 3
   movementSpeed: 1
+--- !u!111 &1791676792
+Animation:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 1791676788}
+  m_Enabled: 1
+  serializedVersion: 3
+  m_Animation: {fileID: 7400000, guid: b2f1e100dbd3c1c42b3aed6f79c1317e, type: 2}
+  m_Animations:
+  - {fileID: 7400000, guid: b2f1e100dbd3c1c42b3aed6f79c1317e, type: 2}
+  m_WrapMode: 0
+  m_PlayAutomatically: 0
+  m_AnimatePhysics: 0
+  m_CullingType: 0
 --- !u!50 &1791676793
 Rigidbody2D:
   m_ObjectHideFlags: 0
@@ -3247,8 +3267,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: -5.99118139e-05, y: -15.3395844}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: -5.99118139e-05, y: -15}
+  m_SizeDelta: {x: 350, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1860145975
 MonoBehaviour:
@@ -3538,10 +3558,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 1860145974}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 0}
-  m_AnchorMax: {x: .5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2137123508
 MonoBehaviour:

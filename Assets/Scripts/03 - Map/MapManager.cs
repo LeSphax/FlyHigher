@@ -43,7 +43,7 @@ public class MapManager : MonoBehaviour {
 		}
 		laboSLB.Init (gameData, false);
 		} catch {
-			laboSLB.Init (gameData, false);
+			laboSLB.Init (gameData, true);
 			hangarSLB.Init(gameData, true);
 			controlTowerSLB.Init(gameData, true);
 		}
