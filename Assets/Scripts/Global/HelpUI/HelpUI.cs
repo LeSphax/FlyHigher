@@ -23,17 +23,21 @@ public class HelpUI : MonoBehaviour {
 		sceneName = Application.loadedLevelName;
 		GameData gd = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		bool hasStars = gd.GetSceneData (sceneName).numberStars > 0;
-		if (!hasStars && helpSprites.Length > 0) Init ();
+		if (!hasStars) Init ();
 		else gameObject.SetActive(false);
 	}
 
 	public void Init(){
-		Time.timeScale = 0f;
-		state = State.First;
-		i = 0;
-		SetHelpPage ();
-		SetUIToFirst ();
-		gameObject.SetActive (true);
+		if (helpSprites.Length > 0){
+			Time.timeScale = 0f;
+			state = State.First;
+			i = 0;
+			SetHelpPage ();
+			SetUIToFirst ();
+			gameObject.SetActive (true);
+		} else {
+			gameObject.SetActive(false);
+		}
 	}
 
 	private void SetUIToFirst(){
