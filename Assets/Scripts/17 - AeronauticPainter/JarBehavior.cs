@@ -12,6 +12,8 @@ public class JarBehavior : MonoBehaviour
 
 	private	SpriteRenderer paintRenderer ;
 	private SpriteRenderer jarRenderer;
+	private bool selected = false;
+	private int id;
 
 	public void Start ()
 	{
@@ -27,27 +29,39 @@ public class JarBehavior : MonoBehaviour
 	void OnMouseDown ()
 	{
 		if (!EventSystem.current.IsPointerOverGameObject ()) {
-			gameControl.SetSelectedJar (this);
+			gameControl.SetSelectedJar (this.id);
 		}
 	}
 
 	public void SetSelected (bool b)
 	{
+		selected = b;
 		if (b) {
 			jarRenderer.sprite = spriteSelected;
 		} else {
 			jarRenderer.sprite = spriteUnSelected;
 		}
+
+	}
+
+	public void SetId (int id)
+	{
+		this.id = id;
 	}
 
 	public void SetColor (Color c)
 	{
-		GetComponentsInChildren<SpriteRenderer> () [1].color = c;
+		paintRenderer.color = c;
 		myColor = c;
 	}
 
 	public Color GetColor ()
 	{
 		return myColor;
+	}
+
+	public bool isSelected ()
+	{
+		return selected;
 	}
 }
