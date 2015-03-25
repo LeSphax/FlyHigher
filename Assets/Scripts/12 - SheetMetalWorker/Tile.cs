@@ -59,24 +59,36 @@ namespace AssemblyCSharp
 
         void MousePress()
         {
-            MouseDownHandler(this, EventArgs.Empty);
+            if (Time.timeScale != 0)
+            {
+                MouseDownHandler(this, EventArgs.Empty);
+            }
         }
 
         //Called when the mouse was pressed on this tile and is released anywhere
         void OnMouseUp()
         {
-            gameObject.BroadcastMessage("EnableRenderer", SendMessageOptions.DontRequireReceiver);
+            if (Time.timeScale != 0)
+            {
+                gameObject.BroadcastMessage("EnableRenderer", SendMessageOptions.DontRequireReceiver);
+            }
         }
 
         //Called when the mouse was pressed anywhere and is released on this tile
         void MouseRelease()
         {
-            MouseUpHandler(this, EventArgs.Empty);
+            if (Time.timeScale != 0)
+            {
+                MouseUpHandler(this, EventArgs.Empty);
+            }
         }
 
         void MouseEnter()
         {
-            MouseEnterHandler(this, EventArgs.Empty);
+            if (Time.timeScale != 0)
+            {
+                MouseEnterHandler(this, EventArgs.Empty);
+            }
         }
 
         public bool equals(Tile other)

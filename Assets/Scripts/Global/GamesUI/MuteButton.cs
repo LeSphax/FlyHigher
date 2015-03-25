@@ -31,11 +31,13 @@ public class MuteButton : MonoBehaviour
         baseImage = imageScript.sprite;
         if (gameData.volume == 0)
         {
+            Mute();
             state = State.Muted;
             imageScript.sprite = activationImage;
         }
         else
         {
+            UnMute();
             state = State.UnMuted;
             imageScript.sprite = baseImage;
         }
