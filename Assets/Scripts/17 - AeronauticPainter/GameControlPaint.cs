@@ -198,6 +198,6 @@ public class GameControlPaint : MonoBehaviour
 
 	public void EndOfGame ()
 	{
-		GameObject.FindGameObjectWithTag ("GamesUI").GetComponent<EndLevelGamePopUp> ().LevelEnded ();
+		GameObject.FindGameObjectWithTag ("GamesUI").GetComponentInChildren<EndLevelGamePopUp> ().LevelEnded ();
 	}
 }
