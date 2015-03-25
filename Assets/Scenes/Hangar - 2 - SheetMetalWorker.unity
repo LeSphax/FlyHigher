@@ -430,6 +430,10 @@ Prefab:
       propertyPath: al
       value: 
       objectReference: {fileID: 880984548}
+    - target: {fileID: 11448688, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact
+      value: 5-HotAir.Dialog
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
   m_RootGameObject: {fileID: 1786814451}
@@ -2195,10 +2199,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2025707646}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 0}
-  m_AnchorMax: {x: .5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1346390488
 MonoBehaviour:
@@ -3279,7 +3283,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 1-PlanesTakeOff.Dialog
+  idFact: 5-HotAir.Dialog
 --- !u!114 &2015601948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -3379,7 +3383,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
   m_AnchoredPosition: {x: 0, y: -15}
-  m_SizeDelta: {x: 200, y: 30}
+  m_SizeDelta: {x: 350, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2025707647
 MonoBehaviour:
