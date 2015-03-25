@@ -16,17 +16,15 @@ public abstract class LoaderButton: MonoBehaviour {
 	protected GameData gameData;
 	protected string sceneName;
 
+
 	protected bool isLocked;
-	private string title;
 
 	public void Init(GameData gameData, bool isLocked){
-		this.gameData = gameData;
+        this.gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		this.isLocked = isLocked;
-		this.sceneName = LanguageText.Instance.GetSceneName(GetComponent<buttonLoadScene> ().sceneToLoad);
-		this.starsNb = gameData.GetSceneData (this.sceneName).numberStars;
-		//this.title = LanguageText.Instance.GetSceneName(sceneName);
-		this.title = this.sceneName;
-		this.titleText.text = title;
+		this.sceneName = GetComponent<buttonLoadScene> ().sceneToLoad;
+		//this.starsNb = gameData.GetSceneData (this.sceneName).numberStars;
+        this.titleText.text = LanguageText.Instance.GetSceneName(this.sceneName);
 		InitPart ();
 
 		if (this.isLocked) Locks();
