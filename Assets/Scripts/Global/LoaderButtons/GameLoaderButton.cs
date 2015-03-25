@@ -11,6 +11,8 @@ public class GameLoaderButton : LoaderButton {
 	public Sprite starEmpty;
 	public Sprite starFull;
 
+	public JobInfo jobInfo;
+
 	protected override void InitPart (){
 		this.starsNb = gameData.GetSceneData (sceneName).numberStars;
 	}
@@ -54,5 +56,10 @@ public class GameLoaderButton : LoaderButton {
 			star3.sprite = starEmpty;
 			break;
 		}
+	}
+
+	
+	public void LoadJobInfo(){
+		jobInfo.Init (GetComponent<buttonLoadScene>().sceneToLoad, isLocked);
 	}
 }

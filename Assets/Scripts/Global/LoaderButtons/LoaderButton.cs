@@ -16,7 +16,7 @@ public abstract class LoaderButton: MonoBehaviour {
 	protected GameData gameData;
 	protected string sceneName;
 
-	private bool isLocked;
+	protected bool isLocked;
 	private string title;
 
 	public void Init(GameData gameData, bool isLocked){
