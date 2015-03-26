@@ -1,6 +1,7 @@
 ﻿using UnityEngine;
 using UnityEngine.UI;
 using System.Collections;
+using System.Collections.Generic;
 
 public class HelpUI : MonoBehaviour {
 
@@ -13,16 +14,18 @@ public class HelpUI : MonoBehaviour {
 	public Image helpImage;
 	public Text helpText;
 
-	public Sprite[]helpSprites;
+	public Sprite[] helpSprites;
 
 	private int i;
 	private State state;
 	private string sceneName;
+	private List<string> helpStrings; 
 
 	public void Start(){ 
 		sceneName = Application.loadedLevelName;
 		GameData gd = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		bool hasStars = gd.GetSceneData (sceneName).numberStars > 0;
+		helpStrings = LanguageText.Instance.GetHelpTexts (sceneName);
 		if (!hasStars) Init ();
 		else gameObject.SetActive(false);
 	}
@@ -61,7 +64,8 @@ public class HelpUI : MonoBehaviour {
 	private void SetHelpPage(){
 		if (i < helpSprites.Length) {
 			helpImage.sprite = helpSprites [i];
-			//TODO helpText.text = LanguageText.Instance.GetHelpText (sceneName, i);
+			if (i < helpStrings.Count)
+				helpText.text = helpStrings [i];
 		}	
 	}
 
@@ -143,7 +147,7 @@ public class HelpUI : MonoBehaviour {
 			//Interdit
 			break;
 		case State.Last:
-			//TODO Unpause the game
+			Time.timeScale = 1.0f;
 			gameObject.SetActive(false);
 			break;
 		}
