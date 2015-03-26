@@ -28,15 +28,13 @@ public class DestructionByContact : MonoBehaviour {
 			Destroy (gameObject);	
 		}
 		if (other.tag == "arriver") {
-			rigidbody.MovePosition(new Vector3 (-2.0f,-3.0f, 0.0f));
+			rigidbody.MovePosition(new Vector3 (-2.0f,-15.0f, 0.0f));
 			jeu.NouvelleVague();
 		}
 		if (other.tag=="Enemies"){
 			ReductionVie();
 			Instantiate(Explosion, other.transform.position, other.transform.rotation); //instancie une explosion a la position de l'impacte
 			Destroy(other.gameObject); //supprime l'object qu'il a percuté
-			//Destroy (GameObject.FindWithTag("Enemies"));
-
 		}
 		if (vie <= 0){;
 			jeu.FinJeu(vie); //appel la fin du jeu

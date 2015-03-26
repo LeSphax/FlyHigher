@@ -4,6 +4,8 @@ using System.Collections;
 public class GameControler : MonoBehaviour {
 
 	public GameObject hazard;
+	public GameObject hazard2;
+
 	public Vector3 spawnValues;
 	public float startWait;
 	public float waveWait;
@@ -13,6 +15,7 @@ public class GameControler : MonoBehaviour {
 	public GameObject gameUi;
 	public int nbeLevel;
 	public GameObject texte;
+
 
 	/*---------------------------------*/
 	/* controle le déroulement du jeu*	/
@@ -33,15 +36,27 @@ public class GameControler : MonoBehaviour {
 
 	/* fonction qui fait apparaitre les vagues des enemies */
 	IEnumerator SpawnWave(){
+		int nbeEnemies = 0;
 		yield return new WaitForSeconds (0);
 		while (gameOver) {
-			Vector3 spawnPosition = new Vector3 (spawnValues.x, Random.Range (-3,10), spawnValues.z);
+			float y=Random.Range (-12,9);
+
 				//Quaternion spawnRotation = Quaternion.identity;
-			Instantiate (hazard, spawnPosition,Quaternion.identity);
+			if(nbeEnemies==5){
+				Vector3 spawnPosition = new Vector3 (spawnValues.x,y,0);
+				Instantiate (hazard2, spawnPosition,Quaternion.identity);
+				nbeEnemies=0;
+			}else{
+				Vector3 spawnPosition = new Vector3 (spawnValues.x,y, spawnValues.z);
+				Instantiate (hazard, spawnPosition,Quaternion.identity);
+				nbeEnemies++;
+			}
+
+
 				yield return new WaitForSeconds(waveWait);
 			if(nouvelleVague){
 				texte.active=true;
-				waveWait = waveWait * 0.80f;
+				waveWait = waveWait * 0.60f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
 				yield return new WaitForSeconds(2);//attend 3seconde
@@ -60,7 +75,6 @@ public class GameControler : MonoBehaviour {
 	
 	//reinitialise la vague et replace le joueur
 	public  void NouvelleVague(){
-
 		nouvelleVague = true;
 		destructionAvion();
 		nbeLevel--;

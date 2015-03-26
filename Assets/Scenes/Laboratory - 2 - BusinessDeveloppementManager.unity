@@ -86,7 +86,6 @@ GameObject:
   - 222: {fileID: 10074202}
   - 114: {fileID: 10074201}
   - 114: {fileID: 10074200}
-  - 114: {fileID: 10074199}
   - 114: {fileID: 10074198}
   m_Layer: 5
   m_Name: MuteButton
@@ -123,18 +122,6 @@ MonoBehaviour:
   m_Enabled: 1
   m_EditorHideFlags: 0
   m_Script: {fileID: 11500000, guid: e2a820aa150e07f45a57d613095e8fd8, type: 3}
-  m_Name: 
-  m_EditorClassIdentifier: 
---- !u!114 &10074199
-MonoBehaviour:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11416510, guid: a1b386e17b4815241999dd9b99fb1369,
-    type: 2}
-  m_PrefabInternal: {fileID: 585180559}
-  m_GameObject: {fileID: 10074196}
-  m_Enabled: 1
-  m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: abf675527cd1e7144995ef9dd781dbe4, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
   activationImage: {fileID: 21300000, guid: 415292a9543374f46ba3a9fd9d653225, type: 3}
@@ -179,18 +166,6 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 10074198}
-        m_MethodName: MuteButtonPress
-        m_Mode: 1
-        m_Arguments:
-          m_ObjectArgument: {fileID: 0}
-          m_ObjectArgumentAssemblyTypeName: UnityEngine.Object, UnityEngine, Version=0.0.0.0,
-            Culture=neutral, PublicKeyToken=null
-          m_IntArgument: 0
-          m_FloatArgument: 0
-          m_StringArgument: 
-          m_BoolArgument: 0
-        m_CallState: 2
-      - m_Target: {fileID: 10074199}
         m_MethodName: OnButtonPressed
         m_Mode: 1
         m_Arguments:
@@ -330,8 +305,8 @@ RectTransform:
   m_RootOrder: 3
   m_AnchorMin: {x: .5, y: 1}
   m_AnchorMax: {x: .5, y: 1}
-  m_AnchoredPosition: {x: -5.99118139e-05, y: -15.3395844}
-  m_SizeDelta: {x: 200, y: 30}
+  m_AnchoredPosition: {x: -5.99118139e-05, y: -15}
+  m_SizeDelta: {x: 350, y: 30}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &111477418
 MonoBehaviour:
@@ -1128,6 +1103,10 @@ Prefab:
     - target: {fileID: 22416458, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_RootOrder
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416422, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: idFact
+      value: 2-500000Persons.Dialog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
@@ -2558,6 +2537,7 @@ GameObject:
   - 224: {fileID: 2030912349}
   - 222: {fileID: 2030912351}
   - 114: {fileID: 2030912350}
+  - 114: {fileID: 2030912352}
   m_Layer: 5
   m_Name: Text
   m_TagString: Untagged
@@ -2578,10 +2558,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 111477417}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: 0}
-  m_AnchorMax: {x: .5, y: 1}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 160, y: 0}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &2030912350
 MonoBehaviour:
@@ -2617,6 +2597,18 @@ CanvasRenderer:
     type: 2}
   m_PrefabInternal: {fileID: 585180559}
   m_GameObject: {fileID: 2030912348}
+--- !u!114 &2030912352
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 11434554, guid: a1b386e17b4815241999dd9b99fb1369,
+    type: 2}
+  m_PrefabInternal: {fileID: 585180559}
+  m_GameObject: {fileID: 2030912348}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: f2b74be78c2335948829c9c53ac13eb6, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
 --- !u!1 &2054075476
 GameObject:
   m_ObjectHideFlags: 0
@@ -2787,7 +2779,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 1-PlanesTakeOff.Dialog
+  idFact: 2-500000Persons.Dialog
 --- !u!114 &2070453031
 MonoBehaviour:
   m_ObjectHideFlags: 0

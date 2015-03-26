@@ -73,7 +73,6 @@ public class PlayeurControlleur : MonoBehaviour {
 	public void LigneMoins(){
 		vertex--;
 		ligne.SetVertexCount(vertex);
-	//	points.Remove (nbeLigne + 1);
 		points.RemoveAt(nbeLigne);
 		nbeLigne--;
 	}

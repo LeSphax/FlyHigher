@@ -127,8 +127,8 @@ public class GameData : MonoBehaviour
 		return sum;
 	}
 
-	/*
-    void OnGUI()
+	
+  /*  void OnGUI()
     {
         if (GUI.Button(new Rect(10, 250, 100, 50), "Reset"))
         {
