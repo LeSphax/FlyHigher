@@ -56,8 +56,6 @@ public class GameControlPaint : MonoBehaviour
 			break;
 		case 2:
 			draw = Instantiate (prefabDrawLvl2) as GameObject;
-			mix = Instantiate (prefabMix, positionMix, Quaternion.identity) as GameObject;
-			mixArea = mix.GetComponent<SpriteRenderer> ();
 			break;
 		case 3:
 			draw = Instantiate (prefabDrawLvl3) as GameObject;
