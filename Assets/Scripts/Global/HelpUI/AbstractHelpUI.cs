@@ -139,23 +139,22 @@ public abstract class AbstractHelpUI : MonoBehaviour {
 			break;
 		}
 	}
-	
+
+	private void Exit(){
+		Time.timeScale = 1.0f;
+		gameObject.SetActive(false);
+	}
+
 	public void ExitEventHandler(){
 		switch (state){
 		case State.First:
-			if (helpSprites.Length <= 1){
-				Time.timeScale = 1.0f;
-				gameObject.SetActive(false);
-			} else {
-				//Interdit
-			}
+			Exit ();
 			break;
 		case State.Medium:
-			//Interdit
+			Exit ();
 			break;
 		case State.Last:
-			Time.timeScale = 1.0f;
-			gameObject.SetActive(false);
+			Exit ();
 			break;
 		}
 	}
