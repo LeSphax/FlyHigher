@@ -28,7 +28,7 @@ public class JarBehavior : MonoBehaviour
 
 	void OnMouseDown ()
 	{
-		if (!EventSystem.current.IsPointerOverGameObject ()) {
+		if (!(Time.timeScale == 0)) {
 			gameControl.SetSelectedJar (this.id);
 		}
 	}

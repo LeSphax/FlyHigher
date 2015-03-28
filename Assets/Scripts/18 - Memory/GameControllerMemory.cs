@@ -66,17 +66,18 @@ public class GameControllerMemory : MonoBehaviour
 	// Update is called once per frame
 	void Update ()
 	{
-				
-		foreach (Touch touch in Input.touches) {
+		if (!(Time.timeScale == 0)) {
+			foreach (Touch touch in Input.touches) {
 					
-			switch (touch.phase) {
-			case TouchPhase.Began:
-				ray = Camera.main.ScreenPointToRay (touch.position);
+				switch (touch.phase) {
+				case TouchPhase.Began:
+					ray = Camera.main.ScreenPointToRay (touch.position);
 
-				if (Physics.Raycast (ray, out hitInfo)) {
-					hitInfo.transform.gameObject.SendMessage ("OnTouchBegan");
+					if (Physics.Raycast (ray, out hitInfo)) {
+						hitInfo.transform.gameObject.SendMessage ("OnTouchBegan");
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}
