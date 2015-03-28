@@ -9,7 +9,7 @@ public class GameControllerMemory : MonoBehaviour
 
 	public Texture[] texturesCards;
 	public int cardsinrow;
-	public AudioClip audioCardMatching;
+	public AudioClip audioCardFlip;
 
 	enum State
 	{
@@ -138,7 +138,7 @@ public class GameControllerMemory : MonoBehaviour
 
 	void CardsMatching ()
 	{
-		AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
+		//AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
 		cards [0].RemoveCard ();
 		cards [1].RemoveCard ();
 		

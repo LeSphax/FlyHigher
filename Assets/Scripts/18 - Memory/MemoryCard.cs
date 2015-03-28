@@ -5,10 +5,13 @@ public class MemoryCard : MonoBehaviour
 {
 		
 	public static int nbCardSelected;
+	public AudioClip audioCardFlip;
 
 	GameControllerMemory gameController;
 	bool selected;
 	int _cardNumber;
+
+
 
 	public int cardNumber { 
 		get { return _cardNumber; } 
@@ -49,6 +52,7 @@ public class MemoryCard : MonoBehaviour
 	void  Show ()
 	{
 		animation.Play ("Flip_show");
+		AudioSource.PlayClipAtPoint (audioCardFlip, transform.position);
 			
 		gameController.CheckCards (this);
 			
