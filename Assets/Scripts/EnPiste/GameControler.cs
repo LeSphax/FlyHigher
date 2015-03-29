@@ -44,11 +44,11 @@ public class GameControler : MonoBehaviour {
 				//Quaternion spawnRotation = Quaternion.identity;
 			if(nbeEnemies==5){
 				Vector3 spawnPosition = new Vector3 (spawnValues.x,y,0);
-				Instantiate (hazard2, spawnPosition,Quaternion.identity);
+				Instantiate (hazard2, spawnPosition,Quaternion.identity); //fait apparaitre un avion
 				nbeEnemies=0;
 			}else{
 				Vector3 spawnPosition = new Vector3 (spawnValues.x,y, spawnValues.z);
-				Instantiate (hazard, spawnPosition,Quaternion.identity);
+				Instantiate (hazard, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
 				nbeEnemies++;
 			}
 
@@ -87,7 +87,7 @@ public class GameControler : MonoBehaviour {
 
 
 
-	//detruit toytut les avions présent sur la care
+	//detruit tout les avions présent sur la care
 	public void destructionAvion(){
 		 Object[] respawns = GameObject.FindGameObjectsWithTag("Enemies");
 			foreach (Object respawn in respawns) {

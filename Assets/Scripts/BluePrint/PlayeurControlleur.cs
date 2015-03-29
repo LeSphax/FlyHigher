@@ -66,7 +66,6 @@ public class PlayeurControlleur : MonoBehaviour {
 		vertex++;
 		ligne.SetVertexCount(vertex);
 		points.Add (position);
-		//Debug.Log("nbligne= " + nbeLigne + "point=" + points.Count + "vertex=" + vertex);
 	}
 
 	public void LigneMoins(){
