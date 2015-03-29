@@ -7,7 +7,7 @@ public class GameControler : MonoBehaviour {
 	public GameObject hazard2;
 
 	public Vector3 spawnValues;
-	public float startWait;
+	//public float startWait;
 	public float waveWait;
 	private bool gameOver;
 	private GameObject jeu;
@@ -40,7 +40,6 @@ public class GameControler : MonoBehaviour {
 		yield return new WaitForSeconds (0);
 		while (gameOver) {
 			float y=Random.Range (-12,9);
-
 				//Quaternion spawnRotation = Quaternion.identity;
 			if(nbeEnemies==5){
 				Vector3 spawnPosition = new Vector3 (spawnValues.x,y,0);
@@ -52,15 +51,13 @@ public class GameControler : MonoBehaviour {
 				nbeEnemies++;
 			}
 
-
 				yield return new WaitForSeconds(waveWait);
 			if(nouvelleVague){
 				texte.SetActive(true);
-				waveWait = waveWait * 0.60f;
+				waveWait = waveWait * 0.80f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
 				yield return new WaitForSeconds(2);//attend 3seconde
-				//GameObject.FindWithTag ("Player").GetComponent<PlayerControler> ().ok ();
 				texte.SetActive(false);
 			}
 		}
