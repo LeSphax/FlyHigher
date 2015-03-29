@@ -719,7 +719,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 1
+  m_IsActive: 0
 --- !u!224 &288673684
 RectTransform:
   m_ObjectHideFlags: 0
@@ -1983,6 +1983,10 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: c09159e49a343e84c9b6e7cc6155b7cb,
         type: 3}
+    - target: {fileID: 116474, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: m_IsActive
+      value: 0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
   m_RootGameObject: {fileID: 288673683}
@@ -2422,10 +2426,10 @@ MonoBehaviour:
   spawnPositionsItems:
   - {x: 22, y: 0, z: 0}
   spawnPositionsBox:
-  - {x: 9, y: 7, z: 0}
-  - {x: 9, y: -7, z: 0}
-  - {x: -9, y: 7, z: 0}
-  - {x: -9, y: -7, z: 0}
+  - {x: 9.5, y: 6.5, z: 0}
+  - {x: 9.5, y: -6.5, z: 0}
+  - {x: -9.5, y: 6.5, z: 0}
+  - {x: -9.5, y: -6.5, z: 0}
   carpet: {fileID: 133856, guid: bbfa94f441899174384a42a2dc824dcd, type: 2}
   itemCount: 10
   spawnWait: 3
