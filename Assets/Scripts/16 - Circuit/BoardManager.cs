@@ -92,7 +92,7 @@ public class BoardManager : MonoBehaviour {
 						cancelButton.gameObject.SetActive(false);
 						restartButton.gameObject.SetActive (false);
 						state = State.End;
-						GetComponent<EndLevelGamePopUp>().LevelEnded();
+						GameObject.FindWithTag("GamesUI").BroadcastMessage("LevelEnded");
 					} else {
 						state = State.Begin;
 					}

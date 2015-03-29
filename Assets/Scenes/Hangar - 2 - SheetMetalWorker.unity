@@ -440,6 +440,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 1692695059}
     m_Modifications:
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.size
+      value: 3
+      objectReference: {fileID: 0}
     - target: {fileID: 22448660, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -527,6 +531,18 @@ Prefab:
     - target: {fileID: 11448626, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
       propertyPath: star3LevelNb
       value: 1
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[0]
+      value: 9-LiftThrust.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[1]
+      value: 10-AirLift.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[2]
+      value: 11-ThrustEngine.Dialog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
@@ -679,7 +695,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6182e95ee9542e449cc94cd173484d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idText: PopUp.PauseMenu.Button.Retrun
+  idText: PopUp.PauseMenu.Button.Quit
 --- !u!1 &407217450
 GameObject:
   m_ObjectHideFlags: 0
@@ -2192,7 +2208,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3d63338c5a6a347b0f3f446265ea00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prevButton: {fileID: 1184932030}
+  previousButton: {fileID: 1184932030}
   nextButton: {fileID: 1347502853}
   exitButton: {fileID: 1634374458}
   helpImage: {fileID: 1121826868}
@@ -2795,7 +2811,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &1346390488
 MonoBehaviour:
@@ -3770,7 +3786,7 @@ GameObject:
   - 114: {fileID: 1861155083}
   m_Layer: 5
   m_Name: LevelChooser
-  m_TagString: Untagged
+  m_TagString: LevelChooser
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
@@ -4297,16 +4313,20 @@ RectTransform:
 --- !u!114 &2015601947
 MonoBehaviour:
   m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 11448688, guid: 8ebaee642cb331b438eb774449a1417d,
+  m_PrefabParentObject: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d,
     type: 2}
   m_PrefabInternal: {fileID: 340588683}
   m_GameObject: {fileID: 2015601945}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
+  m_Script: {fileID: 11500000, guid: 19021248890627c4cbbfa3ff351240af, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 5-HotAir.Dialog
+  idFact:
+  - 9-LiftThrust.Dialog
+  - 10-AirLift.Dialog
+  - 11-ThrustEngine.Dialog
+  levelChooser: {fileID: 1861155083}
 --- !u!114 &2015601948
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -4486,7 +4506,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d0a23d7af07e1b54093e5c3c984a0e79, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
