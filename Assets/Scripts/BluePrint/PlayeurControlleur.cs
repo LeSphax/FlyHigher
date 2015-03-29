@@ -32,7 +32,6 @@ public class PlayeurControlleur : MonoBehaviour {
 		}
 
 		if(Input.GetMouseButton(0)){
-			Debug.Log ("click!!");
 			RaycastHit  hit ;
 			Ray  ray= cam.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit)){

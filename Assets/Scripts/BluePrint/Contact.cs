@@ -22,7 +22,8 @@ public class Contact : MonoBehaviour {
 		}
 
 		if (other.tag == "arriver") {
-			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu(); //on supprime une étoile
+			Debug.Log ("contact détécter");
+			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu();//appel de fin jeu
 		}
 
 
