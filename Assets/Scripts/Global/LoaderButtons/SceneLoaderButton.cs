@@ -28,6 +28,16 @@ public class SceneLoaderButton : LoaderButton {
 
 	protected override void LocksPart ()
 	{
+		RectTransform rt = lockImage.GetComponent<RectTransform> ();
+		Vector2 size = rt.sizeDelta;
+		size.x = 80;
+		size.y = 80;
+		rt.sizeDelta = size;
+		size = rt.anchoredPosition;
+		size.x = 0;
+		size.y = 0;
+		rt.anchoredPosition = size;
+		titleText.gameObject.SetActive (false);
 		starImage.gameObject.SetActive (false);
 		starText.gameObject.SetActive (false);
 	}

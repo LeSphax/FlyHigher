@@ -9,7 +9,7 @@ public abstract class LoaderButton: MonoBehaviour {
 	public Button loaderButton;
 	public Text titleText;
 	public Image lockImage;
-	public Image borderImage; 
+	//public Image borderImage; 
 
 	[HideInInspector] public int starsNb;
 
@@ -54,6 +54,6 @@ public abstract class LoaderButton: MonoBehaviour {
 		size.x = width;
 		size.y = height;
 		rt.sizeDelta = size;
-		borderImage.rectTransform.sizeDelta = size;
+		//borderImage.rectTransform.sizeDelta = size;
 	}
 }
