@@ -42,7 +42,8 @@
   <french>
     <uitexts>
       <string id="MainMenu.Button.Play">JOUER !</string>
-      <string id="MainMenu.Button.Success">SUCCÈS</string>
+      <!--<string id="MainMenu.Button.Success">SUCCÈS</string>-->
+	  <string id="MainMenu.Button.Quit">QUITTER</string>
 
       <string id="Map.Button.Laboratory">Laboratoire</string>
       <string id="Map.Button.Hangar">Hangar</string>
@@ -55,7 +56,7 @@
     </uitexts>
 
     <sceneNames>
-      <string id="ControlTower">Tour de Controle</string>
+      <string id="ControlTower">Tour de Contrôle</string>
       <string id="ControlTower - 1 - AirController">Controleur aérien</string>
       <string id="ControlTower - 2 - AirTrafficController">Aiguilleur du Ciel</string>
       <string id="ControlTower - 3 - Pilote">Pilote</string>
@@ -67,7 +68,7 @@
 
       <string id="Laboratory">Laboratoire</string>
       <string id="Laboratory - 1 - StructuralEngineer">Ingénieur calcul structure</string>
-      <string id="Laboratory - 2 - BusinessDeveloppementManager">Chargé d'affaire</string>
+      <string id="Laboratory - 2 - BusinessDeveloppementManager">Chargé d'affaires</string>
       <string id="Laboratory - 3 - TestTechnician">Technicien d'essais</string>
 
     </sceneNames>
@@ -208,8 +209,8 @@
       </dialog>
 
       <!-- AeronauticPainter-->
-      <dialog id="18-Takeoff.Dialog">
-        <string>Au début du vol, l’avion doit aller très vite pour s’envoler , c’est le décollage.</string>
+      <dialog id="18-TakeOff.Dialog">
+        <string>Au début du vol, l’avion doit aller très vite pour s’envoler, c’est le décollage.</string>
         <image>Takeoff</image>
       </dialog>
 
@@ -272,8 +273,8 @@
       </dialog>
 
       <dialog id="Hangar - 3 - AeronauticPainter">
-        <string>Sélectionne une couleur en appuyant sur un pot. Puis rempli les parties de l’avion ayant un point de la même couleur.</string>
-        <string>Tu peux mélanger plusieurs couleur pour en créer des nouvelles.</string>
+        <string>Sélectionne une couleur en appuyant sur un pot. Puis remplis les parties de l’avion ayant un point de la même couleur.</string>
+        <string>Tu peux mélanger plusieurs couleurs pour en créer des nouvelles.</string>
       </dialog>
 
       <dialog id="ControlTower - 1 - AirController">
