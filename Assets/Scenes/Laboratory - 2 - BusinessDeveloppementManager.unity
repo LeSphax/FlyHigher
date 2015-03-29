@@ -263,9 +263,7 @@ MonoBehaviour:
   helpImage: {fileID: 1288309765}
   helpText: {fileID: 1548984810}
   helpSprites:
-  - {fileID: 21300000, guid: 9e329cdf69b400f4dbfa7ab3e17a26c2, type: 3}
-  - {fileID: 21300000, guid: dca8cbd31034c724f8c8d9778f552460, type: 3}
-  - {fileID: 21300000, guid: 5e9fca649d52b9a46aa12393117afa50, type: 3}
+  - {fileID: 21300000, guid: df7afbbf9f62a2344bae2243d8ab45af, type: 3}
 --- !u!114 &58687676
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -1279,6 +1277,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 0}
     m_Modifications:
+    - target: {fileID: 11469472, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: helpSprites.Array.size
+      value: 1
+      objectReference: {fileID: 0}
     - target: {fileID: 22495106, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -1363,6 +1365,11 @@ Prefab:
       propertyPath: m_IsActive
       value: 1
       objectReference: {fileID: 0}
+    - target: {fileID: 11469472, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: helpSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: df7afbbf9f62a2344bae2243d8ab45af,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
   m_RootGameObject: {fileID: 1183011091}
@@ -2549,7 +2556,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .160784319, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .858823538, g: .847058833, b: .772549033, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
