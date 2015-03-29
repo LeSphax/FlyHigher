@@ -26,7 +26,7 @@ public class GameControler : MonoBehaviour {
 	/*lancer au début du jeu*/
 	void Start()
 	{
-		texte.active = false;
+		texte.SetActive(false);
 		gameOver = true;
 		nouvelleVague = false;
 		StartCoroutine(SpawnWave());
@@ -55,13 +55,13 @@ public class GameControler : MonoBehaviour {
 
 				yield return new WaitForSeconds(waveWait);
 			if(nouvelleVague){
-				texte.active=true;
+				texte.SetActive(true);
 				waveWait = waveWait * 0.60f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
 				yield return new WaitForSeconds(2);//attend 3seconde
 				//GameObject.FindWithTag ("Player").GetComponent<PlayerControler> ().ok ();
-				texte.active=false;
+				texte.SetActive(false);
 			}
 		}
 	}

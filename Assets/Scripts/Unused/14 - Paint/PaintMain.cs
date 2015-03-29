@@ -18,13 +18,13 @@ public class PaintMain : MonoBehaviour {
 
 	private int positionFromTop;
 	private int dialogueState;
-	private bool isClicked;
+	//private bool isClicked;
 	public GUIStyle m_MyStyle;
 
 	private Texture2D myTexture;
 	private Texture2D myTextureResult;
 
-	private Color myColor;
+	//private Color myColor;
 	private float[] rgb;
 	private float[] rgbResult;
 
@@ -96,7 +96,7 @@ public class PaintMain : MonoBehaviour {
 		rgb [2] = 0;
 		myTexture = new Texture2D (100, 100);
 		setColor();
-		isClicked = false;
+		//isClicked = false;
 
 		myTextureResult = new Texture2D (100, 100);
 		rgbResult = new float[3];
@@ -137,7 +137,7 @@ public class PaintMain : MonoBehaviour {
 									dialogueState++;
 								}
 						}
-						myColor = new Color (rgb [0], rgb [1], rgb [2]);
+						//myColor = new Color (rgb [0], rgb [1], rgb [2]);
 						setColor ();
 				}
 		if(rgb[0] == rgbResult[0] && rgb[1] == rgbResult[1] && rgb[2] == rgbResult[2])
