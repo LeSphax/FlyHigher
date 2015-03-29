@@ -9,7 +9,7 @@ public class GameControllerMemory : MonoBehaviour
 
 	public Texture[] texturesCards;
 	public int cardsinrow;
-	public AudioClip audioCardFlip;
+
 
 	enum State
 	{
