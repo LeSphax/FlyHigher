@@ -24,8 +24,7 @@ public class PlayeurControlleur : MonoBehaviour {
 	// Use this for initialization
 	void Update(){
 
-		if(Input.GetMouseButtonUp(0)){//que faire lorsqu'il leve le doigt
-			Debug.Log("lever de bouton");
+		if(Input.GetMouseButtonUp(0)){//que faire lorsqu'il leve le doig
 			touche=false;
 		//	LigneMoins();
 		//	MajTrait(new Vector3(0.0f,0.0f,0.0f));

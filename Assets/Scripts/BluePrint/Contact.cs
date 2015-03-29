@@ -20,12 +20,9 @@ public class Contact : MonoBehaviour {
 			}
 
 		}
-
 		if (other.tag == "arriver") {
-			Debug.Log ("contact détécter");
 			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu();//appel de fin jeu
 		}
-
 
 		if (other.tag == "Obstacle") {
 			Destroy (other.gameObject);
