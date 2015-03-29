@@ -18,8 +18,7 @@ public abstract class AbstractHelpUI : MonoBehaviour {
 	
 	protected string sceneName;
 	protected int numberStars;
-	protected int level;
-	
+
 	protected int min;
 	protected int max;
 	protected int cursor;
@@ -29,7 +28,6 @@ public abstract class AbstractHelpUI : MonoBehaviour {
 		GameData gd = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
 		this.sceneName = Application.loadedLevelName;
 		this.numberStars = gd.GetSceneData (this.sceneName).numberStars;
-		this.level = gd.GetSceneData (this.sceneName).level;
 		this.helpStrings = LanguageText.Instance.GetHelpTexts (sceneName);
 		SetMinAndMax ();
 		if (min < 0) min = 0;
@@ -42,13 +40,13 @@ public abstract class AbstractHelpUI : MonoBehaviour {
 	
 	protected abstract bool ShouldBeVisibleAtLaunch ();
 	
-	public void InitFromStart (){
+	public void InitFromMenu (){
 		min = 0;
 		Init ();
 	}
 	
 	private void Init(){
-		if (((max - min) > 0) && helpSprites.Length > 0){
+		if (helpSprites.Length > 0){
 			state = State.First;
 			Time.timeScale = 0f;
 			cursor = min;
