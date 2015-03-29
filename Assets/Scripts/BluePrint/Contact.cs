@@ -20,11 +20,9 @@ public class Contact : MonoBehaviour {
 			}
 
 		}
-
 		if (other.tag == "arriver") {
-			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu(); //on supprime une étoile
+			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().FinJeu();//appel de fin jeu
 		}
-
 
 		if (other.tag == "Obstacle") {
 			Destroy (other.gameObject);

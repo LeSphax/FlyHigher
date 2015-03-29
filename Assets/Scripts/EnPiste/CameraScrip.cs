@@ -15,7 +15,8 @@ public class CameraScrip : MonoBehaviour {
 	// Update is called once per frame
 	void LateUpdate () {
 		float z = 8.0f;
-		newp = new Vector3 (0.0f, player.transform.position.y + offset.y-1.5f,-z);
+		//newp = new Vector3 (0.0f, player.transform.position.y + offset.y-1.5f,-z);
+		newp = new Vector3 (0.0f, player.transform.position.y + offset.y + 0.5f,-z);
 		transform.position = newp;
 	
 	}

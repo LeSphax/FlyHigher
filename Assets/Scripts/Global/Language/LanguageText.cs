@@ -148,7 +148,10 @@ public class LanguageText
 			XmlElement elementFacts = elementLanguage ["facts"];
 			if (elementFacts != null) {
 				foreach (XmlNode nodeDialog in elementFacts.ChildNodes) {
-					dicoFacts.Add (nodeDialog.Attributes ["id"].Value, new Fact (nodeDialog.FirstChild.InnerText, nodeDialog.LastChild.InnerText));
+                    if (nodeDialog.Name != "#comment")
+                    {
+                        dicoFacts.Add(nodeDialog.Attributes["id"].Value, new Fact(nodeDialog.FirstChild.InnerText, nodeDialog.LastChild.InnerText));
+                    }
 				}
 			}
 

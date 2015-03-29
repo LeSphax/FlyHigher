@@ -24,15 +24,13 @@ public class PlayeurControlleur : MonoBehaviour {
 	// Use this for initialization
 	void Update(){
 
-		if(Input.GetMouseButtonUp(0)){//que faire lorsqu'il leve le doigt
-			Debug.Log("lever de bouton");
+		if(Input.GetMouseButtonUp(0)){//que faire lorsqu'il leve le doig
 			touche=false;
 		//	LigneMoins();
 		//	MajTrait(new Vector3(0.0f,0.0f,0.0f));
 		}
 
 		if(Input.GetMouseButton(0)){
-			Debug.Log ("click!!");
 			RaycastHit  hit ;
 			Ray  ray= cam.ScreenPointToRay(Input.mousePosition);
 			if(Physics.Raycast(ray,out hit)){
@@ -68,7 +66,6 @@ public class PlayeurControlleur : MonoBehaviour {
 		vertex++;
 		ligne.SetVertexCount(vertex);
 		points.Add (position);
-		//Debug.Log("nbligne= " + nbeLigne + "point=" + points.Count + "vertex=" + vertex);
 	}
 
 	public void LigneMoins(){

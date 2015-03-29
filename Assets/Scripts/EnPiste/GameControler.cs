@@ -7,7 +7,7 @@ public class GameControler : MonoBehaviour {
 	public GameObject hazard2;
 
 	public Vector3 spawnValues;
-	public float startWait;
+	//public float startWait;
 	public float waveWait;
 	private bool gameOver;
 	private GameObject jeu;
@@ -26,7 +26,7 @@ public class GameControler : MonoBehaviour {
 	/*lancer au début du jeu*/
 	void Start()
 	{
-		texte.active = false;
+		texte.SetActive(false);
 		gameOver = true;
 		nouvelleVague = false;
 		StartCoroutine(SpawnWave());
@@ -40,28 +40,25 @@ public class GameControler : MonoBehaviour {
 		yield return new WaitForSeconds (0);
 		while (gameOver) {
 			float y=Random.Range (-12,9);
-
 				//Quaternion spawnRotation = Quaternion.identity;
 			if(nbeEnemies==5){
 				Vector3 spawnPosition = new Vector3 (spawnValues.x,y,0);
-				Instantiate (hazard2, spawnPosition,Quaternion.identity);
+				Instantiate (hazard2, spawnPosition,Quaternion.identity); //fait apparaitre un avion
 				nbeEnemies=0;
 			}else{
 				Vector3 spawnPosition = new Vector3 (spawnValues.x,y, spawnValues.z);
-				Instantiate (hazard, spawnPosition,Quaternion.identity);
+				Instantiate (hazard, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
 				nbeEnemies++;
 			}
 
-
 				yield return new WaitForSeconds(waveWait);
 			if(nouvelleVague){
-				texte.active=true;
-				waveWait = waveWait * 0.60f;
+				texte.SetActive(true);
+				waveWait = waveWait * 0.80f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
 				yield return new WaitForSeconds(2);//attend 3seconde
-				//GameObject.FindWithTag ("Player").GetComponent<PlayerControler> ().ok ();
-				texte.active=false;
+				texte.SetActive(false);
 			}
 		}
 	}
@@ -87,7 +84,7 @@ public class GameControler : MonoBehaviour {
 
 
 
-	//detruit toytut les avions présent sur la care
+	//detruit tout les avions présent sur la care
 	public void destructionAvion(){
 		 Object[] respawns = GameObject.FindGameObjectsWithTag("Enemies");
 			foreach (Object respawn in respawns) {

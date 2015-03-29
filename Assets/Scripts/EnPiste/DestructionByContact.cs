@@ -28,8 +28,8 @@ public class DestructionByContact : MonoBehaviour {
 			Destroy (gameObject);	
 		}
 		if (other.tag == "arriver") {
-			rigidbody.MovePosition(new Vector3 (-2.0f,-15.0f, 0.0f));
-			jeu.NouvelleVague();
+			Debug.Log ("respawn!!!!!");
+			rigidbody.MovePosition(new Vector3 (0.0f,-10.0f, 0.0f)); //zone ou le personnage va respawn
 		}
 		if (other.tag=="Enemies"){
 			ReductionVie();
@@ -38,15 +38,10 @@ public class DestructionByContact : MonoBehaviour {
 		}
 		if (vie <= 0){;
 			jeu.FinJeu(vie); //appel la fin du jeu
-			//Destroy (other.gameObject);
-		   //Destroy (gameObject);
 		}
 
 	}
-
-
-
-
+	
 	void ReductionVie(){
 		vie--;
 		if(vie==2){

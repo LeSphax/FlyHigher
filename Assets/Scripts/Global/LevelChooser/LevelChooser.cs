@@ -124,9 +124,7 @@ public class LevelChooser : MonoBehaviour {
 	}
 
 	public void EndLevel (){
-		buttonLoadScene bls = new buttonLoadScene();
-		bls.sceneToLoad = sceneName;
-		bls.loadScene ();
+        Application.LoadLevel(sceneName);
 
 	}
 

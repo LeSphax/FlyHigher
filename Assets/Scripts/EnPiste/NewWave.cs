@@ -20,7 +20,6 @@ public class NewWave : MonoBehaviour {
 		GameObject avion = GameObject.FindWithTag ("Enemies");
 		if (other.tag == "Player") {
 			jeu.NouvelleVague(); //appeler new wave
-
 			if(avion!=null){
 				Destroy(avion); //detruit les eventuelle avions
 			}

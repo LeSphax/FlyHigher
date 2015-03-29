@@ -1,311 +1,340 @@
 <languages>
 
-	<english>
-		<uitexts>
-			<string id="MainMenu.Button.Play">PLAY !</string>
-			<string id="MainMenu.Button.Success">SUCCESS</string>
-			
-			<string id="Map.Button.Laboratory">Laboratory</string>
-			<string id="Map.Button.Hangar">Hangar</string>
-			<string id="Map.Button.ControlTower">Control tower</string>
-			
-			<string id="ControlTower.Button.TakeOff"> </string>
-			<string id="ControlTower.Button.AirController"> </string>
-			<string id="ControlTower.Button.Pilot"> </string>
-			
-			<string id="PopUp.PauseMenu.Button.Continue">Continue</string>
-			<string id="PopUp.PauseMenu.Button.Help">Help</string>
-			<string id="PopUp.PauseMenu.Button.Quit">Quit</string>
-		</uitexts>
-		
-		<story>
-			<dialog id="Map.Dialog">
-			</dialog>
-			
-			<dialog id="Laboratory.Dialog">
-			</dialog>
-			
-			<dialog id="Hangar.Dialog">
-			</dialog>
-			
-			<dialog id="ControlTower.Dialog">
-			</dialog>
-			
-			<dialog id="Memory.Dialog">
-			</dialog>
-		</story>
-    
-    
-	</english>
+  <english>
+    <uitexts>
+      <string id="MainMenu.Button.Play">PLAY !</string>
+      <string id="MainMenu.Button.Success">SUCCESS</string>
 
-	
-	<french>
-		<uitexts>
-			<string id="MainMenu.Button.Play">JOUER !</string>
-			<string id="MainMenu.Button.Success">SUCCÈS</string>
-			<string id="MainMenu.Button.Quit">QUITTER</string>
-			
-			<string id="Map.Button.Laboratory">Laboratoire</string>
-			<string id="Map.Button.Hangar">Hangar</string>
-			<string id="Map.Button.ControlTower">Tour de contrôle</string>
-						
-			<string id="PopUp.PauseMenu.Button.Continue">Continuer</string>
-			<string id="PopUp.PauseMenu.Button.Help">Aide</string>
-			<string id="PopUp.PauseMenu.Button.Quit">Quitter</string>
-		
-		</uitexts>
+      <string id="Map.Button.Laboratory">Laboratory</string>
+      <string id="Map.Button.Hangar">Hangar</string>
+      <string id="Map.Button.ControlTower">Control tower</string>
 
-		<sceneNames>
-		  <string id="ControlTower">Tour de Controle</string>
-		  <string id="ControlTower - 1 - AirController">Controleur aérien</string>
-		  <string id="ControlTower - 2 - AirTrafficController">Aiguilleur du Ciel</string>
-		  <string id="ControlTower - 3 - Pilote">Pilote</string>
+      <string id="ControlTower.Button.TakeOff"> </string>
+      <string id="ControlTower.Button.AirController"> </string>
+      <string id="ControlTower.Button.Pilot"> </string>
 
-		  <string id="Hangar">Hangar</string>
-		  <string id="Hangar - 1 - PlanningScheduler">Technicien ordonnancement</string>
-		  <string id="Hangar - 2 - SheetMetalWorker">Chaudronnier</string>
-		  <string id="Hangar - 3 - AeronauticPainter">Peintre aéronautique</string>
-		  
-		  <string id="Laboratory">Laboratoire</string>
-		  <string id="Laboratory - 1 - StructuralEngineer">Ingénieur calcul structure</string>
-		  <string id="Laboratory - 2 - BusinessDeveloppementManager">Chargé d'affaire</string>
-		  <string id="Laboratory - 3 - TestTechnician">Technicien d'essais</string>
-    
-		</sceneNames>
-    
-		
-		<story>
-			<dialog id="Map.Dialog">
-				<string>Salut ! Je suis Avi. Ensemble nous allons découvrir le monde de l'aéronautique.</string> 
-				<string>J'ai besoin de ton aide, nous devons construire un avion pour [objectif].</string>
-				<string>Pour commencer allons dans le laboratoire.</string>
-			</dialog>
-			
-			<dialog id="Map.Dialog.Alternative">
-				<string>Hey, te revoilà ! Il faut encore partir pour [objectif].</string> 
-			</dialog>
-			
-			<dialog id="Laboratory.Dialog">
-			  	<string>Bienvenue dans le laboratoire, c'est ici que nous allons imaginer l'avion.</string>
-			</dialog>
-			
-			<dialog id="Hangar.Dialog">
-				<string>Bienvenue dans le hangar, c'est ici que nous allons construire l'avion.</string>
-			</dialog>
-			
-			<dialog id="ControlTower.Dialog">
-				<string>Bienvenue dans la tour de contrôle, c'est ici que sont guidés les avions.</string>
-			</dialog>
-			
-			<dialog id="Memory.Dialog">
-				<string>Le memory c'est génial !</string>
-			</dialog>
-		</story>
-		
-		
+      <string id="PopUp.PauseMenu.Button.Continue">Continue</string>
+      <string id="PopUp.PauseMenu.Button.Help">Help</string>
+      <string id="PopUp.PauseMenu.Button.Quit">Quit</string>
+    </uitexts>
 
-		<facts>
-		  <dialog id="1-PlanesTakeOff.Dialog">
-			<string>Un avion décolle toutes les secondes environ dans le monde.</string>
-			<image>PlanesTakeOff</image>
-		  </dialog>
+    <story>
+      <dialog id="Map.Dialog">
+      </dialog>
 
-		  <dialog id="2-500000Persons.Dialog">
-			<string>Il y a 500 000 personnes dans le ciel à chaque instant.</string>
-			<image>500000Persons</image>
-		  </dialog>
+      <dialog id="Laboratory.Dialog">
+      </dialog>
 
-		  <dialog id="3-Eole.Dialog">
-			<string>Le premier avion (Eole) ressemblait à une chauve-souris.</string>
-			<image>Eole</image>
-		  </dialog>
+      <dialog id="Hangar.Dialog">
+      </dialog>
 
-		  <dialog id="4-AirWeight.Dialog">
-			<string>L’air est invisible mais il a un poids.</string>
-			<image>AirWeight</image>
-		  </dialog>
+      <dialog id="ControlTower.Dialog">
+      </dialog>
 
-		  <dialog id="5-HotAir.Dialog">
-			<string>L’air chaud est plus léger que l’air.</string>
-			<image>HotAir</image>
-		  </dialog>
+      <dialog id="Memory.Dialog">
+      </dialog>
+    </story>
 
-		  <dialog id="6-HotBalloon.Dialog">
-			<string>Les montgolfières s’envolent grâce à l’air chaud.</string>
-			<image>HotBalloon</image>
-		  </dialog>
 
-		  <dialog id="7-BalloonFirst.Dialog">
-			<string>Les montgolfières ont été les premières machines volantes.</string>
-			<image>BalloonFirst</image>
-		  </dialog>
+  </english>
 
-		  <dialog id="8-SheepDuck.Dialog">
-			<string>Les passagers du premier vol en montgolfière étaient un coq, un mouton et un canard.</string>
-			//Need Image
-			<image>SheepDuck</image>
-		  </dialog>
 
-		  <dialog id="9-LiftThrust.Dialog">
-			<string>Pour voler, l’avion a besoin de portance et de poussée.</string>
-			<image>LiftThrust</image>
-		  </dialog>
+  <french>
+    <uitexts>
+      <string id="MainMenu.Button.Play">JOUER !</string>
+      <!--<string id="MainMenu.Button.Success">SUCCÈS</string>-->
+	  <string id="MainMenu.Button.Quit">QUITTER</string>
 
-		  <dialog id="10-AirLift.Dialog">
-			<string>C’est l’écoulement de l’air autour des ailes qui créé la portance.</string>
-			<image>AirLift</image>
-		  </dialog>
+      <string id="Map.Button.Laboratory">Laboratoire</string>
+      <string id="Map.Button.Hangar">Hangar</string>
+      <string id="Map.Button.ControlTower">Tour de contrôle</string>
 
-		  <dialog id="11-ThrustEngine.Dialog">
-			<string>C’est le moteur qui fournit la poussée.</string>
-			//Need Image
-			<image>ThrustEngine</image>
-		  </dialog>
+      <string id="PopUp.PauseMenu.Button.Continue">Continuer</string>
+      <string id="PopUp.PauseMenu.Button.Help">Aide</string>
+      <string id="PopUp.PauseMenu.Button.Quit">Quitter</string>
+	  
+	  <string id="PopUp.Star.Win">Bravo, tu as gagné !</string>
+	  <string id="PopUp.Star.Lose">Dommage... Essaie encore !</string>
 
-		  <dialog id="12-Rudder.Dialog">
-			<string>Les gouvernes permettent de déplacer l’avion en vol.</string>
-			<image>Rudder</image>
-		  </dialog>
+    </uitexts>
 
-		  <dialog id="13-BirdShape.Dialog">
-			<string>La forme des ailes des avions ont été inspirées par les ailes des oiseaux.</string>
-			<image>BirdShape</image>
-		  </dialog>
+    <sceneNames>
+      <string id="ControlTower">Tour de Contrôle</string>
+      <string id="ControlTower - 1 - AirController">Controleur aérien</string>
+      <string id="ControlTower - 2 - AirTrafficController">Aiguilleur du Ciel</string>
+      <string id="ControlTower - 3 - Pilote">Pilote</string>
 
-		  <dialog id="14-UpperWingPart.Dialog">
-			<string>La partie supérieure de l’aile est plus volumineuse que la partie inférieure.</string>
-			<image>UpperWingPart</image>
-		  </dialog>
+      <string id="Hangar">Hangar</string>
+      <string id="Hangar - 1 - PlanningScheduler">Technicien ordonnancement</string>
+      <string id="Hangar - 2 - SheetMetalWorker">Chaudronnier</string>
+      <string id="Hangar - 3 - AeronauticPainter">Peintre aéronautique</string>
 
-		  <dialog id="15-LiftShape.Dialog">
-			<string>La portance est créée par le profil de l’aile.</string>
-			<image>LiftShape</image>
-		  </dialog>
+      <string id="Laboratory">Laboratoire</string>
+      <string id="Laboratory - 1 - StructuralEngineer">Ingénieur calcul structure</string>
+      <string id="Laboratory - 2 - BusinessDeveloppementManager">Chargé d'affaires</string>
+      <string id="Laboratory - 3 - TestTechnician">Technicien d'essais</string>
 
-		  <dialog id="16-Biplane.Dialog">
-			<string>Un biplan est un avion dont les ailes sont sur deux plans parallèles et reliés.</string>
-			<image>Biplane</image>
-		  </dialog>
+    </sceneNames>
 
-		  <dialog id="17-Aircraft.Dialog">
-			<string>Un aéronef désigne tout appareil permettant de s’élever ou de se diriger dans les airs.</string>
-			<image>Aircraft</image>
-		  </dialog>
 
-		  <dialog id="18-Takeoff.Dialog">
-			<string>Au début du vol, l’avion doit aller très vite pour s’envoler , c’est le décollage.</string>
-			<image>Takeoff</image>
-		  </dialog>
+    <story>
+      <dialog id="Map.Dialog">
+        <string>Salut ! Je suis Avi. Ensemble nous allons découvrir le monde de l'aéronautique.</string>
+        <string>J'ai besoin de ton aide, nous devons construire un avion pour [objectif].</string>
+        <string>Pour commencer allons dans le laboratoire.</string>
+      </dialog>
 
-		  <dialog id="19-Landing.Dialog">
-			<string>A la fin du vol l’avion ralentit et retourne sur le sol, c’est l'atterrissage.</string>
-			<image>Landing</image>
-		  </dialog>
+      <dialog id="Map.Dialog.Alternative">
+        <string>Hey, te revoilà ! Il faut encore partir pour [objectif].</string>
+      </dialog>
 
-		  <dialog id="20-Flight.Dialog">
-			<string> Le vol est constitué de trois étapes :le décollage, le vol de croisière et l’atterrissage.</string>
-			//Need image
-			<image>Flight</image>
-		  </dialog>
+      <dialog id="Laboratory.Dialog">
+        <string>Bienvenue dans le laboratoire, c'est ici que nous allons imaginer l'avion.</string>
+      </dialog>
 
-		  <dialog id="21-FastPlane.Dialog">
-			<string>L’avion est le moyen de transport en commun le plus rapide.</string>
-			<image>FastPlane</image>
-		  </dialog>
+      <dialog id="Hangar.Dialog">
+        <string>Bienvenue dans le hangar, c'est ici que nous allons construire l'avion.</string>
+      </dialog>
 
-		  <dialog id="22-FlyHigher.Dialog">
-			<string>FlyHigher est un projet européen pour apprendre l'aéronautique aux enfants.</string>
-			<image>FlyHigher</image>
-		  </dialog>
+      <dialog id="ControlTower.Dialog">
+        <string>Bienvenue dans la tour de contrôle, c'est ici que sont guidés les avions.</string>
+      </dialog>
 
-		</facts>
-		
-	
-	
-	
-		<help>
-		   <dialog id="Laboratory - 1 - StructuralEngineer">
-			<string></string>
-		  </dialog>
-		  
-		  <dialog id="Laboratory - 2 - BusinessDeveloppementManager">
-			<string></string>
-		  </dialog>
-		 
-		  <dialog id="Laboratory - 3 - TestTechnician">
-			<string>Pour gagner relie les points de la même couleur avec le doigt.</string>
-			<string>Pour annuler le dernier coup appuie sur le bouton annuler.</string>
-			<string>Pour recommencer appuie sur le bouton recommencer</string>
-		  </dialog>
-		
-		  <dialog id="Hangar - 1 - PlanningScheduler">
-			<string>Pour gagner place les morceaux d’avions dans les bonnes caisses.</string>
-		  </dialog>
-		  
-		  <dialog id="Hangar - 2 - SheetMetalWorker">
-			<string></string>
-		  </dialog>
-		  
-		  <dialog id="Hangar - 3 - AeronauticPainter">
-			<string>Sélectionne une couleur en appuyant sur un pot. Puis rempli les parties de l’avion ayant un point de la même couleur.</string>
-			<string>Tu peux mélanger plusieurs couleur pour en créer des nouvelles.</string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 1 - AirController">
-			<string></string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 2 - AirTrafficController">
-			<string></string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 3 - Pilote">
-			<string>Pour gagner il faut passer la ligne d'arrivée. La barre de progression t'indiques où tu en es.</string>
-			<string>Pour faire monter l'avion reste appuyé sur l'écran et pour le faire descendre relâche ton doigt.</string>
-			<string>Évite les ennemies pour ne pas perdre de vie.</string>
-		  </dialog>
-		
-		</help>
-		
-		<jobsDescription>
-		   <dialog id="Laboratory - 1 - StructuralEngineer">
-			<string>L’ingénieur calcul structure est là pour prédire le comportement des avions. Il réalise des dessins techniques.</string>
-		  </dialog>
-		  
-		  <dialog id="Laboratory - 2 - BusinessDeveloppementManager">
-			<string>Le chargé d’affaires doit rechercher des clients. Il fait le lien entre eux et l’entreprise.</string>
-		  </dialog>
-		 
-		  <dialog id="Laboratory - 3 - TestTechnician">
-			<string>Le technicien d’essais vérifie le bon fonctionnement de l’avion. Il doit maîtriser l’électronique.</string>
-		  </dialog>
-		
-		  <dialog id="Hangar - 1 - PlanningScheduler">
-			<string>Le technicien logistique commande et réceptionne le matériel dont a besoin l’entreprise. Il gère les stocks.</string>
-		  </dialog>
-		  
-		  <dialog id="Hangar - 2 - SheetMetalWorker">
-			<string>Le chaudronnier façonne des feuilles de métal pour en faire des pièces d’avion. Il assemble ensuite ces pièces.</string>
-		  </dialog>
-		  
-		  <dialog id="Hangar - 3 - AeronauticPainter">
-			<string>Le peintre aéronautique peint l'extérieur de l’avion mais aussi certaines pièces à l'intérieur.</string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 1 - AirController">
-			<string>Le premier rôle de l’aiguilleur du ciel est de guider les avions dans l’aéroport pour qu’ils se rendent à la piste de décollage.</string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 2 - AirTrafficController">
-			<string>Le contrôleur aérien est l’autre nom donné à l’aiguilleur du ciel. Son rôle est de guider les avions, pendant leur vol, à l’aide d’un radar.</string>
-		  </dialog>
-		  
-		  <dialog id="ControlTower - 3 - Pilote">
-			<string>Le pilote appelé aussi commandant de bord pilote l’avion du décollage à l'atterrissage.</string>
-		  </dialog>
-		</jobsDescription>
-		
-	</french>
+      <dialog id="Memory.Dialog">
+        <string>Le memory c'est génial !</string>
+      </dialog>
+    </story>
+
+
+
+    <facts>
+      <!-- Le texte dans la balise image correspond au nom du fichier de chaque image -->
+      <!-- Structural Engineer-->
+      <dialog id="1-PlanesTakeOff.Dialog">
+        <string>Un avion décolle toutes les secondes environ dans le monde.</string>
+        <image>PlanesTakeOff</image>
+      </dialog>
+
+      <!-- Structural Engineer-->
+      <dialog id="2-500000Persons.Dialog">
+        <string>Il y a 500 000 personnes dans le ciel à chaque instant.</string>
+        <image>500000Persons</image>
+      </dialog>
+
+      <!-- Structural Engineer-->
+      <dialog id="3-Eole.Dialog">
+        <string>Le premier avion (Eole) ressemblait à une chauve-souris.</string>
+        <image>Eole</image>
+      </dialog>
+
+      <!-- BusinessDeveloppementManager-->
+      <dialog id="4-AirWeight.Dialog">
+        <string>L’air est invisible mais il a un poids.</string>
+        <image>AirWeight</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="5-HotAir.Dialog">
+        <string>Plus l'air est chaud plus il est léger.</string>
+        <image>HotAir</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="6-HotBalloon.Dialog">
+        <string>Les montgolfières s’envolent grâce à l’air chaud.</string>
+        <image>HotBalloon</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="7-BalloonFirst.Dialog">
+        <string>Les montgolfières ont été les premières machines volantes.</string>
+        <image>BalloonFirst</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="8-SheepDuck.Dialog">
+        <string>Les passagers du premier vol en montgolfière étaient un coq, un mouton et un canard.</string>
+        <image>SheepDuck</image>
+      </dialog>
+      
+      <!--Comme les images ont des mots en anglais dessus( Lift Thrust) j'ai mis à quoi ils correspondent-->
+
+      <!-- SheetMetalWorker-->
+      <dialog id="9-LiftThrust.Dialog">
+        <string>Pour voler, l’avion a besoin de portance (Lift) et de poussée (Thrust).</string>
+        <image>LiftThrust</image>
+      </dialog>
+
+      <!-- SheetMetalWorker-->
+      <dialog id="10-AirLift.Dialog">
+        <string>C’est l’écoulement de l’air autour des ailes qui créé la portance.</string>
+        <image>AirLift</image>
+      </dialog>
+
+      <!-- SheetMetalWorker-->
+      <dialog id="11-ThrustEngine.Dialog">
+        <string>C’est le moteur qui fournit la poussée (Thrust).</string>
+        <image>ThrustEngine</image>
+      </dialog>
+
+      <!-- AirController-->
+      <dialog id="12-Rudder.Dialog">
+        <string>Les gouvernes permettent de déplacer l’avion en vol.</string>
+        <image>Rudder</image>
+      </dialog>
+
+      <!-- AirTrafficController-->
+      <dialog id="13-BirdShape.Dialog">
+        <string>La forme des ailes des avions ont été inspirées par les ailes des oiseaux.</string>
+        <image>BirdShape</image>
+      </dialog>
+
+      <dialog id="14-UpperWingPart.Dialog">
+        <string>La partie supérieure de l’aile est plus volumineuse que la partie inférieure.</string>
+        <image>UpperWingPart</image>
+      </dialog>
+
+      <dialog id="15-LiftShape.Dialog">
+        <string>La portance (Lift) est créée par la forme de l’aile.</string>
+        <image>LiftShape</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="16-Biplane.Dialog">
+        <string>Un biplan est un avion dont les ailes sont sur deux plans parallèles et reliés.</string>
+        <image>Biplane</image>
+      </dialog>
+
+      <!-- TestTechnician-->
+      <dialog id="17-Aircraft.Dialog">
+        <string>Un aéronef désigne tout appareil permettant de s’élever ou de se diriger dans les airs.</string>
+        <image>Aircraft</image>
+      </dialog>
+
+      <!-- AeronauticPainter-->
+      <dialog id="18-TakeOff.Dialog">
+        <string>Au début du vol, l’avion doit aller très vite pour s’envoler, c’est le décollage.</string>
+        <image>Takeoff</image>
+      </dialog>
+
+      <!-- AeronauticPainter-->
+      <dialog id="19-Landing.Dialog">
+        <string>A la fin du vol l’avion ralentit et retourne sur le sol, c’est l'atterrissage.</string>
+        <image>Landing</image>
+      </dialog>
+
+      <!-- AeronauticPainter-->
+      <dialog id="20-Flight.Dialog">
+        <string> Le vol est constitué de trois étapes :le décollage, le vol de croisière et l’atterrissage.</string>
+        <!-- Need Image-->
+        <image>Flight</image>
+      </dialog>
+
+      <!-- PlanningScheduler-->
+      <dialog id="21-FastPlane.Dialog">
+        <string>L’avion est le moyen de transport en commun le plus rapide.</string>
+        <image>FastPlane</image>
+      </dialog>
+
+      <!-- Pilote-->
+      <dialog id="22-FlyHigher.Dialog">
+        <string>FlyHigher est un projet européen pour apprendre l'aéronautique aux enfants.</string>
+        <image>FlyHigher</image>
+      </dialog>
+
+      <dialog id="23-PlanePrice.Dialog">
+        <string>Le prix d'un avion peut aller de 200 000 euros à plusieurs centaines de millions d'euros.</string>
+        <image>FlyHigher</image>
+      </dialog>
+
+    </facts>
+
+
+
+
+    <help>
+      <dialog id="Laboratory - 1 - StructuralEngineer">
+        <string></string>
+      </dialog>
+
+      <dialog id="Laboratory - 2 - BusinessDeveloppementManager">
+        <string></string>
+      </dialog>
+
+      <dialog id="Laboratory - 3 - TestTechnician">
+        <string>Pour gagner relie les points de la même couleur avec le doigt.</string>
+        <string>Pour annuler le dernier coup appuie sur le bouton annuler.</string>
+        <string>Pour recommencer appuie sur le bouton recommencer</string>
+      </dialog>
+
+      <dialog id="Hangar - 1 - PlanningScheduler">
+        <string>Pour gagner place les morceaux d’avions dans les bonnes caisses.</string>
+      </dialog>
+
+      <dialog id="Hangar - 2 - SheetMetalWorker">
+        <string></string>
+      </dialog>
+
+      <dialog id="Hangar - 3 - AeronauticPainter">
+        <string>Sélectionne une couleur en appuyant sur un pot. Puis remplis les parties de l’avion ayant un point de la même couleur.</string>
+        <string>Tu peux mélanger plusieurs couleurs pour en créer des nouvelles.</string>
+      </dialog>
+
+      <dialog id="ControlTower - 1 - AirController">
+        <string></string>
+      </dialog>
+
+      <dialog id="ControlTower - 2 - AirTrafficController">
+        <string></string>
+      </dialog>
+
+      <dialog id="ControlTower - 3 - Pilote">
+        <string>Pour gagner il faut passer la ligne d'arrivée. La barre de progression t'indiques où tu en es.</string>
+        <string>Pour faire monter l'avion reste appuyé sur l'écran et pour le faire descendre relâche ton doigt.</string>
+        <string>Évite les ennemies pour ne pas perdre de vie.</string>
+      </dialog>
+
+    </help>
+
+    <jobsDescription>
+      <dialog id="Laboratory - 1 - StructuralEngineer">
+        <string>L’ingénieur calcul structure est là pour prédire le comportement des avions. Il réalise des dessins techniques.</string>
+      </dialog>
+
+      <dialog id="Laboratory - 2 - BusinessDeveloppementManager">
+        <string>Le chargé d’affaires doit rechercher des clients. Il fait le lien entre eux et l’entreprise.</string>
+      </dialog>
+
+      <dialog id="Laboratory - 3 - TestTechnician">
+        <string>Le technicien d’essais vérifie le bon fonctionnement de l’avion. Il doit maîtriser l’électronique.</string>
+      </dialog>
+
+      <dialog id="Hangar - 1 - PlanningScheduler">
+        <string>Le technicien logistique commande et réceptionne le matériel dont a besoin l’entreprise. Il gère les stocks.</string>
+      </dialog>
+
+      <dialog id="Hangar - 2 - SheetMetalWorker">
+        <string>Le chaudronnier façonne des feuilles de métal pour en faire des pièces d’avion. Il assemble ensuite ces pièces.</string>
+      </dialog>
+
+      <dialog id="Hangar - 3 - AeronauticPainter">
+        <string>Le peintre aéronautique peint l'extérieur de l’avion mais aussi certaines pièces à l'intérieur.</string>
+      </dialog>
+
+      <dialog id="ControlTower - 1 - AirController">
+        <string>Le premier rôle de l’aiguilleur du ciel est de guider les avions dans l’aéroport pour qu’ils se rendent à la piste de décollage.</string>
+      </dialog>
+
+      <dialog id="ControlTower - 2 - AirTrafficController">
+        <string>Le contrôleur aérien est l’autre nom donné à l’aiguilleur du ciel. Son rôle est de guider les avions, pendant leur vol, à l’aide d’un radar.</string>
+      </dialog>
+
+      <dialog id="ControlTower - 3 - Pilote">
+        <string>Le pilote appelé aussi commandant de bord pilote l’avion du décollage à l'atterrissage.</string>
+      </dialog>
+    </jobsDescription>
+
+  </french>
 
 
 </languages>
