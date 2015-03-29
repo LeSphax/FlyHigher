@@ -22,7 +22,6 @@ public class GameControlerScript : MonoBehaviour {
 
 	//fonction qui doit etre appeler à la fin du jeu
 	public void FinJeu(){
-		Debug.Log ("FIN JEU: " + nbeObjectifs );
 		if (nbeObjectifs == 0) {
 			if(etoile<0){
 				etoile=0;
