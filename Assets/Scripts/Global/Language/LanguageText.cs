@@ -12,6 +12,7 @@ public class LanguageText
 	private Dictionary<string, Fact> dicoFacts;
 	private Dictionary<string, Queue<string>> dicoHistory;
 	private Dictionary<string, List<string>> dicoHelp;
+	private Dictionary<string, string> dicoJobs;
 	private List<string> languageSupported;
 	private XmlDocument xml;
 
@@ -88,6 +89,15 @@ public class LanguageText
 		return dicoHelp [id];
 	}
 
+	public string GetJobDescription (string id)
+	{
+		if (!dicoJobs.ContainsKey (id)) {
+			Debug.LogError ("The specified JobDescription does not exist: " + id);
+			return "";
+		}
+		return dicoJobs [id];
+	}
+
 
 
 	public void SetLanguage (string language)
@@ -114,7 +124,8 @@ public class LanguageText
 		dicoFacts = new Dictionary<string, Fact> ();
 		dicoHistory = new Dictionary<string, Queue<string>> ();
 		dicoSceneNames = new Dictionary<string, string> ();
-		dicoHelp = new Dictionary<string, List<string> > ();
+		dicoHelp = new Dictionary<string, List<string>> ();
+		dicoJobs = new Dictionary<string,string> ();
 
 		XmlElement elementLanguage = xml.DocumentElement [language]; // The xml element <english> for example
 
@@ -162,6 +173,15 @@ public class LanguageText
 						tmpList.Add (nodeStringDialog.InnerText);
 					}
 					dicoHelp.Add (nodeDialog.Attributes ["id"].Value, tmpList);
+				}
+			}
+
+			XmlElement elementJobs = elementLanguage ["jobsDescription"];
+			if (elementHelp != null) {
+				foreach (XmlNode nodeDialog in elementJobs.ChildNodes) {
+					foreach (XmlNode nodeStringDialog in nodeDialog.ChildNodes) {
+						dicoJobs.Add (nodeDialog.Attributes ["id"].Value, nodeStringDialog.InnerText);
+					}
 				}
 			}
 		} else {

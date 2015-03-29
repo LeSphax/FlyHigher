@@ -88,7 +88,7 @@ GameObject:
   - 114: {fileID: 128117202}
   - 114: {fileID: 128117201}
   m_Layer: 5
-  m_Name: SuccessButton
+  m_Name: QuitButton
   m_TagString: Untagged
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
@@ -121,10 +121,9 @@ MonoBehaviour:
   m_GameObject: {fileID: 128117199}
   m_Enabled: 1
   m_EditorHideFlags: 0
-  m_Script: {fileID: 11500000, guid: 97963327e3cf4514faa2f19c3e0ab437, type: 3}
+  m_Script: {fileID: 11500000, guid: 0257d53f73e86fa48957ba51006d9277, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  sceneToLoad: Success
 --- !u!114 &128117202
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -165,7 +164,7 @@ MonoBehaviour:
     m_PersistentCalls:
       m_Calls:
       - m_Target: {fileID: 128117201}
-        m_MethodName: loadScene
+        m_MethodName: QuitButtonPressed
         m_Mode: 1
         m_Arguments:
           m_ObjectArgument: {fileID: 0}
@@ -907,7 +906,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  showAlternativeText: 0
+  mapVisited: 0
+  volume: 0
   buildings:
   - nbGames: 3
     nbStarsRequired: 5

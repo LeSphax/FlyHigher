@@ -15,7 +15,7 @@ public class JobInfo : MonoBehaviour {
 		gameObject.SetActive (true);
 		sceneToLoadName = stln;
 		titleText.text = LanguageText.Instance.GetSceneName (sceneToLoadName);
-		//TODO go search the description text
+		descriptionText.text = LanguageText.Instance.GetJobDescription (sceneToLoadName);
 		playButton.GetComponent<buttonLoadScene> ().sceneToLoad = sceneToLoadName;
 		//TODO if (isLocked) {
 		if (false){

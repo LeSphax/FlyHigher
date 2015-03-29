@@ -928,7 +928,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: ad3d63338c5a6a347b0f3f446265ea00, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  prevButton: {fileID: 11401956}
+  previousButton: {fileID: 11401956}
   nextButton: {fileID: 11401978}
   exitButton: {fileID: 11401962}
   helpImage: {fileID: 11401970}
@@ -1367,7 +1367,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: f6182e95ee9542e449cc94cd173484d2, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idText: PopUp.PauseMenu.Button.Retrun
+  idText: PopUp.PauseMenu.Button.Quit
 --- !u!114 &11448614
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -1532,8 +1532,8 @@ MonoBehaviour:
   star3: {fileID: 11448670}
   al: {fileID: 0}
   star1LevelNb: 1
-  star2LevelNb: 2
-  star3LevelNb: 3
+  star2LevelNb: 1
+  star3LevelNb: 1
   levelButton: {fileID: 152810, guid: 43ca708582b88d843a7936d97b693084, type: 2}
   emptyStar: {fileID: 21300000, guid: db1f3ba4af50a0e45bda29883a8799b7, type: 3}
   fullStar: {fileID: 21300000, guid: 2b018fca23f8c004d9d618cc483b1018, type: 3}
@@ -2176,7 +2176,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 0}
+  m_Sprite: {fileID: 21300000, guid: d0a23d7af07e1b54093e5c3c984a0e79, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
@@ -2375,7 +2375,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 1-PlanesTakeOff.Dialog
+  idFact: 3-Eole.Dialog
 --- !u!114 &11448690
 MonoBehaviour:
   m_ObjectHideFlags: 1
@@ -3635,7 +3635,7 @@ RectTransform:
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 0, y: 0}
+  m_SizeDelta: {x: -10, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!224 &22448682
 RectTransform:

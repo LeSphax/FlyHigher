@@ -8,7 +8,7 @@ public class GameControlPaint : MonoBehaviour
 	public Color ColorBlue = new Color (0.31f, 0.31f, 1f, 1f);
 	public static Color ColorRed = new Color (1f, 0.31f, 0.31f, 1f);
 	public static Color ColorYellow = new Color (1f, 1f, 0.31f, 1f);
-	public static Color ColorOrange = new Color (0.95f, 0.7f, 0.2f, 1f);
+	public static Color ColorOrange = new Color (1f, 0.5f, 0.2f, 1f);
 	public static Color ColorGreen = new Color (0.31f, 0.88f, 0.31f, 1f);
 	public static Color ColorPurple = new Color (0.88f, 0.31f, 1f, 1f);
 	public static Color ColorWhite = new Color (1f, 1f, 1f, 1f);
@@ -32,6 +32,7 @@ public class GameControlPaint : MonoBehaviour
 	private SpriteRenderer mixArea;
 
 	private int currentLevel;
+	private int lvlMixEnable = 3;
 
 
 	public void init (int level)
@@ -46,7 +47,7 @@ public class GameControlPaint : MonoBehaviour
 
 		this.currentLevel = level;
 		dotsColor = new DotColor[5];
-		colorSelected = ColorBlue;
+		colorSelected = ColorWhite;
 		GameObject draw;
 		GameObject mix;
 		switch (level) {
@@ -55,8 +56,6 @@ public class GameControlPaint : MonoBehaviour
 			break;
 		case 2:
 			draw = Instantiate (prefabDrawLvl2) as GameObject;
-			mix = Instantiate (prefabMix, positionMix, Quaternion.identity) as GameObject;
-			mixArea = mix.GetComponent<SpriteRenderer> ();
 			break;
 		case 3:
 			draw = Instantiate (prefabDrawLvl3) as GameObject;
@@ -71,7 +70,7 @@ public class GameControlPaint : MonoBehaviour
 		draw.transform.SetParent (this.transform.parent);
 		dotsColor = draw.GetComponentsInChildren<DotColor> ();
 		foreach (DotColor dc in dotsColor) {
-			if (currentLevel == 2) {
+			if (currentLevel >= lvlMixEnable) {
 				dc.SetColorWanted (MixColor (colorPossible [Random.Range (0, colorPossible.Length)], 
 				                             colorPossible [Random.Range (0, colorPossible.Length)]));
 			} else {
@@ -88,13 +87,7 @@ public class GameControlPaint : MonoBehaviour
 			tabJar [i].SetId (i);
 			colorJar.transform.SetParent (this.transform.parent);
 			tabJar [i].SetController (this);
-
-
-			if (i == 0) {
-				SetSelectedJar (i);
-			} else {
-				tabJar [i].SetSelected (false);
-			}
+			tabJar [i].SetSelected (false);
 		}
 
 		foreach (ElementToPaintBehavior e in 
@@ -127,7 +120,7 @@ public class GameControlPaint : MonoBehaviour
 
 	public void SetSelectedJar (int i)
 	{
-		if (currentLevel == 1) {
+		if (currentLevel < lvlMixEnable) {
 			if (nbSelected == 1) {
 				if (tabJar [i].isSelected ()) {
 					tabJar [i].SetSelected (false);

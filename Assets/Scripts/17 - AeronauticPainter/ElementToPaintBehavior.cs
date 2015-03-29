@@ -39,7 +39,7 @@ public class ElementToPaintBehavior : MonoBehaviour
 
 	void OnMouseDown ()
 	{			
-		if (!EventSystem.current.IsPointerOverGameObject ()) {
+		if (!(Time.timeScale == 0)) {
 			ColorChanged ();
 		}
 	}

@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 using System.Collections.Generic;
 
@@ -9,7 +10,8 @@ public class GameControllerMemory : MonoBehaviour
 
 	public Texture[] texturesCards;
 	public int cardsinrow;
-	public AudioClip audioCardMatching;
+	public GameObject UIMemory;
+
 
 	enum State
 	{
@@ -26,6 +28,8 @@ public class GameControllerMemory : MonoBehaviour
 	private int nbTryMissed; // Number of time that 2 cards flipped doesn't match
 
 	private List<Card> cardsList = new List<Card> ();
+	private Text labelRate;
+	private string stringRate = "Essais ratés: \n ";
 
 	class Card
 	{
@@ -41,7 +45,8 @@ public class GameControllerMemory : MonoBehaviour
 
 	void Awake ()
 	{
-				
+		UIMemory.SetActive (true);	
+		labelRate = UIMemory.GetComponentInChildren<Text> ();
 	}
 
 	// Use this for initialization
@@ -56,27 +61,33 @@ public class GameControllerMemory : MonoBehaviour
 			cardsList.Add (new Card (texturesCards [i], i));
 
 		}
+
 		this.numberPairCardsRemaining = texturesCards.Length;
 		this.initialNumberPairCard = numberPairCardsRemaining;
-		if (numberPairCardsRemaining > 0)
+		if (numberPairCardsRemaining > 0) {
 			ShuffleCards ();
+		}
+	
+		labelRate.text = stringRate + nbTryMissed;
+	
 
 	}
 	
 	// Update is called once per frame
 	void Update ()
 	{
-				
-		foreach (Touch touch in Input.touches) {
+		if (!(Time.timeScale == 0)) {
+			foreach (Touch touch in Input.touches) {
 					
-			switch (touch.phase) {
-			case TouchPhase.Began:
-				ray = Camera.main.ScreenPointToRay (touch.position);
+				switch (touch.phase) {
+				case TouchPhase.Began:
+					ray = Camera.main.ScreenPointToRay (touch.position);
 
-				if (Physics.Raycast (ray, out hitInfo)) {
-					hitInfo.transform.gameObject.SendMessage ("OnTouchBegan");
+					if (Physics.Raycast (ray, out hitInfo)) {
+						hitInfo.transform.gameObject.SendMessage ("OnTouchBegan");
+					}
+					break;
 				}
-				break;
 			}
 		}
 	}
@@ -137,7 +148,7 @@ public class GameControllerMemory : MonoBehaviour
 
 	void CardsMatching ()
 	{
-		AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
+		//AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
 		cards [0].RemoveCard ();
 		cards [1].RemoveCard ();
 		
@@ -149,23 +160,19 @@ public class GameControllerMemory : MonoBehaviour
 
 	void CardsNotMatching ()
 	{
-		nbTryMissed++;
+		incrementMissed ();
 		cards [0].HideCard ();
 		cards [1].HideCard ();
 	}
 
 	void EndOfGame ()
 	{
-		//Debug.Log ("Missed " + nbTryMissed);
 		GameObject.FindWithTag ("GamesUI").BroadcastMessage ("GameEnded", calculNumberStar ());
-
 	}
 
 	int calculNumberStar ()
 	{
-		Debug.Log (initialNumberPairCard);
 		int tryMini = initialNumberPairCard + (initialNumberPairCard / 2) + 1;
-		Debug.Log (tryMini);
 		if (nbTryMissed < tryMini) {
 			return 3;
 		} else if (nbTryMissed < tryMini + initialNumberPairCard) {
@@ -173,5 +180,12 @@ public class GameControllerMemory : MonoBehaviour
 		} else {
 			return 1;
 		}
+	}
+
+	
+	private void incrementMissed ()
+	{
+		nbTryMissed++;
+		labelRate.text = stringRate + nbTryMissed;
 	}
 }
