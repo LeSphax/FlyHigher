@@ -49,13 +49,16 @@ public class GameManager : MonoBehaviour {
 
 	// Update is called once per frame
 	void Update () {
-		enemiesManager.SpawnEnemies ();
-		enemiesManager.MoveEnemies ();
-		distanceSlider.value = Mathf.Clamp((((Time.time - startTime) * 100) / gameDuration), 0, 100);
-		if ((Time.time - startTime) > (gameDuration - 6))
-			endLine.GetComponent<EndLine> ().MoveEndLine ();
-		if (distanceSlider.value >= 100)
-			GameOver ();
+		if (distanceSlider.value < 100){
+			enemiesManager.SpawnEnemies ();
+			enemiesManager.MoveEnemies ();
+			distanceSlider.value = Mathf.Clamp((((Time.time - startTime) * 100) / gameDuration), 0, 100);
+			if ((Time.time - startTime) > (gameDuration - 6))
+				endLine.GetComponent<EndLine> ().MoveEndLine ();
+			if (distanceSlider.value >= 100){
+				GameOver ();
+			}
+		}
 
 	}
 

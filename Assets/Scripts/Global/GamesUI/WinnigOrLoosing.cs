@@ -9,25 +9,25 @@ public class WinnigOrLoosing : MonoBehaviour {
 	public Image star2;
 	public Image star3;
 	public GameObject endPopUp;
-
+	public GameObject winningOrLoosing;
 	public Sprite starEmpty;
 	public Sprite starFull;
 
 	private int starNb;
 	private float startTime;
 
-	public void Start(){
+	/*public void Start(){
 		Init (2);
-	}
+	}*/
 
 	public void Init(int starNb){
-		GameObject.FindGameObjectWithTag("WinningOrLoosing").SetActive(true);
-		startTime = Time.time;
+		winningOrLoosing.SetActive(true);
+		startTime = 0;
 		this.starNb = starNb;
 		if (this.starNb > 0) {
-			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Lose");
-		} else {
 			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Win");
+		} else {
+			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Lose");
 		}
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 v3 = rt.anchoredPosition;
@@ -36,14 +36,15 @@ public class WinnigOrLoosing : MonoBehaviour {
 	}
 
 	public void Update(){
-
+		startTime += 0.01f;
+		Debug.Log (startTime);
 		if (GetComponent <RectTransform>().anchoredPosition.x > 0) Move();
-		else if (Time.time < startTime + 3f){
-			if (Time.time > startTime + 1.9f) {
+		else if (startTime < 3f){
+			if (startTime > 2.5f) {
 				SetStar3();
-			} else if (Time.time > startTime + 1.5f) {
+			} else if (startTime > 1.5f) {
 				SetStar2();
-			} else if (Time.time > startTime + 1.1f) {
+			} else if (startTime > 0.5f) {
 				SetStar1();
 			}
 		}else if (GetComponent <RectTransform>().position.x > - 160) {
@@ -62,7 +63,7 @@ public class WinnigOrLoosing : MonoBehaviour {
 	private void Move(){
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 v3 = rt.position;
-		v3.x -= 500f * Time.deltaTime;
+		v3.x -= 3f;
 		rt.position = v3;
 	}
 

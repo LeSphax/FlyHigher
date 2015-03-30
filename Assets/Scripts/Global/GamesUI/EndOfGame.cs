@@ -4,8 +4,9 @@ using System.Collections;
 public class EndOfGame : MonoBehaviour
 {
 
-		public GameObject EndGamePopUp;
-        GameData gameData;
+		//public GameObject EndGamePopUp;
+		public GameObject winnigOrLoosing;
+		GameData gameData;
 
         void Awake()
         {
@@ -14,9 +15,11 @@ public class EndOfGame : MonoBehaviour
         
 		void GameEnded (int numberStars=0)
 		{
-				EndGamePopUp.SetActive (true);
+				Debug.Log ("GameEnded");
+				//EndGamePopUp.SetActive (true);
                 gameData.AddScore(numberStars);
-                GetComponentInChildren<ScoreStarScript>().ShowStars(numberStars);
+				winnigOrLoosing.GetComponent<WinnigOrLoosing> ().Init (numberStars);
+                //GetComponentInChildren<ScoreStarScript>().ShowStars(numberStars);
                 Time.timeScale = 0;
 		}
 }
