@@ -25,6 +25,7 @@ public class Contact : MonoBehaviour {
 		}
 
 		if (other.tag == "Obstacle") {
+			Debug.Log ("toucher");
 			Destroy (other.gameObject);
 			Instantiate(Explosion, other.transform.position, other.transform.rotation); 
 			GameObject.FindWithTag ("GameController").GetComponent<GameControlerScript>().SuppEtoile(); //on supprime une étoile
