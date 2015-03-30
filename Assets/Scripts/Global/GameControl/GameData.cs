@@ -9,15 +9,18 @@ public class GameData : MonoBehaviour
 {
 
 	public static GameData control;
-	string path;
-	string fileName = "playerInfo.dat";
+	
 	private Dictionary<String, SceneData> sceneDictionary;
-	private Dictionary<String, BuildingData> buildingDictionary;
-	string language { get; set; }
-	[HideInInspector]
-	public bool mapVisited;
+    [HideInInspector]
+    public List<string> listPopUpSeen;
+
+    string path;
+    string fileName = "playerInfo.dat";
+    private Dictionary<String, BuildingData> buildingDictionary;
+    string language { get; set; }
     [HideInInspector]
     public float volume;
+
 	public BuildingData[] buildings;
 
 
@@ -36,7 +39,7 @@ public class GameData : MonoBehaviour
 	void init ()
 	{
 		DontDestroyOnLoad (gameObject);
-        mapVisited = false;
+        listPopUpSeen= new List<string>();
         volume = 1.0f;
 		path = Application.persistentDataPath + "/" + fileName;
 		sceneDictionary = new Dictionary<string, SceneData> ();
@@ -53,7 +56,7 @@ public class GameData : MonoBehaviour
 	public void Reset ()
 	{
 		sceneDictionary = new Dictionary<string, SceneData> ();
-        mapVisited = false;
+        listPopUpSeen = new List<string>();
 	}
 
 	public void AddScore (int numberStars)
@@ -148,7 +151,7 @@ public class GameData : MonoBehaviour
 			playerData.scenesDictionary = sceneDictionary;
 			playerData.buildingDictionary = buildingDictionary;
 			playerData.language = language;
-			playerData.mapVisited = mapVisited;
+			playerData.listPopUpSeen = listPopUpSeen;
             playerData.volume = volume;
 			bf.Serialize (file, playerData);
 			file.Close ();
@@ -162,7 +165,7 @@ public class GameData : MonoBehaviour
 			FileStream file = File.Open (path, FileMode.Open);
 			PlayerData playerData = (PlayerData)bf.Deserialize (file);
 			sceneDictionary = playerData.scenesDictionary;
-			mapVisited = playerData.mapVisited;
+			listPopUpSeen = playerData.listPopUpSeen;
             volume = playerData.volume;
 			buildingDictionary = playerData.buildingDictionary;
 			language = playerData.language;
@@ -181,7 +184,7 @@ public class GameData : MonoBehaviour
 		public Dictionary<String, SceneData> scenesDictionary;
 		public Dictionary<String, BuildingData> buildingDictionary;
 		public string language;
-		public bool mapVisited; // PopUpHistory on the scene Map. 
+        public List<string> listPopUpSeen;
         public float volume;
 	}
 
