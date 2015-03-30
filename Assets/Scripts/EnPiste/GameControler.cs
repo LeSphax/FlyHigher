@@ -57,13 +57,32 @@ public class GameControler : MonoBehaviour {
 				waveWait = waveWait * 0.80f;
 				nouvelleVague=false;
 				GameObject.FindWithTag ("Player").GetComponent<PlayerControler>().moveUp=0;
+				SpwanDebutDeVague();
 				yield return new WaitForSeconds(2);//attend 3seconde
 				texte.SetActive(false);
 			}
 		}
 	}
 
-	
+
+
+	private void SpwanDebutDeVague(){
+		Vector3 spawnPosition = new Vector3 (spawnValues.x, -10, spawnValues.z);
+		Instantiate(hazard2, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+		spawnPosition = new Vector3 (spawnValues.x,-5, spawnValues.z);
+		Instantiate (hazard, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+		spawnPosition = new Vector3 (spawnValues.x,0, spawnValues.z);
+		Instantiate (hazard, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+		spawnPosition = new Vector3 (spawnValues.x,5, spawnValues.z);
+		Instantiate (hazard2, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+		spawnPosition = new Vector3 (spawnValues.x,10, spawnValues.z);
+		Instantiate (hazard, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+	}
+
+
+
+
+
 	//fonction de fin du jeu
 	public void FinJeu(int vie){
 		gameOver = false;
