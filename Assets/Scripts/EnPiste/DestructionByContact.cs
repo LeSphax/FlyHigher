@@ -28,7 +28,6 @@ public class DestructionByContact : MonoBehaviour {
 			Destroy (gameObject);	
 		}
 		if (other.tag == "arriver") {
-			Debug.Log ("respawn!!!!!");
 			rigidbody.MovePosition(new Vector3 (0.0f,-10.0f, 0.0f)); //zone ou le personnage va respawn
 		}
 		if (other.tag=="Enemies"){

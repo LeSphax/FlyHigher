@@ -36,7 +36,6 @@ public class WinnigOrLoosing : MonoBehaviour {
 	}
 
 	public void Update(){
-		Debug.Log (startTime);
 		if (GetComponent <RectTransform>().anchoredPosition.x > 0) Move();
 		else startTime += 0.01f;
 		if (startTime < 2.4f){

@@ -12,7 +12,7 @@ public class PlayeurControlleur : MonoBehaviour {
 	private int nbeLigne=0;
 	public LineRenderer ligne;
 	private List<Vector3> points = new List<Vector3> ();
-	private bool premierToucher=true;
+	//private bool premierToucher=true;
 	private int vertex=1;
 	private bool touche=false;
 

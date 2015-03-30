@@ -15,7 +15,6 @@ public class EndOfGame : MonoBehaviour
         
 		void GameEnded (int numberStars=0)
 		{
-				Debug.Log ("GameEnded");
 				//EndGamePopUp.SetActive (true);
                 gameData.AddScore(numberStars);
 				winnigOrLoosing.GetComponent<WinnigOrLoosing> ().Init (numberStars);
