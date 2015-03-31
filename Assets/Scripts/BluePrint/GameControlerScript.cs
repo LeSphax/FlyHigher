@@ -3,6 +3,7 @@ using System.Collections;
 using UnityEngine.UI;
 
 public class GameControlerScript : MonoBehaviour {
+
 	private int etoile;
 	public int nbeObjectifsTotal;
 	private int nbeObjectifs;
@@ -56,4 +57,7 @@ public class GameControlerScript : MonoBehaviour {
 			Destroy (GameObject.FindWithTag("Star1"));
 		}
 	}
+
+
+
 }

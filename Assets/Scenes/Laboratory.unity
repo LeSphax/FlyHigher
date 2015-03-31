@@ -134,7 +134,6 @@ MonoBehaviour:
   loaderButton: {fileID: 22438510}
   titleText: {fileID: 774368099}
   lockImage: {fileID: 299893741}
-  borderImage: {fileID: 801418323}
   starsNb: 0
   star1: {fileID: 466393854}
   star2: {fileID: 1485379050}
@@ -1839,10 +1838,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 22438507}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!1 &896364611
 GameObject:
@@ -1874,10 +1873,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2128445115}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &896364613
 MonoBehaviour:
@@ -2007,10 +2006,10 @@ RectTransform:
   m_Children: []
   m_Father: {fileID: 2054356074}
   m_RootOrder: 0
-  m_AnchorMin: {x: .5, y: .5}
-  m_AnchorMax: {x: .5, y: .5}
+  m_AnchorMin: {x: 0, y: 0}
+  m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
-  m_SizeDelta: {x: 100, y: 100}
+  m_SizeDelta: {x: 0, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &980349576
 MonoBehaviour:
@@ -3381,7 +3380,8 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 235668d058911824996fd32451ff6eb8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idStory: Laboratory.Dialog
+  idFirstEntrance: Laboratory.Dialog
+  idFinished: LaboratoryFinished.Dialog
 --- !u!115 &1998460754
 MonoScript:
   m_ObjectHideFlags: 0
@@ -3511,7 +3511,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: 952d4789911ee994bba5bc418231ce1f, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  mapVisited: 0
+  listPopUpSeen: []
   volume: 0
   buildings:
   - nbGames: 3
@@ -3594,7 +3594,6 @@ MonoBehaviour:
   loaderButton: {fileID: 2054356077}
   titleText: {fileID: 1343974585}
   lockImage: {fileID: 1012646356}
-  borderImage: {fileID: 980349576}
   starsNb: 0
   star1: {fileID: 593980647}
   star2: {fileID: 1038051669}
@@ -3917,7 +3916,6 @@ MonoBehaviour:
   loaderButton: {fileID: 2128445118}
   titleText: {fileID: 908776951}
   lockImage: {fileID: 1473936957}
-  borderImage: {fileID: 896364613}
   starsNb: 0
   star1: {fileID: 1911356959}
   star2: {fileID: 2114869463}

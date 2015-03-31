@@ -9,12 +9,13 @@ public abstract class PopUpHandler : MonoBehaviour
 	GameObject popUp;
 	PopUp popUpScript;
 	System.Collections.Generic.Queue<string> texts;
-	private static List<string> listPopUpSeen = new List<string> ();
+    protected GameData gameData;
 	
 
 	void Awake ()
 	{
-		prefab = Resources.Load ("StoryPopUp", typeof(GameObject));
+        gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
+        prefab = Resources.Load("StoryPopUp", typeof(GameObject));
 	}
 
 	void Start ()
@@ -58,15 +59,15 @@ public abstract class PopUpHandler : MonoBehaviour
 	}
 
 
-	public static void SetPopUpAlreadySeen (string id)
+    protected void SetPopUpAlreadySeen (string id)
 	{
-		listPopUpSeen.Add (id);
+		gameData.listPopUpSeen.Add (id);
 	}
 	
 	
-	public static bool AlreadySeen (string id)
+	protected bool AlreadySeen (string id)
 	{
-		if (listPopUpSeen.Contains (id)) {
+		if (gameData.listPopUpSeen.Contains (id)) {
 			return true;
 		}
 		return false;
