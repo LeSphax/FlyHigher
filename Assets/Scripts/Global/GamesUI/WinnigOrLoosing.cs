@@ -36,7 +36,6 @@ public class WinnigOrLoosing : MonoBehaviour {
 	}
 
 	public void Update(){
-		Debug.Log (startTime);
 		if (GetComponent <RectTransform>().anchoredPosition.x > 0) Move();
 		else startTime += 0.01f;
 		if (startTime < 2.4f){
@@ -66,7 +65,7 @@ public class WinnigOrLoosing : MonoBehaviour {
 	private void Move(){
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 v3 = rt.position;
-		v3.x -= 3f;
+		v3.x -= 5f;
 		rt.position = v3;
 	}
 
