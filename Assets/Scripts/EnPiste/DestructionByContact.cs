@@ -29,6 +29,7 @@ public class DestructionByContact : MonoBehaviour {
 		}
 		if (other.tag == "arriver") {
 			rigidbody.MovePosition(new Vector3 (0.0f,-10.0f, 0.0f)); //zone ou le personnage va respawn
+			audio.Play();
 		}
 		if (other.tag=="Enemies"){
 			ReductionVie();
