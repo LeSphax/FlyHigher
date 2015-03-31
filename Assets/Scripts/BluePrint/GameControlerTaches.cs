@@ -9,9 +9,14 @@ public class GameControlerTaches : MonoBehaviour {
 	public Text Tobjectifs;
 	private bool gameOver;
 	public float Tps;
-	private int etoile=3;
+	private int etoile;
+	private float seconde;
 	// Use this for initialization
+
+
 	void Start () {
+		seconde = Time.time;
+		etoile = 3;
 		gameOver = true;
 		nbeTachesSurEcran = 0;
 		ApparitionTache ();
@@ -48,12 +53,15 @@ public class GameControlerTaches : MonoBehaviour {
 
 	//enléve des etoiles au fur et a mesure que le temps passe
 	public void FinJeuTemps(){
-		if (Time.time > 10 && Time.time<11) {
+		float difSeconde=Time.time-seconde;
+		//seconde=Time.time;
+		Debug.Log ("dif seconde = " +  difSeconde);
+		if (difSeconde > 10 && difSeconde<11) {
 			ReductionVie();
-		}else if(Time.time>20 && Time.time<21){
+		}else if(difSeconde>20 && difSeconde<21){
 			ReductionVie();
 		}
-		if(Time.time>30){
+		if(difSeconde>30){
 			ReductionVie();
 			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded",etoile);
 		}
