@@ -31,30 +31,30 @@ public class WinnigOrLoosing : MonoBehaviour {
 		}
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 v3 = rt.anchoredPosition;
-		v3.x = 600;
+		v3.x = 700;
 		rt.anchoredPosition = v3;
 	}
 
 	public void Update(){
 		if (GetComponent <RectTransform>().anchoredPosition.x > 0) Move();
 		else startTime += 0.01f;
-		if (startTime < 2.4f){
-			if (startTime > 1.8f) {
+		if (startTime < 1.6f){
+			if (startTime > 1.2f) {
 				SetStar3();
 			} 
-			if (startTime > 1.2f) {
+			if (startTime > 0.8f) {
 				SetStar2();
 			}
-			if (startTime > 0.6f) {
+			if (startTime > 0.4f) {
 
 				SetStar1();
 			}
-		}else if (GetComponent <RectTransform>().position.x > - 160) {
+		}else if (GetComponent <RectTransform>().anchoredPosition.x > - 700) {
 			Move();
 		} else {
 			RectTransform rt = GetComponent<RectTransform> ();
 			Vector3 v3 = rt.anchoredPosition;
-			v3.x = 600;
+			v3.x = 700;
 			rt.anchoredPosition = v3;
 			endPopUp.SetActive(true);
 			GameObject.FindGameObjectWithTag("WinningOrLoosing").SetActive(false);
@@ -65,7 +65,7 @@ public class WinnigOrLoosing : MonoBehaviour {
 	private void Move(){
 		RectTransform rt = GetComponent<RectTransform> ();
 		Vector3 v3 = rt.position;
-		v3.x -= 5f;
+		v3.x -= 14f;
 		rt.position = v3;
 	}
 
