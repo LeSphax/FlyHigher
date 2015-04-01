@@ -26,6 +26,8 @@ public class GameControlPaint : MonoBehaviour
 
 	private Color[] colorPossible;
 	private JarBehavior[] tabJar = new JarBehavior[3];
+	private int indiceYoungJar;
+	private int indiceOldJar;
 	private Color colorSelected ;
 	private DotColor[] dotsColor;
 	private int nbSelected ;
@@ -37,7 +39,8 @@ public class GameControlPaint : MonoBehaviour
 
 	public void init (int level)
 	{
-
+		indiceYoungJar = -1;
+		indiceOldJar = -1;
 		this.nbSelected = 0;
 		colorPossible = new Color[3];
 		colorPossible [0] = ColorRed;
@@ -121,21 +124,17 @@ public class GameControlPaint : MonoBehaviour
 	public void SetSelectedJar (int i)
 	{
 		if (currentLevel < lvlMixEnable) {
-			if (nbSelected == 1) {
-				if (tabJar [i].isSelected ()) {
-					tabJar [i].SetSelected (false);
-					nbSelected--;
-					colorSelected = ColorWhite;
-				}
-			} else if (nbSelected == 0) {
-				tabJar [i].SetSelected (true);
-				nbSelected++;
-				colorSelected = tabJar [i].GetColor ();
+			if (indiceYoungJar != -1) {
+				tabJar [indiceYoungJar].SetSelected (false);
 			}
+			indiceYoungJar = i;
+			tabJar [i].SetSelected (true);
+			colorSelected = tabJar [i].GetColor ();
 		
 		} else {
 
 			if (nbSelected == 0) {
+				indiceYoungJar = i;
 				tabJar [i].SetSelected (true);
 				nbSelected++;
 				colorSelected = tabJar [i].GetColor ();
@@ -146,6 +145,8 @@ public class GameControlPaint : MonoBehaviour
 					nbSelected--;
 					colorSelected = ColorWhite;
 				} else {
+					indiceOldJar = indiceYoungJar;
+					indiceYoungJar = i;
 					tabJar [i].SetSelected (true);
 					nbSelected++;
 					colorSelected = MixColor (colorSelected, tabJar [i].GetColor ());
@@ -153,6 +154,9 @@ public class GameControlPaint : MonoBehaviour
 				
 			} else if (nbSelected == 2) {
 				if (tabJar [i].isSelected ()) {
+					if (tabJar [i] == tabJar [indiceYoungJar]) {
+						indiceYoungJar = indiceOldJar;
+					}
 					tabJar [i].SetSelected (false);
 					nbSelected--;
 					for (int j =0; j < tabJar.Length; j++) {
@@ -161,6 +165,13 @@ public class GameControlPaint : MonoBehaviour
 							break;
 						}
 					}
+				} else {
+					tabJar [indiceOldJar].SetSelected (false);
+					indiceOldJar = indiceYoungJar;
+					indiceYoungJar = i;
+					tabJar [i].SetSelected (true);
+					colorSelected = MixColor (tabJar [indiceYoungJar].GetColor ()
+					                          , tabJar [indiceOldJar].GetColor ());
 				}
 			}
 			mixArea.color = colorSelected;
