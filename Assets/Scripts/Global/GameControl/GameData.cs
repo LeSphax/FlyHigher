@@ -13,6 +13,8 @@ public class GameData : MonoBehaviour
 	private Dictionary<String, SceneData> sceneDictionary;
     [HideInInspector]
     public List<string> listPopUpSeen;
+    public List<string> listBuildingsFinished;
+
 
     string path;
     string fileName = "playerInfo.dat";
@@ -40,6 +42,7 @@ public class GameData : MonoBehaviour
 	{
 		DontDestroyOnLoad (gameObject);
         listPopUpSeen= new List<string>();
+        listBuildingsFinished = new List<string>();
         volume = 1.0f;
 		path = Application.persistentDataPath + "/" + fileName;
 		sceneDictionary = new Dictionary<string, SceneData> ();
@@ -148,11 +151,14 @@ public class GameData : MonoBehaviour
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Create (path);
 			PlayerData playerData = new PlayerData ();
+
 			playerData.scenesDictionary = sceneDictionary;
 			playerData.buildingDictionary = buildingDictionary;
 			playerData.language = language;
 			playerData.listPopUpSeen = listPopUpSeen;
+            playerData.listBuildingsFinished = listBuildingsFinished;
             playerData.volume = volume;
+
 			bf.Serialize (file, playerData);
 			file.Close ();
 		}
@@ -164,8 +170,10 @@ public class GameData : MonoBehaviour
 			BinaryFormatter bf = new BinaryFormatter ();
 			FileStream file = File.Open (path, FileMode.Open);
 			PlayerData playerData = (PlayerData)bf.Deserialize (file);
+
 			sceneDictionary = playerData.scenesDictionary;
 			listPopUpSeen = playerData.listPopUpSeen;
+            listBuildingsFinished = playerData.listBuildingsFinished;
             volume = playerData.volume;
 			buildingDictionary = playerData.buildingDictionary;
 			language = playerData.language;
@@ -184,7 +192,8 @@ public class GameData : MonoBehaviour
 		public Dictionary<String, SceneData> scenesDictionary;
 		public Dictionary<String, BuildingData> buildingDictionary;
 		public string language;
-        public List<string> listPopUpSeen;
+        public List<string> listPopUpSeen; 
+        public List<string> listBuildingsFinished;
         public float volume;
 	}
 
