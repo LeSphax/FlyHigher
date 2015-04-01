@@ -7,7 +7,7 @@ public class JarBehavior : MonoBehaviour
 	public Color myColor;
 	public Sprite spriteSelected;
 	public Sprite spriteUnSelected;
-
+	
 	private GameControlPaint gameControl;
 
 	private	SpriteRenderer paintRenderer ;

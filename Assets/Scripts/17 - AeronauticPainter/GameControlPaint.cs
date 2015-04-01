@@ -14,7 +14,7 @@ public class GameControlPaint : MonoBehaviour
 	public static Color ColorWhite = new Color (1f, 1f, 1f, 1f);
 
 
-
+	public GameObject prefabUIAeronautic;
 	public GameObject prefabDrawLvl1;
 	public GameObject prefabDrawLvl2;	
 	public GameObject prefabDrawLvl3;
@@ -36,6 +36,10 @@ public class GameControlPaint : MonoBehaviour
 	private int currentLevel;
 	private int lvlMixEnable = 3;
 
+	public void Update ()
+	{
+
+	}
 
 	public void init (int level)
 	{
@@ -192,7 +196,7 @@ public class GameControlPaint : MonoBehaviour
 				return;
 			}
 		}
-		EndOfGame ();
+		StartCoroutine ("EndOfGame");
 	}
 
 	public void resetLevel ()
@@ -200,8 +204,15 @@ public class GameControlPaint : MonoBehaviour
 		Destroy (transform.parent.gameObject);
 	}
 
-	public void EndOfGame ()
+	IEnumerator EndOfGame ()
 	{
+		GameObject UIAero = Instantiate (prefabUIAeronautic) as GameObject;
+		UIAero.transform.SetParent (this.transform.parent);
+		yield return new WaitForSeconds (0.1f);
+		float t1 = Time.realtimeSinceStartup;
+		while (Time.realtimeSinceStartup < t1 + 2f) {
+		}
+		Destroy (UIAero);
 		GameObject.FindGameObjectWithTag ("GamesUI").GetComponentInChildren<EndLevelGamePopUp> ().LevelEnded ();
 	}
 }
