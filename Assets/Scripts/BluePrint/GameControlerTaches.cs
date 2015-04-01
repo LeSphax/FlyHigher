@@ -9,8 +9,14 @@ public class GameControlerTaches : MonoBehaviour {
 	public Text Tobjectifs;
 	private bool gameOver;
 	public float Tps;
+	private int etoile;
+	private float seconde;
 	// Use this for initialization
+
+
 	void Start () {
+		seconde = Time.time;
+		etoile = 3;
 		gameOver = true;
 		nbeTachesSurEcran = 0;
 		ApparitionTache ();
@@ -24,13 +30,10 @@ public class GameControlerTaches : MonoBehaviour {
 	
 	}
 
-
-
-
-
+			
 	/* fonction qui fait apparaitre des taches */
 	IEnumerator SpawnTaches(){
-		int nbeEnemies = 0;
+		//int nbeEnemies = 0;
 		float x;
 		float y;
 		Vector3 spawnPosition;
@@ -42,8 +45,27 @@ public class GameControlerTaches : MonoBehaviour {
 			Instantiate(taches, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
 			nbeTachesSurEcran++;
 			MajNbeTaches();
+			FinJeuTemps();
 			yield return new WaitForSeconds(Tps);
 		}
+	}
+
+
+	//enléve des etoiles au fur et a mesure que le temps passe
+	public void FinJeuTemps(){
+		float difSeconde=Time.time-seconde;
+		//seconde=Time.time;
+		Debug.Log ("dif seconde = " +  difSeconde);
+		if (difSeconde > 10 && difSeconde<11) {
+			ReductionVie();
+		}else if(difSeconde>20 && difSeconde<21){
+			ReductionVie();
+		}
+		if(difSeconde>30){
+			ReductionVie();
+			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded",etoile);
+		}
+
 	}
 
 
@@ -84,8 +106,22 @@ public class GameControlerTaches : MonoBehaviour {
 	//fonction qui doit etre appeler à la fin du jeu
 	public void FinJeu(){
 		if (nbeTachesSurEcran == 0) {
-			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded",3);
+			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded",etoile);
 		}
+	}
+
+
+	void ReductionVie(){
+		etoile--;
+		if(etoile==2){
+			Destroy (GameObject.FindWithTag("Star3"));
+		}else if(etoile==1){
+			Destroy (GameObject.FindWithTag("Star2"));
+		}
+		else{
+			Destroy (GameObject.FindWithTag("Star1"));
+		}
+		
 	}
 
 
