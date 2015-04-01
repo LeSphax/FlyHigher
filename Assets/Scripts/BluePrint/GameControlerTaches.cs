@@ -33,7 +33,7 @@ public class GameControlerTaches : MonoBehaviour {
 			
 	/* fonction qui fait apparaitre des taches */
 	IEnumerator SpawnTaches(){
-		int nbeEnemies = 0;
+		//int nbeEnemies = 0;
 		float x;
 		float y;
 		Vector3 spawnPosition;

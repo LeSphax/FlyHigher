@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class AirController : MonoBehaviour
@@ -14,18 +15,27 @@ public class AirController : MonoBehaviour
     int nbDotsCaught;
     float timeBetweenPlanes;
 
-    public GameObject radarDot;
-    public GameObject otherPlane;
-    public AudioClip explosionSound;
+    GameObject radarDot;
+    GameObject otherPlane;
+    AudioClip explosionSound;
+
+    public Text lifeText;
 
     
     bool endOfGame = false;
     float radarRadius = 3.33f;
 
+    void Awake()
+    {
+        otherPlane = Resources.Load("AirController/OtherPlane",typeof(GameObject)) as GameObject;
+        radarDot = Resources.Load("AirController/RadarDot", typeof(GameObject)) as GameObject;
+        explosionSound = Resources.Load("AirController/BIG Explosion", typeof(AudioClip)) as AudioClip;
+    }
 
     void Start()
     {
         timeBetweenPlanes = startingTimeBetweenPlanes;
+        RefreshLifeText();
         nbDotsCaught = 0;
         SpawnADot();
         SpawnOtherPlanes();
@@ -72,11 +82,12 @@ public class AirController : MonoBehaviour
     void CollisionWithAirplane()
     {        
         if (explosionSound)
-            AudioSource.PlayClipAtPoint(explosionSound, transform.position);
+            AudioSource.PlayClipAtPoint(explosionSound, transform.position, 0.3f);
         Invoke("OtherPlaneDestroyed", 2); // Called after two seconds so the Imminent Collision red flashing won't stop instantaneously.
         StartFlashing();
         Invoke("StopFlashing", 3.0f);
         numberOfLives--;
+        RefreshLifeText();
         if (numberOfLives <= 0)
         {
             gameObject.renderer.enabled = false;
@@ -134,6 +145,11 @@ public class AirController : MonoBehaviour
     {
         gameObject.animation.Stop();
         renderer.enabled = true;
+    }
+
+    void RefreshLifeText()
+    {
+        lifeText.text = numberOfLives.ToString();
     }
 
 }
