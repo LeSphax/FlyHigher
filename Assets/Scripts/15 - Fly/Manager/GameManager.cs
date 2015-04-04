@@ -14,17 +14,12 @@ public class Boundary{
 public class GameManager : MonoBehaviour {
 
 	public Boundary boundaries;
-	[HideInInspector] public int maxHitPoints;
+	[HideInInspector] public const int maxHitPoints = 6;
 	[HideInInspector] public int playerHitPoints;
 	public static GameManager instance = null;
 	public float gameDuration;
 	public Text hitPointsText;
 	public Slider distanceSlider;
-	public Image star1;
-	public Image star2;
-	public Image star3;
-	public Sprite star;
-	public Sprite emptyStar;
 
 	public GameObject endLine;
 
@@ -42,7 +37,6 @@ public class GameManager : MonoBehaviour {
 		enemiesManager = GetComponent <EnemiesManager> ();
 		enemiesManager.Init ();
 		startTime = Time.time;
-		maxHitPoints = 12;
 		playerHitPoints = maxHitPoints;
 		hitPointsText.text = "" + playerHitPoints;
 	}
@@ -65,32 +59,16 @@ public class GameManager : MonoBehaviour {
 	public void PlayerHit(){
 		playerHitPoints --;
 		hitPointsText.text = "" + playerHitPoints;
-		if (playerHitPoints < 9) {
-			star3.sprite = emptyStar;
-			if (playerHitPoints < 4){
-				star2.sprite = emptyStar;
-				if (playerHitPoints <= 0){
-					star1.sprite = emptyStar;
-					GameOver ();
-				} else {
-					star1.sprite = star;
-				}
-			} else {
-				star1.sprite = star;
-				star2.sprite = star;
-			}
-		} else {
-			star1.sprite = star;
-			star2.sprite = star;
-			star3.sprite = star;
+		if (playerHitPoints <= 0){
+			GameOver ();
 		}
-
 	}
 
 	public void GameOver (){
+		distanceSlider.gameObject.SetActive (false);
         GameObject gamesUI = GameObject.FindWithTag("GamesUI");
 		int starNb;
-		if (playerHitPoints >= 9) {
+		if (playerHitPoints >= 6) {
 			starNb = 3;
 		} else if (playerHitPoints >= 4) {
 			starNb = 2;

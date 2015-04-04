@@ -5,6 +5,7 @@ using System;
 
 public class SceneLoaderButton : LoaderButton {
 
+	public GameObject titlePanel;
 	public Image starImage;
 	public Text starText;
 
@@ -28,6 +29,7 @@ public class SceneLoaderButton : LoaderButton {
 
 	protected override void LocksPart ()
 	{
+		GetComponent<Button> ().interactable = false;
 		RectTransform rt = lockImage.GetComponent<RectTransform> ();
 		Vector2 size = rt.sizeDelta;
 		size.x = 80;
@@ -37,13 +39,14 @@ public class SceneLoaderButton : LoaderButton {
 		size.x = 0;
 		size.y = 0;
 		rt.anchoredPosition = size;
-		titleText.gameObject.SetActive (false);
+		titlePanel.SetActive (false);
 		starImage.gameObject.SetActive (false);
 		starText.gameObject.SetActive (false);
 	}
 
 	protected override void UnlocksPart ()
 	{
+		titlePanel.SetActive (true);
 		starImage.gameObject.SetActive (true);
 		starText.gameObject.SetActive (true);
 		SetStarText ();

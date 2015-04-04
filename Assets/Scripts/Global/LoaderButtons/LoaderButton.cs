@@ -42,7 +42,7 @@ public abstract class LoaderButton: MonoBehaviour {
 
 	private void Unlocks(){
 		lockImage.gameObject.SetActive (false);
-		ResizePanel (120, 75);
+		//ResizePanel (120, 75);
 		UnlocksPart ();
 	}
 
@@ -54,6 +54,5 @@ public abstract class LoaderButton: MonoBehaviour {
 		size.x = width;
 		size.y = height;
 		rt.sizeDelta = size;
-		//borderImage.rectTransform.sizeDelta = size;
 	}
 }

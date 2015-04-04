@@ -56,7 +56,7 @@ public class BoardManager : MonoBehaviour {
 	}
 
 	public void OnBoardLeave(){
-		switch (state) {
+		/*switch (state) {
 		case State.Begin:
 			state = State.Begin;
 			break;
@@ -69,7 +69,7 @@ public class BoardManager : MonoBehaviour {
 		case State.End:
 			state = State.End;
 			break;
-		}
+		}*/
 	}
 	
 
@@ -84,13 +84,13 @@ public class BoardManager : MonoBehaviour {
 			PathPiece.Direction d = GetGoingDirection(e.coordinate);
 			if (DistanceEqualToOne(e.coordinate) && p.isMovePossible(d)){
 				if (p.AddPathPiece(d)){
-					cancelButton.gameObject.SetActive(true);
-					restartButton.gameObject.SetActive (true);
+					cancelButton.interactable = true;
+					restartButton.interactable = true;
 					SetSelectedStation(false, true);
 					selectedStation = null;
 					if (isLevelComplete()){
-						cancelButton.gameObject.SetActive(false);
-						restartButton.gameObject.SetActive (false);
+						cancelButton.interactable = false;
+						restartButton.interactable = false;
 						state = State.End;
 						GameObject.FindWithTag("GamesUI").BroadcastMessage("LevelEnded");
 					} else {
@@ -169,8 +169,8 @@ public class BoardManager : MonoBehaviour {
 			Destroy (paths[paths.Count - 1]);
 			paths.Remove (paths[paths.Count - 1]);
 			if (paths.Count <= 0) {
-				cancelButton.gameObject.SetActive(false);
-				restartButton.gameObject.SetActive (false);
+				cancelButton.interactable = false;
+				restartButton.interactable = false;
 			}
 			break;
 		case State.StationPressed:
@@ -225,8 +225,8 @@ public class BoardManager : MonoBehaviour {
 			paths.Remove (paths[paths.Count - 1]);
 
 			if (paths.Count <= 0) {
-				cancelButton.gameObject.SetActive(false);
-				restartButton.gameObject.SetActive (false);
+				cancelButton.interactable = false;
+				restartButton.interactable = false;
 			}
 		}
 	}

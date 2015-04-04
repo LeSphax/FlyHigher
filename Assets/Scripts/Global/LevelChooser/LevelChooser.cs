@@ -107,25 +107,29 @@ public class LevelChooser : MonoBehaviour {
 	}
 
 	public void SaveLevel(){
-		string s = ("SAVING LEVEL : " + levelNb);
 		if (levelNb < star1LevelNb){
-			s += " [1]";
 			gameData.AddScoreWithLevel(0, levelNb);
 		}else if (levelNb < star1LevelNb + star2LevelNb){
-			s += " [2]";
 			gameData.AddScoreWithLevel(1, levelNb);
 		}else if (levelNb < star1LevelNb + star2LevelNb + star3LevelNb){
-			s += " [3]";
 			gameData.AddScoreWithLevel(2, levelNb);
 		}else {
-			s += " [4]";
 			gameData.AddScoreWithLevel(3, levelNb);
 		}
 	}
 
 	public void EndLevel (){
         Application.LoadLevel(sceneName);
+	}
 
+	public bool IsLevelStarWinning(){
+		return levelNb == star1LevelNb
+			|| levelNb == star2LevelNb+star1LevelNb
+			|| levelNb == star3LevelNb+star2LevelNb+star1LevelNb;
+	}
+
+	public bool isLastLevel(){
+		return levelNb == star1LevelNb + star2LevelNb + star3LevelNb;
 	}
 
 }

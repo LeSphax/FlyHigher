@@ -6,6 +6,8 @@ public class EndOfGame : MonoBehaviour
 
 		//public GameObject EndGamePopUp;
 		public GameObject winnigOrLoosing;
+		public GameObject buttons;
+		public GameObject lifePanel;
 		GameData gameData;
 
         void Awake()
@@ -15,10 +17,12 @@ public class EndOfGame : MonoBehaviour
         
 		void GameEnded (int numberStars=0)
 		{
-				//EndGamePopUp.SetActive (true);
-                gameData.AddScore(numberStars);
-				winnigOrLoosing.GetComponent<WinnigOrLoosing> ().Init (numberStars);
-                //GetComponentInChildren<ScoreStarScript>().ShowStars(numberStars);
-                Time.timeScale = 0;
+			WinnigOrLoosing wol = winnigOrLoosing.GetComponent<WinnigOrLoosing> ();
+			lifePanel.SetActive (false);
+			buttons.SetActive (false);
+			gameData.AddScore(numberStars);
+			wol.Init (numberStars > 0);
+			wol.SetStarNb (numberStars);
+			Time.timeScale = 0;
 		}
 }

@@ -2,71 +2,45 @@
 using UnityEngine.UI;
 using System.Collections;
 
-public class WinnigOrLoosing : MonoBehaviour {
-
-	public Text winOrLooseText;
+public class WinnigOrLoosing : AbstractWinningOrLoosing {
+	
 	public Image star1;
 	public Image star2;
 	public Image star3;
-	public GameObject endPopUp;
-	public GameObject winningOrLoosing;
+
 	public Sprite starEmpty;
 	public Sprite starFull;
 
 	private int starNb;
-	private float startTime;
 
-	/*public void Start(){
-		Init (2);
-	}*/
-
-	public void Init(int starNb){
-		winningOrLoosing.SetActive(true);
-		startTime = 0;
+	public void SetStarNb(int starNb){
 		this.starNb = starNb;
-		if (this.starNb > 0) {
-			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Win");
+	}
+
+	protected override void InitPart (){
+		duration = 4f;
+	}
+
+	protected override void SetWinOrLooseText (bool win)
+	{
+		if (win) {
+			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Win");	
 		} else {
 			winOrLooseText.text = LanguageText.Instance.GetUIText("PopUp.Star.Lose");
 		}
-		RectTransform rt = GetComponent<RectTransform> ();
-		Vector3 v3 = rt.anchoredPosition;
-		v3.x = 700;
-		rt.anchoredPosition = v3;
 	}
 
-	public void Update(){
-		if (GetComponent <RectTransform>().anchoredPosition.x > 0) Move();
-		else startTime += 0.01f;
-		if (startTime < 1.6f){
-			if (startTime > 1.2f) {
-				SetStar3();
-			} 
-			if (startTime > 0.8f) {
-				SetStar2();
-			}
-			if (startTime > 0.4f) {
-
-				SetStar1();
-			}
-		}else if (GetComponent <RectTransform>().anchoredPosition.x > - 700) {
-			Move();
-		} else {
-			RectTransform rt = GetComponent<RectTransform> ();
-			Vector3 v3 = rt.anchoredPosition;
-			v3.x = 700;
-			rt.anchoredPosition = v3;
-			endPopUp.SetActive(true);
-			GameObject.FindGameObjectWithTag("WinningOrLoosing").SetActive(false);
+	protected override void DisplayTreatment ()
+	{
+		if (time - beginTime > (((3 * duration) / 4f) + 0.9f)) {
+			SetStar3();
+		} 
+		if (time - beginTime > ((duration / 2f) + 0.9f)) {
+			SetStar2();
 		}
-
-	}
-
-	private void Move(){
-		RectTransform rt = GetComponent<RectTransform> ();
-		Vector3 v3 = rt.position;
-		v3.x -= 14f;
-		rt.position = v3;
+		if (time - beginTime > ((duration / 4f) + 0.9f)) {
+			SetStar1();
+		}
 	}
 
 	private void SetStar1(){

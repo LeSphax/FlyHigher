@@ -17,12 +17,11 @@ public class JobInfo : MonoBehaviour {
 		titleText.text = LanguageText.Instance.GetSceneName (sceneToLoadName);
 		descriptionText.text = LanguageText.Instance.GetJobDescription (sceneToLoadName);
 		playButton.GetComponent<buttonLoadScene> ().sceneToLoad = sceneToLoadName;
-		//TODO if (isLocked) {
-		/*if (false){
-			playButton.gameObject.SetActive(false);
-		} else {*/
-			playButton.gameObject.SetActive(true);
-		
+		if (isLocked) {
+			playButton.interactable = false;
+		} else {
+			playButton.interactable = true;
+		}
 	}
 
 	public void Return(){
