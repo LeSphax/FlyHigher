@@ -11,7 +11,11 @@ public abstract class Enemy : MovingObject {
 
 	protected override bool HitAntagonist (GameObject hitObject)
 	{
-		return !hitObject.tag.Equals("Enemy");
+		if (hitObject.tag.Equals ("Player")) {
+			Player p = hitObject.GetComponent<Player>();
+			return !p.IsPlayerInvincible();
+		}
+		return false;
 	}
 
 }

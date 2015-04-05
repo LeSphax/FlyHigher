@@ -59,9 +59,10 @@ public class EnemiesManager : MonoBehaviour {
 				
 					//If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
 					if(!b && hitComponent != null){
+						Enemy e = enemies[i].GetComponent<Enemy>();
+						hitComponent.Hit(e);
 						DestroyEnemy(enemies[i]);
 						i--;
-						hitComponent.Hit();
 					} else {
 						Enemy hitComponentBis = hit.transform.GetComponent <Enemy> ();
 

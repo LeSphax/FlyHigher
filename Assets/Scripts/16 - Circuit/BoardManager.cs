@@ -16,6 +16,9 @@ public class BoardManager : MonoBehaviour {
 	public Button cancelButton;
 	public Button restartButton;
 
+	public AudioSource addPathPieceSfx;
+	public AudioSource pathCompleteSfx;
+
 	public State state;
 
 	[HideInInspector] public int size;
@@ -84,6 +87,7 @@ public class BoardManager : MonoBehaviour {
 			PathPiece.Direction d = GetGoingDirection(e.coordinate);
 			if (DistanceEqualToOne(e.coordinate) && p.isMovePossible(d)){
 				if (p.AddPathPiece(d)){
+					pathCompleteSfx.Play();
 					cancelButton.interactable = true;
 					restartButton.interactable = true;
 					SetSelectedStation(false, true);
@@ -97,6 +101,7 @@ public class BoardManager : MonoBehaviour {
 						state = State.Begin;
 					}
 				} else {
+					addPathPieceSfx.Play();
 					state = State.StationPressed;
 				}
 			} else {

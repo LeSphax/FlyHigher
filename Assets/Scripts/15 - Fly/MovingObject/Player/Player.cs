@@ -4,17 +4,22 @@ using System.Collections;
 public class Player : MovingObject {
 
 	private Animator animator;
+	private float time;
+	private float duration;
 
 	public void Start () {
 		animator = GetComponent<Animator> ();
+		duration = 3f;
 	}
 
 
-	public void Hit (){
+	public void Hit (Enemy go){
 		if (CheckIfGameOver()) {
+			GameManager.instance.soundManager.PlayAudioClip(ac);
 			animator.SetTrigger ("playerDie");
 			Invoke("loadPlayerHit", 0.5f);
 		} else {
+			GameManager.instance.soundManager.PlayAudioClip(go.ac);
 			animator.SetTrigger ("playerHit");
 			loadPlayerHit();
 		}
@@ -43,6 +48,11 @@ public class Player : MovingObject {
 
 	protected override bool HitAntagonist (GameObject hitObject)
 	{
-		return true;
+		return !(IsPlayerInvincible());
+	}
+
+	public bool IsPlayerInvincible(){
+		return animator.GetCurrentAnimatorStateInfo (0).IsName ("playerHit")
+						|| animator.GetCurrentAnimatorStateInfo (0).IsName ("playerWasHit");
 	}
 }

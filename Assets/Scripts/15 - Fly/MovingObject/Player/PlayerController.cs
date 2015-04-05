@@ -26,8 +26,8 @@ public class PlayerController : MonoBehaviour {
 			//If canMove is false and hitComponent is not equal to null, meaning MovingObject is blocked and has hit something it can interact with.
 			if(!bt && hitComponent != null){
 
+				player.Hit(hitComponent.GetComponent<Enemy>());
 				GameManager.instance.enemiesManager.DestroyEnemy (hitComponent);
-				player.Hit();
 			}
 		}
 	}

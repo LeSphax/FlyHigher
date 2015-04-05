@@ -23,6 +23,8 @@ public class GameManager : MonoBehaviour {
 
 	public GameObject endLine;
 
+	public SoundManager soundManager;
+
 	private float startTime;
 
 	[HideInInspector] public EnemiesManager enemiesManager;

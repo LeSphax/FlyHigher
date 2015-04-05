@@ -5,6 +5,7 @@ public abstract class MovingObject : MonoBehaviour {
 
 	public float speed;
 	public LayerMask blockingLayer;
+	public AudioClip ac;
 
 	private BoxCollider2D bc2D;
 
