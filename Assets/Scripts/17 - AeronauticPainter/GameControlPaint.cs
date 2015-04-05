@@ -213,6 +213,7 @@ public class GameControlPaint : MonoBehaviour
 		while (Time.realtimeSinceStartup < t1 + 2f) {
 		}
 		Destroy (UIAero);
+		yield return new WaitForSeconds (0.1f);
 		GameObject.FindGameObjectWithTag ("GamesUI").GetComponentInChildren<EndLevelGamePopUp> ().LevelEnded ();
 	}
 }
