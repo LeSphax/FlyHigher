@@ -10,7 +10,8 @@ public class GameControllerMemory : MonoBehaviour
 
 	public Texture[] texturesCards;
 	public int cardsinrow;
-	public GameObject UIMemory;
+	public Text UILife;
+	public AudioClip audioCardsMatching;
 
 
 	enum State
@@ -25,11 +26,9 @@ public class GameControllerMemory : MonoBehaviour
 	private MemoryCard[] cards = new MemoryCard[2];
 	private int numberPairCardsRemaining;
 	private int initialNumberPairCard;
-	private int nbTryMissed; // Number of time that 2 cards flipped doesn't match
-
 	private List<Card> cardsList = new List<Card> ();
-	private Text labelRate;
-	private string stringRate = "Essais ratés: \n ";
+	private int currentLife;
+	private int initialLife;
 
 	class Card
 	{
@@ -45,16 +44,12 @@ public class GameControllerMemory : MonoBehaviour
 
 	void Awake ()
 	{
-		UIMemory.SetActive (true);	
-		labelRate = UIMemory.GetComponentInChildren<Text> ();
+		//labelRate = UIMemory.GetComponentInChildren<Text> ();
 	}
-
-	// Use this for initialization
+	
 	void Start ()
 	{
-		etat = State.ZEROTOUCH;
-		nbTryMissed = 0;
-
+		etat = State.ZEROTOUCH;	
 
 		for (int i=0; i<texturesCards.Length; i++) {
 			cardsList.Add (new Card (texturesCards [i], i));
@@ -67,13 +62,21 @@ public class GameControllerMemory : MonoBehaviour
 		if (numberPairCardsRemaining > 0) {
 			ShuffleCards ();
 		}
-	
-		labelRate.text = stringRate + nbTryMissed;
-	
+
+		InitLife ();
 
 	}
-	
-	// Update is called once per frame
+
+	private void InitLife ()
+	{
+		initialLife = numberPairCardsRemaining * 4;
+		currentLife = initialLife;
+		UILife.text = currentLife.ToString ();
+	}
+
+
+
+
 	void Update ()
 	{
 		if (!(Time.timeScale == 0)) {
@@ -148,7 +151,7 @@ public class GameControllerMemory : MonoBehaviour
 
 	void CardsMatching ()
 	{
-		//AudioSource.PlayClipAtPoint (audioCardMatching, transform.position);
+		AudioSource.PlayClipAtPoint (audioCardsMatching, transform.position);
 		cards [0].RemoveCard ();
 		cards [1].RemoveCard ();
 		
@@ -160,9 +163,19 @@ public class GameControllerMemory : MonoBehaviour
 
 	void CardsNotMatching ()
 	{
-		incrementMissed ();
 		cards [0].HideCard ();
 		cards [1].HideCard ();
+		StartCoroutine ("DecrementLife");
+	}
+
+	private IEnumerator DecrementLife ()
+	{
+		yield return new WaitForSeconds (0.5f);
+		currentLife--;
+		UILife.text = currentLife.ToString ();
+		if (currentLife == 0) {
+			EndOfGame ();
+		}
 	}
 
 	void EndOfGame ()
@@ -172,20 +185,16 @@ public class GameControllerMemory : MonoBehaviour
 
 	int calculNumberStar ()
 	{
-		int tryMini = initialNumberPairCard + (initialNumberPairCard / 2) + 1;
-		if (nbTryMissed < tryMini) {
+		if (currentLife == 0) {
+			return 0;
+		}
+
+		if (currentLife > initialLife - (initialNumberPairCard + (initialNumberPairCard / 2) + 1)) {
 			return 3;
-		} else if (nbTryMissed < tryMini + initialNumberPairCard) {
+		} else if (currentLife > initialLife - (initialNumberPairCard * 2 + (initialNumberPairCard / 2))) {
 			return 2;
 		} else {
 			return 1;
 		}
-	}
-
-	
-	private void incrementMissed ()
-	{
-		nbTryMissed++;
-		labelRate.text = stringRate + nbTryMissed;
 	}
 }
