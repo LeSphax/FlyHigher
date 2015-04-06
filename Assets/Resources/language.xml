@@ -59,6 +59,8 @@
 	  <string id="PopUp.Star.Win">Bravo, tu as gagné !</string>
 	  <string id="PopUp.Star.Lose">Dommage... Essaie encore !</string>
 	  <string id="PopUp.Star.WinLevel">Bravo, tu as fini le niveau !</string>
+	  
+	  <string id="PopUp.Facts.Title">Le savais-tu ?</string>
     </uitexts>
 
     <sceneNames>
@@ -96,8 +98,8 @@
       </dialog>
 
       <dialog id="LaboratoryFinished.Dialog">
-        <string>Bravo !! tu as fini de concevoir ton avion !</string>
-        <string>Depêche toi de retourner sur la carte, une surprise t'attends !</string>
+        <string>Bravo tu as fini de concevoir ton avion !</string>
+        <string>Dépêche toi de retourner sur la carte, une surprise t'attends !</string>
       </dialog>
 
       <dialog id="Hangar.Dialog">
@@ -106,7 +108,7 @@
 
       <dialog id="HangarFinished.Dialog">
         <string>Bravo tu as fini de construire ton avion !</string>
-        <string>Depêche toi de retourner sur la carte, une surprise t'attends !</string>
+        <string>Dépêche toi de retourner sur la carte, une surprise t'attends !</string>
       </dialog>
 
       <dialog id="ControlTower.Dialog">
@@ -114,12 +116,7 @@
       </dialog>
       
       <dialog id="ControlTowerFinished.Dialog">
-        <string>Bienvenue dans la tour de contrôle, c'est ici que sont guidés les avions.</string>
-      </dialog>
-
-
-      <dialog id="Memory.Dialog">
-        <string>Le memory c'est génial !</string>
+        <string>Dialog controlTower finished</string>
       </dialog>
     </story>
 
@@ -185,7 +182,7 @@
 
       <!-- SheetMetalWorker-->
       <dialog id="10-AirLift.Dialog">
-        <string>C’est l’écoulement de l’air autour des ailes qui créé la portance.</string>
+        <string>C’est l’écoulement de l’air autour des ailes qui crée la portance.</string>
         <image>AirLift</image>
       </dialog>
 
@@ -203,7 +200,7 @@
 
       <!-- AirTrafficController-->
       <dialog id="13-BirdShape.Dialog">
-        <string>La forme des ailes des avions ont été inspirées par les ailes des oiseaux.</string>
+        <string>La forme des ailes des avions a été inspirée par les ailes des oiseaux.</string>
         <image>BirdShape</image>
       </dialog>
 
@@ -276,13 +273,13 @@
       </dialog>
 
       <dialog id="Laboratory - 2 - BusinessDeveloppementManager">
-        <string>Pour gagner trouves les paires.</string>
+        <string>Pour gagner trouve les paires.</string>
       </dialog>
 
       <dialog id="Laboratory - 3 - TestTechnician">
-        <string>Pour gagner relies les points de la même couleur avec le doigt.</string>
-        <string>Pour annuler le dernier coup appuies sur le bouton annuler.</string>
-        <string>Pour recommencer appuies sur le bouton recommencer.</string>
+        <string>Pour gagner relie les points de la même couleur avec ton doigt.</string>
+        <string>Pour annuler le dernier coup appuie sur le bouton annuler.</string>
+        <string>Pour recommencer appuie sur le bouton recommencer.</string>
       </dialog>
 
       <dialog id="Hangar - 1 - PlanningScheduler">
@@ -299,8 +296,8 @@
       </dialog>
 
       <dialog id="ControlTower - 1 - AirController">
-        <string>Pour gagner diriges l'avion bleu vers les points verts.</string>
-        <string>Fais attention à ce qu'il ne precute pas d'autres avions !</string>
+        <string>Pour gagner dirige l'avion bleu vers les points verts.</string>
+        <string>Fais attention à ce qu'il ne percute pas d'autres avions !</string>
       </dialog>
 
       <dialog id="ControlTower - 2 - AirTrafficController">
@@ -309,8 +306,8 @@
 
       <dialog id="ControlTower - 3 - Pilote">
         <string>Pour gagner il faut passer la ligne d'arrivée. La barre de progression t'indique où tu en es.</string>
-        <string>Pour faire monter l'avion restes appuyé sur l'écran et pour le faire descendre relâches ton doigt.</string>
-        <string>Évites les ennemis pour ne pas perdre de vie.</string>
+        <string>Pour faire monter l'avion reste appuyé sur l'écran et pour le faire descendre relâche ton doigt.</string>
+        <string>Évite les ennemis pour ne pas perdre de vie.</string>
       </dialog>
 
     </help>
