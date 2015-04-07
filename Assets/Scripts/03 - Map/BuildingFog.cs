@@ -14,15 +14,12 @@ public class BuildingFog : MonoBehaviour {
     {
         if (gameData.listBuildingsFinished.Contains(previousBuildingName))
         {
-            Debug.Log("contains");
             Destroy(gameObject);
         }
         else if (gameData.AreGamesCompletedInBuilding(previousBuildingName))
         {
-            Debug.Log("Doesn't");
             gameData.listBuildingsFinished.Add(previousBuildingName);
             this.animation.Play();
         }
-        Debug.Log("WUT?");
     }
 }
