@@ -5,11 +5,11 @@ public class Player : MovingObject {
 
 	private Animator animator;
 	private float time;
-	private float duration;
+	//private float duration;
 
 	public void Start () {
 		animator = GetComponent<Animator> ();
-		duration = 3f;
+		//duration = 3f;
 	}
 
 
