@@ -45,6 +45,7 @@ public abstract class AbstractWinningOrLoosing : MonoBehaviour {
 		} else {
 			SetPositionToStart();
 			endPopUp.SetActive(true);
+            endPopUp.BroadcastMessage("GetFact");
 			winningOrLoosing.SetActive(false);
 		}
 	}
