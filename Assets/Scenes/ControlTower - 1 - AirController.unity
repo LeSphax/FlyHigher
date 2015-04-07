@@ -625,7 +625,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &97254898
 RectTransform:
   m_ObjectHideFlags: 0
@@ -663,9 +663,8 @@ MonoBehaviour:
   helpImage: {fileID: 1679593203}
   helpText: {fileID: 690626986}
   helpSprites:
-  - {fileID: 21300000, guid: 9e329cdf69b400f4dbfa7ab3e17a26c2, type: 3}
-  - {fileID: 21300000, guid: 6fa2605608021c846b7eccb962d65d38, type: 3}
-  - {fileID: 21300000, guid: 5e9fca649d52b9a46aa12393117afa50, type: 3}
+  - {fileID: 21300000, guid: 6e6e1ae57c310a54ca38f0778d41073a, type: 3}
+  - {fileID: 21300000, guid: ec838c27205cb93449085e3a87b9f5a6, type: 3}
 --- !u!114 &97254900
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2309,6 +2308,10 @@ Prefab:
   m_Modification:
     m_TransformParent: {fileID: 2069890403}
     m_Modifications:
+    - target: {fileID: 11469472, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: helpSprites.Array.size
+      value: 2
+      objectReference: {fileID: 0}
     - target: {fileID: 22416458, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_LocalPosition.x
       value: 0
@@ -2387,12 +2390,22 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 169466, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     - target: {fileID: 11403404, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_Text
       value: 3
       objectReference: {fileID: 0}
+    - target: {fileID: 11469472, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: helpSprites.Array.data[0]
+      value: 
+      objectReference: {fileID: 21300000, guid: 6e6e1ae57c310a54ca38f0778d41073a,
+        type: 3}
+    - target: {fileID: 11469472, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: helpSprites.Array.data[1]
+      value: 
+      objectReference: {fileID: 21300000, guid: ec838c27205cb93449085e3a87b9f5a6,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
   m_RootGameObject: {fileID: 963542352}
