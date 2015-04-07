@@ -805,12 +805,9 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idFact:
-  - 5-HotAir.Dialog
-  - 6-HotBalloon.Dialog
-  - 7-BalloonFirst.Dialog
-  - 8-SheepDuck.Dialog
-  - 16-Biplane.Dialog
-  - 17-Aircraft.Dialog
+  - 18-TakeOff.Dialog
+  - 19-Landing.Dialog
+  - 20-Flight.Dialog
   levelChooser: {fileID: 216769417}
 --- !u!114 &189010750
 MonoBehaviour:
@@ -4433,6 +4430,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listPopUpSeen: []
+  listBuildingsFinished: []
   volume: 0
   buildings:
   - nbGames: 3
