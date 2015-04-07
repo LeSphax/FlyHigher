@@ -13,6 +13,7 @@ public class GameData : MonoBehaviour
 	private Dictionary<String, SceneData> sceneDictionary;
     [HideInInspector]
     public List<string> listPopUpSeen;
+    [HideInInspector]
     public List<string> listBuildingsFinished;
 
 
@@ -60,6 +61,7 @@ public class GameData : MonoBehaviour
 	{
 		sceneDictionary = new Dictionary<string, SceneData> ();
         listPopUpSeen = new List<string>();
+        listBuildingsFinished = new List<string>();
 	}
 
 	public void AddScore (int numberStars)

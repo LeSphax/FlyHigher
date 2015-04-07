@@ -4,7 +4,7 @@ using System.Collections;
 public class BuildingFog : MonoBehaviour {
 
 
-    public string buildingName;
+    public string previousBuildingName;
     GameData gameData;
     void Awake()
     {
@@ -12,14 +12,17 @@ public class BuildingFog : MonoBehaviour {
     }
     void Start()
     {
-        if (gameData.listBuildingsFinished.Contains(buildingName))
+        if (gameData.listBuildingsFinished.Contains(previousBuildingName))
         {
+            Debug.Log("contains");
             Destroy(gameObject);
         }
-        else if (gameData.AreGamesCompletedInBuilding(buildingName))
+        else if (gameData.AreGamesCompletedInBuilding(previousBuildingName))
         {
-            gameData.listBuildingsFinished.Add(buildingName);
+            Debug.Log("Doesn't");
+            gameData.listBuildingsFinished.Add(previousBuildingName);
             this.animation.Play();
         }
+        Debug.Log("WUT?");
     }
 }
