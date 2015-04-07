@@ -1,13 +1,16 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class DestructionByContact : MonoBehaviour {
 	public int vie{ get; set;}
 	private GameControler jeu;
 	public GameObject Explosion;
+	public Text lifeText;
 
 	void Start(){
 		vie = 3;
+		lifeText.text = ("" + vie);
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
 			jeu=gameControllerObject.GetComponent<GameControler>();
@@ -44,14 +47,6 @@ public class DestructionByContact : MonoBehaviour {
 	
 	void ReductionVie(){
 		vie--;
-		if(vie==2){
-			Destroy (GameObject.FindWithTag("Star3"));
-		}else if(vie==1){
-			Destroy (GameObject.FindWithTag("Star2"));
-		}
-		else{
-			Destroy (GameObject.FindWithTag("Star1"));
-		}
-		
+		lifeText.text = ("" + vie);
 	}
 }
