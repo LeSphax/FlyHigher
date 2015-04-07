@@ -1,4 +1,5 @@
 ﻿using UnityEngine;
+using UnityEngine.UI;
 using System.Collections;
 
 public class CrackingEgg : MonoBehaviour {
@@ -13,7 +14,7 @@ public class CrackingEgg : MonoBehaviour {
     public void Crack()
     {
         AudioSource.PlayClipAtPoint(crackSound, transform.position);
-        egg.GetComponent<SpriteRenderer>().sprite = crackedEgg;
+        egg.GetComponent<Image>().sprite = crackedEgg;
     }
 
     public void EndAnimation()
