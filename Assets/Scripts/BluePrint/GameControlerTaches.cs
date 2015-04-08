@@ -58,7 +58,6 @@ public class GameControlerTaches : MonoBehaviour {
 		int difSecInt = (int) (30-difSeconde);
 		TempsRestant.text = difSecInt.ToString ();
 		//seconde=Time.time;
-		Debug.Log ("dif seconde = " +  difSeconde);
 		if (difSeconde > 10 && difSeconde<11) {
 			ReductionVie();
 		}else if(difSeconde>20 && difSeconde<21){
