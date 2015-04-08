@@ -7,6 +7,7 @@ public class GameControlerTaches : MonoBehaviour {
 	public int nbeTaches;
 	private int nbeTachesSurEcran;
 	public Text Tobjectifs;
+	public Text TempsRestant;
 	private bool gameOver;
 	public float Tps;
 	private int etoile;
@@ -54,6 +55,8 @@ public class GameControlerTaches : MonoBehaviour {
 	//enléve des etoiles au fur et a mesure que le temps passe
 	public void FinJeuTemps(){
 		float difSeconde=Time.time-seconde;
+		int difSecInt = (int) (30-difSeconde);
+		TempsRestant.text = difSecInt.ToString ();
 		//seconde=Time.time;
 		Debug.Log ("dif seconde = " +  difSeconde);
 		if (difSeconde > 10 && difSeconde<11) {
@@ -113,15 +116,6 @@ public class GameControlerTaches : MonoBehaviour {
 
 	void ReductionVie(){
 		etoile--;
-		if(etoile==2){
-			Destroy (GameObject.FindWithTag("Star3"));
-		}else if(etoile==1){
-			Destroy (GameObject.FindWithTag("Star2"));
-		}
-		else{
-			Destroy (GameObject.FindWithTag("Star1"));
-		}
-		
 	}
 
 
