@@ -555,6 +555,11 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: 187ae065eafc1f2459658e15b63bc65e,
         type: 3}
+    - target: {fileID: 11448674, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: m_Sprite
+      value: 
+      objectReference: {fileID: 21300000, guid: 5ea07cbc2176cdc42a13ee9101c31edf,
+        type: 3}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
   m_RootGameObject: {fileID: 1786814451}
@@ -2216,7 +2221,7 @@ Camera:
   m_Enabled: 1
   serializedVersion: 2
   m_ClearFlags: 1
-  m_BackGroundColor: {r: .192156866, g: .301960796, b: .474509805, a: .0196078438}
+  m_BackGroundColor: {r: .760784328, g: .760784328, b: .760784328, a: .0196078438}
   m_NormalizedViewPortRect:
     serializedVersion: 2
     x: 0
@@ -4300,6 +4305,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listPopUpSeen: []
+  listBuildingsFinished: []
   volume: 0
   buildings:
   - nbGames: 3
@@ -5688,7 +5694,7 @@ MonoBehaviour:
   m_EditorClassIdentifier: 
   m_Material: {fileID: 0}
   m_Color: {r: 1, g: 1, b: 1, a: 1}
-  m_Sprite: {fileID: 21300000, guid: d0a23d7af07e1b54093e5c3c984a0e79, type: 3}
+  m_Sprite: {fileID: 21300000, guid: 5ea07cbc2176cdc42a13ee9101c31edf, type: 3}
   m_Type: 0
   m_PreserveAspect: 0
   m_FillCenter: 1
