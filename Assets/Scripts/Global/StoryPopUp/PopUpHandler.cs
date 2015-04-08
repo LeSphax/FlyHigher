@@ -8,7 +8,7 @@ public abstract class PopUpHandler : MonoBehaviour
 	Object prefab;
 	GameObject popUp;
 	PopUp popUpScript;
-	System.Collections.Generic.Queue<string> texts;
+	protected System.Collections.Generic.Queue<string> texts;
     protected GameData gameData;
 	
 
@@ -18,7 +18,7 @@ public abstract class PopUpHandler : MonoBehaviour
         prefab = Resources.Load("StoryPopUp", typeof(GameObject));
 	}
 
-	void Start ()
+	protected virtual void Start ()
 	{
 		texts = GetTexts ();
 		if (texts.Count > 0) {
@@ -32,7 +32,8 @@ public abstract class PopUpHandler : MonoBehaviour
 	{
 		return LanguageText.Instance.GetHistoryTexts (id);
 	}
-	void CreatePopUp (string text)
+
+	protected void CreatePopUp (string text)
 	{
 		popUp = Instantiate (prefab) as GameObject;
 		popUpScript = popUp.GetComponent<PopUp> ();
@@ -49,7 +50,7 @@ public abstract class PopUpHandler : MonoBehaviour
 		popUpScript.Exit ();
 	}
 
-	public void Next ()
+	public virtual void Next ()
 	{
 		if (texts.Count > 0) {
 			SetText (texts.Dequeue ());

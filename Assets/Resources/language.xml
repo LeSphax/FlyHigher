@@ -83,14 +83,20 @@
 
 
     <story>
+
+      <dialog id="Beginning.Dialog">
+        <string>C'est un oeuf d'une nouvelle espèce de tortue et il va bientôt éclore !</string>
+        <string>Suis moi, je vais te montrer comment aller sur cette île.</string>
+      </dialog>
+      
       <dialog id="Map.Dialog">
-        <string>Salut ! Je suis Avi. Ensemble nous allons découvrir le monde de l'aéronautique.</string>
-        <string>J'ai besoin de ton aide, nous devons construire un avion pour [objectif].</string>
+        <string>Au fait, bonjour je suis Avi. Ensemble nous allons découvrir le monde de l'aéronautique.</string>
+        <string>J'ai besoin de ton aide, nous devons construire un avion pour aller sur l'île de la  tortue.</string>
         <string>Pour commencer allons dans le laboratoire.</string>
       </dialog>
 
       <dialog id="Map.Dialog.Alternative">
-        <string>Hey, te revoilà ! Il faut encore partir pour [objectif].</string>
+        <string>Hey, te revoilà ! Il faut encore partir pour l'île de la tortue.</string>
       </dialog>
 
       <dialog id="Laboratory.Dialog">
@@ -116,7 +122,9 @@
       </dialog>
       
       <dialog id="ControlTowerFinished.Dialog">
-        <string>Dialog controlTower finished</string>
+        <string>Bravo, nous sommes arrivés jusqu'à l'île!</string>
+        <string>Nous allons pouvoir apprendre beaucoup de chose en étudiant cette tortue.</string>
+        <string>J'espère que tu t'es bien amusé, n'hésite pas à refaire les jeux pour récupérer toutes les étoiles</string>
       </dialog>
     </story>
 
