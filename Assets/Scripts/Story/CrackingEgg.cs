@@ -19,7 +19,7 @@ public class CrackingEgg : MonoBehaviour {
 
     public void EndAnimation()
     {
-        Application.LoadLevel(sceneToLoad);
+        GameObject.FindWithTag("MainCamera").SendMessage("PopUpAppear");
     }
 
 }

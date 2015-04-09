@@ -9,7 +9,7 @@ public class DestructionByContact : MonoBehaviour {
 	public Text lifeText;
 
 	void Start(){
-		vie = 3;
+		vie = 5;
 		lifeText.text = ("" + vie);
 		GameObject gameControllerObject = GameObject.FindWithTag ("GameController");
 		if (gameControllerObject != null) {
