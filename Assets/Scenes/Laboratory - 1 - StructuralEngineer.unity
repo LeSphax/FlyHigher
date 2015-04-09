@@ -73,6 +73,7 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
+    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &4795856
 GameObject:
@@ -762,7 +763,7 @@ RectTransform:
   m_Children:
   - {fileID: 4795857}
   m_Father: {fileID: 804739532}
-  m_RootOrder: 10
+  m_RootOrder: 9
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -2115,7 +2116,7 @@ MonoBehaviour:
   m_Script: {fileID: 11500000, guid: b0cb53c4d97dbf14dbca482b402ee90b, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  idFact: 13-BirdShape.Dialog
+  idFact: 1-PlanesTakeOff.Dialog
 --- !u!114 &751887941
 MonoBehaviour:
   m_ObjectHideFlags: 0
@@ -2237,8 +2238,8 @@ RectTransform:
   - {fileID: 1728011231}
   - {fileID: 498180594}
   - {fileID: 742370412}
-  - {fileID: 1873073308}
   - {fileID: 176760706}
+  - {fileID: 1873073308}
   m_Father: {fileID: 0}
   m_RootOrder: 6
   m_AnchorMin: {x: 0, y: 0}
@@ -2273,8 +2274,8 @@ MonoBehaviour:
   m_Script: {fileID: 1301386320, guid: f5f67c52d1564df4a8936ccd202a3bd8, type: 3}
   m_Name: 
   m_EditorClassIdentifier: 
-  ignoreReversedGraphics: 1
-  blockingObjects: 0
+  m_IgnoreReversedGraphics: 1
+  m_BlockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -5350,7 +5351,7 @@ RectTransform:
   m_Children:
   - {fileID: 1975648603}
   m_Father: {fileID: 804739532}
-  m_RootOrder: 9
+  m_RootOrder: 10
   m_AnchorMin: {x: 0, y: 0}
   m_AnchorMax: {x: 1, y: 1}
   m_AnchoredPosition: {x: 0, y: 0}
@@ -6422,6 +6423,10 @@ Prefab:
     - target: {fileID: 11469452, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_Text
       value: 
+      objectReference: {fileID: 0}
+    - target: {fileID: 11416422, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
+      propertyPath: idFact
+      value: 1-PlanesTakeOff.Dialog
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}

@@ -241,11 +241,11 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idFact:
+  - 4-AirWeight.Dialog
   - 5-HotAir.Dialog
   - 6-HotBalloon.Dialog
   - 7-BalloonFirst.Dialog
   - 8-SheepDuck.Dialog
-  - 16-Biplane.Dialog
   - 17-Aircraft.Dialog
   levelChooser: {fileID: 1652849254}
 --- !u!114 &45674260
@@ -1532,6 +1532,7 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   listPopUpSeen: []
+  listBuildingsFinished: []
   volume: 0
   buildings:
   - nbGames: 3
@@ -1786,6 +1787,26 @@ Prefab:
       value: 
       objectReference: {fileID: 21300000, guid: f50daf8acdc78c14b967c9949155ed1c,
         type: 3}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[4]
+      value: 8-SheepDuck.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[3]
+      value: 7-BalloonFirst.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[2]
+      value: 6-HotBalloon.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[1]
+      value: 5-HotAir.Dialog
+      objectReference: {fileID: 0}
+    - target: {fileID: 11450470, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
+      propertyPath: idFact.Array.data[0]
+      value: 4-AirWeight.Dialog
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8ebaee642cb331b438eb774449a1417d, type: 2}
   m_RootGameObject: {fileID: 326407869}

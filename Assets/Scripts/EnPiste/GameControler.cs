@@ -95,7 +95,15 @@ public class GameControler : MonoBehaviour {
 		destructionAvion();
 		nbeLevel--;
 		if (nbeLevel <= 0) { //fin du jeu 
-			FinJeu(GameObject.FindWithTag ("Player").GetComponent<DestructionByContact> ().vie);
+            int etoile = GameObject.FindWithTag("Player").GetComponent<DestructionByContact>().vie;
+            if (etoile > 3)
+            {
+                FinJeu(3);
+            }
+            else
+            {
+                FinJeu(etoile);
+            }
 		}
 
 	}
