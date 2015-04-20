@@ -73,7 +73,6 @@ NavMeshSettings:
     minRegionArea: 2
     widthInaccuracy: 16.666666
     heightInaccuracy: 10
-    tileSizeHint: 0
   m_NavMesh: {fileID: 0}
 --- !u!1 &56475488
 GameObject:
@@ -623,8 +622,8 @@ MonoBehaviour:
   m_Script: {fileID: 721332183}
   m_Name: 
   m_EditorClassIdentifier: 
-  m_IgnoreReversedGraphics: 1
-  m_BlockingObjects: 0
+  ignoreReversedGraphics: 1
+  blockingObjects: 0
   m_BlockingMask:
     serializedVersion: 2
     m_Bits: 4294967295
@@ -1137,7 +1136,7 @@ RectTransform:
   m_AnchorMin: {x: .5, y: .5}
   m_AnchorMax: {x: .5, y: .5}
   m_AnchoredPosition: {x: -3, y: -531.166626}
-  m_SizeDelta: {x: 684, y: 1466.66675}
+  m_SizeDelta: {x: 684, y: 0}
   m_Pivot: {x: .5, y: .5}
 --- !u!114 &861554240
 MonoBehaviour:
@@ -1165,26 +1164,9 @@ MonoBehaviour:
     m_HorizontalOverflow: 0
     m_VerticalOverflow: 1
     m_LineSpacing: 1.29999995
-  m_Text: "\r\t Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed non risus.
-    Suspendisse lectus tortor, dignissim sit amet, adipiscing nec, ultricies sed,
-    dolor. Cras elementum ultrices diam. Maecenas ligula massa, varius a, semper congue,
-    euismod non, mi. Proin porttitor, orci nec nonummy molestie, enim est eleifend
-    mi, non fermentum diam nisl sit amet erat. Duis semper. Duis arcu massa, scelerisque
-    vitae, consequat in, pretium a, enim. Pellentesque congue. Ut in risus volutpat
-    libero pharetra tempor. Cras vestibulum bibendum augue. Praesent egestas leo in
-    pede. Praesent blandit odio eu enim. Pellentesque sed dui ut augue blandit sodales.
-    Vestibulum ante ipsum primis in faucibus orci luctus et ultrices posuere cubilia
-    Curae; Aliquam nibh. Mauris ac mauris sed pede pellentesque fermentum. Maecenas
-    adipiscing ante non diam sodales hendrerit.\r\n\r\n    Ut velit mauris, egestas
-    sed, gravida nec, ornare ut, mi. Aenean ut orci vel massa suscipit pulvinar. Nulla
-    sollicitudin. Fusce varius, ligula non tempus aliquam, nunc turpis ullamcorper
-    nibh, in tempus sapien eros vitae ligula. Pellentesque rhoncus nunc et augue.
-    Integer id felis. Curabitur aliquet pellentesque diam. Integer quis metus vitae
-    elit lobortis egestas. Lorem ipsum dolor sit amet, consectetuer adipiscing elit.
-    Morbi vel erat non mauris convallis vehicula. Nulla et sapien. Integer tortor
-    tellus, aliquam faucibus, convallis id, congue eu, quam. Mauris ullamcorper felis
-    vitae erat. Proin feugiat, augue non elementum posuere, metus purus iaculis lectus,
-    et tristique ligula justo vitae magna.\r\n"
+  m_Text: "Universit\xE9 Toulouse Paul Sabatier\nIRIT-ICS\n\ndevelopment team:\nASTIER
+    R\xE9mi\nCASALE K\xE9vin\nDROUET Dimitri\nKERBRAT S\xE9bastien\n\nThanks:\nMARTINIE
+    C\xE9lia\nVALLIER Victorin\nGANDINI Chlo\xE9\n\n"
 --- !u!222 &861554241
 CanvasRenderer:
   m_ObjectHideFlags: 0
@@ -1902,7 +1884,6 @@ GameObject:
   m_Component:
   - 4: {fileID: 1131770007}
   - 114: {fileID: 1131770006}
-  - 82: {fileID: 1131770008}
   m_Layer: 0
   m_Name: GameControl
   m_TagString: GameControl
@@ -1947,65 +1928,6 @@ Transform:
   m_Children: []
   m_Father: {fileID: 0}
   m_RootOrder: 5
---- !u!82 &1131770008
-AudioSource:
-  m_ObjectHideFlags: 0
-  m_PrefabParentObject: {fileID: 8292620, guid: 4451ab8e294808d43b4e3204b62f25f5,
-    type: 2}
-  m_PrefabInternal: {fileID: 1161762697}
-  m_GameObject: {fileID: 1131770005}
-  m_Enabled: 1
-  serializedVersion: 3
-  m_audioClip: {fileID: 8300000, guid: 17a3fe60e8190ff47a4558610ea1b779, type: 3}
-  m_PlayOnAwake: 1
-  m_Volume: 1
-  m_Pitch: 1
-  Loop: 0
-  Mute: 0
-  Priority: 128
-  DopplerLevel: 1
-  MinDistance: 1
-  MaxDistance: 500
-  Pan2D: 0
-  rolloffMode: 0
-  BypassEffects: 0
-  BypassListenerEffects: 0
-  BypassReverbZones: 0
-  rolloffCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    - time: 1
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  panLevelCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 1
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
-  spreadCustomCurve:
-    serializedVersion: 2
-    m_Curve:
-    - time: 0
-      value: 0
-      inSlope: 0
-      outSlope: 0
-      tangentMode: 0
-    m_PreInfinity: 2
-    m_PostInfinity: 2
 --- !u!1 &1158918672
 GameObject:
   m_ObjectHideFlags: 0
@@ -3187,19 +3109,19 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 22412278, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_AnchorMin.y
-      value: .724318147
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22412278, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_AnchorMax.x
-      value: 1
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22412278, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_AnchorMax.y
-      value: .99999994
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 22412290, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_SizeDelta.y
-      value: 1466.66675
+      value: 0
       objectReference: {fileID: 0}
     - target: {fileID: 11412312, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_Color.a
@@ -3208,6 +3130,12 @@ Prefab:
     - target: {fileID: 112302, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
       propertyPath: m_IsActive
       value: 0
+      objectReference: {fileID: 0}
+    - target: {fileID: 11412300, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
+      propertyPath: m_Text
+      value: "Universit\xE9 Toulouse Paul Sabatier\nIRIT-ICS\n\ndevelopment team:\nASTIER
+        R\xE9mi\nCASALE K\xE9vin\nDROUET Dimitri\nKERBRAT S\xE9bastien\n\nThanks:\nMARTINIE
+        C\xE9lia\nVALLIER Victorin\nGANDINI Chlo\xE9\n\n"
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: 8e2c40b355cd73e41b644aae487f5122, type: 2}
