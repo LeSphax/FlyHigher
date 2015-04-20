@@ -43,7 +43,7 @@ public class GameControlerTaches : MonoBehaviour {
 			x=Random.Range (-15,15); //-22;22
 			y=Random.Range(-10,11); //-10;13
 			spawnPosition= new Vector3 (x,y,0);
-			Instantiate(taches, spawnPosition,Quaternion.identity); //fait apparaitre un chariot
+			Instantiate(taches, spawnPosition,Quaternion.identity); 
 			nbeTachesSurEcran++;
 			MajNbeTaches();
 			FinJeuTemps();
@@ -55,15 +55,15 @@ public class GameControlerTaches : MonoBehaviour {
 	//enléve des etoiles au fur et a mesure que le temps passe
 	public void FinJeuTemps(){
 		float difSeconde=Time.time-seconde;
-		int difSecInt = (int) (30-difSeconde);
+		int difSecInt = (int) (60-difSeconde);
 		TempsRestant.text = difSecInt.ToString ();
 		//seconde=Time.time;
-		if (difSeconde > 10 && difSeconde<11) {
+		if (difSeconde > 20 && difSeconde<21) {
 			ReductionVie();
-		}else if(difSeconde>20 && difSeconde<21){
+		}else if(difSeconde>40 && difSeconde<41){
 			ReductionVie();
 		}
-		if(difSeconde>30){
+		if(difSeconde>50){
 			ReductionVie();
 			GameObject.FindWithTag ("GamesUI").SendMessage ("GameEnded",etoile);
 		}
