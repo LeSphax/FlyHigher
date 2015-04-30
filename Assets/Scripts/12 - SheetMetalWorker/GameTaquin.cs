@@ -211,8 +211,9 @@ namespace AssemblyCSharp
                     SwapTiles(currentTile, sender);
                     if (GameIsWon())
                     {
+                        currentTile.SendMessage("OnMouseUp"); 
                         state = State.Inactive;
-                        GameObject.FindWithTag("GamesUI").BroadcastMessage("LevelEnded", numberStars);
+                        Invoke("EndGame", 1.5f);
                     }
                     break;
                 case State.Inactive:
@@ -232,6 +233,11 @@ namespace AssemblyCSharp
                 }
             }
             return true;
+        }
+
+        void EndGame()
+        {
+            GameObject.FindWithTag("GamesUI").BroadcastMessage("LevelEnded", numberStars);
         }
     }
 }

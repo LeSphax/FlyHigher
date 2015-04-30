@@ -59,6 +59,10 @@ public abstract class PopUpHandler : MonoBehaviour
 		}
 	}
 
+    public virtual void Exit()
+    {
+    }
+
 
     protected void SetPopUpAlreadySeen (string id)
 	{

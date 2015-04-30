@@ -15,6 +15,7 @@ public class PopUp : MonoBehaviour {
 
     public void Exit()
     {
+        handler.Exit();
         Destroy(gameObject);
     }
 

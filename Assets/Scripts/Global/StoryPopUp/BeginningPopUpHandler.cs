@@ -28,8 +28,13 @@ public class BeginningPopUpHandler : PopUpHandler {
         }
         else
         {
-            Application.LoadLevel("Map");
+            Exit();
         }
+    }
+
+    public override void Exit()
+    {
+            Application.LoadLevel("Map");
     }
 
 }
