@@ -10,7 +10,7 @@ public class BatimentPopUpHandler : PopUpHandler
 	{
 		if (AlreadySeen (idFirstEntrance)) {
 			if (!AlreadySeen (idFinished)) {
-				if (gameData.AreGamesCompletedInBuilding (Application.loadedLevelName)) {
+				if (gameData.AreGamesCompletedInBuilding (Application.loadedLevelName) && idFinished !=null) {
 					SetPopUpAlreadySeen (idFinished);
 					return GetTexts (idFinished);
 				}
