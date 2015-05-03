@@ -22,7 +22,6 @@ public abstract class PopUpHandler : MonoBehaviour
 	{
 		texts = GetTexts ();
 		if (texts.Count > 0) {
-			print ("Start popUp");
 			CreatePopUp (texts.Dequeue ());
 		}
 	}
