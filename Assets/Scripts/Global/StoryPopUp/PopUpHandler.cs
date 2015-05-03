@@ -9,19 +9,20 @@ public abstract class PopUpHandler : MonoBehaviour
 	GameObject popUp;
 	PopUp popUpScript;
 	protected System.Collections.Generic.Queue<string> texts;
-    protected GameData gameData;
+	protected GameData gameData;
 	
 
 	void Awake ()
 	{
-        gameData = GameObject.FindWithTag("GameControl").GetComponent<GameData>();
-        prefab = Resources.Load("StoryPopUp", typeof(GameObject));
+		gameData = GameObject.FindWithTag ("GameControl").GetComponent<GameData> ();
+		prefab = Resources.Load ("StoryPopUp", typeof(GameObject));
 	}
 
 	protected virtual void Start ()
 	{
 		texts = GetTexts ();
 		if (texts.Count > 0) {
+			print ("Start popUp");
 			CreatePopUp (texts.Dequeue ());
 		}
 	}
@@ -59,12 +60,12 @@ public abstract class PopUpHandler : MonoBehaviour
 		}
 	}
 
-    public virtual void Exit()
-    {
-    }
+	public virtual void Exit ()
+	{
+	}
 
 
-    protected void SetPopUpAlreadySeen (string id)
+	protected void SetPopUpAlreadySeen (string id)
 	{
 		gameData.listPopUpSeen.Add (id);
 	}
