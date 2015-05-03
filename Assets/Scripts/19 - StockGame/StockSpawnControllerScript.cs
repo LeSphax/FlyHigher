@@ -41,7 +41,7 @@ public class StockSpawnControllerScript : MonoBehaviour
 	{
 		nbItemMissed = 0;
 		currentWave = 0;
-		speed = 2.5f;
+		speed = 3f;
 		SpawnCarpet ();
 		SpawnBox ();
 		SpawnBox ();
