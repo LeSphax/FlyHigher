@@ -422,6 +422,7 @@ GameObject:
   - 81: {fileID: 411540297}
   - 82: {fileID: 411540304}
   - 114: {fileID: 411540302}
+  - 114: {fileID: 411540303}
   m_Layer: 0
   m_Name: Main Camera
   m_TagString: MainCamera
@@ -506,6 +507,18 @@ MonoBehaviour:
   m_Name: 
   m_EditorClassIdentifier: 
   idBeginning: Ending.Dialog
+--- !u!114 &411540303
+MonoBehaviour:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 0}
+  m_GameObject: {fileID: 411540296}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 1869f014621249943baa081f0821e6a9, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  sceneToLoad: Map
 --- !u!82 &411540304
 AudioSource:
   m_ObjectHideFlags: 0
