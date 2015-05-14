@@ -55,7 +55,7 @@ public class GameControlerTaches : MonoBehaviour {
 	//enléve des etoiles au fur et a mesure que le temps passe
 	public void FinJeuTemps(){
 		float difSeconde=Time.time-seconde;
-		int difSecInt = (int) (60-difSeconde);
+		int difSecInt = (int) (50-difSeconde);
 		TempsRestant.text = difSecInt.ToString ();
 		//seconde=Time.time;
 		if (difSeconde > 20 && difSeconde<21) {
