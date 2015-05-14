@@ -26,7 +26,8 @@ public class LanguageText
 		string defaultLanguage = Application.systemLanguage.ToString ();
 
 		if (languageSupported.Contains (defaultLanguage.ToLower ())) {
-			SetLanguage (defaultLanguage);
+			//SetLanguage (defaultLanguage);
+            SetLanguage("french");
 		} else {
 			SetLanguage ("english");
 		}

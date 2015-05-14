@@ -2,7 +2,6 @@
 using System.Collections;
 using System;
 using System.IO;
-using System.Runtime.Serialization.Formatters.Binary;
 using System.Collections.Generic;
 
 public class GameData : MonoBehaviour
@@ -10,7 +9,7 @@ public class GameData : MonoBehaviour
 
 	public static GameData control;
 	
-	private Dictionary<String, SceneData> sceneDictionary;
+	private SerializableDictionary<String, SceneData> sceneDictionary;
     [HideInInspector]
     public List<string> listPopUpSeen;
     [HideInInspector]
@@ -19,7 +18,7 @@ public class GameData : MonoBehaviour
 
     string path;
     string fileName = "playerInfo.dat";
-    private Dictionary<String, BuildingData> buildingDictionary;
+    private SerializableDictionary<String, BuildingData> buildingDictionary;
     string language { get; set; }
     [HideInInspector]
     public float volume;
@@ -46,8 +45,8 @@ public class GameData : MonoBehaviour
         listBuildingsFinished = new List<string>();
         volume = 1.0f;
 		path = Application.persistentDataPath + "/" + fileName;
-		sceneDictionary = new Dictionary<string, SceneData> ();
-		buildingDictionary = new Dictionary<string, BuildingData> ();
+        sceneDictionary = new SerializableDictionary<string, SceneData>();
+        buildingDictionary = new SerializableDictionary<string, BuildingData>();
 	}
 
 	public void initBuildings ()
@@ -59,7 +58,7 @@ public class GameData : MonoBehaviour
 
 	public void Reset ()
 	{
-		sceneDictionary = new Dictionary<string, SceneData> ();
+        sceneDictionary = new SerializableDictionary<string, SceneData>();
         listPopUpSeen = new List<string>();
         listBuildingsFinished = new List<string>();
 	}
@@ -135,64 +134,69 @@ public class GameData : MonoBehaviour
 		return sum;
 	}
 
-	
-  /*  void OnGUI()
+    void Save()
     {
-        if (GUI.Button(new Rect(10, 250, 100, 50), "Reset"))
+        if (path != null)
         {
-            Reset();
-        }
-        GUI.Label(new Rect(10, 100, 100, 50), "Laboratory:" + GetBuildingCurrentStars("Laboratory"));
-        GUI.Label(new Rect(10, 150, 100, 50), "Hangar:" + GetBuildingCurrentStars("Hangar"));
-        GUI.Label(new Rect(10, 200, 100, 50), "ControlTower:" + GetBuildingCurrentStars("ControlTower"));
-    }*/
+            Saving saving = new SavingWP8();
+            FileStream file = File.Create(path);
+            PlayerData playerData = new PlayerData();
 
-	void OnDisable ()
-	{
-		if (path != null) {
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Create (path);
-			PlayerData playerData = new PlayerData ();
-
-			playerData.scenesDictionary = sceneDictionary;
-			playerData.buildingDictionary = buildingDictionary;
-			playerData.language = language;
-			playerData.listPopUpSeen = listPopUpSeen;
+            playerData.scenesDictionary = sceneDictionary;
+            playerData.buildingDictionary = buildingDictionary;
+            playerData.language = language;
+            playerData.listPopUpSeen = listPopUpSeen;
             playerData.listBuildingsFinished = listBuildingsFinished;
             playerData.volume = volume;
 
-			bf.Serialize (file, playerData);
-			file.Close ();
-		}
+            saving.Save(file, playerData);
+            file.Close();
+        }
+    }
+
+    void Load()
+    {
+        if (File.Exists(path))
+        {
+            Saving saving = new SavingWP8();
+            FileStream file = File.Open(path, FileMode.Open);
+            PlayerData playerData = saving.Load(file);
+
+            sceneDictionary = playerData.scenesDictionary;
+            listPopUpSeen = playerData.listPopUpSeen;
+            listBuildingsFinished = playerData.listBuildingsFinished;
+            volume = playerData.volume;
+            buildingDictionary = playerData.buildingDictionary;
+            language = playerData.language;
+        }
+    }
+
+	void OnDisable ()
+	{
+        Save();
 	}
 
 	void OnEnable ()
 	{
-		if (File.Exists (path)) {
-			BinaryFormatter bf = new BinaryFormatter ();
-			FileStream file = File.Open (path, FileMode.Open);
-			PlayerData playerData = (PlayerData)bf.Deserialize (file);
-
-			sceneDictionary = playerData.scenesDictionary;
-			listPopUpSeen = playerData.listPopUpSeen;
-            listBuildingsFinished = playerData.listBuildingsFinished;
-            volume = playerData.volume;
-			buildingDictionary = playerData.buildingDictionary;
-			language = playerData.language;
-		}
+        Load();
 	}
 
 	void OnLevelWasLoaded ()
 	{
+        Save();
 		Time.timeScale = 1;
 	}
 
 
 	[Serializable]
-	class PlayerData
+	public class PlayerData
 	{
-		public Dictionary<String, SceneData> scenesDictionary;
-		public Dictionary<String, BuildingData> buildingDictionary;
+        public PlayerData()
+        {
+
+        }
+        public SerializableDictionary<String, SceneData> scenesDictionary;
+        public SerializableDictionary<String, BuildingData> buildingDictionary;
 		public string language;
         public List<string> listPopUpSeen; 
         public List<string> listBuildingsFinished;
@@ -202,6 +206,9 @@ public class GameData : MonoBehaviour
 	[Serializable]
 	public class SceneData
 	{
+        public SceneData()
+        {
+        }
 		public int numberStars;
 		public int level;
 		public SceneData (int stars)
@@ -219,6 +226,9 @@ public class GameData : MonoBehaviour
 	[Serializable]
 	public class BuildingData
 	{
+        public BuildingData()
+        {
+        }
 		int maxStars { get; set; }
 		public int nbGames;
 		public int nbStarsRequired;
