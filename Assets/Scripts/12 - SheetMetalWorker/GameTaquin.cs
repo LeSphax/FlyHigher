@@ -213,7 +213,7 @@ namespace AssemblyCSharp
                     {
                         currentTile.SendMessage("OnMouseUp"); 
                         state = State.Inactive;
-                        Invoke("EndGame", 1.5f);
+                        EndGame();
                     }
                     break;
                 case State.Inactive:
