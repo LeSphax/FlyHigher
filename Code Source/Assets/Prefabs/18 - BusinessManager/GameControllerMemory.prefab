@@ -1,0 +1,66 @@
+%YAML 1.1
+%TAG !u! tag:unity3d.com,2011:
+--- !u!1 &107028
+GameObject:
+  m_ObjectHideFlags: 0
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  serializedVersion: 4
+  m_Component:
+  - 4: {fileID: 407028}
+  - 114: {fileID: 11407028}
+  m_Layer: 0
+  m_Name: GameControllerMemory
+  m_TagString: GameController
+  m_Icon: {fileID: 0}
+  m_NavMeshLayer: 0
+  m_StaticEditorFlags: 0
+  m_IsActive: 1
+--- !u!4 &407028
+Transform:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107028}
+  m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
+  m_LocalPosition: {x: 4.67559242, y: 4.50440741, z: -8.18255424}
+  m_LocalScale: {x: 1, y: 1, z: 1}
+  m_Children: []
+  m_Father: {fileID: 0}
+  m_RootOrder: 0
+--- !u!114 &11407028
+MonoBehaviour:
+  m_ObjectHideFlags: 1
+  m_PrefabParentObject: {fileID: 0}
+  m_PrefabInternal: {fileID: 100100000}
+  m_GameObject: {fileID: 107028}
+  m_Enabled: 1
+  m_EditorHideFlags: 0
+  m_Script: {fileID: 11500000, guid: 0c7c5b64397993742a880d0198c3ba7a, type: 3}
+  m_Name: 
+  m_EditorClassIdentifier: 
+  memoryCardPrefab: {fileID: 100000, guid: d6a0344efd99fa1458c03386e934b4f5, type: 2}
+  texturesCards:
+  - {fileID: 2800000, guid: 082032b3776f7b04ba3507736afec79a, type: 3}
+  - {fileID: 2800000, guid: a5dc60b8174d6384185e5b0719c29ca1, type: 3}
+  - {fileID: 2800000, guid: 1df63fb9fa4f1344888256a5100532d1, type: 3}
+  - {fileID: 2800000, guid: 653d610da524b4c46adee9e864235a0e, type: 3}
+  - {fileID: 2800000, guid: 9859c6f54341f8844b690d6b17b29258, type: 3}
+  - {fileID: 2800000, guid: dd381966c89015f4582176519bc34169, type: 3}
+  - {fileID: 2800000, guid: ddd4dfd4186287f4a9055500defc3cd0, type: 3}
+  - {fileID: 2800000, guid: a4a56612c3aa5e54c86ac748cf34b09d, type: 3}
+  cardsinrow: 4
+  UILife: {fileID: 0}
+  audioCardsMatching: {fileID: 8300000, guid: 490215ff2e4270f449a18f0d7aaafd35, type: 3}
+--- !u!1001 &100100000
+Prefab:
+  m_ObjectHideFlags: 1
+  serializedVersion: 2
+  m_Modification:
+    m_TransformParent: {fileID: 0}
+    m_Modifications: []
+    m_RemovedComponents: []
+  m_ParentPrefab: {fileID: 0}
+  m_RootGameObject: {fileID: 107028}
+  m_IsPrefabParent: 1
+  m_IsExploded: 1
