@@ -3118,7 +3118,7 @@ Prefab:
       objectReference: {fileID: 0}
     - target: {fileID: 103398, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
       propertyPath: m_IsActive
-      value: 0
+      value: 1
       objectReference: {fileID: 0}
     m_RemovedComponents: []
   m_ParentPrefab: {fileID: 100100000, guid: a1b386e17b4815241999dd9b99fb1369, type: 2}
@@ -3605,10 +3605,12 @@ MonoBehaviour:
   - {x: -9.5, y: 6.5, z: 0}
   - {x: -9.5, y: -6.5, z: 0}
   carpet: {fileID: 133856, guid: bbfa94f441899174384a42a2dc824dcd, type: 2}
-  itemCount: 10
-  spawnWait: 3
+  nbLives: 8
+  lifeText: {fileID: 1367287379}
+  itemCount: 15
+  spawnWait: 2
   startWait: 1
-  waveWait: 3
+  waveWait: 2
   nbWavesMax: 3
 --- !u!4 &1073362951
 Transform:
@@ -4474,7 +4476,7 @@ GameObject:
   m_Icon: {fileID: 0}
   m_NavMeshLayer: 0
   m_StaticEditorFlags: 0
-  m_IsActive: 0
+  m_IsActive: 1
 --- !u!224 &1494897549
 RectTransform:
   m_ObjectHideFlags: 0
@@ -5031,7 +5033,7 @@ Transform:
   m_PrefabInternal: {fileID: 0}
   m_GameObject: {fileID: 1585408951}
   m_LocalRotation: {x: 0, y: 0, z: 0, w: 1}
-  m_LocalPosition: {x: -35, y: 0, z: 0}
+  m_LocalPosition: {x: -28, y: 0, z: 0}
   m_LocalScale: {x: 10, y: 45, z: 1}
   m_Children: []
   m_Father: {fileID: 0}

@@ -52,7 +52,6 @@ public class GameControlerTaches : MonoBehaviour
             FinJeuTemps();
             float TimeElapsed = Time.time - InitalTime;
             TimeBetweenSpawn = StartTimeBetweenSpawn + TimeElapsed / TimeGameOver * (MaxTimeBetweenSpawn - StartTimeBetweenSpawn);
-            Debug.Log(TimeBetweenSpawn);
             yield return new WaitForSeconds(TimeBetweenSpawn);
         }
     }
