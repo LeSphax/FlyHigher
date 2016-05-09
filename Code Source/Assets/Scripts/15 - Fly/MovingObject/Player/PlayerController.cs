@@ -14,8 +14,12 @@ public class PlayerController : MonoBehaviour {
 	void Update () {
 		RaycastHit2D hitt = new RaycastHit2D();
 		bool bt;
-		if (Input.touchCount > 0)
+		if (Input.touchCount > 0 && Input.touchSupported)
 			bt = player.MovePlayer (true, out hitt);
+        else if (Input.GetMouseButton(0))
+        {
+            bt = player.MovePlayer(true, out hitt);
+        }
 		else
 			bt = player.MovePlayer (false, out hitt);
 			

@@ -8,7 +8,7 @@ public class MusicManager : MonoBehaviour
 
     void Awake()
     {
-        backgroundMusic = gameObject.audio;
+        backgroundMusic = gameObject.GetComponent<AudioSource>();
     }
 
     void OnLevelWasLoaded()

@@ -90,7 +90,7 @@ public class AirController : MonoBehaviour
         RefreshLifeText();
         if (numberOfLives <= 0)
         {
-            gameObject.renderer.enabled = false;
+            gameObject.GetComponent<Renderer>().enabled = false;
             Invoke("GameEnded",1.0f);
         }
 
@@ -138,13 +138,13 @@ public class AirController : MonoBehaviour
 
     void StartFlashing()
     {
-        gameObject.animation.Play();
+        gameObject.GetComponent<Animation>().Play();
     }
 
     void StopFlashing()
     {
-        gameObject.animation.Stop();
-        renderer.enabled = true;
+        gameObject.GetComponent<Animation>().Stop();
+        GetComponent<Renderer>().enabled = true;
     }
 
     void RefreshLifeText()

@@ -15,14 +15,14 @@ public class PanelFlashing : MonoBehaviour
 
     public void ActivateFlashing()
     {
-        audio.Play();
+        GetComponent<AudioSource>().Play();
         flashing = true;
         Flash();
     }
 
     public void DesactivateFlashing()
     {
-        audio.Stop();
+        GetComponent<AudioSource>().Stop();
         flashing = false;
     }
 

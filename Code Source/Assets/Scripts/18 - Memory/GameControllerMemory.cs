@@ -79,20 +79,39 @@ public class GameControllerMemory : MonoBehaviour
 
 	void Update ()
 	{
-		if (!(Time.timeScale == 0)) {
-			foreach (Touch touch in Input.touches) {
-					
-				switch (touch.phase) {
-				case TouchPhase.Began:
-					ray = Camera.main.ScreenPointToRay (touch.position);
+        if (!(Time.timeScale == 0))
+        {
+            if (Input.touchSupported)
+            {
+                foreach (Touch touch in Input.touches)
+                {
 
-					if (Physics.Raycast (ray, out hitInfo)) {
-						hitInfo.transform.gameObject.SendMessage ("OnTouchBegan");
-					}
-					break;
-				}
-			}
-		}
+                    switch (touch.phase)
+                    {
+                        case TouchPhase.Began:
+                            ray = Camera.main.ScreenPointToRay(touch.position);
+
+                            if (Physics.Raycast(ray, out hitInfo))
+                            {
+                                hitInfo.transform.gameObject.SendMessage("OnTouchBegan");
+                            }
+                            break;
+                    }
+                }
+            }
+            else
+            {
+                if (Input.GetMouseButtonDown(0))
+                {
+                    ray = Camera.main.ScreenPointToRay(Input.mousePosition);
+
+                    if (Physics.Raycast(ray, out hitInfo))
+                    {
+                        hitInfo.transform.gameObject.SendMessage("OnTouchBegan");
+                    }
+                }
+            }
+        }
 	}
 
 

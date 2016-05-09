@@ -21,7 +21,7 @@ public class MemoryCard : MonoBehaviour
 
 	public void SetMemoryCard (Texture t, int cardNumber)
 	{
-		renderer.materials [1].mainTexture = t;
+		GetComponent<Renderer>().materials [1].mainTexture = t;
 		this.cardNumber = cardNumber;
 	}
 
@@ -51,7 +51,7 @@ public class MemoryCard : MonoBehaviour
 
 	void  Show ()
 	{
-		animation.Play ("Flip_show");
+		GetComponent<Animation>().Play ("Flip_show");
 		AudioSource.PlayClipAtPoint (audioCardFlip, transform.position);
 			
 		gameController.CheckCards (this);
@@ -68,14 +68,14 @@ public class MemoryCard : MonoBehaviour
 	{
 		yield return new WaitForSeconds (0.75f);
 		MemoryCard.nbCardSelected--;
-		animation.Play ("Flip_hide");
+		GetComponent<Animation>().Play ("Flip_hide");
 		selected = false;
 	}
 
 	public void RemoveCard ()
 	{
 		MemoryCard.nbCardSelected--;
-		animation.Play ("Flip_hide");
+		GetComponent<Animation>().Play ("Flip_hide");
 		StartCoroutine ("Remove");
 	}
 

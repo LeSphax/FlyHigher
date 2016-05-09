@@ -21,7 +21,7 @@ public class BuildingFog : MonoBehaviour {
         else if (gameData.AreGamesCompletedInBuilding(previousBuildingName))
         {
             gameData.listBuildingsFinished.Add(previousBuildingName);
-            this.animation.Play();
+            this.GetComponent<Animation>().Play();
             AudioSource.PlayClipAtPoint(windSound, transform.position);
         }
     }

@@ -46,8 +46,8 @@ public class OtherPlane : MonoBehaviour
     void BeginMoving()
     {
         moving = true;
-        gameObject.animation.Stop();
-        renderer.enabled = true;
+        gameObject.GetComponent<Animation>().Stop();
+        GetComponent<Renderer>().enabled = true;
     }
     void Update()
     {

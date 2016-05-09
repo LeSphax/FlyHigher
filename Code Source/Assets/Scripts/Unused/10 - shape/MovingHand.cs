@@ -22,7 +22,7 @@ public class MovingHand : MonoBehaviour {
 	// Update is called once per frame
 	void Update () {
 		if (GameObject.Find ("Main Camera").GetComponent<mainScriptGame10> ().currentPoint == 2)
-			renderer.enabled = false;
+			GetComponent<Renderer>().enabled = false;
 		if (!dest) {
 			Vector3 tmp = transform.eulerAngles;
 			transform.LookAt(ptB);

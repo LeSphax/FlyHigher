@@ -31,8 +31,8 @@ public class DestructionByContact : MonoBehaviour {
 			Destroy (gameObject);	
 		}
 		if (other.tag == "arriver") {
-			rigidbody.MovePosition(new Vector3 (0.0f,-10.0f, 0.0f)); //zone ou le personnage va respawn
-			audio.Play();
+			GetComponent<Rigidbody>().MovePosition(new Vector3 (0.0f,-10.0f, 0.0f)); //zone ou le personnage va respawn
+			GetComponent<AudioSource>().Play();
 		}
 		if (other.tag=="Enemies"){
 			ReductionVie();

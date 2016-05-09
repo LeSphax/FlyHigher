@@ -24,7 +24,7 @@ PlayerSettings:
   m_ActiveColorSpace: 0
   m_MTRendering: 1
   m_MobileMTRendering: 0
-  m_UseDX11: 0
+  m_UseDX11: 1
   m_Stereoscopic3D: 0
   iosShowActivityIndicatorOnLoading: -1
   androidShowActivityIndicatorOnLoading: -1
@@ -68,7 +68,7 @@ PlayerSettings:
     16:10: 1
     16:9: 1
     Others: 1
-  iPhoneBundleIdentifier: ICS.Flyhigher
+  iPhoneBundleIdentifier: com.Company.ProductName
   metroEnableIndependentInputSource: 0
   metroEnableLowLatencyPresentationAPI: 0
   productGUID: 7fb7977693a882d4b8c54ca675666dee
@@ -121,7 +121,7 @@ PlayerSettings:
   - m_BuildTarget: 
     m_Icons:
     - m_Icon: {fileID: 2800000, guid: 763a8f448abfc18479d0e0ed71928536, type: 3}
-      m_Size: 128
+      m_Size: 132134096
   m_BuildTargetBatching:
   - m_BuildTarget: Android
     m_StaticBatching: 1
@@ -159,7 +159,7 @@ PlayerSettings:
   psp2NPCommsPassphrase: 
   psp2NPCommsSig: 
   psp2ParamSfxPath: 
-  psp2PackagePassword: 
+  psp2PackagePassword: yapnxrpMCARCr4zdGc81tBDKsMlaZTXC
   psp2DLCConfigPath: 
   psp2ThumbnailPath: 
   psp2BackgroundPath: 
@@ -264,8 +264,22 @@ PlayerSettings:
   stvDeviceAddress: 
   wp8UnprocessedPlugins: []
   intPropertyNames:
+  - Android::ScriptingBackend
+  - Metro::ScriptingBackend
+  - Standalone::ScriptingBackend
+  - WebGL::ScriptingBackend
+  - WebGL::audioCompressionFormat
+  - WebGL::exceptionSupport
+  - WebGL::memorySize
   - iOS::Architecture
   - iOS::ScriptingBackend
+  Android::ScriptingBackend: 0
+  Metro::ScriptingBackend: 2
+  Standalone::ScriptingBackend: 0
+  WebGL::ScriptingBackend: 1
+  WebGL::audioCompressionFormat: 4
+  WebGL::exceptionSupport: 1
+  WebGL::memorySize: 256
   iOS::Architecture: 2
   iOS::ScriptingBackend: 0
   firstStreamedLevelWithResources: 0

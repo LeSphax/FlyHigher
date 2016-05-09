@@ -8,7 +8,7 @@ public class CameraScripts : MonoBehaviour {
 	public GameObject objectif;
 
 	void Update() {
-		rayMouse = camera.ScreenPointToRay (Input.mousePosition);
+		rayMouse = GetComponent<Camera>().ScreenPointToRay (Input.mousePosition);
 		if (Physics.Raycast(rayMouse,out hit)) {
 			{
 				if(hit.transform.name==objectif.name)

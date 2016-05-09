@@ -21,26 +21,26 @@ public class PlayerControler : MonoBehaviour {
 	{
 		//deplacement de l'avion
 		Vector3 movement = new Vector3 (rotationDirection,moveUp,0.0f);
-		rigidbody.velocity = movement * speed;
+		GetComponent<Rigidbody>().velocity = movement * speed;
 
 		//controle les sortie d'ecran
-		float x = rigidbody.position.x;
-		float y = rigidbody.position.y;
-		if (rigidbody.position.x < bordure.xMi) {
+		float x = GetComponent<Rigidbody>().position.x;
+		float y = GetComponent<Rigidbody>().position.y;
+		if (GetComponent<Rigidbody>().position.x < bordure.xMi) {
 			x = bordure.xMi;
-			rigidbody.position=new Vector3(x,y,0.0f);
+			GetComponent<Rigidbody>().position=new Vector3(x,y,0.0f);
 		}
-		if (rigidbody.position.x > bordure.xMa) {
+		if (GetComponent<Rigidbody>().position.x > bordure.xMa) {
 			x=bordure.xMa;
-			rigidbody.position=new Vector3(x,y,0.0f);
+			GetComponent<Rigidbody>().position=new Vector3(x,y,0.0f);
 		}
-		if (rigidbody.position.y < bordure.yMi) {
+		if (GetComponent<Rigidbody>().position.y < bordure.yMi) {
 			y=bordure.yMi;
-			rigidbody.position=new Vector3(x,y,0.0f);
+			GetComponent<Rigidbody>().position=new Vector3(x,y,0.0f);
 		}
-		if (rigidbody.position.y > bordure.yMa) {
+		if (GetComponent<Rigidbody>().position.y > bordure.yMa) {
 			y=bordure.yMa;
-			rigidbody.position=new Vector3(x,y,0.0f);
+			GetComponent<Rigidbody>().position=new Vector3(x,y,0.0f);
 		}
 	}
 

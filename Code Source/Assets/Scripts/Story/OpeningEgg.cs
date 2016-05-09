@@ -24,8 +24,8 @@ public class OpeningEgg : MonoBehaviour {
     }
 
     public void StartLanding(){
-        plane.audio.Play();
-        plane.animation.Play();
+        plane.GetComponent<AudioSource>().Play();
+        plane.GetComponent<Animation>().Play();
     }
 
     public void EndAnimation()
